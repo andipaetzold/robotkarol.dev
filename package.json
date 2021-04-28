@@ -3,12 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-three/drei": "4.3.2",
+    "@react-three/fiber": "6.0.16",
+    "@types/gl-matrix": "3.2.0",
+    "@types/lodash": "4.14.168",
     "@types/node": "12.20.10",
     "@types/react": "17.0.4",
     "@types/react-dom": "17.0.3",
+    "@types/three": "0.127.1",
+    "lodash": "4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3"
+    "react-scripts": "4.0.3",
+    "three": "0.128.0"
   },
   "scripts": {
     "start": "react-scripts start",
