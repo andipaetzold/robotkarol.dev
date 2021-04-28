@@ -12,5 +12,8 @@ export const DEFAULT_WORLD: World = {
       direction: "south",
     },
   ],
-  tiles: [],
+  tiles: [
+    { x: 3, y: 4, bricks: 1, marked: false },
+    { x: 2, y: 8, bricks: 3, marked: false },
+  ],
 };

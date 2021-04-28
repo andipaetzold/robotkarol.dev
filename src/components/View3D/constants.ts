@@ -1,1 +1,1 @@
-export const blockHeight = 0.5;
+export const BRICK_HEIGHT = 0.5;

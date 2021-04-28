@@ -20,5 +20,5 @@ export interface Position {
 
 export interface Tile extends Position {
   bricks: number;
-  marked: number;
+  marked: boolean;
 }

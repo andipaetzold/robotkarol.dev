@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import React, { useRef } from "react";
 import { World } from "../../types";
 import { degreeToRadians } from "../../utils/degreeToRadians";
+import { Bricks } from "./Bricks";
 import { Grid } from "./Grid";
 
 interface Props {
@@ -29,6 +30,7 @@ export function View3D({ world }: Props) {
       />
 
       <Grid world={world} />
+      <Bricks world={world } />
     </Canvas>
   );
 }

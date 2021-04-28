@@ -2,7 +2,7 @@ import { Line } from "@react-three/drei";
 import range from "lodash/range";
 import React from "react";
 import { World } from "../../types";
-import { blockHeight } from "./constants";
+import { BRICK_HEIGHT } from "./constants";
 
 interface Props {
   world: World;
@@ -76,8 +76,8 @@ function BackWall({ world }: Props) {
     <>
       <Line
         points={[
-          [0, world.height * blockHeight, 0],
-          [world.width, world.height * blockHeight, 0],
+          [0, world.height * BRICK_HEIGHT, 0],
+          [world.width, world.height * BRICK_HEIGHT, 0],
         ]}
         color="blue"
         dashed
@@ -86,9 +86,10 @@ function BackWall({ world }: Props) {
       />
       {range(0, world.width + 1).map((w) => (
         <Line
+          key={w}
           points={[
             [w, 0, 0],
-            [w, world.height * blockHeight, 0],
+            [w, world.height * BRICK_HEIGHT, 0],
           ]}
           color="blue"
           dashed
@@ -105,8 +106,8 @@ function LeftWall({ world }: Props) {
     <>
       <Line
         points={[
-          [0, world.height * blockHeight, 0],
-          [0, world.height * blockHeight, world.depth],
+          [0, world.height * BRICK_HEIGHT, 0],
+          [0, world.height * BRICK_HEIGHT, world.depth],
         ]}
         color="red"
         dashed
@@ -118,7 +119,7 @@ function LeftWall({ world }: Props) {
           key={d}
           points={[
             [0, 0, d],
-            [0, world.height * blockHeight, d],
+            [0, world.height * BRICK_HEIGHT, d],
           ]}
           color="red"
           dashed
