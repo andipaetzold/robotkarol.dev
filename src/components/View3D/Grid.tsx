@@ -1,7 +1,8 @@
-import { Line } from "@react-three/drei";
+import { Line, Plane } from "@react-three/drei";
 import range from "lodash/range";
 import React from "react";
 import { World } from "../../types";
+import { degreeToRadians } from "../../utils/degreeToRadians";
 import { BRICK_HEIGHT } from "./constants";
 
 interface Props {
@@ -11,7 +12,7 @@ interface Props {
 export function Grid({ world }: Props) {
   return (
     <>
-      {/* <Planes world={world} /> */}
+      <Planes world={world} />
       <Floor world={world} />
       <BackWall world={world} />
       <LeftWall world={world} />
@@ -19,32 +20,32 @@ export function Grid({ world }: Props) {
   );
 }
 
-// function Planes({ world }: Props) {
-//   return (
-//     <>
-//       <Plane
-//         args={[world.width, world.depth]}
-//         rotation={[degreeToRadians(-90), 0, degreeToRadians(0)]}
-//         position={[world.width / 2, 0, world.depth / 2]}
-//       >
-//         <meshBasicMaterial color="white" />
-//       </Plane>
-//       <Plane
-//         args={[world.depth, world.height]}
-//         rotation={[degreeToRadians(0), degreeToRadians(90), 0]}
-//         position={[0, world.height / 2, world.depth / 2]}
-//       >
-//         <meshBasicMaterial color="white" />
-//       </Plane>
-//       <Plane
-//         args={[world.width, world.height]}
-//         position={[world.width / 2, world.height / 2, 0]}
-//       >
-//         <meshBasicMaterial color="white" />
-//       </Plane>
-//     </>
-//   );
-// }
+function Planes({ world }: Props) {
+  return (
+    <>
+      <Plane
+        args={[world.width, world.depth]}
+        rotation={[degreeToRadians(-90), 0, degreeToRadians(0)]}
+        position={[world.width / 2, 0, world.depth / 2]}
+      >
+        <meshStandardMaterial color="white" />
+      </Plane>
+      <Plane
+        args={[world.depth, world.height * BRICK_HEIGHT]}
+        rotation={[degreeToRadians(0), degreeToRadians(90), 0]}
+        position={[0, (world.height * BRICK_HEIGHT) / 2, world.depth / 2]}
+      >
+        <meshStandardMaterial color="white" />
+      </Plane>
+      <Plane
+        args={[world.width, world.height * BRICK_HEIGHT]}
+        position={[world.width / 2, (world.height * BRICK_HEIGHT) / 2, 0]}
+      >
+        <meshStandardMaterial color="white" />
+      </Plane>
+    </>
+  );
+}
 
 function Floor({ world }: Props) {
   return (
