@@ -17,7 +17,7 @@ export function Bricks({ world }: Props) {
             args={[1, tile.bricks, 1]}
             position={[tile.x - 0.5, tile.bricks * BRICK_HEIGHT, tile.y - 0.5]}
           >
-            <lineBasicMaterial color="green" />
+            <meshStandardMaterial color="green"  />
           </Box>
         ))}
     </>

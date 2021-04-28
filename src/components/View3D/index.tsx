@@ -22,15 +22,16 @@ export function View3D({ world }: Props) {
         near={0.1}
         far={world.depth * 2}
         zoom={50}
-        rotation={[
-          degreeToRadians(-22.5),
-          degreeToRadians(22.5),
-          0
-        ]}
+        rotation={[degreeToRadians(-22.5), degreeToRadians(22.5), 0]}
+      />
+
+      <ambientLight />
+      <pointLight
+        position={[world.width / 2, world.height / 2, world.depth + 2]}
       />
 
       <Grid world={world} />
-      <Bricks world={world } />
+      <Bricks world={world} />
     </Canvas>
   );
 }
