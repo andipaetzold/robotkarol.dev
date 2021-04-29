@@ -18,7 +18,7 @@ export function getPositionInFront(world: World, count = 1): Position {
       position.y += count;
       break;
     case "east":
-      position.x +=count;
+      position.x += count;
       break;
   }
   return position;
@@ -50,5 +50,5 @@ export function updateTile(worldOrg: World, updatedTile: Tile): World {
 }
 
 export function isInWorld(world: World, pos: Position): boolean {
-    return pos.x > 0 && pos.y > 0 && pos.x < world.width && pos.y < world.depth
+  return pos.x >= 0 && pos.y >= 0 && pos.x < world.width && pos.y < world.depth;
 }

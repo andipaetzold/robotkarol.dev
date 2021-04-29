@@ -1,4 +1,5 @@
 import { cloneDeep } from "lodash";
+import { DEFAULT_WORLD } from "../constants";
 import { Direction, World } from "../types";
 import { isWall } from "./conditions";
 import { getPositionInFront, getTile, isInWorld, updateTile } from "./util";
@@ -36,7 +37,7 @@ export function step(worldOrg: World, count = 1): World {
 
   const newPosition = getPositionInFront(world, count);
   if (!isInWorld(world, newPosition)) {
-    throw new Error(`Cannot walk ${count} step(s). The world is too small`);
+    throw new Error(`Cannot walk ${count} step(s). The world is too small.`);
   }
 
   world.player = { ...world.player, ...newPosition };
@@ -46,7 +47,7 @@ export function step(worldOrg: World, count = 1): World {
 export function putBrick(worldOrg: World, count = 1): World {
   const world = cloneDeep(worldOrg);
   if (isWall(world)) {
-    throw new Error("Cannot pick up brick. Karel is looking at a wall");
+    throw new Error("Cannot pick up brick. Karel is looking at a wall.");
   }
 
   const brickPosition = getPositionInFront(world);
@@ -54,16 +55,16 @@ export function putBrick(worldOrg: World, count = 1): World {
   const tileOrg = getTile(world, brickPosition);
   const tile = cloneDeep(tileOrg);
   if (tile.bricks + count > world.height) {
-    throw new Error("Cannot put bricks. The stack is too high");
+    throw new Error("Cannot put bricks. The stack is too high.");
   }
   tile.bricks += count;
-  return world;
+  return updateTile(world, tile);
 }
 
 export function pickUpBrick(worldOrg: World, count = 1): World {
   const world = cloneDeep(worldOrg);
   if (isWall(world)) {
-    throw new Error("Cannot pick up brick. Karel is looking at a wall");
+    throw new Error("Cannot pick up brick. Karel is looking at a wall.");
   }
 
   const brickPosition = getPositionInFront(world);
@@ -74,8 +75,7 @@ export function pickUpBrick(worldOrg: World, count = 1): World {
     throw new Error("Cannot pick up bricks. Not enough bricks to pick up.");
   }
   tile.bricks -= count;
-  updateTile(world, tile);
-  return world;
+  return updateTile(world, tile);
 }
 
 export function setMarker(worldOrg: World): World {
@@ -98,6 +98,22 @@ export function removeMarker(worldOrg: World): World {
     throw new Error("Cannot remove marker. It is not marked.");
   }
   tile.marked = false;
-  updateTile(world, tile);
-  return world;
+  return updateTile(world, tile);
+}
+
+export function toggleMarker(worldOrg: World): World {
+  const world = cloneDeep(worldOrg);
+  const tileOrg = getTile(world, world.player);
+  const tile = cloneDeep(tileOrg);
+  tile.marked = !tile.marked;
+  return updateTile(world, tile);
+}
+
+export function reset(world: World): World {
+  return {
+    ...DEFAULT_WORLD,
+    depth: world.depth,
+    height: world.height,
+    width: world.width,
+  };
 }
