@@ -5,6 +5,7 @@ import { World } from "../../types";
 import { degreeToRadians } from "../../utils/degreeToRadians";
 import { Bricks } from "./Bricks";
 import { Grid } from "./Grid";
+import { Player } from "./Player";
 
 interface Props {
   world: World;
@@ -29,6 +30,7 @@ export function View3D({ world }: Props) {
 
       <Grid world={world} />
       <Bricks world={world} />
+      <Player world={world} />
     </Canvas>
   );
 }

@@ -6,8 +6,8 @@ export const DEFAULT_WORLD: World = {
   height: 7,
 
   player: {
-    x: 0,
-    y: 0,
+    x: 3,
+    y: 4,
     direction: "south",
   },
 
