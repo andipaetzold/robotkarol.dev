@@ -1,6 +1,5 @@
 import React from "react";
 import AceEditor from "react-ace";
-import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
 
 interface Props {
@@ -11,8 +10,8 @@ interface Props {
 export function Editor({ value, onChange }: Props) {
   return (
     <AceEditor
-      mode="java"
       theme="github"
+      mode="text"
       onChange={onChange}
       value={value}
       editorProps={{ $blockScrolling: true }}
