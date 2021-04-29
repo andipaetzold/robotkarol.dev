@@ -3,7 +3,7 @@ export interface World {
   depth: number;
   height: number;
 
-  players: Player[];
+  player: Player;
   tiles: Tile[];
 }
 
