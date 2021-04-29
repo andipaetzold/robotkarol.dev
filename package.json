@@ -11,8 +11,10 @@
     "@types/react": "17.0.4",
     "@types/react-dom": "17.0.3",
     "@types/three": "0.127.1",
+    "ace-builds": "1.4.12",
     "lodash": "4.17.21",
     "react": "^17.0.2",
+    "react-ace": "9.4.0",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "three": "0.128.0"

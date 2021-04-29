@@ -1,0 +1,17 @@
+.Grid {
+  display: grid;
+  align-items: stretch;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 320px auto;
+  grid-template-rows: auto;
+  grid-template-areas: "editor world";
+}
+
+.World {
+  grid-area: world;
+}
+
+.Editor {
+  grid-area: editor;
+}
