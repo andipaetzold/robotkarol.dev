@@ -1,6 +1,7 @@
 import { Line, Plane } from "@react-three/drei";
 import range from "lodash/range";
 import React from "react";
+import { DoubleSide } from "three";
 import { World } from "../../types";
 import { degreeToRadians } from "../../utils/degreeToRadians";
 import { BRICK_HEIGHT } from "./constants";
@@ -28,20 +29,20 @@ function Planes({ world }: Props) {
         rotation={[degreeToRadians(-90), 0, degreeToRadians(0)]}
         position={[world.width / 2, 0, world.depth / 2]}
       >
-        <meshStandardMaterial color="white" />
+        <meshStandardMaterial color="white" side={DoubleSide} />
       </Plane>
       <Plane
         args={[world.depth, world.height * BRICK_HEIGHT]}
         rotation={[degreeToRadians(0), degreeToRadians(90), 0]}
         position={[0, (world.height * BRICK_HEIGHT) / 2, world.depth / 2]}
       >
-        <meshStandardMaterial color="white" />
+        <meshStandardMaterial color="white" side={DoubleSide} />
       </Plane>
       <Plane
         args={[world.width, world.height * BRICK_HEIGHT]}
         position={[world.width / 2, (world.height * BRICK_HEIGHT) / 2, 0]}
       >
-        <meshStandardMaterial color="white" />
+        <meshStandardMaterial color="white" side={DoubleSide} />
       </Plane>
     </>
   );
