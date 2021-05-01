@@ -1,5 +1,5 @@
 import { Parser } from "jison";
-import { AST } from "../types";
+import { AST } from "./types";
 
 const grammar = {
   lex: {
