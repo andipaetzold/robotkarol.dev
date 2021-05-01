@@ -145,7 +145,7 @@ Object {
         },
       ],
       "condition": Object {
-        "expression": Object {
+        "condition": Object {
           "test": "IS_WALL",
           "type": "expression",
         },

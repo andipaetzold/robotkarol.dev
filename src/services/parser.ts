@@ -67,7 +67,6 @@ const grammar = {
         "FUNCTION_BEGIN IDENTIFIER FUNCTION_END",
         "$$ = { type: 'function', identifier: $2, body: [] }",
       ],
-      ,
     ],
     statements: [
       ["statement", "$$ = [$1]"],
@@ -99,7 +98,7 @@ const grammar = {
       ],
     ],
     condition: [
-      ["NOT condition", "$$ = { type: 'not', expression: $2 }"],
+      ["NOT condition", "$$ = { type: 'not', condition: $2 }"],
       ["IS_WALL", "$$ = { type: 'expression', test: 'IS_WALL' }"],
       ["NOT_IS_WALL", "$$ = { type: 'expression', test: 'NOT_IS_WALL' }"],
       ["IS_BRICK", "$$ = { type: 'expression', test: 'IS_BRICK' }"],

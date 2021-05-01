@@ -23,6 +23,15 @@ export interface Tile extends Position {
   marked: boolean;
 }
 
+export type Action =
+  | "STEP"
+  | "TURN_LEFT"
+  | "TURN_RIGHT"
+  | "BRICK_PUT"
+  | "BRICK_TAKE"
+  | "MARKER_SET"
+  | "MARKER_REMOVE";
+
 // AST
 export interface AST {
   type: "ast";
@@ -48,15 +57,8 @@ export type ASTStatement =
   | ASTWhileStatement;
 
 export interface ASTCall {
-  type: "statement";
-  action:
-    | "STEP"
-    | "TURN_LEFT"
-    | "TURN_RIGHT"
-    | "BRICK_PUT"
-    | "BRICK_TAKE"
-    | "MARKER_SET"
-    | "MARKER_REMOVE";
+  type: "call";
+  action: Action;
 }
 
 export interface ASTRepeatStatement {
@@ -82,17 +84,19 @@ export type ASTCondition = ASTExpression | ASTNotExpression;
 
 export interface ASTNotExpression {
   type: "not";
-  expression: ASTExpression;
+  condition: ASTCondition;
 }
 
 export interface ASTExpression {
   type: "expression";
-  test:
-    | "IS_WALL"
-    | "IS_BRICK"
-    | "IS_MARKER"
-    | "IS_NORTH"
-    | "IS_EAST"
-    | "IS_SOUTH"
-    | "IS_EAST";
+  test: Test;
 }
+
+export type Test =
+  | "IS_WALL"
+  | "IS_BRICK"
+  | "IS_MARKER"
+  | "IS_NORTH"
+  | "IS_EAST"
+  | "IS_SOUTH"
+  | "IS_WEST";

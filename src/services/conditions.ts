@@ -38,3 +38,16 @@ export function isBrick(world: World, count?: number): boolean {
     return brickCount === count;
   }
 }
+
+export function isNorth(world: World): boolean {
+  return world.player.direction === "north";
+}
+export function isEast(world: World): boolean {
+  return world.player.direction === "east";
+}
+export function isSouth(world: World): boolean {
+  return world.player.direction === "south";
+}
+export function isWest(world: World): boolean {
+  return world.player.direction === "west";
+}
