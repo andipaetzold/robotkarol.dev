@@ -1,15 +1,23 @@
-import { useEffect } from "react";
+import { RefObject, useEffect } from "react";
 
-export function useKeyPress(actions: { [key: string]: () => void }) {
+export function useKeyPress(
+  ref: RefObject<HTMLElement | null>,
+  actions: { [key: string]: () => void }
+) {
   useEffect(() => {
+    if (!ref.current) {
+      return;
+    }
+
     const handler = (e: KeyboardEvent) => {
       actions[e.key]?.();
     };
 
-    window.addEventListener("keydown", handler);
+    const current = ref.current;
+    current.addEventListener("keydown", handler);
 
     return () => {
-      window.removeEventListener("keydown", handler);
+      current?.removeEventListener("keydown", handler);
     };
-  }, [actions]);
+  }, [ref, actions]);
 }
