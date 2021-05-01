@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-md/alert": "2.8.2",
     "@react-md/app-bar": "2.8.2",
     "@react-md/button": "2.8.2",
     "@react-md/dialog": "2.8.2",
