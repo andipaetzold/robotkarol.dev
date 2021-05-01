@@ -1,6 +1,6 @@
-import { DEFAULT_WORLD } from "../constants";
-import { AST } from "../types";
-import { execute } from "./execute";
+import { DEFAULT_WORLD } from "../../constants";
+import { execute } from "./executor";
+import { AST } from "./types";
 
 it("branchless program", () => {
   const ast: AST = {

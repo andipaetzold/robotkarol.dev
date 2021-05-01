@@ -1,5 +1,5 @@
 import { range } from "lodash";
-import { AST, ASTCall, ASTCondition, ASTStatement, World } from "../types";
+import { World } from "../../types";
 import {
   pickUpBrick,
   putBrick,
@@ -8,15 +8,16 @@ import {
   step,
   turnLeft,
   turnRight,
-} from "./actions";
+} from "../actions";
 import {
-  hasMark,
   isBrick,
   isEast,
+  isMarker,
   isNorth,
   isSouth,
   isWall,
-} from "./conditions";
+} from "../conditions";
+import { AST, ASTCall, ASTCondition, ASTStatement } from "./types";
 
 export function* execute(ast: AST, world: World) {
   const stack: ASTStatement[] = ast.program.body;
@@ -80,10 +81,16 @@ function checkCondition(condition: ASTCondition, world: World): boolean {
       switch (condition.test) {
         case "IS_BRICK":
           return isBrick(world);
+        case "NOT_IS_BRICK":
+          return !isBrick(world);
         case "IS_MARKER":
-          return hasMark(world);
+          return isMarker(world);
+        case "NOT_IS_MARKER":
+          return !isMarker(world);
         case "IS_WALL":
           return isWall(world);
+        case "NOT_IS_WALL":
+          return !isWall(world);
         case "IS_EAST":
           return isEast(world);
         case "IS_NORTH":

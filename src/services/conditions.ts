@@ -14,7 +14,7 @@ export function isWall(world: World): boolean {
   }
 }
 
-export function hasMark(world: World): boolean {
+export function isMarker(world: World): boolean {
   return (
     world.tiles.find((tile) => isEqualPosition(tile, world.player))?.marked ??
     false
