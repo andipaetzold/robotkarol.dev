@@ -1,57 +1,59 @@
 import { useAddMessage } from "@react-md/alert";
 import { AppBar, AppBarAction, AppBarTitle } from "@react-md/app-bar";
 import { MoreVertSVGIcon } from "@react-md/material-icons";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./App.module.scss";
 import { Controls } from "./components/Controls";
 import { Editor } from "./components/Editor";
 import { View3D } from "./components/View3D";
 import { DEFAULT_WORLD } from "./constants";
+import { useInterval } from "./hooks/useInterval";
 import { execute, parse } from "./services/runner";
+import { World } from "./types";
 
 export function App() {
   const addMessage = useAddMessage();
   const [world, setWorld] = useState(DEFAULT_WORLD);
   const [code, setCode] = useState("");
 
-  const handleStart = () => {
-    let ast;
-    try {
-      ast = parse(code);
-    } catch (e) {
-      addMessage({
-        children: (
-          <>
-            Error compiling program
-            <br />
-            {e.message}
-          </>
-        ),
-        twoLines: true
-      });
+  const startWorld = useRef<World | null>(null);
+  const [executor, setExecutor] = useState<ReturnType<typeof execute> | null>(
+    null
+  );
+
+  useInterval(() => {
+    if (!executor) {
       return;
     }
 
     try {
-      const exec = execute(ast, world);
-      let step;
-      do {
-        step = exec.next();
-        if (step.value) {
-          setWorld(step.value);
-        }
-      } while (!step.done);
+      const s = executor.next();
+      if (s.value) {
+        setWorld(s.value);
+      }
     } catch (e) {
-      addMessage({
-        children: (
-          <>
-            Error running program
-            <br />
-            {e.message}
-          </>
-        ),
-        twoLines: true
-      });
+      addMessage({ children: e.message });
+    }
+  }, 1_000);
+
+  const handleStart = () => {
+    if (executor) {
+      return;
+    }
+
+    try {
+      const ast = parse(code);
+      startWorld.current = world;
+      setExecutor(execute(ast, world));
+    } catch (e) {
+      addMessage({ children: "Error compiling program" });
+    }
+  };
+
+  const handleStop = () => {
+    setExecutor(null);
+    if (startWorld.current) {
+      setWorld(startWorld.current!);
     }
   };
 
@@ -73,7 +75,12 @@ export function App() {
         </div>
 
         <div className={styles.Controls}>
-          <Controls onStart={handleStart} />
+          <Controls
+            onStart={executor ? undefined : handleStart}
+            // onStep={console.log}
+            // onPause={console.log}
+            onStop={executor ? handleStop : undefined}
+          />
         </div>
       </div>
     </>
