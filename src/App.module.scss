@@ -3,9 +3,12 @@
   align-items: stretch;
   height: 100%;
   width: 100%;
-  grid-template-columns: 320px auto;
-  grid-template-rows: auto;
-  grid-template-areas: "editor world";
+  grid-template-columns: 400px auto;
+  grid-template-rows: min-content auto min-content;
+  grid-template-areas:
+    "header header"
+    "editor world"
+    "editor controls";
 }
 
 .World {
@@ -14,4 +17,12 @@
 
 .Editor {
   grid-area: editor;
+}
+
+.Controls {
+  grid-area: controls;
+}
+
+.AppHeader {
+  grid-area: header;
 }
