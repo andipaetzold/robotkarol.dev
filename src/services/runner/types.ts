@@ -1,8 +1,4 @@
-export interface AST {
-  type: "ast";
-  program: ASTProgram;
-  functions: ASTFunction[];
-}
+export type AST = (ASTProgram | ASTFunction)[];
 
 export interface ASTProgram {
   type: "program";

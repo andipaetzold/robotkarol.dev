@@ -1,5 +1,13 @@
 import { Button } from "@react-md/button";
 
-export function Controls() {
-  return <Button theme="primary">Start</Button>;
+interface Props {
+  onStart: () => void;
+}
+
+export function Controls({ onStart }: Props) {
+  return (
+    <Button theme="primary" onClick={onStart}>
+      Start
+    </Button>
+  );
 }

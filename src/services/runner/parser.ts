@@ -50,8 +50,8 @@ const grammar = {
   bnf: {
     start: [["segments", "return $1"]],
     segments: [
-      ["segment", "$$ = $1"],
-      ["segment segments", "$$ = $1 + $2"],
+      ["segment", "$$ = [$1]"],
+      ["segment segments", "$$ = [$1, ...$2]"],
     ],
     segment: [
       [

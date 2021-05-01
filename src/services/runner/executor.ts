@@ -20,7 +20,7 @@ import {
 import { AST, ASTCall, ASTCondition, ASTStatement } from "./types";
 
 export function* execute(ast: AST, world: World) {
-  const stack: ASTStatement[] = ast.program.body;
+  const stack: ASTStatement[] = ast.find((s) => s.type === "program")!.body;
 
   while (stack.length > 0) {
     const statement = stack.shift()!;
