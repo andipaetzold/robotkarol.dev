@@ -3,17 +3,15 @@ import { execute } from "./executor";
 import { AST } from "./types";
 
 it("branchless program", () => {
-  const ast: AST = {
-    type: "ast",
-    functions: [],
-    program: {
+  const ast: AST = [
+    {
       type: "program",
       body: [
         { type: "call", action: "STEP" },
         { type: "call", action: "TURN_LEFT" },
       ],
     },
-  };
+  ];
 
   const executor = execute(ast, DEFAULT_WORLD);
   expect(executor.next().value).toMatchSnapshot();
@@ -22,16 +20,14 @@ it("branchless program", () => {
 });
 
 it("repeat program", () => {
-  const ast: AST = {
-    type: "ast",
-    functions: [],
-    program: {
+  const ast: AST = [
+    {
       type: "program",
       body: [
         { type: "repeat", times: 3, body: [{ type: "call", action: "STEP" }] },
       ],
     },
-  };
+  ];
 
   const executor = execute(ast, DEFAULT_WORLD);
   expect(executor.next().value).toMatchSnapshot();
