@@ -1,4 +1,3 @@
-import { range } from "lodash";
 import { World } from "../../types";
 import {
   pickUpBrick,
