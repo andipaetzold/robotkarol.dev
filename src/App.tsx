@@ -20,34 +20,71 @@ export function App() {
   const [executor, setExecutor] = useState<ReturnType<typeof execute> | null>(
     null
   );
+  const [autoStep, setAutoStep] = useState(true);
+  const [done, setDone] = useState(false);
 
-  useInterval(() => {
+  const nextStep = () => {
     if (!executor) {
       return;
     }
 
     try {
       const s = executor.next();
-      if (s.value) {
+      if (s.done) {
+        setDone(true);
+      } else {
         setWorld(s.value);
       }
     } catch (e) {
       addMessage({ children: e.message });
     }
+  };
+
+  useInterval(() => {
+    if (!autoStep) {
+      return;
+    }
+
+    nextStep();
   }, 1_000);
 
   const handleStart = () => {
     if (executor) {
+      setAutoStep(true);
       return;
     }
 
     try {
       const ast = parse(code);
       startWorld.current = world;
+      setDone(false);
+      setAutoStep(true);
       setExecutor(execute(ast, world));
     } catch (e) {
       addMessage({ children: "Error compiling program" });
     }
+  };
+
+  const handleStep = () => {
+    let exec = executor;
+    if (!exec) {
+      try {
+        const ast = parse(code);
+        startWorld.current = world;
+        setDone(false);
+        setAutoStep(false);
+        exec = execute(ast, world);
+        setExecutor(exec);
+      } catch (e) {
+        addMessage({ children: "Error compiling program" });
+      }
+    }
+
+    nextStep();
+  };
+
+  const handlePause = () => {
+    setAutoStep(false);
   };
 
   const handleStop = () => {
@@ -77,8 +114,8 @@ export function App() {
         <div className={styles.Controls}>
           <Controls
             onStart={executor ? undefined : handleStart}
-            // onStep={console.log}
-            // onPause={console.log}
+            onStep={(!executor || !autoStep) && !done ? handleStep : undefined}
+            onPause={executor && autoStep && !done ? handlePause : undefined}
             onStop={executor ? handleStop : undefined}
           />
         </div>
