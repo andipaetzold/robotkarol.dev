@@ -1,5 +1,5 @@
-import { Parser } from "jison";
-import { AST } from "./types";
+const { Parser } = require("jison");
+const { writeFileSync } = require("fs");
 
 const grammar = {
   lex: {
@@ -114,7 +114,5 @@ const grammar = {
 };
 
 const parser = new Parser(grammar);
-
-export function parse(code: string): AST {
-  return parser.parse(code);
-}
+const code = parser.generate();
+writeFileSync(`${__dirname}/parser.js`, code);

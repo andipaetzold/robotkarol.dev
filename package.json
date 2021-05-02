@@ -36,7 +36,9 @@
     "three": "0.128.0"
   },
   "scripts": {
+    "prestart": "npm run prebuild",
     "start": "react-scripts start",
+    "prebuild": "node src/services/runner/parserGenerator.js",
     "build": "react-scripts build",
     "test": "react-scripts test"
   },
