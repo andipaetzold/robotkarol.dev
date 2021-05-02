@@ -2,11 +2,13 @@ export type AST = (ASTProgram | ASTFunction)[];
 
 export interface ASTProgram {
   type: "program";
+  line: number;
   body: ASTStatement[];
 }
 
 export interface ASTFunction {
   type: "function";
+  line: number;
   identifier: string;
   body: ASTStatement[];
 }
@@ -19,23 +21,27 @@ export type ASTStatement =
 
 export interface ASTCall {
   type: "call";
+  line: number;
   action: Action;
 }
 
 export interface ASTRepeatStatement {
   type: "repeat";
+  line: number;
   times: number;
   body: ASTStatement[];
 }
 
 export interface ASTWhileStatement {
   type: "while";
+  line: number;
   condition: ASTCondition;
   body: ASTStatement[];
 }
 
 export interface ASTIfStatement {
   type: "if";
+  line: number;
   condition: ASTCondition;
   body: ASTStatement[];
   elseBody: ASTStatement[];
@@ -45,11 +51,13 @@ export type ASTCondition = ASTExpression | ASTNotExpression;
 
 export interface ASTNotExpression {
   type: "not";
+  line: number;
   condition: ASTCondition;
 }
 
 export interface ASTExpression {
   type: "expression";
+  line: number;
   test: Test;
 }
 

@@ -6,33 +6,41 @@ Array [
     "body": Array [
       Object {
         "action": "STEP",
+        "line": 2,
         "type": "call",
       },
       Object {
         "action": "TURN_LEFT",
+        "line": 3,
         "type": "call",
       },
       Object {
         "action": "TURN_RIGHT",
+        "line": 4,
         "type": "call",
       },
       Object {
         "action": "BRICK_PUT",
+        "line": 5,
         "type": "call",
       },
       Object {
         "action": "BRICK_TAKE",
+        "line": 6,
         "type": "call",
       },
       Object {
         "action": "MARKER_SET",
+        "line": 7,
         "type": "call",
       },
       Object {
         "action": "MARKER_REMOVE",
+        "line": 8,
         "type": "call",
       },
     ],
+    "line": 9,
     "type": "program",
   },
 ]
@@ -46,59 +54,72 @@ Array [
         "body": Array [
           Object {
             "action": "STEP",
+            "line": 3,
             "type": "call",
           },
         ],
         "condition": Object {
+          "line": 2,
           "test": "IS_WALL",
           "type": "expression",
         },
         "elseBody": Array [],
+        "line": 4,
         "type": "if",
       },
       Object {
         "body": Array [
           Object {
             "action": "STEP",
+            "line": 6,
             "type": "call",
           },
         ],
         "condition": Object {
+          "line": 5,
           "test": "IS_BRICK",
           "type": "expression",
         },
         "elseBody": Array [],
+        "line": 7,
         "type": "if",
       },
       Object {
         "body": Array [
           Object {
             "action": "STEP",
+            "line": 9,
             "type": "call",
           },
         ],
         "condition": Object {
+          "line": 8,
           "test": "IS_MARKER",
           "type": "expression",
         },
         "elseBody": Array [],
+        "line": 10,
         "type": "if",
       },
       Object {
         "body": Array [
           Object {
             "action": "STEP",
+            "line": 12,
             "type": "call",
           },
         ],
         "condition": Object {
+          "line": 11,
           "test": "IS_NORTH",
           "type": "expression",
         },
         "elseBody": Array [],
+        "line": 13,
         "type": "if",
       },
     ],
+    "line": 14,
     "type": "program",
   },
 ]
@@ -112,22 +133,27 @@ Array [
         "body": Array [
           Object {
             "action": "TURN_LEFT",
+            "line": 3,
             "type": "call",
           },
         ],
         "condition": Object {
+          "line": 2,
           "test": "IS_WALL",
           "type": "expression",
         },
         "elseBody": Array [
           Object {
             "action": "TURN_RIGHT",
+            "line": 5,
             "type": "call",
           },
         ],
+        "line": 6,
         "type": "if",
       },
     ],
+    "line": 7,
     "type": "program",
   },
 ]
@@ -137,6 +163,7 @@ exports[`parse ignores comments 1`] = `
 Array [
   Object {
     "body": Array [],
+    "line": 4,
     "type": "program",
   },
 ]
@@ -150,20 +177,25 @@ Array [
         "body": Array [
           Object {
             "action": "STEP",
+            "line": 3,
             "type": "call",
           },
         ],
         "condition": Object {
           "condition": Object {
+            "line": 2,
             "test": "IS_WALL",
             "type": "expression",
           },
+          "line": 2,
           "type": "not",
         },
         "elseBody": Array [],
+        "line": 4,
         "type": "if",
       },
     ],
+    "line": 5,
     "type": "program",
   },
 ]
@@ -177,36 +209,44 @@ Array [
         "body": Array [
           Object {
             "action": "TURN_LEFT",
+            "line": 3,
             "type": "call",
           },
           Object {
             "body": Array [
               Object {
                 "action": "BRICK_TAKE",
+                "line": 5,
                 "type": "call",
               },
             ],
             "condition": Object {
+              "line": 4,
               "test": "IS_BRICK",
               "type": "expression",
             },
             "elseBody": Array [],
+            "line": 6,
             "type": "if",
           },
         ],
         "condition": Object {
+          "line": 2,
           "test": "IS_WALL",
           "type": "expression",
         },
         "elseBody": Array [
           Object {
             "action": "TURN_RIGHT",
+            "line": 8,
             "type": "call",
           },
         ],
+        "line": 9,
         "type": "if",
       },
     ],
+    "line": 10,
     "type": "program",
   },
 ]
@@ -220,13 +260,16 @@ Array [
         "body": Array [
           Object {
             "action": "STEP",
+            "line": 3,
             "type": "call",
           },
         ],
+        "line": 4,
         "times": "5",
         "type": "repeat",
       },
     ],
+    "line": 5,
     "type": "program",
   },
 ]
@@ -240,16 +283,20 @@ Array [
         "body": Array [
           Object {
             "action": "BRICK_TAKE",
+            "line": 3,
             "type": "call",
           },
         ],
         "condition": Object {
+          "line": 2,
           "test": "IS_BRICK",
           "type": "expression",
         },
+        "line": 4,
         "type": "while",
       },
     ],
+    "line": 5,
     "type": "program",
   },
 ]
@@ -260,6 +307,7 @@ Array [
   Object {
     "body": Array [],
     "identifier": "Test",
+    "line": 2,
     "type": "function",
   },
 ]
@@ -269,6 +317,7 @@ exports[`parse should accept empty program 1`] = `
 Array [
   Object {
     "body": Array [],
+    "line": 2,
     "type": "program",
   },
 ]
