@@ -31,10 +31,13 @@ export function* execute(ast: AST, world: World) {
         break;
       }
       case "repeat": {
-        const statements = range(0, statement.times).flatMap(
-          () => statement.body
-        );
-        stack.unshift(...statements);
+        if (statement.times > 1) {
+          stack.unshift({
+            ...statement,
+            times: statement.times - 1,
+          });
+        }
+        stack.unshift(...statement.body);
         break;
       }
       case "if": {
