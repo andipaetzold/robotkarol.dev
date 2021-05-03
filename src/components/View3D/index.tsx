@@ -1,11 +1,10 @@
-import { Canvas } from "@react-three/fiber";
-import React, { useMemo } from "react";
-import { Matrix4 } from "three";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { Matrix4, WebGLRenderer } from "three";
+import useResizeObserver from "use-resize-observer";
 import { World } from "../../types";
-import { Bricks } from "./Bricks";
 import { createCamera } from "./camera";
-import { Grid } from "./Grid";
-import { Player } from "./Player";
+import styles from "./index.module.scss";
+import { createScene } from "./scene";
 
 const alpha = Math.PI / 6; // or Math.PI / 4
 const Syx = 0,
@@ -22,20 +21,50 @@ interface Props {
 }
 
 export function View3D({ world }: Props) {
+  const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
+  const { ref, width, height } = useResizeObserver();
+
+  const renderer = useMemo(() => {
+    if (!canvas) {
+      return;
+    }
+
+    const r = new WebGLRenderer({ canvas, alpha: true, antialias: true, precision: 'highp' });
+    return r;
+  }, [canvas]);
+
   const camera = useMemo(() => {
-    return createCamera(world, 1); // TODO: aspect ratio
+    if (!width || !height) {
+      return;
+    }
+    return createCamera(world, width, height);
+  }, [world, width, height]);
+
+  const scene = useMemo(() => {
+    return createScene(world);
   }, [world]);
 
-  return (
-    <Canvas camera={camera}>
-      <ambientLight />
-      <pointLight
-        position={[world.width / 2, world.height / 2, world.depth]}
-      />
+  const render = useCallback(() => {
+    if (!renderer || !camera) {
+      return;
+    }
+    renderer.render(scene, camera);
+  }, [renderer, scene, camera]);
 
-      <Grid world={world} />
-      <Bricks world={world} />
-      <Player world={world} />
-    </Canvas>
+  useEffect(() => {
+    if (!renderer || !width || !height || !camera) {
+      return;
+    }
+    renderer.setSize(width, height, false);
+  }, [renderer, camera, canvas, width, height]);
+
+  useEffect(() => {
+    render();
+  }, [render]);
+
+  return (
+    <div ref={ref} className={styles.Container}>
+      <canvas ref={(ref) => setCanvas(ref)} className={styles.Canvas} />
+    </div>
   );
 }

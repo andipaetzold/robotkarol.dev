@@ -2,28 +2,31 @@ import { Camera } from "@react-three/fiber";
 import { Matrix4, OrthographicCamera } from "three";
 import { World } from "../../types";
 
-const alpha = Math.PI / 6; // or Math.PI / 4
-const Syx = 0,
-  Szx = -0.5 * Math.cos(alpha),
-  Sxy = 0,
-  Szy = -0.5 * Math.sin(alpha),
-  Sxz = 0,
-  Syz = 0;
+const alpha = Math.PI / 4;
+const Syx = 0;
+const Szx = -0.5 * Math.cos(alpha);
+const Sxy = 0;
+const Szy = -0.5 * Math.sin(alpha);
+const Sxz = 0;
+const Syz = 0;
 const matrix = new Matrix4();
 matrix.set(1, Syx, Szx, 0, Sxy, 1, Szy, 0, Sxz, Syz, 1, 0, 0, 0, 0, 1);
 
-export function createCamera(world: World, aspect: number): Camera {
-  const c = new OrthographicCamera(
+export function createCamera(
+  world: World,
+  width: number,
+  height: number
+): Camera {
+  const camera = new OrthographicCamera(
     0,
-    (world.width / alpha) * aspect,
-    world.height / alpha / aspect,
+    width / 50,
+    height / 50,
     0,
     0,
     world.depth
   );
-  c.position.set(0, 0, world.depth);
-  c.projectionMatrix.multiply(matrix);
-  c.projectionMatrixInverse.copy(c.projectionMatrix).invert();
-
-  return c;
+  camera.position.set(0, 0, world.depth);
+  camera.projectionMatrix.multiply(matrix);
+  camera.projectionMatrixInverse.copy(camera.projectionMatrix).invert();
+  return camera;
 }
