@@ -1,4 +1,3 @@
-import { Camera } from "@react-three/fiber";
 import { Matrix4, OrthographicCamera } from "three";
 import { World } from "../../types";
 
@@ -16,7 +15,7 @@ export function createCamera(
   world: World,
   width: number,
   height: number
-): Camera {
+) {
   const camera = new OrthographicCamera(
     0,
     width / 50,
