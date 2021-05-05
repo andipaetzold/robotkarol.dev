@@ -1,10 +1,9 @@
 import { useAddMessage } from "@react-md/alert";
-import { AppBar, AppBarAction, AppBarTitle } from "@react-md/app-bar";
-import { MoreVertSVGIcon } from "@react-md/material-icons";
 import React, { useRef, useState } from "react";
 import styles from "./App.module.scss";
 import { Controls } from "./components/Controls";
 import { Editor } from "./components/Editor";
+import { Header } from "./components/Header";
 import { View3D } from "./components/View3D";
 import { DEFAULT_WORLD } from "./constants";
 import { useInterval } from "./hooks/useInterval";
@@ -101,13 +100,9 @@ export function App() {
   return (
     <>
       <div className={styles.Grid}>
-        <AppBar theme="default" className={styles.AppHeader}>
-          <AppBarTitle>Robot Karel</AppBarTitle>
-
-          <AppBarAction first>
-            <MoreVertSVGIcon />
-          </AppBarAction>
-        </AppBar>
+        <div className={styles.AppHeader}>
+          <Header onWorldChange={setWorld} world={world} />
+        </div>
         <div className={styles.Editor}>
           <Editor value={code} onChange={setCode} activeRow={activeLine} />
         </div>

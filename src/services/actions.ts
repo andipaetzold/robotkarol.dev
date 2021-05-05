@@ -117,3 +117,21 @@ export function reset(world: World): World {
     width: world.width,
   };
 }
+
+export function resize(
+  world: World,
+  size: Pick<World, "depth" | "width" | "height">
+): World {
+  return {
+    ...world,
+    player: {
+      ...world.player,
+      x: Math.min(world.width - 1, world.player.x),
+      y: Math.min(world.depth - 1, world.player.y),
+    },
+    tiles: world.tiles.filter((tile) => isInWorld(size, tile)),
+    depth: size.depth,
+    height: size.height,
+    width: size.width,
+  };
+}

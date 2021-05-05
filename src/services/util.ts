@@ -49,6 +49,9 @@ export function updateTile(worldOrg: World, updatedTile: Tile): World {
   return world;
 }
 
-export function isInWorld(world: World, pos: Position): boolean {
+export function isInWorld(
+  world: Pick<World, "width" | "height" | "depth">,
+  pos: Position
+): boolean {
   return pos.x >= 0 && pos.y >= 0 && pos.x < world.width && pos.y < world.depth;
 }

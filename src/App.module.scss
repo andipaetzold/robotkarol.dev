@@ -9,21 +9,21 @@
     "header header"
     "editor world"
     "editor controls";
-  }
-  
-  .World {
-    grid-area: world;
-    overflow: hidden;
-  }
-  
-  .Editor {
-    grid-area: editor;
-  }
-  
-  .Controls {
-    grid-area: controls;
-  }
-  
+}
+
+.World {
+  grid-area: world;
+  overflow: hidden;
+}
+
+.Editor {
+  grid-area: editor;
+}
+
+.Controls {
+  grid-area: controls;
+}
+
 .AppHeader {
   grid-area: header;
 }
