@@ -6,7 +6,7 @@ import {
   MeshStandardMaterial,
   SphereGeometry,
 } from "three";
-import { getTile } from "../../services/util";
+import { isEqualPosition } from "../../services/util";
 import { World } from "../../types";
 import { degreeToRadians } from "../../utils/degreeToRadians";
 import { BRICK_HEIGHT } from "./constants";
@@ -31,7 +31,8 @@ const materialEyes = new MeshStandardMaterial({
 });
 
 export function createPlayer(world: World): Group {
-  const tile = getTile(world, world.player);
+  const bricks =
+    world.tiles.find((t) => isEqualPosition(t, world.player))?.bricks ?? 0;
 
   const pivot = new Group();
   {
@@ -97,7 +98,7 @@ export function createPlayer(world: World): Group {
     const geometry = new CylinderGeometry(0.07, 0.07, 0.2);
     const mesh = new Mesh(geometry, materialEyes);
     mesh.rotation.set(degreeToRadians(90), 0, 0);
-    mesh.position.set(0.4, FEET_HEIGHT + BODY_HEIGHT + HEAD_HEIGHT * 0.70, 0.7);
+    mesh.position.set(0.4, FEET_HEIGHT + BODY_HEIGHT + HEAD_HEIGHT * 0.7, 0.7);
     pivot.add(mesh);
   }
 
@@ -106,7 +107,7 @@ export function createPlayer(world: World): Group {
     const geometry = new CylinderGeometry(0.07, 0.07, 0.2);
     const mesh = new Mesh(geometry, materialEyes);
     mesh.rotation.set(degreeToRadians(90), 0, 0);
-    mesh.position.set(0.6, FEET_HEIGHT + BODY_HEIGHT + HEAD_HEIGHT * 0.70, 0.7);
+    mesh.position.set(0.6, FEET_HEIGHT + BODY_HEIGHT + HEAD_HEIGHT * 0.7, 0.7);
     pivot.add(mesh);
   }
 
@@ -133,7 +134,7 @@ export function createPlayer(world: World): Group {
   }
   group.position.set(
     world.player.x + 0.5,
-    tile.bricks * BRICK_HEIGHT,
+    bricks * BRICK_HEIGHT,
     world.player.y + 0.5
   );
   return group;

@@ -1,4 +1,4 @@
-import { World } from "../../types";
+import { World } from "../types";
 import {
   pickUpBrick,
   putBrick,
@@ -7,7 +7,7 @@ import {
   step,
   turnLeft,
   turnRight,
-} from "../actions";
+} from "./actions";
 import {
   isBrick,
   isEast,
@@ -15,48 +15,10 @@ import {
   isNorth,
   isSouth,
   isWall,
-} from "../conditions";
-import { AST, ASTCall, ASTCondition, ASTStatement } from "./types";
+} from "./conditions";
+import { ASTCall, ASTCondition } from "./parser/types";
 
-export function* execute(ast: AST, world: World) {
-  const stack: ASTStatement[] = ast.find((s) => s.type === "program")!.body;
-
-  while (stack.length > 0) {
-    const statement = stack.shift()!;
-    switch (statement.type) {
-      case "call": {
-        world = doCall(statement, world);
-        yield { world, line: statement.line };
-        break;
-      }
-      case "repeat": {
-        if (statement.times > 1) {
-          stack.unshift({
-            ...statement,
-            times: statement.times - 1,
-          });
-        }
-        stack.unshift(...statement.body);
-        break;
-      }
-      case "if": {
-        if (checkCondition(statement.condition, world)) {
-          stack.unshift(...statement.body);
-        } else {
-          stack.unshift(...statement.elseBody);
-        }
-        break;
-      }
-      case "while": {
-        if (checkCondition(statement.condition, world)) {
-          stack.unshift(...statement.body, statement);
-        }
-      }
-    }
-  }
-}
-
-function doCall(statement: ASTCall, world: World): World {
+export function doCall(statement: ASTCall, world: World): World {
   switch (statement.action) {
     case "STEP":
       return step(world);
@@ -75,7 +37,7 @@ function doCall(statement: ASTCall, world: World): World {
   }
 }
 
-function checkCondition(condition: ASTCondition, world: World): boolean {
+export function checkCondition(condition: ASTCondition, world: World): boolean {
   switch (condition.type) {
     case "not":
       return !checkCondition(condition.condition, world);

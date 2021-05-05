@@ -1,21 +1,22 @@
 import React from "react";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/theme-github";
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "../../services/store";
+import { updateCode } from "../../services/store/root";
 import styles from "./index.module.scss";
 
-interface Props {
-  value: string;
-  onChange: (value: string) => void;
-  activeRow?: number;
-}
+export function Editor() {
+  const activeRow = useAppSelector((s) => s.execution.activeLine);
+  const code = useAppSelector((s) => s.code);
+  const dispatch = useDispatch();
 
-export function Editor({ value, onChange, activeRow }: Props) {
   return (
     <AceEditor
       theme="github"
       mode="text"
-      onChange={onChange}
-      value={value}
+      onChange={(v) => dispatch(updateCode(v))}
+      value={code}
       editorProps={{ $blockScrolling: true }}
       height="100%"
       width="100%"

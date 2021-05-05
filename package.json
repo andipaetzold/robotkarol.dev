@@ -19,11 +19,13 @@
     "@react-md/transition": "2.8.2",
     "@react-md/typography": "2.8.2",
     "@react-md/utils": "2.8.2",
+    "@reduxjs/toolkit": "1.5.1",
     "@types/gl-matrix": "3.2.0",
     "@types/lodash": "4.14.168",
     "@types/node": "12.20.10",
     "@types/react": "17.0.4",
     "@types/react-dom": "17.0.3",
+    "@types/react-redux": "7.1.16",
     "@types/three": "0.127.1",
     "ace-builds": "1.4.12",
     "jison": "0.4.18",
@@ -31,6 +33,7 @@
     "react": "^17.0.2",
     "react-ace": "9.4.0",
     "react-dom": "^17.0.2",
+    "react-redux": "7.2.4",
     "react-scripts": "4.0.3",
     "three": "0.128.0",
     "use-resize-observer": "7.0.0"
@@ -38,7 +41,7 @@
   "scripts": {
     "prestart": "npm run prebuild",
     "start": "react-scripts start",
-    "prebuild": "node src/services/runner/parserGenerator.js",
+    "prebuild": "node src/services/parser/generator.js",
     "build": "react-scripts build",
     "test": "react-scripts test"
   },

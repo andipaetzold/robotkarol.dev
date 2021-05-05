@@ -1,15 +1,9 @@
 import { AppBar, AppBarAction, AppBarTitle } from "@react-md/app-bar";
 import { SettingsSVGIcon } from "@react-md/material-icons";
 import React, { useState } from "react";
-import { World } from "../../types";
 import { SettingsDialog } from "./SettingsDialog";
 
-interface Props {
-  onWorldChange: (world: World) => void;
-  world: World;
-}
-
-export function Header({ onWorldChange, world }: Props) {
+export function Header() {
   const [settingsDialogVisible, setSettingsDialogVisible] = useState(false);
 
   return (
@@ -24,8 +18,6 @@ export function Header({ onWorldChange, world }: Props) {
       <SettingsDialog
         visible={settingsDialogVisible}
         onClose={() => setSettingsDialogVisible(false)}
-        world={world}
-        onWorldChange={onWorldChange}
       />
     </>
   );

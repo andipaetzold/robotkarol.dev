@@ -4,25 +4,21 @@ import {
   DialogContent,
   DialogFooter,
   DialogHeader,
-  DialogTitle,
+  DialogTitle
 } from "@react-md/dialog";
 import { TextField, useNumberField } from "@react-md/form";
 import React from "react";
-import { World } from "../../types";
+import { useAppDispatch, useAppSelector } from "../../services/store";
+import { resize } from "../../services/store/root";
 import styles from "./SettingsDialog.module.scss";
 
 interface Props {
   visible: boolean;
   onClose: () => void;
-  world: World;
-  onWorldChange: (world: World) => void;
 }
-export function SettingsDialog({
-  visible,
-  onClose,
-  world,
-  onWorldChange,
-}: Props) {
+export function SettingsDialog({ visible, onClose }: Props) {
+  const world = useAppSelector((s) => s.world);
+  const dispatch = useAppDispatch();
   const [width, widthProps, { reset: resetWidth }] = useNumberField({
     id: "settings-dialog-width",
     defaultValue: world.width,
@@ -41,12 +37,14 @@ export function SettingsDialog({
   });
 
   const handleSave = () => {
-    onWorldChange({
-      ...world,
-      width,
-      depth,
-      height,
-    });
+    dispatch(
+      resize({
+        width,
+        depth,
+        height,
+      })
+    );
+
     onClose();
   };
 

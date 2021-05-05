@@ -1,16 +1,14 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { WebGLRenderer } from "three";
 import useResizeObserver from "use-resize-observer";
-import { World } from "../../types";
+import { useAppSelector } from "../../services/store";
 import { createCamera } from "./camera";
 import styles from "./index.module.scss";
 import { createScene } from "./scene";
 
-interface Props {
-  world: World;
-}
+export function View3D() {
+  const world = useAppSelector((s) => s.world);
 
-export function View3D({ world }: Props) {
   const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
   const { ref, width, height } = useResizeObserver();
 
@@ -50,7 +48,7 @@ export function View3D({ world }: Props) {
     if (!renderer || !width || !height || !camera) {
       return;
     }
-    renderer.setPixelRatio(window.devicePixelRatio)
+    renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(width, height);
   }, [renderer, camera, canvas, width, height]);
 

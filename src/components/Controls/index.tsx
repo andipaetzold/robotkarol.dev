@@ -1,3 +1,4 @@
+import { useAddMessage } from "@react-md/alert";
 import { Button } from "@react-md/button";
 import {
   PauseFontIcon,
@@ -5,49 +6,123 @@ import {
   SkipNextFontIcon,
   StopFontIcon,
 } from "@react-md/material-icons";
+import { useDispatch } from "react-redux";
+import { useInterval } from "../../hooks/useInterval";
+import { useAppSelector } from "../../services/store";
+import {
+  executionStep,
+  stop,
+  parseCode,
+  updateAutoStep,
+  updateState,
+} from "../../services/store/root";
 
-interface Props {
-  onStart?: () => void;
-  onPause?: () => void;
-  onStep?: () => void;
-  onStop?: () => void;
-}
+export function Controls() {
+  const dispatch = useDispatch();
+  const execution = useAppSelector((s) => s.execution);
+  const addMessage = useAddMessage();
 
-export function Controls({ onStart, onPause, onStep, onStop }: Props) {
+  const nextStep = () => {
+    try {
+      dispatch(executionStep());
+    } catch (e) {
+      addMessage({ children: e.message });
+    }
+  };
+
+  const handleStartResume = () => {
+    if (execution.state !== "running") {
+      try {
+        dispatch(parseCode());
+      } catch (e) {
+        addMessage({ children: "Error compiling program" });
+        return;
+      }
+    }
+
+    dispatch(updateAutoStep(true));
+    dispatch(updateState("running"));
+    nextStep();
+  };
+
+  const handleStep = () => {
+    if (execution.state !== "running") {
+      try {
+        dispatch(parseCode());
+      } catch (e) {
+        addMessage({ children: "Error compiling program" });
+        return;
+      }
+    }
+
+    dispatch(updateAutoStep(false));
+    dispatch(updateState("running"));
+    nextStep();
+  };
+
+  const handlePause = () => {
+    dispatch(updateAutoStep(false));
+  };
+
+  const handleStop = () => {
+    dispatch(stop());
+  };
+
+  useInterval(() => {
+    if (
+      !execution.autoStep ||
+      execution.state === "done" ||
+      execution.state === "stopped"
+    ) {
+      return;
+    }
+
+    dispatch(executionStep());
+  }, 1_000);
+
   return (
     <>
       <Button
         theme="clear"
-        onClick={onStart}
+        onClick={handleStartResume}
         buttonType="icon"
-        disabled={onStart === undefined}
+        disabled={
+          !(
+            execution.state === "stopped" ||
+            (execution.state === "running" && !execution.autoStep)
+          )
+        }
       >
         <PlayArrowFontIcon />
       </Button>
       <Button
         theme="clear"
-        onClick={onStep}
+        onClick={handleStep}
         buttonType="icon"
-        disabled={onStep === undefined}
+        disabled={
+          !(
+            (execution.state === "running" && !execution.autoStep) ||
+            execution.state === "stopped"
+          )
+        }
       >
         <SkipNextFontIcon />
       </Button>
-      {/* <Button theme="clear" onClick={onStart} buttonType="icon">
-        <FastForwardFontIcon />
-      </Button> */}
       <Button
         theme="clear"
-        onClick={onPause}
+        onClick={handlePause}
         buttonType="icon"
-        disabled={onPause === undefined}
+        disabled={!(execution.state === "running" && execution.autoStep)}
       >
         <PauseFontIcon />
       </Button>
       <Button
         theme="clear"
-        onClick={onStop}
+        onClick={handleStop}
         buttonType="icon"
-        disabled={onStop === undefined}
+        disabled={
+          !(execution.state === "running" || execution.state === "done")
+        }
       >
         <StopFontIcon />
       </Button>
