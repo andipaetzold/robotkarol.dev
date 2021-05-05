@@ -50,7 +50,8 @@ export function View3D({ world }: Props) {
     if (!renderer || !width || !height || !camera) {
       return;
     }
-    renderer.setSize(width, height, false);
+    renderer.setPixelRatio(window.devicePixelRatio)
+    renderer.setSize(width, height);
   }, [renderer, camera, canvas, width, height]);
 
   useEffect(() => {
