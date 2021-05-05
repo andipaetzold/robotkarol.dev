@@ -26,7 +26,7 @@ export function* execute(ast: AST, world: World) {
     switch (statement.type) {
       case "call": {
         world = doCall(statement, world);
-        yield world;
+        yield { world, line: statement.line };
         break;
       }
       case "repeat": {

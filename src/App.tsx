@@ -14,6 +14,7 @@ import { World } from "./types";
 export function App() {
   const addMessage = useAddMessage();
   const [world, setWorld] = useState(DEFAULT_WORLD);
+  const [activeLine, setActiveLine] = useState<number | undefined>(undefined);
   const [code, setCode] = useState("");
 
   const startWorld = useRef<World | null>(null);
@@ -33,7 +34,9 @@ export function App() {
       if (s.done) {
         setDone(true);
       } else {
-        setWorld(s.value);
+        const { world: w, line } = s.value;
+        setWorld(w);
+        setActiveLine(line);
       }
     } catch (e) {
       addMessage({ children: e.message });
@@ -91,6 +94,7 @@ export function App() {
     setExecutor(null);
     if (startWorld.current) {
       setWorld(startWorld.current!);
+      setActiveLine(undefined);
     }
   };
 
@@ -105,7 +109,7 @@ export function App() {
           </AppBarAction>
         </AppBar>
         <div className={styles.Editor}>
-          <Editor value={code} onChange={setCode} />
+          <Editor value={code} onChange={setCode} activeRow={activeLine} />
         </div>
         <div className={styles.World}>
           <View3D world={world} />
