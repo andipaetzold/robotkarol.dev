@@ -34,13 +34,27 @@ describe("parse", () => {
     expect(ast).toMatchSnapshot();
   });
 
-  it("ignores comments", () => {
+  it("ignores multiline comments", () => {
     const code = `
       { Comment }
+      {}
       Programm
         { Comment }
       *Programm
       { Comment }`;
+    const ast = parse(code);
+    expect(ast).toMatchSnapshot();
+  });
+
+  it("ignores single line comments", () => {
+    const code = `
+    // Comment
+    //
+    Programm
+      // Comment
+    *Programm
+    // Comment
+    `;
     const ast = parse(code);
     expect(ast).toMatchSnapshot();
   });

@@ -159,11 +159,21 @@ Array [
 ]
 `;
 
-exports[`parse ignores comments 1`] = `
+exports[`parse ignores multiline comments 1`] = `
 Array [
   Object {
     "body": Array [],
-    "line": 4,
+    "line": 5,
+    "type": "program",
+  },
+]
+`;
+
+exports[`parse ignores single line comments 1`] = `
+Array [
+  Object {
+    "body": Array [],
+    "line": 5,
     "type": "program",
   },
 ]

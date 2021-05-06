@@ -8,7 +8,8 @@ const grammar = {
     },
     rules: [
       ["\\s+", "/* skip whitespace */"],
-      ["\\{[^\\}]+\\}", "/* skip comments */"],
+      ["\\{[^\\}]*\\}", "/* skip comments */"],
+      ["\\/\\/[^\\n]*", "/* skip comments */"],
       ["programm\\b", "return 'PROGRAM_BEGIN'"],
       ["\\*programm\\b", "return 'PROGRAM_END'"],
       ["endeprogramm\\b", "return 'PROGRAM_END'"],
