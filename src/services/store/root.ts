@@ -157,6 +157,13 @@ export const rootSlice = createSlice({
             }
             return;
           }
+          case "functionCall": {
+            const functionCall = state.execution.ast.find(
+              (x) => x.type === "function" && x.identifier === statement.name
+            )!;
+            state.execution.stack.unshift(...functionCall.body);
+            break;
+          }
           case "repeat": {
             if (statement.times > 1) {
               state.execution.stack.unshift({
@@ -203,7 +210,7 @@ export const {
   stop,
   updateCode,
   updateAutoStep,
-  updateState
+  updateState,
 } = rootSlice.actions;
 
 export default rootSlice.reducer;
