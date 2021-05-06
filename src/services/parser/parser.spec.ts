@@ -143,7 +143,6 @@ describe("parse", () => {
     expect(ast).toMatchSnapshot(ast);
   });
 
-
   it("repeat while 2", () => {
     const code = `
     Programm

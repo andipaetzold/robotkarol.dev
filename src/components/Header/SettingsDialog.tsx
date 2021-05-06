@@ -4,7 +4,7 @@ import {
   DialogContent,
   DialogFooter,
   DialogHeader,
-  DialogTitle
+  DialogTitle,
 } from "@react-md/dialog";
 import { TextField, useNumberField } from "@react-md/form";
 import React from "react";
