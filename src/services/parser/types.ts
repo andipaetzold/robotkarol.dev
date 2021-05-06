@@ -16,6 +16,7 @@ export interface ASTFunction {
 export type ASTStatement =
   | ASTIfStatement
   | ASTCall
+  | ASTFunctionCall
   | ASTRepeatStatement
   | ASTWhileStatement;
 
@@ -23,6 +24,12 @@ export interface ASTCall {
   type: "call";
   line: number;
   action: Action;
+}
+
+export interface ASTFunctionCall {
+  type: "functionCall";
+  line: number;
+  name: string;
 }
 
 export interface ASTRepeatStatement {

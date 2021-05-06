@@ -14,7 +14,7 @@ import {
   turnRight as turnRightAction,
 } from "../actions";
 import { checkCondition, doCall } from "../executor";
-import { parse } from "../parser/parser";
+import { parse } from "../parser";
 import { AST, ASTStatement } from "../parser/types";
 
 type State = "stopped" | "running" | "done";

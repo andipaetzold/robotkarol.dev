@@ -96,6 +96,7 @@ const grammar = {
         "IF condition THEN statements ELSE statements IF_END",
         "$$ = { type: 'if', line: yylineno, condition: $2, body: $4, elseBody: $6 }",
       ],
+      ["IDENTIFIER", "$$ = { type: 'functionCall', name: $1, line: yylineno }",]
     ],
     condition: [
       ["NOT condition", "$$ = { type: 'not', line: yylineno, condition: $2 }"],
