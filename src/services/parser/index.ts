@@ -1,9 +1,15 @@
-import { countBy, identity } from "lodash";
-import { parse as parseCode } from "./parser";
+import { groupBy } from "lodash";
+import { ParseError, ParseErrorData } from "./ParseError";
+import { Parser } from "./parser";
 import { AST, ASTFunction, ASTFunctionCall, ASTStatement } from "./types";
 
+const parser = new Parser();
+parser.yy.parseError = (str: string, data: ParseErrorData) => {
+  throw new ParseError(str, data);
+};
+
 export function parse(code: string): AST {
-  const ast = parseCode(code);
+  const ast = parser.parse(code);
   validate(ast);
   return ast;
 }
@@ -11,36 +17,43 @@ export function parse(code: string): AST {
 export function validate(ast: AST) {
   // program block
   const programs = ast.filter((x) => x.type === "program");
-  if (programs.length !== 1) {
-    throw new Error("The code must have exactly one program block");
+  if (programs.length > 1) {
+    throw new ParseError("There may be only one program block.", {
+      line: programs[1].line,
+    });
+  }
+
+  if (programs.length === 0) {
+    throw new ParseError("There must be a program block.");
   }
 
   // functions
-  const functionNames = ast
-    .filter((x): x is ASTFunction => x.type === "function")
-    .map((f) => f.identifier);
+  const functionBlocks = ast.filter(
+    (x): x is ASTFunction => x.type === "function"
+  );
 
-  const functionBlockCountByName = countBy(functionNames, identity);
-  for (const [functionName, count] of Object.entries(
-    functionBlockCountByName
-  )) {
-    if (count > 1) {
-      throw new Error(`There are two blocks for function ${functionName}.`);
+  const functionBlocksByName = groupBy(functionBlocks, (f) => f.identifier);
+  for (const [functionName, blocks] of Object.entries(functionBlocksByName)) {
+    if (blocks.length > 1) {
+      throw new ParseError(
+        `Duplicate function blocks for function '${functionName}'.`,
+        { line: blocks[1].line }
+      );
     }
   }
 
   const allFunctionCalls = ast.flatMap((x) =>
     x.body.flatMap((s) => getFunctionCalls(s))
   );
-  console.log(allFunctionCalls)
+  const functionNames = functionBlocks.map((f) => f.identifier);
   for (const functionCall of allFunctionCalls) {
     if (functionNames.includes(functionCall.name)) {
       return;
     }
 
-    throw new Error(
-      `Function ${functionCall.name} does not exist (line ${functionCall.line})`
-    );
+    throw new ParseError(`Function ${functionCall.name} does not exist.`, {
+      line: functionCall.line,
+    });
   }
 }
 

@@ -32,12 +32,7 @@ export function Controls() {
 
   const handleStartResume = () => {
     if (execution.state !== "running") {
-      try {
-        dispatch(parseCode());
-      } catch (e) {
-        addMessage({ children: "Error compiling program" });
-        return;
-      }
+      dispatch(parseCode());
     }
 
     dispatch(updateAutoStep(true));
@@ -47,12 +42,7 @@ export function Controls() {
 
   const handleStep = () => {
     if (execution.state !== "running") {
-      try {
-        dispatch(parseCode());
-      } catch (e) {
-        addMessage({ children: "Error compiling program" });
-        return;
-      }
+      dispatch(parseCode());
     }
 
     dispatch(updateAutoStep(false));

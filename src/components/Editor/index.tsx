@@ -9,6 +9,7 @@ import styles from "./index.module.scss";
 export function Editor() {
   const activeRow = useAppSelector((s) => s.execution.activeLine);
   const code = useAppSelector((s) => s.code);
+  const error = useAppSelector((s) => s.error);
   const dispatch = useDispatch();
 
   return (
@@ -30,6 +31,18 @@ export function Editor() {
                 endRow: activeRow,
                 startCol: 0,
                 endCol: Infinity,
+              },
+            ]
+          : []
+      }
+      annotations={
+        error?.data?.line !== undefined
+          ? [
+              {
+                text: error.message,
+                type: "error",
+                column: 0,
+                row: error.data.line,
               },
             ]
           : []

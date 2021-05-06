@@ -15,6 +15,7 @@ import {
 } from "../actions";
 import { checkCondition, doCall } from "../executor";
 import { parse } from "../parser";
+import { ParseError, ParseErrorData } from "../parser/ParseError";
 import { AST, ASTStatement } from "../parser/types";
 
 type State = "stopped" | "running" | "done";
@@ -23,6 +24,7 @@ export const rootSlice = createSlice({
   name: "#",
   initialState: {
     code: "",
+    error: undefined as { message: string; data?: ParseErrorData } | undefined,
     execution: {
       ast: [] as AST,
       stack: [] as ASTStatement[],
@@ -98,10 +100,23 @@ export const rootSlice = createSlice({
       state.world = resizeAction(state.world, size);
     },
     parseCode: (state) => {
-      const ast = parse(state.code);
+      state.error = undefined;
+      state.execution.state = "stopped";
+      state.execution.ast = [];
+      state.execution.stack = [];
+      let ast;
+      try {
+        ast = parse(state.code);
+      } catch (e) {
+        if (e instanceof ParseError) {
+          state.error = { message: e.message, data: e.data };
+        } else {
+          state.error = { message: e.toString() };
+        }
+        return;
+      }
       state.execution.ast = ast;
       state.execution.stack = ast.find((s) => s.type === "program")!.body;
-      state.execution.state = "stopped";
     },
     updateAutoStep: {
       prepare: (autoStep: boolean) => ({ payload: { autoStep } }),
