@@ -142,4 +142,16 @@ describe("parse", () => {
     const ast = parse(code);
     expect(ast).toMatchSnapshot(ast);
   });
+
+
+  it("repeat while 2", () => {
+    const code = `
+    Programm
+      solange IstZiegel
+        Aufheben
+      *solange
+    *Programm`;
+    const ast = parse(code);
+    expect(ast).toMatchSnapshot(ast);
+  });
 });

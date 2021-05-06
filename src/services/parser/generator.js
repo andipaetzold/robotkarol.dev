@@ -26,6 +26,7 @@ const grammar = {
       ["wiederhole\\b", "return 'REPEAT_BEGIN'"],
       ["\\*wiederhole\\b", "return 'REPEAT_END'"],
       ["solange\\b", "return 'WHILE'"],
+      ["\\*solange\\b", "return 'WHILE_END'"],
       ["mal\\b", "return 'TIMES'"],
       ["wenn\\b", "return 'IF'"],
       ["dann\\b", "return 'THEN'"],
@@ -87,6 +88,10 @@ const grammar = {
       ],
       [
         "REPEAT_BEGIN WHILE condition statements REPEAT_END",
+        "$$ = { type: 'while', line: yylineno, condition: $3, body: $4 }",
+      ],
+      [
+        "WHILE condition statements WHILE_END",
         "$$ = { type: 'while', line: yylineno, condition: $3, body: $4 }",
       ],
       [

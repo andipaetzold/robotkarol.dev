@@ -312,6 +312,29 @@ Array [
 ]
 `;
 
+exports[`parse repeat while 2 1`] = `
+Array [
+  Object {
+    "body": Array [
+      Object {
+        "body": "*solange",
+        "condition": Array [
+          Object {
+            "action": "BRICK_TAKE",
+            "line": 3,
+            "type": "call",
+          },
+        ],
+        "line": 4,
+        "type": "while",
+      },
+    ],
+    "line": 5,
+    "type": "program",
+  },
+]
+`;
+
 exports[`parse should accept empty function 1`] = `
 Array [
   Object {
