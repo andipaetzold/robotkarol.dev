@@ -1,4 +1,5 @@
 import { Direction, Player, Tile, World } from "../types";
+import { removeEmptyTiles } from "./world";
 
 export async function readWorldFile(file: File): Promise<World> {
   const fileData = await new Promise<string>((resolve) => {
@@ -12,14 +13,18 @@ export async function readWorldFile(file: File): Promise<World> {
   const fileDataSplit = fileData.trim().split(" ");
   const version = fileDataSplit[0];
 
+  let world: World;
   switch (version) {
     case "KarolVersion1Deutsch":
     case "KarolVersion2Deutsch":
     case "KarolVersion3.0":
-      return readWorld(fileDataSplit);
+      world = readWorld(fileDataSplit);
+      break;
     default:
       throw new Error("Unknown world file");
   }
+
+  return removeEmptyTiles(world);
 }
 
 function readWorld(data: string[]): World {
