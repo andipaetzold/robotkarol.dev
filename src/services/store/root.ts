@@ -26,7 +26,7 @@ export const rootSlice = createSlice({
     code: "",
     error: undefined as { message: string; data?: ParseErrorData } | undefined,
     execution: {
-      ast: [] as AST,
+      ast: undefined as AST | undefined,
       stack: [] as ASTStatement[],
       state: "stopped" as State,
       worldOnStart: DEFAULT_WORLD,
@@ -111,7 +111,7 @@ export const rootSlice = createSlice({
     parseCode: (state) => {
       state.error = undefined;
       state.execution.state = "stopped";
-      state.execution.ast = [];
+      state.execution.ast = undefined;
       state.execution.stack = [];
       let ast;
       try {
@@ -125,7 +125,7 @@ export const rootSlice = createSlice({
         return;
       }
       state.execution.ast = ast;
-      state.execution.stack = ast.find((s) => s.type === "program")!.body;
+      state.execution.stack = ast.program.body;
     },
     updateAutoStep: {
       prepare: (autoStep: boolean) => ({ payload: { autoStep } }),
@@ -146,9 +146,7 @@ export const rootSlice = createSlice({
       },
     },
     stop: (state) => {
-      state.execution.stack = state.execution.ast.find(
-        (s) => s.type === "program"
-      )!.body;
+      state.execution.stack = state.execution.ast?.program.body!;
       state.execution.state = "stopped";
       state.execution.activeLine = undefined;
       state.world = state.execution.worldOnStart;
@@ -182,8 +180,8 @@ export const rootSlice = createSlice({
             return;
           }
           case "functionCall": {
-            const functionCall = state.execution.ast.find(
-              (x) => x.type === "function" && x.identifier === statement.name
+            const functionCall = state.execution.ast?.functions.find(
+              (x) => x.identifier === statement.name
             )!;
             state.execution.stack.unshift(...functionCall.body);
             break;

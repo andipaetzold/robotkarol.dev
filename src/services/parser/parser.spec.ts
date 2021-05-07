@@ -9,6 +9,15 @@ describe("parse", () => {
     const ast = parse(code);
     expect(ast).toMatchSnapshot();
   });
+
+  it("should accept programs without wrapping `program`", () => {
+    const code = `
+    Schritt
+    Schritt`;
+    const ast = parse(code);
+    expect(ast).toMatchSnapshot();
+  });
+
   it("should accept empty function", () => {
     const code = `
         Anweisung Test

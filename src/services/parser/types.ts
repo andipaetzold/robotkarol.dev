@@ -1,4 +1,8 @@
-export type AST = (ASTProgram | ASTFunction)[];
+export type AST = {
+  type: "ast";
+  program: ASTProgram;
+  functions: ASTFunction[];
+};
 
 export interface ASTProgram {
   type: "program";
@@ -10,9 +14,10 @@ export interface ASTFunction {
   type: "function";
   line: number;
   identifier: string;
-  body: ASTStatement[];
+  body: ASTStatements;
 }
 
+export type ASTStatements = ASTStatement[];
 export type ASTStatement =
   | ASTIfStatement
   | ASTCall
@@ -36,22 +41,22 @@ export interface ASTRepeatStatement {
   type: "repeat";
   line: number;
   times: number;
-  body: ASTStatement[];
+  body: ASTStatements;
 }
 
 export interface ASTWhileStatement {
   type: "while";
   line: number;
   condition: ASTCondition;
-  body: ASTStatement[];
+  body: ASTStatements;
 }
 
 export interface ASTIfStatement {
   type: "if";
   line: number;
   condition: ASTCondition;
-  body: ASTStatement[];
-  elseBody: ASTStatement[];
+  body: ASTStatements;
+  elseBody: ASTStatements;
 }
 
 export type ASTCondition = ASTExpression | ASTNotExpression;

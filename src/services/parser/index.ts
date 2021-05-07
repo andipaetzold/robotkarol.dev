@@ -1,7 +1,7 @@
 import { groupBy } from "lodash";
 import { ParseError, ParseErrorData } from "./ParseError";
 import { Parser } from "./parser";
-import { AST, ASTFunction, ASTFunctionCall, ASTStatement } from "./types";
+import { AST, ASTFunctionCall, ASTStatement } from "./types";
 
 const parser = new Parser();
 parser.yy.parseError = (str: string, data: ParseErrorData) => {
@@ -15,24 +15,7 @@ export function parse(code: string): AST {
 }
 
 export function validate(ast: AST) {
-  // program block
-  const programs = ast.filter((x) => x.type === "program");
-  if (programs.length > 1) {
-    throw new ParseError("There may be only one program block.", {
-      line: programs[1].line,
-    });
-  }
-
-  if (programs.length === 0) {
-    throw new ParseError("There must be a program block.");
-  }
-
-  // functions
-  const functionBlocks = ast.filter(
-    (x): x is ASTFunction => x.type === "function"
-  );
-
-  const functionBlocksByName = groupBy(functionBlocks, (f) => f.identifier);
+  const functionBlocksByName = groupBy(ast.functions, (f) => f.identifier);
   for (const [functionName, blocks] of Object.entries(functionBlocksByName)) {
     if (blocks.length > 1) {
       throw new ParseError(
@@ -42,10 +25,10 @@ export function validate(ast: AST) {
     }
   }
 
-  const allFunctionCalls = ast.flatMap((x) =>
+  const allFunctionCalls = [...ast.functions, ast.program].flatMap((x) =>
     x.body.flatMap((s) => getFunctionCalls(s))
   );
-  const functionNames = functionBlocks.map((f) => f.identifier);
+  const functionNames = ast.functions.map((f) => f.identifier);
   for (const functionCall of allFunctionCalls) {
     if (functionNames.includes(functionCall.name)) {
       return;

@@ -11,4 +11,6 @@ declare module "./parser.js" {
 
     parse(code: string): AST;
   }
+
+  export function parse(code: string): AST;
 }

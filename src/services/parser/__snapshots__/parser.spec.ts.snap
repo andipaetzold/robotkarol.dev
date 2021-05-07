@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`parse branchless program 1`] = `
-Array [
-  Object {
+Object {
+  "functions": Array [],
+  "program": Object {
     "body": Array [
       Object {
         "action": "STEP",
@@ -43,12 +44,14 @@ Array [
     "line": 9,
     "type": "program",
   },
-]
+  "type": "ast",
+}
 `;
 
 exports[`parse if conditions 1`] = `
-Array [
-  Object {
+Object {
+  "functions": Array [],
+  "program": Object {
     "body": Array [
       Object {
         "body": Array [
@@ -122,12 +125,14 @@ Array [
     "line": 14,
     "type": "program",
   },
-]
+  "type": "ast",
+}
 `;
 
 exports[`parse if else 1`] = `
-Array [
-  Object {
+Object {
+  "functions": Array [],
+  "program": Object {
     "body": Array [
       Object {
         "body": Array [
@@ -156,32 +161,38 @@ Array [
     "line": 7,
     "type": "program",
   },
-]
+  "type": "ast",
+}
 `;
 
 exports[`parse ignores multiline comments 1`] = `
-Array [
-  Object {
+Object {
+  "functions": Array [],
+  "program": Object {
     "body": Array [],
     "line": 5,
     "type": "program",
   },
-]
+  "type": "ast",
+}
 `;
 
 exports[`parse ignores single line comments 1`] = `
-Array [
-  Object {
+Object {
+  "functions": Array [],
+  "program": Object {
     "body": Array [],
     "line": 5,
     "type": "program",
   },
-]
+  "type": "ast",
+}
 `;
 
 exports[`parse negative condition 1`] = `
-Array [
-  Object {
+Object {
+  "functions": Array [],
+  "program": Object {
     "body": Array [
       Object {
         "body": Array [
@@ -208,12 +219,14 @@ Array [
     "line": 5,
     "type": "program",
   },
-]
+  "type": "ast",
+}
 `;
 
 exports[`parse nested if 1`] = `
-Array [
-  Object {
+Object {
+  "functions": Array [],
+  "program": Object {
     "body": Array [
       Object {
         "body": Array [
@@ -259,12 +272,14 @@ Array [
     "line": 10,
     "type": "program",
   },
-]
+  "type": "ast",
+}
 `;
 
 exports[`parse repeat times 1`] = `
-Array [
-  Object {
+Object {
+  "functions": Array [],
+  "program": Object {
     "body": Array [
       Object {
         "body": Array [
@@ -282,12 +297,14 @@ Array [
     "line": 5,
     "type": "program",
   },
-]
+  "type": "ast",
+}
 `;
 
 exports[`parse repeat while 1`] = `
-Array [
-  Object {
+Object {
+  "functions": Array [],
+  "program": Object {
     "body": Array [
       Object {
         "body": Array [
@@ -309,12 +326,14 @@ Array [
     "line": 5,
     "type": "program",
   },
-]
+  "type": "ast",
+}
 `;
 
 exports[`parse repeat while 2 1`] = `
-Array [
-  Object {
+Object {
+  "functions": Array [],
+  "program": Object {
     "body": Array [
       Object {
         "body": "*solange",
@@ -332,26 +351,60 @@ Array [
     "line": 5,
     "type": "program",
   },
-]
+  "type": "ast",
+}
 `;
 
 exports[`parse should accept empty function 1`] = `
-Array [
-  Object {
+Object {
+  "functions": Array [
+    Object {
+      "body": Array [],
+      "identifier": "Test",
+      "line": 2,
+      "type": "function",
+    },
+  ],
+  "program": Object {
     "body": Array [],
-    "identifier": "Test",
-    "line": 2,
-    "type": "function",
+    "line": 0,
+    "type": "program",
   },
-]
+  "type": "ast",
+}
 `;
 
 exports[`parse should accept empty program 1`] = `
-Array [
-  Object {
+Object {
+  "functions": Array [],
+  "program": Object {
     "body": Array [],
     "line": 2,
     "type": "program",
   },
-]
+  "type": "ast",
+}
+`;
+
+exports[`parse should accept programs without wrapping \`program\` 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "action": "STEP",
+        "line": 1,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 2,
+        "type": "call",
+      },
+    ],
+    "line": 1,
+    "type": "program",
+  },
+  "type": "ast",
+}
 `;
