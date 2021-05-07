@@ -9,8 +9,9 @@ import { Controls } from "./components/Controls";
 import { Editor } from "./components/Editor";
 import { Header } from "./components/Header";
 import { View3D } from "./components/View3D";
+import { readFile } from "./services/file-reader";
 import { readWorldFile } from "./services/reader";
-import { setWorld } from "./services/store/root";
+import { setWorld, updateCode } from "./services/store/root";
 
 export function App() {
   const dispatch = useDispatch();
@@ -20,6 +21,9 @@ export function App() {
         if (file.name.endsWith(".kdw")) {
           const world = await readWorldFile(file);
           dispatch(setWorld(world));
+        } else {
+          const code = await readFile(file);
+          dispatch(updateCode(code));
         }
       }
     },

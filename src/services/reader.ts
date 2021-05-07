@@ -1,14 +1,9 @@
 import { Direction, Player, Tile, World } from "../types";
+import { readFile } from "./file-reader";
 import { removeEmptyTiles } from "./world";
 
 export async function readWorldFile(file: File): Promise<World> {
-  const fileData = await new Promise<string>((resolve) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      resolve(reader.result as string);
-    };
-    reader.readAsText(file);
-  });
+  const fileData = await readFile(file);
 
   const fileDataSplit = fileData.trim().split(" ");
   const version = fileDataSplit[0];
