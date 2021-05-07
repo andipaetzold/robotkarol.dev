@@ -36,6 +36,15 @@ export const rootSlice = createSlice({
     world: DEFAULT_WORLD,
   },
   reducers: {
+    setWorld: {
+      prepare: (world: World) => ({ payload: { world } }),
+      reducer: (
+        state,
+        { payload: { world } }: PayloadAction<{ world: World }>
+      ) => {
+        state.world = world;
+      },
+    },
     step: {
       prepare: (count: number = 1) => ({ payload: { count } }),
       reducer: (
@@ -226,6 +235,7 @@ export const {
   updateCode,
   updateAutoStep,
   updateState,
+  setWorld,
 } = rootSlice.actions;
 
 export default rootSlice.reducer;

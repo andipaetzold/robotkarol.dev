@@ -27,3 +27,12 @@
 .AppHeader {
   grid-area: header;
 }
+
+.Dropzone {
+  height: 100%;
+}
+
+.DropzoneOverlay {
+  color: white;
+  text-align: center;
+}
