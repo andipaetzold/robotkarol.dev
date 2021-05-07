@@ -1,0 +1,13 @@
+{
+  "extends": ["config:js-app", ":semanticCommitsDisabled"],
+  "dependencyDashboard": true,
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^@react-md/"],
+      "groupName": "react-md monorepo"
+    }
+  ]
+}
