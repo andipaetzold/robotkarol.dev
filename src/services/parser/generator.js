@@ -25,6 +25,7 @@ const grammar = {
       ["markelöschen\\b", "return 'MARKER_REMOVE'"],
       ["wiederhole\\b", "return 'REPEAT_BEGIN'"],
       ["\\*wiederhole\\b", "return 'REPEAT_END'"],
+      ["\\endewiederhole\\b", "return 'REPEAT_END'"],
       ["solange\\b", "return 'WHILE'"],
       ["\\*solange\\b", "return 'WHILE_END'"],
       ["mal\\b", "return 'TIMES'"],

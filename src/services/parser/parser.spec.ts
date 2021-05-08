@@ -3,9 +3,8 @@ import { parse } from "./parser";
 describe("parse", () => {
   it("should accept empty program", () => {
     const code = `
-        Programm
-        *Programm
-        `;
+      Programm
+      *Programm`;
     const ast = parse(code);
     expect(ast).toMatchSnapshot();
   });
@@ -20,25 +19,21 @@ describe("parse", () => {
 
   it("should accept empty function", () => {
     const code = `
-        Anweisung Test
-        *Anweisung
-        `;
+      Anweisung Test
+      *Anweisung`;
     const ast = parse(code);
     expect(ast).toMatchSnapshot();
   });
 
   it("branchless program", () => {
     const code = `
-            Programm
-              Schritt
-              LinksDrehen
-              RechtsDrehen
-              Hinlegen
-              Aufheben
-              MarkeSetzen
-              MarkeLöschen
-            *Programm
-            `;
+      Schritt
+      LinksDrehen
+      RechtsDrehen
+      Hinlegen
+      Aufheben
+      MarkeSetzen
+      MarkeLöschen`;
     const ast = parse(code);
     expect(ast).toMatchSnapshot();
   });
@@ -57,12 +52,12 @@ describe("parse", () => {
 
   it("ignores single line comments", () => {
     const code = `
-    // Comment
-    //
-    Programm
       // Comment
-    *Programm
-    // Comment
+      //
+      Programm
+        // Comment
+      *Programm
+      // Comment
     `;
     const ast = parse(code);
     expect(ast).toMatchSnapshot();
@@ -70,20 +65,18 @@ describe("parse", () => {
 
   it("if conditions", () => {
     const code = `
-      Programm
-        Wenn IstWand Dann
-          Schritt
-        *Wenn  
-        Wenn IstZiegel Dann
-          Schritt
-        *Wenn
-        Wenn IstMarke Dann
-          Schritt
-        *Wenn
-        Wenn IstNorden Dann
-          Schritt
-        *Wenn
-      *Programm`;
+      Wenn IstWand Dann
+        Schritt
+      *Wenn  
+      Wenn IstZiegel Dann
+        Schritt
+      *Wenn
+      Wenn IstMarke Dann
+        Schritt
+      *Wenn
+      Wenn IstNorden Dann
+        Schritt
+      *Wenn`;
     const ast = parse(code);
     expect(ast).toMatchSnapshot();
   });
@@ -101,64 +94,55 @@ describe("parse", () => {
 
   it("if else", () => {
     const code = `
-      Programm
-        Wenn IstWand Dann
-          LinksDrehen
-        Sonst
-          RechtsDrehen
-        *Wenn
-      *Programm
-      `;
+      Wenn IstWand Dann
+        LinksDrehen
+      Sonst
+        RechtsDrehen
+      *Wenn`;
     const ast = parse(code);
     expect(ast).toMatchSnapshot(ast);
   });
 
   it("nested if", () => {
     const code = `
-      Programm
-        Wenn IstWand Dann
-          LinksDrehen
-          Wenn IstZiegel Dann
-            Aufheben
-          *Wenn
-        Sonst
-          RechtsDrehen
+      Wenn IstWand Dann
+        LinksDrehen
+        Wenn IstZiegel Dann
+          Aufheben
         *Wenn
-      *Programm
-      `;
+      Sonst
+        RechtsDrehen
+      *Wenn`;
     const ast = parse(code);
     expect(ast).toMatchSnapshot(ast);
   });
 
   it("repeat times", () => {
     const code = `
-    Programm
       Wiederhole 5 mal
         Schritt
       *Wiederhole
-    *Programm`;
+    
+      wiederhole 5 mal
+        Schritt
+      endewiederhole`;
     const ast = parse(code);
     expect(ast).toMatchSnapshot(ast);
   });
 
   it("repeat while", () => {
     const code = `
-    Programm
       Wiederhole solange IstZiegel
         Aufheben
       *Wiederhole
-    *Programm`;
-    const ast = parse(code);
-    expect(ast).toMatchSnapshot(ast);
-  });
-
-  it("repeat while 2", () => {
-    const code = `
-    Programm
+    
       solange IstZiegel
         Aufheben
-      *solange
-    *Programm`;
+      *Wiederhole
+  
+      Wiederhole solange IstZiegel
+        Aufheben
+      EndeWiederhole`;
     const ast = parse(code);
     expect(ast).toMatchSnapshot(ast);
   });
