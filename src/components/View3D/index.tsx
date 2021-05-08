@@ -103,8 +103,13 @@ export function View3D() {
     [camera, render, canvas]
   );
 
-  const handleMouseUp = useCallback(() => {
-    moveRef.current = undefined;
+  useEffect(() => {
+    const handler = () => {
+      moveRef.current = undefined;
+    };
+
+    window.addEventListener("mouseup", handler);
+    return () => window.removeEventListener("mouseup", handler);
   }, []);
 
   return (
@@ -114,7 +119,6 @@ export function View3D() {
         className={styles.Canvas}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
       />
     </div>
   );
