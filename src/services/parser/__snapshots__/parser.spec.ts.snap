@@ -1,171 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`parse branchless program 1`] = `
+exports[`accept all call commands 1`] = `
 Object {
   "functions": Array [],
   "program": Object {
     "body": Array [
       Object {
         "action": "STEP",
-        "line": 2,
+        "line": 1,
         "type": "call",
       },
       Object {
         "action": "TURN_LEFT",
-        "line": 3,
+        "line": 2,
         "type": "call",
       },
       Object {
         "action": "TURN_RIGHT",
-        "line": 4,
+        "line": 3,
         "type": "call",
       },
       Object {
         "action": "BRICK_PUT",
-        "line": 5,
+        "line": 4,
         "type": "call",
       },
       Object {
         "action": "BRICK_TAKE",
-        "line": 6,
+        "line": 5,
         "type": "call",
       },
       Object {
         "action": "MARKER_SET",
-        "line": 7,
+        "line": 6,
         "type": "call",
       },
       Object {
         "action": "MARKER_REMOVE",
-        "line": 8,
+        "line": 7,
         "type": "call",
       },
     ],
-    "line": 9,
+    "line": 1,
     "type": "program",
   },
   "type": "ast",
 }
 `;
 
-exports[`parse if conditions 1`] = `
-Object {
-  "functions": Array [],
-  "program": Object {
-    "body": Array [
-      Object {
-        "body": Array [
-          Object {
-            "action": "STEP",
-            "line": 3,
-            "type": "call",
-          },
-        ],
-        "condition": Object {
-          "line": 2,
-          "test": "IS_WALL",
-          "type": "expression",
-        },
-        "elseBody": Array [],
-        "line": 4,
-        "type": "if",
-      },
-      Object {
-        "body": Array [
-          Object {
-            "action": "STEP",
-            "line": 6,
-            "type": "call",
-          },
-        ],
-        "condition": Object {
-          "line": 5,
-          "test": "IS_BRICK",
-          "type": "expression",
-        },
-        "elseBody": Array [],
-        "line": 7,
-        "type": "if",
-      },
-      Object {
-        "body": Array [
-          Object {
-            "action": "STEP",
-            "line": 9,
-            "type": "call",
-          },
-        ],
-        "condition": Object {
-          "line": 8,
-          "test": "IS_MARKER",
-          "type": "expression",
-        },
-        "elseBody": Array [],
-        "line": 10,
-        "type": "if",
-      },
-      Object {
-        "body": Array [
-          Object {
-            "action": "STEP",
-            "line": 12,
-            "type": "call",
-          },
-        ],
-        "condition": Object {
-          "line": 11,
-          "test": "IS_NORTH",
-          "type": "expression",
-        },
-        "elseBody": Array [],
-        "line": 13,
-        "type": "if",
-      },
-    ],
-    "line": 14,
-    "type": "program",
-  },
-  "type": "ast",
-}
-`;
-
-exports[`parse if else 1`] = `
-Object {
-  "functions": Array [],
-  "program": Object {
-    "body": Array [
-      Object {
-        "body": Array [
-          Object {
-            "action": "TURN_LEFT",
-            "line": 3,
-            "type": "call",
-          },
-        ],
-        "condition": Object {
-          "line": 2,
-          "test": "IS_WALL",
-          "type": "expression",
-        },
-        "elseBody": Array [
-          Object {
-            "action": "TURN_RIGHT",
-            "line": 5,
-            "type": "call",
-          },
-        ],
-        "line": 6,
-        "type": "if",
-      },
-    ],
-    "line": 7,
-    "type": "program",
-  },
-  "type": "ast",
-}
-`;
-
-exports[`parse ignores multiline comments 1`] = `
+exports[`comments ignores multiline 1`] = `
 Object {
   "functions": Array [],
   "program": Object {
@@ -177,7 +60,7 @@ Object {
 }
 `;
 
-exports[`parse ignores single line comments 1`] = `
+exports[`comments ignores single line 1`] = `
 Object {
   "functions": Array [],
   "program": Object {
@@ -189,173 +72,32 @@ Object {
 }
 `;
 
-exports[`parse negative condition 1`] = `
+exports[`function should accept basic body 1`] = `
 Object {
-  "functions": Array [],
-  "program": Object {
-    "body": Array [
-      Object {
-        "body": Array [
-          Object {
-            "action": "STEP",
-            "line": 3,
-            "type": "call",
-          },
-        ],
-        "condition": Object {
-          "condition": Object {
-            "line": 2,
-            "test": "IS_WALL",
-            "type": "expression",
-          },
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "STEP",
           "line": 2,
-          "type": "not",
+          "type": "call",
         },
-        "elseBody": Array [],
-        "line": 4,
-        "type": "if",
-      },
-    ],
-    "line": 5,
-    "type": "program",
-  },
-  "type": "ast",
-}
-`;
-
-exports[`parse nested if 1`] = `
-Object {
-  "functions": Array [],
+      ],
+      "identifier": "Test",
+      "line": 3,
+      "type": "function",
+    },
+  ],
   "program": Object {
-    "body": Array [
-      Object {
-        "body": Array [
-          Object {
-            "action": "TURN_LEFT",
-            "line": 3,
-            "type": "call",
-          },
-          Object {
-            "body": Array [
-              Object {
-                "action": "BRICK_TAKE",
-                "line": 5,
-                "type": "call",
-              },
-            ],
-            "condition": Object {
-              "line": 4,
-              "test": "IS_BRICK",
-              "type": "expression",
-            },
-            "elseBody": Array [],
-            "line": 6,
-            "type": "if",
-          },
-        ],
-        "condition": Object {
-          "line": 2,
-          "test": "IS_WALL",
-          "type": "expression",
-        },
-        "elseBody": Array [
-          Object {
-            "action": "TURN_RIGHT",
-            "line": 8,
-            "type": "call",
-          },
-        ],
-        "line": 9,
-        "type": "if",
-      },
-    ],
-    "line": 10,
+    "body": Array [],
+    "line": 0,
     "type": "program",
   },
   "type": "ast",
 }
 `;
 
-exports[`parse repeat times 1`] = `
-Object {
-  "functions": Array [],
-  "program": Object {
-    "body": Array [
-      Object {
-        "body": Array [
-          Object {
-            "action": "STEP",
-            "line": 3,
-            "type": "call",
-          },
-        ],
-        "line": 4,
-        "times": "5",
-        "type": "repeat",
-      },
-    ],
-    "line": 5,
-    "type": "program",
-  },
-  "type": "ast",
-}
-`;
-
-exports[`parse repeat while 1`] = `
-Object {
-  "functions": Array [],
-  "program": Object {
-    "body": Array [
-      Object {
-        "body": Array [
-          Object {
-            "action": "BRICK_TAKE",
-            "line": 3,
-            "type": "call",
-          },
-        ],
-        "condition": Object {
-          "line": 2,
-          "test": "IS_BRICK",
-          "type": "expression",
-        },
-        "line": 4,
-        "type": "while",
-      },
-    ],
-    "line": 5,
-    "type": "program",
-  },
-  "type": "ast",
-}
-`;
-
-exports[`parse repeat while 2 1`] = `
-Object {
-  "functions": Array [],
-  "program": Object {
-    "body": Array [
-      Object {
-        "body": "*solange",
-        "condition": Array [
-          Object {
-            "action": "BRICK_TAKE",
-            "line": 3,
-            "type": "call",
-          },
-        ],
-        "line": 4,
-        "type": "while",
-      },
-    ],
-    "line": 5,
-    "type": "program",
-  },
-  "type": "ast",
-}
-`;
-
-exports[`parse should accept empty function 1`] = `
+exports[`function should accept empty 1`] = `
 Object {
   "functions": Array [
     Object {
@@ -374,7 +116,234 @@ Object {
 }
 `;
 
-exports[`parse should accept empty program 1`] = `
+exports[`if all conditions 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "STEP",
+            "line": 2,
+            "type": "call",
+          },
+        ],
+        "condition": Object {
+          "line": 1,
+          "test": "IS_WALL",
+          "type": "expression",
+        },
+        "elseBody": Array [],
+        "line": 3,
+        "type": "if",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "STEP",
+            "line": 5,
+            "type": "call",
+          },
+        ],
+        "condition": Object {
+          "line": 4,
+          "test": "IS_BRICK",
+          "type": "expression",
+        },
+        "elseBody": Array [],
+        "line": 6,
+        "type": "if",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "STEP",
+            "line": 8,
+            "type": "call",
+          },
+        ],
+        "condition": Object {
+          "line": 7,
+          "test": "IS_MARKER",
+          "type": "expression",
+        },
+        "elseBody": Array [],
+        "line": 9,
+        "type": "if",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "STEP",
+            "line": 11,
+            "type": "call",
+          },
+        ],
+        "condition": Object {
+          "line": 10,
+          "test": "IS_NORTH",
+          "type": "expression",
+        },
+        "elseBody": Array [],
+        "line": 12,
+        "type": "if",
+      },
+    ],
+    "line": 3,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`if else 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "TURN_LEFT",
+            "line": 2,
+            "type": "call",
+          },
+        ],
+        "condition": Object {
+          "line": 1,
+          "test": "IS_WALL",
+          "type": "expression",
+        },
+        "elseBody": Array [
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 4,
+            "type": "call",
+          },
+        ],
+        "line": 5,
+        "type": "if",
+      },
+    ],
+    "line": 5,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`if negative condition 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "STEP",
+            "line": 2,
+            "type": "call",
+          },
+        ],
+        "condition": Object {
+          "condition": Object {
+            "line": 1,
+            "test": "IS_WALL",
+            "type": "expression",
+          },
+          "line": 1,
+          "type": "not",
+        },
+        "elseBody": Array [],
+        "line": 3,
+        "type": "if",
+      },
+    ],
+    "line": 3,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`if nested 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "TURN_LEFT",
+            "line": 2,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_TAKE",
+                "line": 4,
+                "type": "call",
+              },
+            ],
+            "condition": Object {
+              "line": 3,
+              "test": "IS_BRICK",
+              "type": "expression",
+            },
+            "elseBody": Array [],
+            "line": 5,
+            "type": "if",
+          },
+        ],
+        "condition": Object {
+          "line": 1,
+          "test": "IS_WALL",
+          "type": "expression",
+        },
+        "elseBody": Array [
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 7,
+            "type": "call",
+          },
+        ],
+        "line": 8,
+        "type": "if",
+      },
+    ],
+    "line": 8,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`program should accept basic body 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "action": "STEP",
+        "line": 2,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 3,
+        "type": "call",
+      },
+    ],
+    "line": 4,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`program should accept empty 1`] = `
 Object {
   "functions": Array [],
   "program": Object {
@@ -386,7 +355,7 @@ Object {
 }
 `;
 
-exports[`parse should accept programs without wrapping \`program\` 1`] = `
+exports[`program should accept programs without wrapping \`program\` 1`] = `
 Object {
   "functions": Array [],
   "program": Object {
@@ -403,6 +372,100 @@ Object {
       },
     ],
     "line": 1,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`repeat times 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "STEP",
+            "line": 2,
+            "type": "call",
+          },
+        ],
+        "line": 3,
+        "times": "5",
+        "type": "repeat",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "STEP",
+            "line": 6,
+            "type": "call",
+          },
+        ],
+        "line": 7,
+        "times": "5",
+        "type": "repeat",
+      },
+    ],
+    "line": 3,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`repeat while 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_TAKE",
+            "line": 2,
+            "type": "call",
+          },
+        ],
+        "condition": Object {
+          "line": 1,
+          "test": "IS_BRICK",
+          "type": "expression",
+        },
+        "line": 3,
+        "type": "while",
+      },
+      Object {
+        "body": "*solange",
+        "condition": Array [
+          Object {
+            "action": "BRICK_TAKE",
+            "line": 6,
+            "type": "call",
+          },
+        ],
+        "line": 7,
+        "type": "while",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_TAKE",
+            "line": 10,
+            "type": "call",
+          },
+        ],
+        "condition": Object {
+          "line": 9,
+          "test": "IS_BRICK",
+          "type": "expression",
+        },
+        "line": 11,
+        "type": "while",
+      },
+    ],
+    "line": 3,
     "type": "program",
   },
   "type": "ast",

@@ -43,10 +43,11 @@
     "use-resize-observer": "7.0.0"
   },
   "scripts": {
-    "prestart": "npm run prebuild",
+    "prestart": "npm run build-parser",
     "start": "react-scripts start",
-    "prebuild": "node src/services/parser/generator.js",
+    "prebuild": "npm run build-parser",
     "build": "react-scripts build",
+    "build-parser": "node src/services/parser/generator.js",
     "test": "react-scripts test"
   },
   "eslintConfig": {

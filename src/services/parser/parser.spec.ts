@@ -1,32 +1,54 @@
 import { parse } from "./parser";
 
-describe("parse", () => {
-  it("should accept empty program", () => {
+describe("program", () => {
+  it("should accept empty", () => {
     const code = `
-      Programm
-      *Programm`;
+        Programm
+        *Programm`;
     const ast = parse(code);
     expect(ast).toMatchSnapshot();
   });
 
   it("should accept programs without wrapping `program`", () => {
     const code = `
-    Schritt
-    Schritt`;
+        Schritt
+        Schritt`;
     const ast = parse(code);
     expect(ast).toMatchSnapshot();
   });
 
-  it("should accept empty function", () => {
+  it("should accept basic body", () => {
     const code = `
-      Anweisung Test
-      *Anweisung`;
+        Programm
+          Schritt
+          Schritt
+        *Programm`;
+    const ast = parse(code);
+    expect(ast).toMatchSnapshot();
+  });
+});
+
+describe("function", () => {
+  it("should accept empty", () => {
+    const code = `
+        Anweisung Test
+        *Anweisung`;
     const ast = parse(code);
     expect(ast).toMatchSnapshot();
   });
 
-  it("branchless program", () => {
+  it("should accept basic body", () => {
     const code = `
+        Anweisung Test
+          Schritt
+        *Anweisung`;
+    const ast = parse(code);
+    expect(ast).toMatchSnapshot();
+  });
+});
+
+it("accept all call commands", () => {
+  const code = `
       Schritt
       LinksDrehen
       RechtsDrehen
@@ -34,36 +56,38 @@ describe("parse", () => {
       Aufheben
       MarkeSetzen
       MarkeLöschen`;
-    const ast = parse(code);
-    expect(ast).toMatchSnapshot();
-  });
+  const ast = parse(code);
+  expect(ast).toMatchSnapshot();
+});
 
-  it("ignores multiline comments", () => {
+describe("comments", () => {
+  it("ignores multiline", () => {
     const code = `
-      { Comment }
-      {}
-      Programm
         { Comment }
-      *Programm
-      { Comment }`;
+        {}
+        Programm
+        { Comment }
+        *Programm
+        { Comment }`;
     const ast = parse(code);
     expect(ast).toMatchSnapshot();
   });
 
-  it("ignores single line comments", () => {
+  it("ignores single line", () => {
     const code = `
-      // Comment
-      //
-      Programm
         // Comment
-      *Programm
-      // Comment
-    `;
+        //
+        Programm
+        // Comment
+        *Programm
+        // Comment`;
     const ast = parse(code);
     expect(ast).toMatchSnapshot();
   });
+});
 
-  it("if conditions", () => {
+describe("if", () => {
+  it("all conditions", () => {
     const code = `
       Wenn IstWand Dann
         Schritt
@@ -83,66 +107,66 @@ describe("parse", () => {
 
   it("negative condition", () => {
     const code = `
-      Programm
         Wenn nicht IstWand Dann
           Schritt
-        *Wenn
-      *Programm`;
+        *Wenn`;
     const ast = parse(code);
     expect(ast).toMatchSnapshot();
   });
 
-  it("if else", () => {
+  it("else", () => {
     const code = `
-      Wenn IstWand Dann
-        LinksDrehen
-      Sonst
-        RechtsDrehen
-      *Wenn`;
+        Wenn IstWand Dann
+          LinksDrehen
+        Sonst
+          RechtsDrehen
+        *Wenn`;
     const ast = parse(code);
     expect(ast).toMatchSnapshot(ast);
   });
 
-  it("nested if", () => {
+  it("nested", () => {
     const code = `
-      Wenn IstWand Dann
-        LinksDrehen
-        Wenn IstZiegel Dann
+        Wenn IstWand Dann
+          LinksDrehen
+          Wenn IstZiegel Dann
+            Aufheben
+          *Wenn
+        Sonst
+          RechtsDrehen
+        *Wenn`;
+    const ast = parse(code);
+    expect(ast).toMatchSnapshot(ast);
+  });
+});
+
+describe("repeat", () => {
+  it("times", () => {
+    const code = `
+        Wiederhole 5 mal
+          Schritt
+        *Wiederhole
+        
+        wiederhole 5 mal
+          Schritt
+        endewiederhole`;
+    const ast = parse(code);
+    expect(ast).toMatchSnapshot(ast);
+  });
+
+  it("while", () => {
+    const code = `
+        Wiederhole solange IstZiegel
           Aufheben
-        *Wenn
-      Sonst
-        RechtsDrehen
-      *Wenn`;
-    const ast = parse(code);
-    expect(ast).toMatchSnapshot(ast);
-  });
-
-  it("repeat times", () => {
-    const code = `
-      Wiederhole 5 mal
-        Schritt
-      *Wiederhole
-    
-      wiederhole 5 mal
-        Schritt
-      endewiederhole`;
-    const ast = parse(code);
-    expect(ast).toMatchSnapshot(ast);
-  });
-
-  it("repeat while", () => {
-    const code = `
-      Wiederhole solange IstZiegel
-        Aufheben
-      *Wiederhole
-    
-      solange IstZiegel
-        Aufheben
-      *Wiederhole
-  
-      Wiederhole solange IstZiegel
-        Aufheben
-      EndeWiederhole`;
+        *Wiederhole
+        
+        solange IstZiegel
+          Aufheben
+        *solange
+        
+        Wiederhole solange IstZiegel
+          Aufheben
+        EndeWiederhole`;
     const ast = parse(code);
     expect(ast).toMatchSnapshot(ast);
   });
