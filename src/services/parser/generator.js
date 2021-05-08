@@ -25,7 +25,8 @@ const grammar = {
       ["markelöschen\\b", "return 'MARKER_REMOVE'"],
       ["wiederhole\\b", "return 'REPEAT_BEGIN'"],
       ["\\*wiederhole\\b", "return 'REPEAT_END'"],
-      ["\\endewiederhole\\b", "return 'REPEAT_END'"],
+      ["endewiederhole\\b", "return 'REPEAT_END'"],
+      ["immer\\b", "return 'ALWAYS'"],
       ["solange\\b", "return 'WHILE'"],
       ["\\*solange\\b", "return 'WHILE_END'"],
       ["mal\\b", "return 'TIMES'"],
@@ -128,6 +129,10 @@ const grammar = {
       [
         "REPEAT_BEGIN NUMBER TIMES statements REPEAT_END",
         "$$ = { type: 'repeat', line: yylineno, times: $2, body: $4 }",
+      ],
+      [
+        "REPEAT_BEGIN ALWAYS statements REPEAT_END",
+        "$$ = { type: 'repeat', line: yylineno, times: Infinity, body: $3 }",
       ],
       [
         "REPEAT_BEGIN WHILE condition statements REPEAT_END",

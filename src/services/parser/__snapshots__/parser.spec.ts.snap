@@ -378,6 +378,31 @@ Object {
 }
 `;
 
+exports[`repeat always 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "STEP",
+            "line": 2,
+            "type": "call",
+          },
+        ],
+        "line": 3,
+        "times": Infinity,
+        "type": "repeat",
+      },
+    ],
+    "line": 3,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
 exports[`repeat times 1`] = `
 Object {
   "functions": Array [],

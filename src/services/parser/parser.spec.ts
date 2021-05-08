@@ -122,7 +122,7 @@ describe("if", () => {
           RechtsDrehen
         *Wenn`;
     const ast = parse(code);
-    expect(ast).toMatchSnapshot(ast);
+    expect(ast).toMatchSnapshot();
   });
 
   it("nested", () => {
@@ -136,7 +136,7 @@ describe("if", () => {
           RechtsDrehen
         *Wenn`;
     const ast = parse(code);
-    expect(ast).toMatchSnapshot(ast);
+    expect(ast).toMatchSnapshot();
   });
 });
 
@@ -151,7 +151,16 @@ describe("repeat", () => {
           Schritt
         endewiederhole`;
     const ast = parse(code);
-    expect(ast).toMatchSnapshot(ast);
+    expect(ast).toMatchSnapshot();
+  });
+
+  it("always", () => {
+    const code = `
+      wiederhole immer
+        Schritt
+      *wiederhole`;
+    const ast = parse(code);
+    expect(ast).toMatchSnapshot();
   });
 
   it("while", () => {
@@ -168,6 +177,6 @@ describe("repeat", () => {
           Aufheben
         EndeWiederhole`;
     const ast = parse(code);
-    expect(ast).toMatchSnapshot(ast);
+    expect(ast).toMatchSnapshot();
   });
 });
