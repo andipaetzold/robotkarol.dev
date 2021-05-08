@@ -1,8 +1,16 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, {
+  MouseEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { WebGLRenderer } from "three";
 import useResizeObserver from "use-resize-observer";
 import { useAppSelector } from "../../services/store";
-import { createCamera } from "./camera";
+import { Position } from "../../types";
+import { CAMERA_PIXEL_RATIO, createCamera } from "./camera";
 import styles from "./index.module.scss";
 import { createScene } from "./scene";
 
@@ -56,9 +64,58 @@ export function View3D() {
     render();
   }, [render]);
 
+  const moveRef = useRef<Position | undefined>(undefined);
+
+  const handleMouseDown = useCallback(
+    (event: MouseEvent<HTMLCanvasElement>) => {
+      moveRef.current = { x: event.pageX, y: event.pageY };
+    },
+    []
+  );
+
+  const handleMouseMove = useCallback(
+    (event: MouseEvent<HTMLCanvasElement>) => {
+      if (!moveRef.current) {
+        return;
+      }
+
+      if (!camera) {
+        return;
+      }
+
+      if (!canvas) {
+        return;
+      }
+
+      // TODO: limit movement
+      const newX =
+        camera.position.x +
+        (moveRef.current.x - event.pageX) / CAMERA_PIXEL_RATIO;
+      const newY =
+        camera.position.y +
+        (event.pageY - moveRef.current.y) / CAMERA_PIXEL_RATIO;
+
+      camera.position.set(newX, newY, camera.position.z);
+
+      moveRef.current = { x: event.pageX, y: event.pageY };
+      render();
+    },
+    [camera, render, canvas]
+  );
+
+  const handleMouseUp = useCallback(() => {
+    moveRef.current = undefined;
+  }, []);
+
   return (
     <div ref={ref} className={styles.Container}>
-      <canvas ref={(ref) => setCanvas(ref)} className={styles.Canvas} />
+      <canvas
+        ref={(ref) => setCanvas(ref)}
+        className={styles.Canvas}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+      />
     </div>
   );
 }
