@@ -193,5 +193,10 @@ const grammar = {
 };
 
 const parser = new Parser(grammar);
-const code = parser.generate();
-writeFileSync(`${__dirname}/parser.js`, code);
+const code = parser.generate({ moduleType: "js" });
+writeFileSync(
+  `${__dirname}/parser.js`,
+  `${code}
+export const Parser = parser.Parser;
+export const parse = function () { return parser.parse.apply(parser, arguments); };`
+);
