@@ -1,4 +1,4 @@
-import { AmbientLight, PointLight, Scene } from "three";
+import { AmbientLight, DirectionalLight, Scene } from "three";
 import { World } from "../../types";
 import { createBricks } from "./bricks";
 import { createGrid } from "./grid";
@@ -9,9 +9,9 @@ export function createScene(world: World): Scene {
 
   scene.add(new AmbientLight());
 
-  const pointLight = new PointLight();
-  pointLight.position.set(world.width / 2, world.height / 2, world.depth);
-  scene.add(pointLight);
+  const directionalLight = new DirectionalLight();
+  directionalLight.position.set(5, 3, 10);
+  scene.add(directionalLight);
 
   scene.add(createGrid(world));
   scene.add(createBricks(world));
