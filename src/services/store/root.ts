@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { DEFAULT_WORLD } from "../../constants";
 import { World } from "../../types";
 import {
   pickUpBrick as pickUpBrickAction,
@@ -13,28 +12,14 @@ import {
   turnLeft as turnLeftAction,
   turnRight as turnRightAction,
 } from "../actions";
-import { checkCondition, doCall } from "../executor";
 import { parse } from "../parser";
-import { ParseError, ParseErrorData } from "../parser/ParseError";
-import { AST, ASTStatement } from "../parser/types";
-
-type State = "stopped" | "running" | "done";
+import { ParseError } from "../parser/ParseError";
+import { DEFAULT_STATE } from "./constants";
+import { executionStep as executionStepFn } from "./reducers/executionStep";
 
 export const rootSlice = createSlice({
   name: "#",
-  initialState: {
-    code: "",
-    error: undefined as { message: string; data?: ParseErrorData } | undefined,
-    execution: {
-      ast: undefined as AST | undefined,
-      stack: [] as ASTStatement[],
-      state: "stopped" as State,
-      worldOnStart: DEFAULT_WORLD,
-      activeLine: undefined as number | undefined,
-      autoStep: false,
-    },
-    world: DEFAULT_WORLD,
-  },
+  initialState: DEFAULT_STATE,
   reducers: {
     setWorld: {
       prepare: (world: World) => ({ payload: { world } }),
@@ -127,25 +112,17 @@ export const rootSlice = createSlice({
       state.execution.ast = ast;
       state.execution.stack = ast.program.body;
     },
-    updateAutoStep: {
-      prepare: (autoStep: boolean) => ({ payload: { autoStep } }),
-      reducer: (
-        state,
-        { payload: { autoStep } }: PayloadAction<{ autoStep: boolean }>
-      ) => {
-        state.execution.autoStep = autoStep;
-      },
+    controlsStartOrResume: (state) => {
+      state.execution.state = "running";
     },
-    updateState: {
-      prepare: (state: State) => ({ payload: { state } }),
-      reducer: (
-        state,
-        { payload: { state: executionState } }: PayloadAction<{ state: State }>
-      ) => {
-        state.execution.state = executionState;
-      },
+    controlsPause: (state) => {
+      state.execution.state = "paused";
     },
-    stop: (state) => {
+    controlsStep: (state) => {
+      state.execution.state = "paused";
+      executionStepFn(state);
+    },
+    controlsStop: (state) => {
       state.execution.stack = state.execution.ast?.program.body!;
       state.execution.state = "stopped";
       state.execution.activeLine = undefined;
@@ -160,58 +137,7 @@ export const rootSlice = createSlice({
         state.code = code;
       },
     },
-    executionStep: (state) => {
-      if (state.execution.state === "done") {
-        return;
-      }
-
-      state.execution.state = "running";
-
-      while (state.execution.stack.length > 0) {
-        const statement = state.execution.stack.shift()!;
-        switch (statement.type) {
-          case "call": {
-            state.world = doCall(statement, state.world);
-            state.execution.activeLine = statement.line;
-
-            if (state.execution.stack.length === 0) {
-              state.execution.state = "done";
-            }
-            return;
-          }
-          case "functionCall": {
-            const functionCall = state.execution.ast?.functions.find(
-              (x) => x.identifier === statement.name
-            )!;
-            state.execution.stack.unshift(...functionCall.body);
-            break;
-          }
-          case "repeat": {
-            if (statement.times > 1) {
-              state.execution.stack.unshift({
-                ...statement,
-                times: statement.times - 1,
-              });
-            }
-            state.execution.stack.unshift(...statement.body);
-            break;
-          }
-          case "if": {
-            if (checkCondition(statement.condition, state.world)) {
-              state.execution.stack.unshift(...statement.body);
-            } else {
-              state.execution.stack.unshift(...statement.elseBody);
-            }
-            break;
-          }
-          case "while": {
-            if (checkCondition(statement.condition, state.world)) {
-              state.execution.stack.unshift(...statement.body, statement);
-            }
-          }
-        }
-      }
-    },
+    executionStep: executionStepFn,
   },
 });
 
@@ -229,11 +155,12 @@ export const {
   reset,
   parseCode,
   executionStep,
-  stop,
   updateCode,
-  updateAutoStep,
-  updateState,
   setWorld,
+  controlsPause,
+  controlsStartOrResume,
+  controlsStop,
+  controlsStep,
 } = rootSlice.actions;
 
 export default rootSlice.reducer;

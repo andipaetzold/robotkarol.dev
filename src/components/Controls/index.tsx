@@ -10,11 +10,12 @@ import { useDispatch } from "react-redux";
 import { useInterval } from "../../hooks/useInterval";
 import { useAppSelector } from "../../services/store";
 import {
+  controlsPause,
+  controlsStartOrResume,
+  controlsStep,
+  controlsStop,
   executionStep,
-  stop,
   parseCode,
-  updateAutoStep,
-  updateState,
 } from "../../services/store/root";
 
 export function Controls() {
@@ -22,52 +23,44 @@ export function Controls() {
   const execution = useAppSelector((s) => s.execution);
   const addMessage = useAddMessage();
 
-  const nextStep = () => {
+  const handleStartResume = () => {
+    if (execution.state === "stopped") {
+      dispatch(parseCode());
+    }
+
+    dispatch(controlsStartOrResume());
+  };
+
+  const handleStep = () => {
+    if (execution.state === "stopped") {
+      dispatch(parseCode());
+    }
+
     try {
-      dispatch(executionStep());
+      dispatch(controlsStep());
     } catch (e) {
       addMessage({ children: e.message });
     }
   };
 
-  const handleStartResume = () => {
-    if (execution.state !== "running") {
-      dispatch(parseCode());
-    }
-
-    dispatch(updateAutoStep(true));
-    dispatch(updateState("running"));
-    nextStep();
-  };
-
-  const handleStep = () => {
-    if (execution.state !== "running") {
-      dispatch(parseCode());
-    }
-
-    dispatch(updateAutoStep(false));
-    dispatch(updateState("running"));
-    nextStep();
-  };
-
   const handlePause = () => {
-    dispatch(updateAutoStep(false));
+    dispatch(controlsPause());
   };
 
   const handleStop = () => {
-    dispatch(stop());
+    dispatch(controlsStop());
   };
 
   useInterval(() => {
-    if (
-      !execution.autoStep ||
-      execution.state === "done" ||
-      execution.state === "stopped"
-    ) {
+    if (execution.state !== "running") {
       return;
     }
 
-    dispatch(executionStep());
+    try {
+      dispatch(executionStep());
+    } catch (e) {
+      addMessage({ children: e.message });
+    }
   }, 1_000);
 
   return (
@@ -77,10 +70,7 @@ export function Controls() {
         onClick={handleStartResume}
         buttonType="icon"
         disabled={
-          !(
-            execution.state === "stopped" ||
-            (execution.state === "running" && !execution.autoStep)
-          )
+          !(execution.state === "paused" || execution.state === "stopped")
         }
       >
         <PlayArrowFontIcon />
@@ -90,10 +80,7 @@ export function Controls() {
         onClick={handleStep}
         buttonType="icon"
         disabled={
-          !(
-            (execution.state === "running" && !execution.autoStep) ||
-            execution.state === "stopped"
-          )
+          !(execution.state === "paused" || execution.state === "stopped")
         }
       >
         <SkipNextFontIcon />
@@ -102,7 +89,7 @@ export function Controls() {
         theme="clear"
         onClick={handlePause}
         buttonType="icon"
-        disabled={!(execution.state === "running" && execution.autoStep)}
+        disabled={!(execution.state === "running")}
       >
         <PauseFontIcon />
       </Button>
@@ -111,7 +98,11 @@ export function Controls() {
         onClick={handleStop}
         buttonType="icon"
         disabled={
-          !(execution.state === "running" || execution.state === "done")
+          !(
+            execution.state === "running" ||
+            execution.state === "paused" ||
+            execution.state === "done"
+          )
         }
       >
         <StopFontIcon />
