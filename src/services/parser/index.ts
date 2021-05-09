@@ -44,6 +44,8 @@ function getFunctionCalls(statement: ASTStatement): ASTFunctionCall[] {
   switch (statement.type) {
     case "functionCall":
       return [statement];
+    case "systemCall":
+      return [];
     case "if":
       return [
         ...statement.body.flatMap((s) => getFunctionCalls(s)),

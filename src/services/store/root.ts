@@ -125,6 +125,7 @@ export const rootSlice = createSlice({
     controlsStop: (state) => {
       state.execution.stack = state.execution.ast?.program.body!;
       state.execution.state = "stopped";
+      state.execution.speed = "slow";
       state.execution.activeLine = undefined;
       state.world = state.execution.worldOnStart;
     },

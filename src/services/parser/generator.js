@@ -42,6 +42,10 @@ const grammar = {
       ["nicht\\b", "return 'NOT'"],
       ["istmarke\\b", "return 'IS_MARKER'"],
       ["nichtistmarke\\b", "return 'NOT_IS_MARKER'"],
+
+      ["schnell\\b", "return 'FAST'"],
+      ["langsam\\b", "return 'SLOW'"],
+
       ["[0-9]+(?:\\.[0-9]+)?\\b", "return 'NUMBER'"],
       ["[a-z]+\\b", "return 'IDENTIFIER'"],
     ],
@@ -122,6 +126,8 @@ const grammar = {
         "MARKER_REMOVE",
         "$$ = { type: 'call', line: yylineno, action: 'MARKER_REMOVE' }",
       ],
+      ["SLOW", "$$ = { type: 'systemCall', line: yylineno, action: 'slow' }"],
+      ["FAST", "$$ = { type: 'systemCall', line: yylineno, action: 'fast' }"],
       [
         "REPEAT_BEGIN NUMBER TIMES statements REPEAT_END",
         "$$ = { type: 'repeat', line: yylineno, times: $2, body: $4 }",

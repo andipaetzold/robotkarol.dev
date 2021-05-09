@@ -13,6 +13,7 @@ export interface RootState {
     state: State;
     worldOnStart: World;
     activeLine?: number;
+    speed: "slow" | "fast";
   };
   world: World;
 }

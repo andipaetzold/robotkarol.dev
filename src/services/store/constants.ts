@@ -11,6 +11,7 @@ export const DEFAULT_STATE: RootState = {
     state: "stopped",
     worldOnStart: DEFAULT_WORLD,
     activeLine: undefined as number | undefined,
+    speed: "slow",
   },
   world: DEFAULT_WORLD,
 };

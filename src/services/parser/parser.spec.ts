@@ -180,3 +180,23 @@ describe("repeat", () => {
     expect(ast).toMatchSnapshot();
   });
 });
+
+describe("system calls", () => {
+  it("slow", () => {
+    const code = `
+        langsam
+        Schritt
+        Schritt`;
+    const ast = parse(code);
+    expect(ast).toMatchSnapshot();
+  });
+
+  it("fast", () => {
+    const code = `
+        schnell
+        Schritt
+        Schritt`;
+    const ast = parse(code);
+    expect(ast).toMatchSnapshot();
+  });
+});

@@ -496,3 +496,59 @@ Object {
   "type": "ast",
 }
 `;
+
+exports[`system calls fast 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "action": "fast",
+        "line": 1,
+        "type": "systemCall",
+      },
+      Object {
+        "action": "STEP",
+        "line": 2,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 3,
+        "type": "call",
+      },
+    ],
+    "line": 1,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`system calls slow 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "action": "slow",
+        "line": 1,
+        "type": "systemCall",
+      },
+      Object {
+        "action": "STEP",
+        "line": 2,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 3,
+        "type": "call",
+      },
+    ],
+    "line": 1,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;

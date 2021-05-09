@@ -21,6 +21,7 @@ export type ASTStatements = ASTStatement[];
 export type ASTStatement =
   | ASTIfStatement
   | ASTCall
+  | ASTSystemCall
   | ASTFunctionCall
   | ASTRepeatStatement
   | ASTWhileStatement;
@@ -29,6 +30,12 @@ export interface ASTCall {
   type: "call";
   line: number;
   action: Action;
+}
+
+export interface ASTSystemCall {
+  type: "systemCall";
+  line: number;
+  action: SystemAction;
 }
 
 export interface ASTFunctionCall {
@@ -93,3 +100,5 @@ export type Action =
   | "BRICK_TAKE"
   | "MARKER_SET"
   | "MARKER_REMOVE";
+
+export type SystemAction = "fast" | "slow";
