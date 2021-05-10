@@ -114,14 +114,6 @@ function createPlanes(world: World) {
   const group = new Group();
 
   {
-    const geometry = new PlaneGeometry(world.width, world.depth);
-    const mesh = new Mesh(geometry, planeMaterial);
-    mesh.rotation.set(degreeToRadians(-90), 0, degreeToRadians(0));
-    mesh.position.set(world.width / 2, 0, world.depth / 2);
-    group.add(mesh);
-  }
-
-  {
     const geometry = new PlaneGeometry(
       world.depth,
       world.height * BRICK_HEIGHT

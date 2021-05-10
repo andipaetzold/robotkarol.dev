@@ -1,6 +1,6 @@
 import { AmbientLight, DirectionalLight, Scene } from "three";
 import { World } from "../../types";
-import { createBricks } from "./bricks";
+import { createTiles } from "./tiles";
 import { createGrid } from "./grid";
 import { createPlayer } from "./player";
 
@@ -14,7 +14,7 @@ export function createScene(world: World): Scene {
   scene.add(directionalLight);
 
   scene.add(createGrid(world));
-  scene.add(createBricks(world));
+  scene.add(createTiles(world));
   scene.add(createPlayer(world));
 
   return scene;

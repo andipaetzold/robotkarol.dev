@@ -86,8 +86,7 @@ export function setMarker(worldOrg: World): World {
     throw new Error("Cannot mark tile. It is already marked.");
   }
   tile.marked = true;
-  updateTile(world, tile);
-  return world;
+  return updateTile(world, tile);
 }
 
 export function removeMarker(worldOrg: World): World {
