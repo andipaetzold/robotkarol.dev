@@ -28,6 +28,9 @@ export function executionStep(state: RootState): void {
           case "slow":
             state.execution.speed = "slow";
             break;
+          case "exit":
+            state.execution.stack = [];
+            break;
         }
         break;
       }

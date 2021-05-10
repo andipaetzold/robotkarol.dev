@@ -45,6 +45,7 @@ const grammar = {
 
       ["schnell\\b", "return 'FAST'"],
       ["langsam\\b", "return 'SLOW'"],
+      ["beenden\\b", "return 'EXIT'"],
 
       ["[0-9]+(?:\\.[0-9]+)?\\b", "return 'NUMBER'"],
       ["[a-z]+\\b", "return 'IDENTIFIER'"],
@@ -128,6 +129,7 @@ const grammar = {
       ],
       ["SLOW", "$$ = { type: 'systemCall', line: yylineno, action: 'slow' }"],
       ["FAST", "$$ = { type: 'systemCall', line: yylineno, action: 'fast' }"],
+      ["EXIT", "$$ = { type: 'systemCall', line: yylineno, action: 'exit' }"],
       [
         "REPEAT_BEGIN NUMBER TIMES statements REPEAT_END",
         "$$ = { type: 'repeat', line: yylineno, times: $2, body: $4 }",

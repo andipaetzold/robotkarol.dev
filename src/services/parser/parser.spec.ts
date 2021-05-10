@@ -199,4 +199,13 @@ describe("system calls", () => {
     const ast = parse(code);
     expect(ast).toMatchSnapshot();
   });
+
+  it("exit", () => {
+    const code = `
+        beenden
+        Schritt
+        Schritt`;
+    const ast = parse(code);
+    expect(ast).toMatchSnapshot();
+  });
 });

@@ -101,4 +101,4 @@ export type Action =
   | "MARKER_SET"
   | "MARKER_REMOVE";
 
-export type SystemAction = "fast" | "slow";
+export type SystemAction = "fast" | "slow" | "exit";
