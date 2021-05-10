@@ -27,3 +27,20 @@ export function createCamera(world: World, width: number, height: number) {
   camera.projectionMatrixInverse.copy(camera.projectionMatrix).invert();
   return camera;
 }
+
+export function updateCameraZoom(delta: number, camera: OrthographicCamera) {
+  camera.zoom = Math.min(Math.max(0.1, camera.zoom + delta), 3);
+  camera.updateProjectionMatrix();
+  camera.projectionMatrix.multiply(matrix);
+  camera.projectionMatrixInverse.copy(camera.projectionMatrix).invert();
+}
+
+export function updateCameraPosition(
+  deltaX: number,
+  deltaY: number,
+  camera: OrthographicCamera
+) {
+  const newX = camera.position.x + deltaX / CAMERA_PIXEL_RATIO;
+  const newY = camera.position.y + deltaY / CAMERA_PIXEL_RATIO;
+  camera.position.set(newX, newY, camera.position.z);
+}

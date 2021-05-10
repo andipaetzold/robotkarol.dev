@@ -1,5 +1,4 @@
 import React, {
-  MouseEvent,
   useCallback,
   useEffect,
   useMemo,
@@ -10,7 +9,7 @@ import { WebGLRenderer } from "three";
 import useResizeObserver from "use-resize-observer";
 import { useAppSelector } from "../../services/store";
 import { Position } from "../../types";
-import { CAMERA_PIXEL_RATIO, createCamera } from "./camera";
+import { createCamera, updateCameraPosition, updateCameraZoom } from "./camera";
 import styles from "./index.module.scss";
 import { createScene } from "./scene";
 
@@ -67,14 +66,14 @@ export function View3D() {
   const moveRef = useRef<Position | undefined>(undefined);
 
   const handleMouseDown = useCallback(
-    (event: MouseEvent<HTMLCanvasElement>) => {
+    (event: React.MouseEvent<HTMLCanvasElement>) => {
       moveRef.current = { x: event.pageX, y: event.pageY };
     },
     []
   );
 
   const handleMouseMove = useCallback(
-    (event: MouseEvent<HTMLCanvasElement>) => {
+    (event: React.MouseEvent<HTMLCanvasElement>) => {
       if (!moveRef.current) {
         return;
       }
@@ -87,21 +86,39 @@ export function View3D() {
         return;
       }
 
-      // TODO: limit movement
-      const newX =
-        camera.position.x +
-        (moveRef.current.x - event.pageX) / CAMERA_PIXEL_RATIO;
-      const newY =
-        camera.position.y +
-        (event.pageY - moveRef.current.y) / CAMERA_PIXEL_RATIO;
-
-      camera.position.set(newX, newY, camera.position.z);
+      updateCameraPosition(
+        moveRef.current.x - event.pageX,
+        event.pageY - moveRef.current.y,
+        camera
+      );
 
       moveRef.current = { x: event.pageX, y: event.pageY };
       render();
     },
     [camera, render, canvas]
   );
+
+  const handleWheel = useCallback(
+    (event: WheelEvent) => {
+      if (!camera) {
+        return;
+      }
+
+      event.preventDefault();
+      updateCameraZoom(event.deltaY * 0.05, camera);
+      render();
+    },
+    [render, camera]
+  );
+
+  useEffect(() => {
+    if (!canvas) {
+      return;
+    }
+
+    canvas.addEventListener("wheel", handleWheel);
+    return () => canvas.removeEventListener("wheel", handleWheel);
+  }, [canvas, handleWheel]);
 
   useEffect(() => {
     const handler = () => {
