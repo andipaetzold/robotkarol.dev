@@ -1,6 +1,6 @@
 import { Direction, Player, Tile, World } from "../types";
 import { readFile } from "./file-reader";
-import { removeEmptyTiles } from "./world";
+import { removeEmptyTiles, validateTile } from "./world";
 
 export async function readWorldFile(file: File): Promise<World> {
   const fileData = await readFile(file);
@@ -35,6 +35,10 @@ function readWorld(data: string[]): World {
   };
 
   const tileData = data.slice(7);
+  if (tileData[tileData.length - 1] !== "o") {
+    tileData.push("o");
+  }
+
   const world: World = {
     width,
     height,
@@ -47,22 +51,23 @@ function readWorld(data: string[]): World {
     let x = 0;
     let y = 0;
 
-    let tile: Tile = { x, y, bricks: 0, marked: false };
+    let tile: Tile = { x, y, bricks: 0, marked: false, cuboid: false };
     for (const v of tileData) {
       switch (v) {
         case "o":
           ++x;
+          validateTile(world, tile);
           world.tiles.push(tile);
 
           if (x >= width) {
             x = 0;
             ++y;
           }
-          tile = { x, y, bricks: 0, marked: false };
+          tile = { x, y, bricks: 0, marked: false, cuboid: false };
           break;
 
         case "q":
-          console.warn("Cuboids are not supported");
+          tile.cuboid = true;
           break;
 
         case "m":

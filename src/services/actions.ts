@@ -36,6 +36,7 @@ export function step(worldOrg: World, count = 1): World {
   const world = cloneDeep(worldOrg);
 
   const newPosition = getPositionInFront(world, count);
+  // TODO: check step by step whether: 1. the tile is a cuboid. 2. the brick stack is not too high
   if (!isInWorld(world, newPosition)) {
     throw new Error(`Cannot walk ${count} step(s). The world is too small.`);
   }
@@ -54,6 +55,10 @@ export function putBrick(worldOrg: World, count = 1): World {
 
   const tileOrg = getTile(world, brickPosition);
   const tile = cloneDeep(tileOrg);
+  if (tile.cuboid) {
+    throw new Error("Cannot put brick on cuboid.");
+  }
+
   if (tile.bricks + count > world.height) {
     throw new Error("Cannot put bricks. The stack is too high.");
   }
@@ -71,6 +76,10 @@ export function pickUpBrick(worldOrg: World, count = 1): World {
 
   const tileOrg = getTile(world, brickPosition);
   const tile = cloneDeep(tileOrg);
+  if (tile.cuboid) {
+    throw new Error("Cannot pick up brick from cuboid.");
+  }
+
   if (tile.bricks - count < 0) {
     throw new Error("Cannot pick up bricks. Not enough bricks to pick up.");
   }

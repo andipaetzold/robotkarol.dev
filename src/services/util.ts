@@ -30,6 +30,7 @@ export function getTile(world: World, pos: Position): Tile {
       ...pos,
       marked: false,
       bricks: 0,
+      cuboid: false,
     }
   );
 }

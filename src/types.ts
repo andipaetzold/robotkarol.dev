@@ -19,6 +19,7 @@ export interface Position {
 }
 
 export interface Tile extends Position {
+  cuboid: boolean;
   bricks: number;
   marked: boolean;
 }
