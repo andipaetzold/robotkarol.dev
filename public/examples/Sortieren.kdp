@@ -1,0 +1,122 @@
+{ Karol sortiert die Ziegelstapel
+  nach der Größe;
+  der Größte kommt ganz nach hinten;
+  Pribzip des Bubblesort }
+
+Einfügen
+  Bibliothek.kdp
+*Einfügen
+
+Anweisung Umsetzen
+  schnell
+  wiederhole solange IstZiegel
+    Aufheben
+    HintenHinlegen
+  *wiederhole
+  langsam
+*Anweisung
+
+Anweisung Verschieben
+  schnell
+  wiederhole solange IstZiegel
+    Aufheben
+    SchrittLinks
+    Hinlegen
+    SchrittRechts
+  *wiederhole
+  langsam
+*Anweisung
+
+Anweisung UmsetzenDiagonal
+  Umdrehen
+  schnell
+  wiederhole solange IstZiegel
+    Aufheben
+    LinksDrehen
+    Schritt
+    LinksDrehen
+    Hinlegen
+    LinksDrehen
+    Schritt
+    LinksDrehen
+  *wiederhole
+  langsam
+  Umdrehen
+*Anweisung
+
+
+Anweisung Wiederherstellen
+  Umdrehen
+  wiederhole solange IstZiegel
+    Aufheben
+    Umdrehen
+    Hinlegen
+    SchrittLinks
+    Hinlegen
+    RechtsDrehen
+    Schritt
+    RechtsDrehen
+  *wiederhole
+  Umdrehen
+*Anweisung
+
+
+{ Vergleicht zwei Stapel, setzt vor den 
+kleineren eine Marke }
+Anweisung Vergleichen
+
+
+  schnell
+  wiederhole solange NichtIstMarke
+    wenn NichtIstZiegel dann
+      MarkeSetzen
+    *wenn
+    wenn NichtIstMarke dann
+      SchrittLinks
+      wenn NichtIstZiegel dann
+        MarkeSetzen
+        SchrittRechts
+        MarkeSetzen
+      sonst
+        Aufheben
+        SchrittRechts
+        Aufheben
+        HintenHinlegen
+      *wenn
+    *wenn
+  *wiederhole
+  Wiederherstellen
+  langsam
+  MarkeLöschen
+*Anweisung
+
+Anweisung Tauschen
+  Umsetzen
+  SchrittRechts
+  Verschieben
+  SchrittLinks
+  UmsetzenDiagonal
+*Anweisung
+
+Programm
+  wiederhole 8 mal
+    wiederhole solange NichtIstwand
+      RechtsDrehen
+      Vergleichen
+      SchrittLinks
+      wenn NichtIstMarke dann
+        Tauschen
+      sonst
+        MarkeLöschen
+      *wenn
+      LinksDrehen
+    *wiederhole
+    schnell
+    umdrehen
+    wiederhole solange NichtIstwand Schritt *wiederhole
+    umdrehen
+    langsam
+  *wiederhole
+*Programm
+
+

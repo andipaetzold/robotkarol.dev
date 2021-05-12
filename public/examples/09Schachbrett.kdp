@@ -1,0 +1,24 @@
+{ Karol zeichnet ein Schachbrettmuster.
+  Er soll Links-Hinten starten mit Blick
+  nach Vorne.
+  Beim letzten Wenden verursacht Karol einen
+  Laufzeitfehler. Warum ?}
+
+Anweisung MarkiereZeile
+  wiederhole solange NichtIstWand
+    MarkeSetzen
+    Schritt
+    wenn NichtIstWand dann Schritt *wenn
+  *wiederhole
+*Anweisung
+
+wiederhole 3 mal
+  MarkiereZeile
+  LinksDrehen 
+  Schritt 
+  LinksDrehen
+  MarkiereZeile
+  RechtsDrehen 
+  Schritt 
+  Rechtsdrehen
+*wiederhole

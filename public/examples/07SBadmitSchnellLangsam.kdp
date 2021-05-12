@@ -1,0 +1,91 @@
+{ Programm: Ein Schwimmbecken bauen
+  Karol soll in der linken, hinteren Ecke 
+  stehen mit Blick nach Vorne = Süden }
+
+{ wie Beispiel 06 jedoch zusätzlich mit den
+  Anweisungen schnell und langsam }
+
+{Becken bauen }
+Anweisung BaueBecken
+  schnell
+  wiederhole 12 mal
+    wiederhole solange NichtIstWand
+      Hinlegen
+      Schritt
+    *wiederhole
+    LinksDrehen
+  *wiederhole
+  langsam
+*Anweisung
+
+{ Becken abreissen }
+Anweisung AbbauenBecken
+  schnell
+  wiederhole 12 mal
+    wiederhole solange NichtIstWand
+      Aufheben
+      Schritt
+    *wiederhole
+    RechtsDrehen
+  *wiederhole
+  langsam
+*Anweisung
+
+{ Karol dreht sich um }
+Anweisung Umdrehen
+  LinksDrehen
+  LinksDrehen
+*Anweisung
+
+{ Becken "durchschwimmen" }
+Anweisung Schwimmen
+
+  { Schwimmkörper bauen }
+  wiederhole 3 mal Hinlegen *wiederhole
+  Schritt
+  wiederhole solange NichtIstZiegel
+    wiederhole 3 mal Hinlegen *wiederhole
+    Schritt
+    Umdrehen
+    wiederhole 3 mal Aufheben *wiederhole
+    Umdrehen
+  *wiederhole
+  Schritt
+  Umdrehen
+  wiederhole 3 mal Aufheben *wiederhole
+  Umdrehen
+*Anweisung
+
+{ Definition des Hauptteils }
+Anweisung Hauptteil
+
+  BaueBecken
+
+  { zur Mitte bewegen }
+  LinksDrehen
+  wiederhole 2 mal Schritt *wiederhole
+  RechtsDrehen
+
+  Schwimmen
+
+  { zur Ecke bewegen }
+  RechtsDrehen
+  wiederhole 2 mal Schritt *wiederhole
+  RechtsDrehen
+
+  AbbauenBecken
+
+  { zur�ck zur Ausgangsposition }
+  wiederhole solange NichtIstWand Schritt *wiederhole
+  LinksDrehen LinksDrehen
+*Anweisung
+
+{ ********************************************* }
+{ *************** Programmanfang  ************* }
+{ ********************************************* }
+Programm
+  wiederhole 4 mal
+    Hauptteil
+  *wiederhole
+*Programm
+{ *********** Programmende *********** }

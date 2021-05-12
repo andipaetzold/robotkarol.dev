@@ -5,7 +5,11 @@ import { removeEmptyTiles, validateTile } from "./world";
 export async function readWorldFile(file: File): Promise<World> {
   const fileData = await readFile(file);
 
-  const data = fileData.trim().split(" ");
+  return readWorld(fileData);
+}
+
+export function readWorld(rawData: string): World {
+  const data = rawData.trim().split(" ");
 
   const version = data[0];
   const width = +data[1];

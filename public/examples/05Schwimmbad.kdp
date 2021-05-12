@@ -1,0 +1,65 @@
+{ Programm: Ein Schwimmbecken bauen
+  Karol soll in der linken, hinteren
+  Ecke stehen mit Blick nach Vorne 
+  = Süden }
+
+{ neue Anweisung Umdrehen }
+Anweisung Umdrehen
+  LinksDrehen
+  LinksDrehen
+*Anweisung
+
+{ Hauptprogramm  4 mal ausfuhren }
+wiederhole 4 mal
+  { baue Becken }
+  wiederhole 12 mal
+    wiederhole solange NichtIstwand
+      Hinlegen
+      Schritt
+    *wiederhole
+    LinksDrehen
+  *wiederhole { 12 mal }
+
+  { zur Mitte bewegen }
+  LinksDrehen
+  wiederhole 2 mal
+    Schritt
+  *wiederhole
+  RechtsDrehen
+
+  { hinuberschwimmen }
+  wiederhole 3 mal Hinlegen *wiederhole
+  Schritt
+  wiederhole solange NichtIstZiegel
+    wiederhole 3 mal Hinlegen *wiederhole
+    Schritt
+    Umdrehen
+    wiederhole 3 mal Aufheben *wiederhole
+    Umdrehen
+  *wiederhole
+  Schritt
+  Umdrehen
+  wiederhole 3 mal Aufheben *wiederhole
+  Umdrehen
+
+  { in die Ecke bewegen }
+  RechtsDrehen
+  wiederhole 2 mal Schritt *wiederhole
+  RechtsDrehen
+
+  { Becken abbauen }
+  wiederhole 12 mal
+    wiederhole solange NichtIstwand
+      Aufheben
+      Schritt
+    *wiederhole
+    RechtsDrehen
+  *wiederhole
+
+  { zur Ausgangsposition bewegen }
+  wiederhole solange NichtIstwand 
+    Schritt
+  *wiederhole
+  Umdrehen
+
+*wiederhole { 4 mal dasselbe }

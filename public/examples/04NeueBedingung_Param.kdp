@@ -1,0 +1,11 @@
+{ Aufgabe:
+  Karol soll erkennen, 
+  dass genau zwei Ziegel vor ihm liegen.
+  Verwendung von Parameter }
+
+wenn istZiegel(2) dann
+  LinksDrehen
+sonst
+  Rechtsdrehen
+*wenn
+

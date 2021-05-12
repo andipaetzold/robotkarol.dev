@@ -1,0 +1,101 @@
+{ Eine Bibliothek von Anweisungen und
+  Bedingungen.
+  Kann über EINFÜGEN jedem Karol-Programm
+  hinzugefügt werden. }
+
+{ Karol dreht sich auf der Stelle um }
+Anweisung Umdrehen
+  LinksDrehen
+  LinksDrehen
+*Anweisung
+
+{ Karol geht einen Schritt rückwürts }
+Anweisung SchrittRückwärts
+  Umdrehen
+  Schritt
+  Umdrehen
+*Anweisung
+
+{ Karol legt hinter sich einen Ziegel ab }
+Anweisung HintenHinlegen
+  Umdrehen
+  Hinlegen
+  Umdrehen
+*Anweisung
+
+{ Karol macht einen seitlichen Schritt
+  nach links }
+Anweisung SchrittLinks
+  Linksdrehen
+  Schritt
+  Rechtsdrehen
+*Anweisung
+
+{ Karol macht einen seitlichen Schritt
+  nach rechts }
+Anweisung SchrittRechts
+  Rechtsdrehen
+  Schritt
+  Linksdrehen
+*Anweisung
+
+{ Karol schaut sicher nach Süden }
+Anweisung SchauNachSüden
+  wiederhole solange nicht IstSüden
+    LinksDrehen
+  *wiederhole
+*Anweisung
+
+{ Prüft ob links von Karol Ziegel sind }
+Bedingung IstZiegelLinks
+  falsch
+  Linksdrehen
+  wenn IstZiegel dann wahr *wenn
+  Rechtsdrehen
+*Bedingung
+
+{ Prüft ob rechts von Karol Ziegel sind }
+Bedingung IstZiegelRechts
+  falsch
+  Rechtsdrehen
+  wenn IstZiegel dann wahr *wenn
+  Linksdrehen
+*Bedingung
+
+{ Prüft ob links von Karol eine Wand ist }
+Bedingung IstWandLinks
+  falsch
+  Linksdrehen
+  wenn IstWand dann wahr *wenn
+  Rechtsdrehen
+*Bedingung
+
+{ Prüft ob rechts von Karol eine Wand ist }
+Bedingung IstWandRechts
+  falsch
+  Rechtsdrehen
+  wenn IstWand dann wahr *wenn
+  Linksdrehen
+*Bedingung
+
+{ Prüft ob vor Karol weder Ziegel noch Wand ist }
+Bedingung IstFrei
+  wahr
+  wenn IstWand dann falsch *wenn
+  wenn IstZiegel dann falsch *wenn
+*Bedingung
+
+{ Prüft ob rundum Karol frei ist }
+Bedingung IstRundumFrei
+  wahr
+  wenn nicht IstFrei dann falsch *wenn
+  LinksDrehen
+  wenn nicht IstFrei dann falsch *wenn
+  LinksDrehen
+  wenn nicht IstFrei dann falsch *wenn
+  LinksDrehen
+  wenn nicht IstFrei dann falsch *wenn
+  LinksDrehen
+*Bedingung
+
+

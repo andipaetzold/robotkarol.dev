@@ -1,0 +1,20 @@
+{ Karol läuft auf einem geschlossenen
+  Mauerzug entlang, bis er die Marke
+  erreicht }
+Methode Umdrehen
+  LinksDrehen
+  LinksDrehen
+endeMethode
+
+{ Hauptprogramm }
+wiederhole solange NichtIstMarke
+  wenn IstZiegel dann
+    Schritt
+  sonst
+    LinksDrehen
+    wenn NichtIstZiegel dann
+      Umdrehen
+    *wenn
+    Schritt
+  *wenn
+*wiederhole

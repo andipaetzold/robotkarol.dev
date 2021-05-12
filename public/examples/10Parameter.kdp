@@ -1,0 +1,5 @@
+{ Verwendung von Parametern }
+
+wiederhole solange IstZiegel(3)
+  Schritt(2)
+*wiederhole

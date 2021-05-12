@@ -1,0 +1,13 @@
+{ Karol legt links von einer Ziegelreihe
+  das invertierte Muster }
+wiederhole solange NichtIstWand
+  wenn IstZiegel dann
+    Schritt
+  sonst
+    Schritt
+    LinksDrehen
+    Hinlegen
+    RechtsDrehen
+  *wenn
+*wiederhole
+

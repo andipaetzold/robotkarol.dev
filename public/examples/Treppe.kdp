@@ -1,0 +1,25 @@
+{ Karol geht eine Treppe hinauf und
+ legt dabei eine neue Schicht Ziegel
+ auf die Treppe }
+Anweisung Umdrehen
+  LinksDrehen
+  LinksDrehen
+*Anweisung
+
+Anweisung SchrittRückwärts
+  Umdrehen
+  Schritt
+  Umdrehen
+*Anweisung
+
+{ Hauptprogramm }
+wiederhole solange IstZiegel
+  Schritt
+  Umdrehen
+  Hinlegen
+  Umdrehen
+*wiederhole
+SchrittRückwärts
+Hinlegen
+Schritt
+Ton

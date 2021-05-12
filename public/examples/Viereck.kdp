@@ -1,0 +1,28 @@
+{ Karol steht vor einem Viereck aus
+  Ziegel. Er soll alle Steine einsammeln }
+Anweisung AufhebenReihe
+  wiederhole solange IstZiegel
+    Aufheben
+    Schritt
+  *wiederhole
+*Anweisung
+
+Anweisung Wenden
+  wenn IstSüden dann
+    Schritt
+    LinksDrehen
+    Schritt
+    LinksDrehen
+  sonst
+    Schritt
+    RechtsDrehen
+    Schritt
+    RechtsDrehen
+  *wenn
+*Anweisung
+
+{ Hauptprogramm }
+wiederhole solange IstZiegel
+  AufhebenReihe
+  Wenden
+*wiederhole

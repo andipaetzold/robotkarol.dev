@@ -1,0 +1,9 @@
+{ Karol invertiert eine Ziegelreihe }
+wiederhole solange NichtIstwand
+  wenn IstZiegel dann
+    Aufheben
+  sonst
+    Hinlegen
+  endewenn
+  Schritt
+endewiederhole

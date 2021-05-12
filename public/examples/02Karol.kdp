@@ -1,0 +1,12 @@
+{Karol legt links neben sich eine Reihe 
+Ziegel}
+wiederhole 9 mal { 12 }
+  Schritt
+  LinksDrehen
+  Hinlegen
+  RechtsDrehen
+  wenn IstWand dann
+    LinksDrehen
+    LinksDrehen
+  endewenn
+endewiederhole

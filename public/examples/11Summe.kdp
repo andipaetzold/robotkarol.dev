@@ -1,0 +1,106 @@
+{ Programm Summe von zwei Zahlen
+  bei den Zahlen ist die niedrigste
+  Stelle im Norden }
+
+{  Karol steht zu Beginn vor der 
+  ersten Ziffer und
+  schaut zum zweiten Summanden
+  (eventuell vorher genügend oft 
+  LinksDrehen mittels
+  Bedingung IstOsten erfüllt ist) }
+
+{ Das Programm verwendet
+  selbstdefinierte Anweisungen
+  selbstdefinierte Bedingungen
+  Anweisungen langsam und schnell
+  Parameter (zum Beispiel  wenn 
+      Ziegel(10) dann ...)
+  Bedingungen, die die Ausrichtung 
+  von Karol pr�fen (IstNorden, IstS�den,
+  IstWesten, IstOsten) }
+
+{   a = 0026355439
+    b = 0000470389
+        ----------
+  a+b = 0026825828         
+
+In der 2D-Darstellung ist der Rechenvorgang
+  am besten erkennbar}
+
+Anweisung Umdrehen
+  schnell
+  LinksDrehen
+  LinksDrehen
+  langsam
+*Anweisung
+
+{ Eine Marke ist 10 Ziegel wert }
+Anweisung Pr�fe�bertrag
+  wenn IstZiegel(10) dann
+    wiederhole 10 mal Aufheben *wiederhole;
+    MarkeSetzen
+  *wenn
+*Anweisung
+
+{ Einen Stapel auf den zweiten versetzen.
+  Wenn sich ein "�bertrag" ergibt, wird 
+  eine Marke gesetzt }
+Anweisung Versetzen
+  wiederhole solange IstZiegel
+    Aufheben
+    Umdrehen
+    Hinlegen
+
+    Pr�fe�bertrag
+
+    Umdrehen
+  *wiederhole
+*Anweisung
+
+
+{ Ergibt wahr, wenn rechterhand von 
+  Karol eine Wand ist }
+Bedingung IstWandRechts
+  schnell
+  RechtsDrehen
+  wenn IstWand dann
+    wahr
+  sonst
+    falsch
+  *wenn
+  LinksDrehen
+  langsam
+*Bedingung
+
+Anweisung Rechnen
+  { wiederhole 9 mal }
+  wiederhole solange nicht IstWandRechts
+    Versetzen
+    RechtsDrehen
+
+    wenn IstMarke dann
+      MarkeL�schen
+      Schritt
+      RechtsDrehen
+      Hinlegen
+
+      Pr�fe�bertrag
+
+      Umdrehen
+    sonst
+      Schritt
+      LinksDrehen
+    *wenn
+  *wiederhole
+*Anweisung
+
+
+{ hier beginnt das Programm }
+Programm
+  { Karol in die richtige Position bringen }
+  wiederhole solange nicht IstOsten
+    LinksDrehen 
+  *wiederhole
+  { Summe berechnen }
+  Rechnen
+*Programm

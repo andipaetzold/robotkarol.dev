@@ -1,0 +1,27 @@
+{ Aufgabe:
+  Definiere eine neue Bedingung, 
+  welche Karol erkennen lässt, 
+  ob zwei Ziegel vor ihm liegen.
+  Ohne Verwendung von IstZiegel(2) }
+
+Bedingung ZweiZiegel
+  falsch
+  wenn IstZiegel dann
+    Aufheben
+    wenn IstZiegel dann
+      Aufheben
+      wahr
+      wenn IstZiegel dann falsch *wenn
+      Hinlegen
+    *wenn
+    Hinlegen
+  *wenn
+*Bedingung
+
+
+wenn ZweiZiegel dann
+  LinksDrehen
+sonst
+  Rechtsdrehen
+*wenn
+
