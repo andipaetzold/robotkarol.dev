@@ -71,6 +71,38 @@ export function readWorld(rawData: string): World {
           // nothing
           break;
 
+        case "A":
+          if (version !== "KarolVersion3.0") {
+            throw new Error("Unknown value A");
+          }
+          // TODO: red brick
+          ++tile.bricks;
+          break;
+
+        case "B":
+          if (version !== "KarolVersion3.0") {
+            throw new Error("Unknown value B");
+          }
+          // TODO: yellow brick
+          ++tile.bricks;
+          break;
+
+        case "C":
+          if (version !== "KarolVersion3.0") {
+            throw new Error("Unknown value C");
+          }
+          // TODO: blue brick
+          ++tile.bricks;
+          break;
+
+        case "D":
+          if (version !== "KarolVersion3.0") {
+            throw new Error("Unknown value D");
+          }
+          // TODO: green brick
+          ++tile.bricks;
+          break;
+
         case "z":
           ++tile.bricks;
           break;
