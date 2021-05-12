@@ -11,7 +11,7 @@ export interface RootState {
     ast?: AST;
     stack: ASTStatement[];
     state: State;
-    worldOnStart: World;
+    worldOnStart?: World;
     activeLine?: number;
     speed: "slow" | "fast";
   };

@@ -127,7 +127,10 @@ export const rootSlice = createSlice({
       state.execution.state = "stopped";
       state.execution.speed = "slow";
       state.execution.activeLine = undefined;
-      state.world = state.execution.worldOnStart;
+      if (state.execution.worldOnStart) {
+        state.world = state.execution.worldOnStart;
+        state.execution.worldOnStart = undefined;
+      }
     },
     updateCode: {
       prepare: (code: string) => ({ payload: { code } }),

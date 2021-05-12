@@ -9,6 +9,10 @@ export function executionStep(state: RootState): void {
     return;
   }
 
+  if (!state.execution.worldOnStart) {
+    state.execution.worldOnStart = state.world;
+  }
+
   let didCall = false;
   while (state.execution.stack.length > 0) {
     const statement = state.execution.stack.shift()!;
