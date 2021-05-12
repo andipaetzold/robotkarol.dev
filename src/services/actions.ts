@@ -91,9 +91,6 @@ export function setMarker(worldOrg: World): World {
   const world = cloneDeep(worldOrg);
   const tileOrg = getTile(world, world.player);
   const tile = cloneDeep(tileOrg);
-  if (tile.marked) {
-    throw new Error("Cannot mark tile. It is already marked.");
-  }
   tile.marked = true;
   return updateTile(world, tile);
 }
@@ -102,9 +99,6 @@ export function removeMarker(worldOrg: World): World {
   const world = cloneDeep(worldOrg);
   const tileOrg = getTile(world, world.player);
   const tile = cloneDeep(tileOrg);
-  if (!tile.marked) {
-    throw new Error("Cannot remove marker. It is not marked.");
-  }
   tile.marked = false;
   return updateTile(world, tile);
 }
