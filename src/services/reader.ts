@@ -76,8 +76,7 @@ export function readWorld(rawData: string): World {
           break;
 
         default:
-          console.warn(`Unknown value ${v}`);
-          break;
+          throw new Error(`Unknown value ${v}`);
       }
     }
   }
