@@ -48,7 +48,7 @@ const grammar = {
       ["beenden\\b", "return 'EXIT'"],
 
       ["[0-9]+(?:\\.[0-9]+)?\\b", "return 'NUMBER'"],
-      ["[a-z]+\\b", "return 'IDENTIFIER'"],
+      ["[a-z0-9_\\-äöüß]+\\b", "return 'IDENTIFIER'"],
     ],
   },
 
