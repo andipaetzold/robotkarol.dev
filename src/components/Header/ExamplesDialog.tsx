@@ -56,7 +56,10 @@ export function ExamplesDialog({ visible, onClose }: Props) {
 
         <List>
           {EXAMPLES.map((example) => (
-            <ListItem onClick={() => handleClick(example.name)}>
+            <ListItem
+              key={example.name}
+              onClick={() => handleClick(example.name)}
+            >
               {example.name}
             </ListItem>
           ))}
