@@ -61,7 +61,7 @@ export function Controls() {
     } catch (e) {
       addMessage({ children: e.message });
     }
-  }, 1_000);
+  }, 100);
 
   return (
     <>
