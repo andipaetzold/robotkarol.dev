@@ -26,7 +26,7 @@ export function readWorld(rawData: string): World {
   const tileData = data.slice(
     7,
     // KarolVersion3.0 ends with 1-indexed x, 1-index y, direction (N, O , S W)
-    version === "KarolVersion3.0" ? -3 : 0
+    version === "KarolVersion3.0" ? -3 : undefined
   );
   if (tileData[tileData.length - 1] !== "o") {
     tileData.push("o");
