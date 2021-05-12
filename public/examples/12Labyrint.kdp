@@ -21,7 +21,7 @@ Anweisung Umdrehen
   LinksDrehen
 *Anweisung
 
-{ Karol geht einen Schritt R�ckw�rts }
+{ Karol geht einen Schritt Rückwärts }
 Anweisung SchrittRückwärts
   Umdrehen
   Schritt
@@ -29,7 +29,7 @@ Anweisung SchrittRückwärts
 *Anweisung
 
 
-{ Bedingung, gibt wahr zur�ck wenn
+{ Bedingung, gibt wahr zurück wenn
     einen Schritt vor Karol eine Marke ist }
 Bedingung IstMarkeVorne
   Schritt
@@ -43,7 +43,7 @@ Bedingung IstMarkeVorne
 
 
 {**********************************************
-** Bedingung Ist GehenErlaubt gibt wahr zur�ck,
+** Bedingung Ist GehenErlaubt gibt wahr zurück,
 ** wenn vor Karol keine Wand, keine Marke, 
 ** keine Mauer
 ** (=2 Ziegel) und nicht das Ziel ist. ********
@@ -83,7 +83,7 @@ Bedingung IstZiel
 ** damit alle Gänge durchläuft
 **********************************************}
 Anweisung ZweigGehen
-  { alle m�glichen Wege durchsuchen ...}
+  { alle möglichen Wege durchsuchen ...}
   MarkeSetzen
   wiederhole 4 mal
     wenn IstGehenErlaubt dann
@@ -91,7 +91,7 @@ Anweisung ZweigGehen
       schnell
       ZweigGehen
       { feststellen, ob Karol am Ziel ist,
-          sonst zur�ckgehen  }
+          sonst zurückgehen  }
       wenn IstZiel dann
       { jetzt wartet Karol 2,5 Sekunden,
         gibt einen Ton, dreht sich zum Ziel,
@@ -107,9 +107,9 @@ Anweisung ZweigGehen
           wenn Karol das Ziel gefunden hat }
         Beenden
       sonst
-        { zur�ckkehren }
+        { zurückkehren }
         schnell
-        SchrittR�ckw�rts
+        SchrittRückwärts
       *wenn
     *wenn
     LinksDrehen
