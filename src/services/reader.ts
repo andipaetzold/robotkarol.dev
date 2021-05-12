@@ -5,24 +5,9 @@ import { removeEmptyTiles, validateTile } from "./world";
 export async function readWorldFile(file: File): Promise<World> {
   const fileData = await readFile(file);
 
-  const fileDataSplit = fileData.trim().split(" ");
-  const version = fileDataSplit[0];
+  const data = fileData.trim().split(" ");
 
-  let world: World;
-  switch (version) {
-    case "KarolVersion1Deutsch":
-    case "KarolVersion2Deutsch":
-    case "KarolVersion3.0":
-      world = readWorld(fileDataSplit);
-      break;
-    default:
-      throw new Error("Unknown world file");
-  }
-
-  return removeEmptyTiles(world);
-}
-
-function readWorld(data: string[]): World {
+  const version = data[0];
   const width = +data[1];
   const depth = +data[2];
   const height = +data[3];
@@ -34,7 +19,11 @@ function readWorld(data: string[]): World {
     direction: directions[+data[6]],
   };
 
-  const tileData = data.slice(7);
+  const tileData = data.slice(
+    7,
+    // KarolVersion3.0 ends with 1-indexed x, 1-index y, direction (N, O , S W)
+    version === "KarolVersion3.0" ? -3 : 0
+  );
   if (tileData[tileData.length - 1] !== "o") {
     tileData.push("o");
   }
@@ -89,5 +78,5 @@ function readWorld(data: string[]): World {
     }
   }
 
-  return world;
+  return removeEmptyTiles(world);
 }
