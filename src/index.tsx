@@ -9,7 +9,7 @@ import { store } from "./services/store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Configuration>
+    <Configuration disableRipple>
       <MessageQueue id="message-queue">
         <Provider store={store}>
           <App />
