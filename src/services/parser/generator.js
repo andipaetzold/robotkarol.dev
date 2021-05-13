@@ -8,12 +8,15 @@ const grammar = {
     },
     rules: [
       ["\\s+", "/* skip whitespace */"],
+
       ["\\{[^\\}]*\\}", "/* skip multiline comments */"],
       ["\\/\\/[^\\n]*", "/* skip single line comments */"],
+
       ["programm\\b", "return 'PROGRAM_BEGIN'"],
       ["(\\*programm|endeprogramm)\\b", "return 'PROGRAM_END'"],
       ["anweisung\\b", "return 'FUNCTION_BEGIN'"],
       ["(\\*anweisung|endeanweisung)\\b", "return 'FUNCTION_END'"],
+
       ["schritt\\b", "return 'STEP'"],
       ["linksdrehen\\b", "return 'TURN_LEFT'"],
       ["rechtsdrehen\\b", "return 'TURN_RIGHT'"],
@@ -21,16 +24,19 @@ const grammar = {
       ["aufheben\\b", "return 'BRICK_TAKE'"],
       ["markesetzen\\b", "return 'MARKER_SET'"],
       ["markelöschen\\b", "return 'MARKER_REMOVE'"],
+
       ["wiederhole\\b", "return 'REPEAT_BEGIN'"],
       ["(\\*wiederhole|endewiederhole)\\b", "return 'REPEAT_END'"],
       ["immer\\b", "return 'ALWAYS'"],
       ["solange\\b", "return 'WHILE'"],
       ["(\\*solange|endesolange)\\b", "return 'WHILE_END'"],
       ["mal\\b", "return 'TIMES'"],
+
       ["wenn\\b", "return 'IF'"],
       ["dann\\b", "return 'THEN'"],
       ["(\\*wenn|endewenn)\\b", "return 'IF_END'"],
       ["sonst\\b", "return 'ELSE'"],
+
       ["istwand\\b", "return 'IS_WALL'"],
       ["nichtistwand\\b", "return 'NOT_IS_WALL'"],
       ["istziegel\\b", "return 'IS_BRICK'"],
@@ -46,6 +52,7 @@ const grammar = {
       ["schnell\\b", "return 'FAST'"],
       ["langsam\\b", "return 'SLOW'"],
       ["beenden\\b", "return 'EXIT'"],
+      ["ton\\b", "return 'SOUND'"],
 
       ["[0-9]+(?:\\.[0-9]+)?\\b", "return 'NUMBER'"],
       ["[a-z0-9_\\-äöüß]+\\b", "return 'IDENTIFIER'"],
@@ -127,9 +134,12 @@ const grammar = {
         "MARKER_REMOVE",
         "$$ = { type: 'call', line: yylineno, action: 'MARKER_REMOVE' }",
       ],
+
       ["SLOW", "$$ = { type: 'systemCall', line: yylineno, action: 'slow' }"],
       ["FAST", "$$ = { type: 'systemCall', line: yylineno, action: 'fast' }"],
       ["EXIT", "$$ = { type: 'systemCall', line: yylineno, action: 'exit' }"],
+      ["SOUND", "$$ = { type: 'systemCall', line: yylineno, action: 'sound' }"],
+
       [
         "REPEAT_BEGIN NUMBER TIMES statements REPEAT_END",
         "$$ = { type: 'repeat', line: yylineno, times: $2, body: $4 }",
@@ -146,6 +156,7 @@ const grammar = {
         "WHILE condition statements WHILE_END",
         "$$ = { type: 'while', line: yylineno, condition: $3, body: $4 }",
       ],
+
       [
         "IF condition THEN statements IF_END",
         "$$ = { type: 'if', line: yylineno, condition: $2, body: $4, elseBody: [] }",
@@ -154,6 +165,7 @@ const grammar = {
         "IF condition THEN statements ELSE statements IF_END",
         "$$ = { type: 'if', line: yylineno, condition: $2, body: $4, elseBody: $6 }",
       ],
+
       ["IDENTIFIER", "$$ = { type: 'functionCall', name: $1, line: yylineno }"],
     ],
     condition: [

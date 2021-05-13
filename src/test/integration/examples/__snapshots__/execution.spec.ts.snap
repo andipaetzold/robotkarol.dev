@@ -1886,6 +1886,84 @@ Object {
 }
 `;
 
+exports[`Treppe 1`] = `
+Object {
+  "depth": 10,
+  "height": 10,
+  "player": Object {
+    "direction": "south",
+    "x": 2,
+    "y": 8,
+  },
+  "tiles": Array [
+    Object {
+      "bricks": 2,
+      "cuboid": false,
+      "marked": false,
+      "x": 2,
+      "y": 1,
+    },
+    Object {
+      "bricks": 3,
+      "cuboid": false,
+      "marked": false,
+      "x": 2,
+      "y": 2,
+    },
+    Object {
+      "bricks": 4,
+      "cuboid": false,
+      "marked": false,
+      "x": 2,
+      "y": 3,
+    },
+    Object {
+      "bricks": 5,
+      "cuboid": false,
+      "marked": false,
+      "x": 2,
+      "y": 4,
+    },
+    Object {
+      "bricks": 6,
+      "cuboid": false,
+      "marked": false,
+      "x": 2,
+      "y": 5,
+    },
+    Object {
+      "bricks": 7,
+      "cuboid": false,
+      "marked": false,
+      "x": 2,
+      "y": 6,
+    },
+    Object {
+      "bricks": 8,
+      "cuboid": false,
+      "marked": false,
+      "x": 2,
+      "y": 7,
+    },
+    Object {
+      "bricks": 9,
+      "cuboid": false,
+      "marked": false,
+      "x": 2,
+      "y": 8,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 2,
+      "y": 0,
+    },
+  ],
+  "width": 5,
+}
+`;
+
 exports[`Treppe Bauen 1`] = `
 Object {
   "depth": 10,

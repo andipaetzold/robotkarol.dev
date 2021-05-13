@@ -1735,9 +1735,9 @@ Object {
         "type": "call",
       },
       Object {
+        "action": "sound",
         "line": 24,
-        "name": "Ton",
-        "type": "functionCall",
+        "type": "systemCall",
       },
     ],
     "line": 20,

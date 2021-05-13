@@ -36,6 +36,9 @@ export function executionStep(state: RootState): void {
             case "exit":
               state.execution.stack = [];
               break;
+            case "sound":
+              // TODO: play sound
+              break;
           }
           break;
         }
