@@ -30,7 +30,7 @@ Anweisung NachRechts
 Programm
   wiederhole solange NichtIstWand
     MarkiereZeile
-    wenn IstS�den dann
+    wenn IstSüden dann
       NachLinks
     sonst
       nachrechts
