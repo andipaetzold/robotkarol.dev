@@ -238,7 +238,7 @@ Object {
           "type": "if",
         },
       ],
-      "identifier": "ZweiZiegel",
+      "identifier": "zweiziegel",
       "line": 18,
       "type": "condition",
     },
@@ -264,7 +264,7 @@ Object {
         "line": 25,
         "test": Object {
           "line": 21,
-          "name": "ZweiZiegel",
+          "name": "zweiziegel",
           "type": "conditionCall",
         },
         "type": "if",
@@ -294,7 +294,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "Umdrehen",
+      "identifier": "umdrehen",
       "line": 9,
       "type": "function",
     },
@@ -396,7 +396,7 @@ Object {
               },
               Object {
                 "line": 35,
-                "name": "Umdrehen",
+                "name": "umdrehen",
                 "type": "functionCall",
               },
               Object {
@@ -413,7 +413,7 @@ Object {
               },
               Object {
                 "line": 37,
-                "name": "Umdrehen",
+                "name": "umdrehen",
                 "type": "functionCall",
               },
             ],
@@ -432,7 +432,7 @@ Object {
           },
           Object {
             "line": 40,
-            "name": "Umdrehen",
+            "name": "umdrehen",
             "type": "functionCall",
           },
           Object {
@@ -449,7 +449,7 @@ Object {
           },
           Object {
             "line": 42,
-            "name": "Umdrehen",
+            "name": "umdrehen",
             "type": "functionCall",
           },
           Object {
@@ -525,7 +525,7 @@ Object {
           },
           Object {
             "line": 62,
-            "name": "Umdrehen",
+            "name": "umdrehen",
             "type": "functionCall",
           },
         ],
@@ -581,7 +581,7 @@ Object {
           "type": "repeat",
         },
       ],
-      "identifier": "BaueBecken",
+      "identifier": "bauebecken",
       "line": 18,
       "type": "function",
     },
@@ -621,7 +621,7 @@ Object {
           "type": "repeat",
         },
       ],
-      "identifier": "AbbauenBecken",
+      "identifier": "abbauenbecken",
       "line": 29,
       "type": "function",
     },
@@ -638,7 +638,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "Umdrehen",
+      "identifier": "umdrehen",
       "line": 35,
       "type": "function",
     },
@@ -682,7 +682,7 @@ Object {
             },
             Object {
               "line": 46,
-              "name": "Umdrehen",
+              "name": "umdrehen",
               "type": "functionCall",
             },
             Object {
@@ -699,7 +699,7 @@ Object {
             },
             Object {
               "line": 48,
-              "name": "Umdrehen",
+              "name": "umdrehen",
               "type": "functionCall",
             },
           ],
@@ -718,7 +718,7 @@ Object {
         },
         Object {
           "line": 51,
-          "name": "Umdrehen",
+          "name": "umdrehen",
           "type": "functionCall",
         },
         Object {
@@ -735,11 +735,11 @@ Object {
         },
         Object {
           "line": 53,
-          "name": "Umdrehen",
+          "name": "umdrehen",
           "type": "functionCall",
         },
       ],
-      "identifier": "Schwimmen",
+      "identifier": "schwimmen",
       "line": 54,
       "type": "function",
     },
@@ -747,7 +747,7 @@ Object {
       "body": Array [
         Object {
           "line": 60,
-          "name": "BaueBecken",
+          "name": "bauebecken",
           "type": "functionCall",
         },
         Object {
@@ -774,7 +774,7 @@ Object {
         },
         Object {
           "line": 67,
-          "name": "Schwimmen",
+          "name": "schwimmen",
           "type": "functionCall",
         },
         Object {
@@ -801,7 +801,7 @@ Object {
         },
         Object {
           "line": 74,
-          "name": "AbbauenBecken",
+          "name": "abbauenbecken",
           "type": "functionCall",
         },
         Object {
@@ -831,7 +831,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "Hauptteil",
+      "identifier": "hauptteil",
       "line": 81,
       "type": "function",
     },
@@ -842,7 +842,7 @@ Object {
         "body": Array [
           Object {
             "line": 90,
-            "name": "Hauptteil",
+            "name": "hauptteil",
             "type": "functionCall",
           },
         ],
@@ -908,7 +908,7 @@ Object {
           "type": "systemCall",
         },
       ],
-      "identifier": "BaueBecken",
+      "identifier": "bauebecken",
       "line": 18,
       "type": "function",
     },
@@ -958,7 +958,7 @@ Object {
           "type": "systemCall",
         },
       ],
-      "identifier": "AbbauenBecken",
+      "identifier": "abbauenbecken",
       "line": 31,
       "type": "function",
     },
@@ -975,7 +975,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "Umdrehen",
+      "identifier": "umdrehen",
       "line": 37,
       "type": "function",
     },
@@ -1019,7 +1019,7 @@ Object {
             },
             Object {
               "line": 48,
-              "name": "Umdrehen",
+              "name": "umdrehen",
               "type": "functionCall",
             },
             Object {
@@ -1036,7 +1036,7 @@ Object {
             },
             Object {
               "line": 50,
-              "name": "Umdrehen",
+              "name": "umdrehen",
               "type": "functionCall",
             },
           ],
@@ -1055,7 +1055,7 @@ Object {
         },
         Object {
           "line": 53,
-          "name": "Umdrehen",
+          "name": "umdrehen",
           "type": "functionCall",
         },
         Object {
@@ -1072,11 +1072,11 @@ Object {
         },
         Object {
           "line": 55,
-          "name": "Umdrehen",
+          "name": "umdrehen",
           "type": "functionCall",
         },
       ],
-      "identifier": "Schwimmen",
+      "identifier": "schwimmen",
       "line": 56,
       "type": "function",
     },
@@ -1084,7 +1084,7 @@ Object {
       "body": Array [
         Object {
           "line": 61,
-          "name": "BaueBecken",
+          "name": "bauebecken",
           "type": "functionCall",
         },
         Object {
@@ -1111,7 +1111,7 @@ Object {
         },
         Object {
           "line": 68,
-          "name": "Schwimmen",
+          "name": "schwimmen",
           "type": "functionCall",
         },
         Object {
@@ -1138,7 +1138,7 @@ Object {
         },
         Object {
           "line": 75,
-          "name": "AbbauenBecken",
+          "name": "abbauenbecken",
           "type": "functionCall",
         },
         Object {
@@ -1168,7 +1168,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "Hauptteil",
+      "identifier": "hauptteil",
       "line": 80,
       "type": "function",
     },
@@ -1179,7 +1179,7 @@ Object {
         "body": Array [
           Object {
             "line": 87,
-            "name": "Hauptteil",
+            "name": "hauptteil",
             "type": "functionCall",
           },
         ],
@@ -1210,7 +1210,7 @@ Object {
             },
             Object {
               "line": 9,
-              "name": "PfeilerSetzen",
+              "name": "pfeilersetzen",
               "type": "functionCall",
             },
           ],
@@ -1240,7 +1240,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "PfeilerSetzen",
+      "identifier": "pfeilersetzen",
       "line": 15,
       "type": "function",
     },
@@ -1249,7 +1249,7 @@ Object {
     "body": Array [
       Object {
         "line": 18,
-        "name": "PfeilerSetzen",
+        "name": "pfeilersetzen",
         "type": "functionCall",
       },
       Object {
@@ -1310,7 +1310,7 @@ Object {
           "type": "while",
         },
       ],
-      "identifier": "MarkiereZeile",
+      "identifier": "markierezeile",
       "line": 12,
       "type": "function",
     },
@@ -1321,7 +1321,7 @@ Object {
         "body": Array [
           Object {
             "line": 15,
-            "name": "MarkiereZeile",
+            "name": "markierezeile",
             "type": "functionCall",
           },
           Object {
@@ -1341,7 +1341,7 @@ Object {
           },
           Object {
             "line": 19,
-            "name": "MarkiereZeile",
+            "name": "markierezeile",
             "type": "functionCall",
           },
           Object {
@@ -1410,7 +1410,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "IstZiegelLinks",
+      "identifier": "istziegellinks",
       "line": 54,
       "type": "condition",
     },
@@ -1449,7 +1449,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "IstZiegelRechts",
+      "identifier": "istziegelrechts",
       "line": 62,
       "type": "condition",
     },
@@ -1488,7 +1488,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "IstWandLinks",
+      "identifier": "istwandlinks",
       "line": 70,
       "type": "condition",
     },
@@ -1527,7 +1527,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "IstWandRechts",
+      "identifier": "istwandrechts",
       "line": 78,
       "type": "condition",
     },
@@ -1573,7 +1573,7 @@ Object {
           "type": "if",
         },
       ],
-      "identifier": "IstFrei",
+      "identifier": "istfrei",
       "line": 85,
       "type": "condition",
     },
@@ -1598,7 +1598,7 @@ Object {
             "line": 90,
             "test": Object {
               "line": 90,
-              "name": "IstFrei",
+              "name": "istfrei",
               "type": "conditionCall",
             },
             "type": "not",
@@ -1624,7 +1624,7 @@ Object {
             "line": 92,
             "test": Object {
               "line": 92,
-              "name": "IstFrei",
+              "name": "istfrei",
               "type": "conditionCall",
             },
             "type": "not",
@@ -1650,7 +1650,7 @@ Object {
             "line": 94,
             "test": Object {
               "line": 94,
-              "name": "IstFrei",
+              "name": "istfrei",
               "type": "conditionCall",
             },
             "type": "not",
@@ -1676,7 +1676,7 @@ Object {
             "line": 96,
             "test": Object {
               "line": 96,
-              "name": "IstFrei",
+              "name": "istfrei",
               "type": "conditionCall",
             },
             "type": "not",
@@ -1689,7 +1689,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "IstRundumFrei",
+      "identifier": "istrundumfrei",
       "line": 98,
       "type": "condition",
     },
@@ -1708,7 +1708,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "Umdrehen",
+      "identifier": "umdrehen",
       "line": 9,
       "type": "function",
     },
@@ -1716,7 +1716,7 @@ Object {
       "body": Array [
         Object {
           "line": 13,
-          "name": "Umdrehen",
+          "name": "umdrehen",
           "type": "functionCall",
         },
         Object {
@@ -1726,11 +1726,11 @@ Object {
         },
         Object {
           "line": 15,
-          "name": "Umdrehen",
+          "name": "umdrehen",
           "type": "functionCall",
         },
       ],
-      "identifier": "SchrittRückwärts",
+      "identifier": "schrittrückwärts",
       "line": 16,
       "type": "function",
     },
@@ -1738,7 +1738,7 @@ Object {
       "body": Array [
         Object {
           "line": 20,
-          "name": "Umdrehen",
+          "name": "umdrehen",
           "type": "functionCall",
         },
         Object {
@@ -1748,11 +1748,11 @@ Object {
         },
         Object {
           "line": 22,
-          "name": "Umdrehen",
+          "name": "umdrehen",
           "type": "functionCall",
         },
       ],
-      "identifier": "HintenHinlegen",
+      "identifier": "hintenhinlegen",
       "line": 23,
       "type": "function",
     },
@@ -1774,7 +1774,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "SchrittLinks",
+      "identifier": "schrittlinks",
       "line": 31,
       "type": "function",
     },
@@ -1796,7 +1796,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "SchrittRechts",
+      "identifier": "schrittrechts",
       "line": 39,
       "type": "function",
     },
@@ -1823,7 +1823,7 @@ Object {
           "type": "while",
         },
       ],
-      "identifier": "SchauNachSüden",
+      "identifier": "schaunachsüden",
       "line": 46,
       "type": "function",
     },
@@ -1920,7 +1920,7 @@ Object {
           "type": "if",
         },
       ],
-      "identifier": "Invertieren",
+      "identifier": "invertieren",
       "line": 11,
       "type": "function",
     },
@@ -1930,7 +1930,7 @@ Object {
           "body": Array [
             Object {
               "line": 15,
-              "name": "Invertieren",
+              "name": "invertieren",
               "type": "functionCall",
             },
             Object {
@@ -1948,7 +1948,7 @@ Object {
           "type": "while",
         },
       ],
-      "identifier": "EineReihe",
+      "identifier": "einereihe",
       "line": 18,
       "type": "function",
     },
@@ -1963,7 +1963,7 @@ Object {
           "body": Array [
             Object {
               "line": 23,
-              "name": "Invertieren",
+              "name": "invertieren",
               "type": "functionCall",
             },
             Object {
@@ -1987,7 +1987,7 @@ Object {
           "type": "if",
         },
       ],
-      "identifier": "NachLinks",
+      "identifier": "nachlinks",
       "line": 27,
       "type": "function",
     },
@@ -2002,7 +2002,7 @@ Object {
           "body": Array [
             Object {
               "line": 32,
-              "name": "Invertieren",
+              "name": "invertieren",
               "type": "functionCall",
             },
             Object {
@@ -2026,7 +2026,7 @@ Object {
           "type": "if",
         },
       ],
-      "identifier": "NachRechts",
+      "identifier": "nachrechts",
       "line": 36,
       "type": "function",
     },
@@ -2049,7 +2049,7 @@ Object {
         },
         Object {
           "line": 42,
-          "name": "Invertieren",
+          "name": "invertieren",
           "type": "functionCall",
         },
         Object {
@@ -2068,7 +2068,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "Ursprung",
+      "identifier": "ursprung",
       "line": 46,
       "type": "function",
     },
@@ -2077,28 +2077,28 @@ Object {
     "body": Array [
       Object {
         "line": 49,
-        "name": "Ursprung",
+        "name": "ursprung",
         "type": "functionCall",
       },
       Object {
         "body": Array [
           Object {
             "line": 51,
-            "name": "EineReihe",
+            "name": "einereihe",
             "type": "functionCall",
           },
           Object {
             "body": Array [
               Object {
                 "line": 53,
-                "name": "NachLinks",
+                "name": "nachlinks",
                 "type": "functionCall",
               },
             ],
             "elseBody": Array [
               Object {
                 "line": 55,
-                "name": "NachRechts",
+                "name": "nachrechts",
                 "type": "functionCall",
               },
             ],
@@ -2221,7 +2221,7 @@ Object {
           "type": "systemCall",
         },
       ],
-      "identifier": "IstLinksZiegel",
+      "identifier": "istlinksziegel",
       "line": 23,
       "type": "condition",
     },
@@ -2270,7 +2270,7 @@ Object {
           "type": "systemCall",
         },
       ],
-      "identifier": "IstRechtsZiegel",
+      "identifier": "istrechtsziegel",
       "line": 32,
       "type": "condition",
     },
@@ -2305,13 +2305,13 @@ Object {
           "line": 38,
           "test": Object {
             "line": 36,
-            "name": "IstLinksZiegel",
+            "name": "istlinksziegel",
             "type": "conditionCall",
           },
           "type": "if",
         },
       ],
-      "identifier": "IstLinksZiegelundFrei",
+      "identifier": "istlinksziegelundfrei",
       "line": 39,
       "type": "condition",
     },
@@ -2346,13 +2346,13 @@ Object {
           "line": 45,
           "test": Object {
             "line": 43,
-            "name": "IstRechtsZiegel",
+            "name": "istrechtsziegel",
             "type": "conditionCall",
           },
           "type": "if",
         },
       ],
-      "identifier": "IstRechtsZiegelundFrei",
+      "identifier": "istrechtsziegelundfrei",
       "line": 46,
       "type": "condition",
     },
@@ -2381,7 +2381,7 @@ Object {
           "type": "systemCall",
         },
       ],
-      "identifier": "Umdrehen",
+      "identifier": "umdrehen",
       "line": 8,
       "type": "function",
     },
@@ -2403,7 +2403,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "ReiheHoch",
+      "identifier": "reihehoch",
       "line": 14,
       "type": "function",
     },
@@ -2443,7 +2443,7 @@ Object {
             "line": 59,
             "test": Object {
               "line": 57,
-              "name": "IstLinksZiegelundFrei",
+              "name": "istlinksziegelundfrei",
               "type": "conditionCall",
             },
             "type": "while",
@@ -2452,7 +2452,7 @@ Object {
             "body": Array [
               Object {
                 "line": 62,
-                "name": "Umdrehen",
+                "name": "umdrehen",
                 "type": "functionCall",
               },
               Object {
@@ -2466,7 +2466,7 @@ Object {
                 "line": 66,
                 "test": Object {
                   "line": 64,
-                  "name": "IstRechtsZiegelundFrei",
+                  "name": "istrechtsziegelundfrei",
                   "type": "conditionCall",
                 },
                 "type": "while",
@@ -2492,14 +2492,14 @@ Object {
                   },
                   Object {
                     "line": 75,
-                    "name": "ReiheHoch",
+                    "name": "reihehoch",
                     "type": "functionCall",
                   },
                 ],
                 "line": 76,
                 "test": Object {
                   "line": 67,
-                  "name": "IstRechtsZiegel",
+                  "name": "istrechtsziegel",
                   "type": "conditionCall",
                 },
                 "type": "if",
@@ -2513,14 +2513,14 @@ Object {
               },
               Object {
                 "line": 80,
-                "name": "ReiheHoch",
+                "name": "reihehoch",
                 "type": "functionCall",
               },
             ],
             "line": 81,
             "test": Object {
               "line": 60,
-              "name": "IstLinksZiegel",
+              "name": "istlinksziegel",
               "type": "conditionCall",
             },
             "type": "if",
@@ -2564,7 +2564,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "Umdrehen",
+      "identifier": "umdrehen",
       "line": 6,
       "type": "function",
     },
@@ -2591,7 +2591,7 @@ Object {
                 "body": Array [
                   Object {
                     "line": 15,
-                    "name": "Umdrehen",
+                    "name": "umdrehen",
                     "type": "functionCall",
                   },
                 ],
@@ -2698,6 +2698,185 @@ Object {
 }
 `;
 
+exports[`Schachbrett 1`] = `
+Object {
+  "conditions": Array [],
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "MARKER_SET",
+              "line": 7,
+              "type": "call",
+            },
+            Object {
+              "body": Array [
+                Object {
+                  "action": "STEP",
+                  "line": 8,
+                  "type": "call",
+                },
+              ],
+              "elseBody": Array [],
+              "line": 8,
+              "test": Object {
+                "line": 8,
+                "state": "NOT_IS_WALL",
+                "type": "state",
+              },
+              "type": "if",
+            },
+            Object {
+              "body": Array [
+                Object {
+                  "action": "STEP",
+                  "line": 9,
+                  "type": "call",
+                },
+              ],
+              "elseBody": Array [],
+              "line": 9,
+              "test": Object {
+                "line": 9,
+                "state": "NOT_IS_WALL",
+                "type": "state",
+              },
+              "type": "if",
+            },
+          ],
+          "line": 10,
+          "test": Object {
+            "line": 6,
+            "state": "NOT_IS_WALL",
+            "type": "state",
+          },
+          "type": "while",
+        },
+      ],
+      "identifier": "markierezeile",
+      "line": 11,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_LEFT",
+          "line": 14,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 16,
+              "type": "call",
+            },
+            Object {
+              "action": "TURN_LEFT",
+              "line": 17,
+              "type": "call",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 18,
+          "test": Object {
+            "line": 15,
+            "state": "NOT_IS_WALL",
+            "type": "state",
+          },
+          "type": "if",
+        },
+      ],
+      "identifier": "nachlinks",
+      "line": 19,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 22,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 24,
+              "type": "call",
+            },
+            Object {
+              "action": "TURN_RIGHT",
+              "line": 25,
+              "type": "call",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 26,
+          "test": Object {
+            "line": 23,
+            "state": "NOT_IS_WALL",
+            "type": "state",
+          },
+          "type": "if",
+        },
+      ],
+      "identifier": "nachrechts",
+      "line": 27,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "line": 31,
+            "name": "markierezeile",
+            "type": "functionCall",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "line": 33,
+                "name": "nachlinks",
+                "type": "functionCall",
+              },
+            ],
+            "elseBody": Array [
+              Object {
+                "line": 35,
+                "name": "nachrechts",
+                "type": "functionCall",
+              },
+            ],
+            "line": 36,
+            "test": Object {
+              "line": 32,
+              "state": "IS_SOUTH",
+              "type": "state",
+            },
+            "type": "if",
+          },
+        ],
+        "line": 37,
+        "test": Object {
+          "line": 30,
+          "state": "NOT_IS_WALL",
+          "type": "state",
+        },
+        "type": "while",
+      },
+    ],
+    "line": 38,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
 exports[`Spirale 1`] = `
 Object {
   "conditions": Array [
@@ -2743,7 +2922,7 @@ Object {
           "type": "if",
         },
       ],
-      "identifier": "IstFrei",
+      "identifier": "istfrei",
       "line": 9,
       "type": "condition",
     },
@@ -2769,7 +2948,7 @@ Object {
             "line": 16,
             "test": Object {
               "line": 13,
-              "name": "IstFrei",
+              "name": "istfrei",
               "type": "conditionCall",
             },
             "type": "while",
@@ -2783,7 +2962,7 @@ Object {
         "line": 18,
         "test": Object {
           "line": 12,
-          "name": "IstFrei",
+          "name": "istfrei",
           "type": "conditionCall",
         },
         "type": "while",
@@ -2823,7 +3002,7 @@ Object {
           "type": "systemCall",
         },
       ],
-      "identifier": "Umdrehen",
+      "identifier": "umdrehen",
       "line": 9,
       "type": "function",
     },
@@ -2836,7 +3015,7 @@ Object {
         },
         Object {
           "line": 13,
-          "name": "Umdrehen",
+          "name": "umdrehen",
           "type": "functionCall",
         },
         Object {
@@ -2846,7 +3025,7 @@ Object {
         },
         Object {
           "line": 15,
-          "name": "Umdrehen",
+          "name": "umdrehen",
           "type": "functionCall",
         },
         Object {
@@ -2855,7 +3034,7 @@ Object {
           "type": "systemCall",
         },
       ],
-      "identifier": "SchrittZurück",
+      "identifier": "schrittzurück",
       "line": 17,
       "type": "function",
     },
@@ -2900,7 +3079,7 @@ Object {
         },
         Object {
           "line": 29,
-          "name": "SchrittZurück",
+          "name": "schrittzurück",
           "type": "functionCall",
         },
         Object {
@@ -2921,7 +3100,7 @@ Object {
         },
         Object {
           "line": 34,
-          "name": "Umdrehen",
+          "name": "umdrehen",
           "type": "functionCall",
         },
         Object {
@@ -2946,7 +3125,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "ReiheStapeln",
+      "identifier": "reihestapeln",
       "line": 39,
       "type": "function",
     },
@@ -2957,7 +3136,7 @@ Object {
         "body": Array [
           Object {
             "line": 43,
-            "name": "ReiheStapeln",
+            "name": "reihestapeln",
             "type": "functionCall",
           },
           Object {
@@ -2988,7 +3167,7 @@ Object {
       },
       Object {
         "line": 46,
-        "name": "ReiheStapeln",
+        "name": "reihestapeln",
         "type": "functionCall",
       },
     ],
@@ -3016,7 +3195,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "Umdrehen",
+      "identifier": "umdrehen",
       "line": 6,
       "type": "function",
     },
@@ -3024,7 +3203,7 @@ Object {
       "body": Array [
         Object {
           "line": 9,
-          "name": "Umdrehen",
+          "name": "umdrehen",
           "type": "functionCall",
         },
         Object {
@@ -3034,11 +3213,11 @@ Object {
         },
         Object {
           "line": 11,
-          "name": "Umdrehen",
+          "name": "umdrehen",
           "type": "functionCall",
         },
       ],
-      "identifier": "SchrittRückwärts",
+      "identifier": "schrittrückwärts",
       "line": 12,
       "type": "function",
     },
@@ -3054,7 +3233,7 @@ Object {
           },
           Object {
             "line": 17,
-            "name": "Umdrehen",
+            "name": "umdrehen",
             "type": "functionCall",
           },
           Object {
@@ -3064,7 +3243,7 @@ Object {
           },
           Object {
             "line": 19,
-            "name": "Umdrehen",
+            "name": "umdrehen",
             "type": "functionCall",
           },
         ],
@@ -3078,7 +3257,7 @@ Object {
       },
       Object {
         "line": 21,
-        "name": "SchrittRückwärts",
+        "name": "schrittrückwärts",
         "type": "functionCall",
       },
       Object {
@@ -3121,7 +3300,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "Umdrehen",
+      "identifier": "umdrehen",
       "line": 5,
       "type": "function",
     },
@@ -3138,7 +3317,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "ZweiSchritt",
+      "identifier": "zweischritt",
       "line": 10,
       "type": "function",
     },
@@ -3175,12 +3354,12 @@ Object {
           },
           Object {
             "line": 19,
-            "name": "ZweiSchritt",
+            "name": "zweischritt",
             "type": "functionCall",
           },
           Object {
             "line": 20,
-            "name": "Umdrehen",
+            "name": "umdrehen",
             "type": "functionCall",
           },
           Object {
@@ -3239,7 +3418,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "Umdrehen",
+      "identifier": "umdrehen",
       "line": 5,
       "type": "function",
     },
@@ -3256,7 +3435,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "ZweiSchritt",
+      "identifier": "zweischritt",
       "line": 10,
       "type": "function",
     },
@@ -3284,7 +3463,7 @@ Object {
           "type": "while",
         },
       ],
-      "identifier": "EineSchichtLegen",
+      "identifier": "eineschichtlegen",
       "line": 17,
       "type": "function",
     },
@@ -3307,7 +3486,7 @@ Object {
           "type": "while",
         },
       ],
-      "identifier": "HinabSteigen",
+      "identifier": "hinabsteigen",
       "line": 23,
       "type": "function",
     },
@@ -3323,27 +3502,27 @@ Object {
         "body": Array [
           Object {
             "line": 28,
-            "name": "ZweiSchritt",
+            "name": "zweischritt",
             "type": "functionCall",
           },
           Object {
             "line": 29,
-            "name": "Umdrehen",
+            "name": "umdrehen",
             "type": "functionCall",
           },
           Object {
             "line": 30,
-            "name": "EineSchichtLegen",
+            "name": "eineschichtlegen",
             "type": "functionCall",
           },
           Object {
             "line": 31,
-            "name": "Umdrehen",
+            "name": "umdrehen",
             "type": "functionCall",
           },
           Object {
             "line": 32,
-            "name": "HinabSteigen",
+            "name": "hinabsteigen",
             "type": "functionCall",
           },
         ],
@@ -3358,7 +3537,7 @@ Object {
       },
       Object {
         "line": 35,
-        "name": "Umdrehen",
+        "name": "umdrehen",
         "type": "functionCall",
       },
     ],
@@ -3386,7 +3565,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "Umdrehen",
+      "identifier": "umdrehen",
       "line": 5,
       "type": "function",
     },
@@ -3403,7 +3582,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "ZweiSchritt",
+      "identifier": "zweischritt",
       "line": 10,
       "type": "function",
     },
@@ -3431,7 +3610,7 @@ Object {
           "type": "while",
         },
       ],
-      "identifier": "EineSchichtLegen",
+      "identifier": "eineschichtlegen",
       "line": 17,
       "type": "function",
     },
@@ -3454,7 +3633,7 @@ Object {
           "type": "while",
         },
       ],
-      "identifier": "HinabSteigen",
+      "identifier": "hinabsteigen",
       "line": 23,
       "type": "function",
     },
@@ -3470,27 +3649,27 @@ Object {
         "body": Array [
           Object {
             "line": 28,
-            "name": "ZweiSchritt",
+            "name": "zweischritt",
             "type": "functionCall",
           },
           Object {
             "line": 29,
-            "name": "Umdrehen",
+            "name": "umdrehen",
             "type": "functionCall",
           },
           Object {
             "line": 30,
-            "name": "EineSchichtLegen",
+            "name": "eineschichtlegen",
             "type": "functionCall",
           },
           Object {
             "line": 31,
-            "name": "Umdrehen",
+            "name": "umdrehen",
             "type": "functionCall",
           },
           Object {
             "line": 32,
-            "name": "HinabSteigen",
+            "name": "hinabsteigen",
             "type": "functionCall",
           },
         ],
@@ -3505,7 +3684,7 @@ Object {
       },
       Object {
         "line": 35,
-        "name": "Umdrehen",
+        "name": "umdrehen",
         "type": "functionCall",
       },
     ],
@@ -3609,7 +3788,7 @@ Object {
           "type": "while",
         },
       ],
-      "identifier": "AufhebenReihe",
+      "identifier": "aufhebenreihe",
       "line": 7,
       "type": "function",
     },
@@ -3669,7 +3848,7 @@ Object {
           "type": "if",
         },
       ],
-      "identifier": "Wenden",
+      "identifier": "wenden",
       "line": 21,
       "type": "function",
     },
@@ -3680,12 +3859,12 @@ Object {
         "body": Array [
           Object {
             "line": 25,
-            "name": "AufhebenReihe",
+            "name": "aufhebenreihe",
             "type": "functionCall",
           },
           Object {
             "line": 26,
-            "name": "Wenden",
+            "name": "wenden",
             "type": "functionCall",
           },
         ],
@@ -3796,7 +3975,7 @@ Object {
           "type": "systemCall",
         },
       ],
-      "identifier": "IstZiegelRechts",
+      "identifier": "istziegelrechts",
       "line": 14,
       "type": "condition",
     },
@@ -3838,7 +4017,7 @@ Object {
           "type": "while",
         },
       ],
-      "identifier": "BisZurWand",
+      "identifier": "biszurwand",
       "line": 24,
       "type": "function",
     },
@@ -3872,13 +4051,13 @@ Object {
           "line": 33,
           "test": Object {
             "line": 28,
-            "name": "IstZiegelRechts",
+            "name": "istziegelrechts",
             "type": "conditionCall",
           },
           "type": "while",
         },
       ],
-      "identifier": "AnDerWandEntlang",
+      "identifier": "anderwandentlang",
       "line": 34,
       "type": "function",
     },
@@ -3887,7 +4066,7 @@ Object {
     "body": Array [
       Object {
         "line": 38,
-        "name": "BisZurWand",
+        "name": "biszurwand",
         "type": "functionCall",
       },
       Object {
@@ -3897,7 +4076,7 @@ Object {
       },
       Object {
         "line": 40,
-        "name": "AnDerWandEntlang",
+        "name": "anderwandentlang",
         "type": "functionCall",
       },
       Object {

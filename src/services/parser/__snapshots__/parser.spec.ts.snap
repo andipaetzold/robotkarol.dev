@@ -87,7 +87,7 @@ Object {
           "type": "call",
         },
       ],
-      "identifier": "Test",
+      "identifier": "test",
       "line": 3,
       "type": "function",
     },
@@ -107,7 +107,7 @@ Object {
   "functions": Array [
     Object {
       "body": Array [],
-      "identifier": "Test",
+      "identifier": "test",
       "line": 2,
       "type": "function",
     },

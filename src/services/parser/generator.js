@@ -113,21 +113,21 @@ const grammar = {
     segment_function: [
       [
         "FUNCTION_BEGIN IDENTIFIER statements FUNCTION_END",
-        "$$ = { type: 'function', line: yylineno, identifier: $2, body: $3 }",
+        "$$ = { type: 'function', line: yylineno, identifier: $2.toLocaleLowerCase(), body: $3 }",
       ],
       [
         "FUNCTION_BEGIN IDENTIFIER FUNCTION_END",
-        "$$ = { type: 'function', line: yylineno, identifier: $2, body: [] }",
+        "$$ = { type: 'function', line: yylineno, identifier: $2.toLocaleLowerCase(), body: [] }",
       ],
     ],
     segment_condition: [
       [
         "CONDITION_BEGIN IDENTIFIER statements CONDITION_END",
-        "$$ = { type: 'condition', line: yylineno, identifier: $2, body: $3 }",
+        "$$ = { type: 'condition', line: yylineno, identifier: $2.toLocaleLowerCase(), body: $3 }",
       ],
       [
         "CONDITION_BEGIN IDENTIFIER CONDITION_END",
-        "$$ = { type: 'condition', line: yylineno, identifier: $2, body: [] }",
+        "$$ = { type: 'condition', line: yylineno, identifier: $2.toLocaleLowerCase(), body: [] }",
       ],
     ],
     statements: [
@@ -194,7 +194,10 @@ const grammar = {
         "$$ = { type: 'if', line: yylineno, test: $2, body: $4, elseBody: $6 }",
       ],
 
-      ["IDENTIFIER", "$$ = { type: 'functionCall', name: $1, line: yylineno }"],
+      [
+        "IDENTIFIER",
+        "$$ = { type: 'functionCall', name: $1.toLocaleLowerCase(), line: yylineno }",
+      ],
     ],
     test: [
       ["NOT test", "$$ = { type: 'not', line: yylineno, test: $2 }"],
@@ -215,7 +218,7 @@ const grammar = {
       createState("HAS_BRICKS"),
       [
         "IDENTIFIER",
-        "$$ = { type: 'conditionCall', line: yylineno, name: $1 }",
+        "$$ = { type: 'conditionCall', line: yylineno, name: $1.toLocaleLowerCase() }",
       ],
     ],
   },
