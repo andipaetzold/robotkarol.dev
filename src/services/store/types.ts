@@ -9,11 +9,15 @@ export interface RootState {
   error?: { message: string; data?: ParseErrorData };
   execution: {
     ast?: AST;
-    stack: ASTStatement[][];
+    stack: StackItem[];
     state: State;
     worldOnStart?: World;
     activeLine?: number;
     speed: "slow" | "fast";
   };
   world: World;
+}
+
+export interface StackItem {
+  statements: ASTStatement[];
 }

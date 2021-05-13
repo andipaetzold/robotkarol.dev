@@ -15,7 +15,7 @@ export function executionStep(state: RootState): void {
 
   try {
     while (state.execution.stack.length > 0) {
-      const statement = state.execution.stack[0].shift()!;
+      const statement = state.execution.stack[0].statements.shift()!;
       state.execution.activeLine = statement.line;
 
       switch (statement.type) {
@@ -27,7 +27,7 @@ export function executionStep(state: RootState): void {
           switch (statement.action) {
             case "FAST":
               state.execution.speed = "fast";
-              state.execution.stack[0].unshift({
+              state.execution.stack[0].statements.unshift({
                 type: "systemCall",
                 line: statement.line,
                 action: "SLOW",
@@ -46,37 +46,40 @@ export function executionStep(state: RootState): void {
           const functionCall = state.execution.ast?.functions.find(
             (x) => x.identifier === statement.name
           )!;
-          state.execution.stack.unshift([...functionCall.body]);
+          state.execution.stack.unshift({ statements: [...functionCall.body] });
           break;
         }
         case "repeat": {
           if (statement.times > 1) {
-            state.execution.stack[0].unshift({
+            state.execution.stack[0].statements.unshift({
               ...statement,
               times: statement.times - 1,
             });
           }
-          state.execution.stack.unshift([...statement.body]);
+          state.execution.stack.unshift({ statements: [...statement.body] });
           break;
         }
         case "if": {
           if (checkTest(statement.test, state.world)) {
-            state.execution.stack[0].unshift(...statement.body);
+            state.execution.stack[0].statements.unshift(...statement.body);
           } else {
-            state.execution.stack[0].unshift(...statement.elseBody);
+            state.execution.stack[0].statements.unshift(...statement.elseBody);
           }
           break;
         }
         case "while": {
           if (checkTest(statement.test, state.world)) {
-            state.execution.stack[0].unshift(...statement.body, statement);
+            state.execution.stack[0].statements.unshift(
+              ...statement.body,
+              statement
+            );
           }
         }
       }
 
       while (
         state.execution.stack.length > 0 &&
-        state.execution.stack[0].length === 0
+        state.execution.stack[0].statements.length === 0
       ) {
         state.execution.stack.shift();
       }

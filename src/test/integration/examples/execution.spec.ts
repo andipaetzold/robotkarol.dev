@@ -33,7 +33,7 @@ EXAMPLES.filter((e) => e.code)
         world,
         execution: {
           speed: "slow",
-          stack: [cloneDeep(ast.program.body)],
+          stack: [{ statements: cloneDeep(ast.program.body) }],
           state: "running",
           ast,
         },
