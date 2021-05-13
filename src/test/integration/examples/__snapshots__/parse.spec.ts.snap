@@ -1581,6 +1581,93 @@ Object {
 }
 `;
 
+exports[`Laufen 1`] = `
+Object {
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_LEFT",
+          "line": 4,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 5,
+          "type": "call",
+        },
+      ],
+      "identifier": "Umdrehen",
+      "line": 6,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "body": Array [
+              Object {
+                "action": "STEP",
+                "line": 11,
+                "type": "call",
+              },
+            ],
+            "condition": Object {
+              "line": 10,
+              "test": "IS_BRICK",
+              "type": "expression",
+            },
+            "elseBody": Array [
+              Object {
+                "action": "TURN_LEFT",
+                "line": 13,
+                "type": "call",
+              },
+              Object {
+                "body": Array [
+                  Object {
+                    "line": 15,
+                    "name": "Umdrehen",
+                    "type": "functionCall",
+                  },
+                ],
+                "condition": Object {
+                  "line": 14,
+                  "test": "NOT_IS_BRICK",
+                  "type": "expression",
+                },
+                "elseBody": Array [],
+                "line": 16,
+                "type": "if",
+              },
+              Object {
+                "action": "STEP",
+                "line": 17,
+                "type": "call",
+              },
+            ],
+            "line": 18,
+            "type": "if",
+          },
+        ],
+        "condition": Object {
+          "line": 9,
+          "test": "NOT_IS_MARKER",
+          "type": "expression",
+        },
+        "line": 19,
+        "type": "while",
+      },
+    ],
+    "line": 19,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
 exports[`Links Invertieren 1`] = `
 Object {
   "functions": Array [],

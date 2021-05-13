@@ -14,8 +14,12 @@ const grammar = {
 
       ["programm\\b", "return 'PROGRAM_BEGIN'"],
       ["(\\*programm|endeprogramm)\\b", "return 'PROGRAM_END'"],
-      ["anweisung\\b", "return 'FUNCTION_BEGIN'"],
-      ["(\\*anweisung|endeanweisung)\\b", "return 'FUNCTION_END'"],
+
+      ["(anweisung|methode)\\b", "return 'FUNCTION_BEGIN'"],
+      [
+        "(\\*anweisung|endeanweisung|\\*methode|endemethode)\\b",
+        "return 'FUNCTION_END'",
+      ],
 
       ["schritt\\b", "return 'STEP'"],
       ["linksdrehen\\b", "return 'TURN_LEFT'"],
