@@ -110,7 +110,7 @@ export const rootSlice = createSlice({
         return;
       }
       state.execution.ast = ast;
-      state.execution.stack = ast.program.body;
+      state.execution.stack = [[...ast.program.body]];
     },
     controlsStartOrResume: (state) => {
       state.execution.state = "running";
@@ -123,7 +123,7 @@ export const rootSlice = createSlice({
       executionStepFn(state);
     },
     controlsStop: (state) => {
-      state.execution.stack = state.execution.ast?.program.body!;
+      state.execution.stack = [[...state.execution.ast?.program.body!]];
       state.execution.state = "stopped";
       state.execution.speed = "slow";
       state.execution.activeLine = undefined;

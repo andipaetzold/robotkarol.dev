@@ -1,4 +1,5 @@
 import { readFileSync } from "fs";
+import { cloneDeep } from "lodash";
 import path from "path";
 import { EXAMPLES } from "../../../services/examples";
 import { parse } from "../../../services/parser";
@@ -32,7 +33,7 @@ EXAMPLES.filter((e) => e.code)
         world,
         execution: {
           speed: "slow",
-          stack: ast.program.body,
+          stack: [cloneDeep(ast.program.body)],
           state: "running",
           ast,
         },

@@ -9,7 +9,7 @@ export interface RootState {
   error?: { message: string; data?: ParseErrorData };
   execution: {
     ast?: AST;
-    stack: ASTStatement[];
+    stack: ASTStatement[][];
     state: State;
     worldOnStart?: World;
     activeLine?: number;

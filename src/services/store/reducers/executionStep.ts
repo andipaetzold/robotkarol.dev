@@ -1,5 +1,5 @@
-import { RootState } from "../types";
 import { checkCondition, doCall } from "../../executor";
+import { RootState } from "../types";
 
 /**
  * TODO: fix and improve active line
@@ -14,21 +14,24 @@ export function executionStep(state: RootState): void {
   }
 
   try {
-    let didCall = false;
     while (state.execution.stack.length > 0) {
-      const statement = state.execution.stack.shift()!;
+      const statement = state.execution.stack[0].shift()!;
       state.execution.activeLine = statement.line;
 
       switch (statement.type) {
         case "call": {
           state.world = doCall(statement, state.world);
-          didCall = true;
           break;
         }
         case "systemCall": {
           switch (statement.action) {
             case "fast":
               state.execution.speed = "fast";
+              state.execution.stack[0].unshift({
+                type: "systemCall",
+                line: statement.line,
+                action: "slow",
+              });
               break;
             case "slow":
               state.execution.speed = "slow";
@@ -46,60 +49,51 @@ export function executionStep(state: RootState): void {
           const functionCall = state.execution.ast?.functions.find(
             (x) => x.identifier === statement.name
           )!;
-          state.execution.stack.unshift({
-            type: "systemCall",
-            line: statement.line,
-            action: "slow",
-          });
-          state.execution.stack.unshift(...functionCall.body);
+          state.execution.stack.unshift([...functionCall.body]);
           break;
         }
         case "repeat": {
           if (statement.times > 1) {
-            state.execution.stack.unshift({
+            state.execution.stack[0].unshift({
               ...statement,
               times: statement.times - 1,
             });
           }
-          state.execution.stack.unshift(...statement.body);
+          state.execution.stack.unshift([...statement.body]);
           break;
         }
         case "if": {
           if (checkCondition(statement.condition, state.world)) {
-            state.execution.stack.unshift(...statement.body);
+            state.execution.stack[0].unshift(...statement.body);
           } else {
-            state.execution.stack.unshift(...statement.elseBody);
+            state.execution.stack[0].unshift(...statement.elseBody);
           }
           break;
         }
         case "while": {
           if (checkCondition(statement.condition, state.world)) {
-            state.execution.stack.unshift(...statement.body, statement);
+            state.execution.stack[0].unshift(...statement.body, statement);
           }
         }
       }
 
-      let finish = false;
-      if (didCall && state.execution.speed === "slow") {
-        finish = true;
-      }
-
-      if (
-        state.execution.stack.filter((s) => s.type !== "systemCall").length ===
-        0
+      while (
+        state.execution.stack.length > 0 &&
+        state.execution.stack[0].length === 0
       ) {
-        state.execution.state = "done";
-        finish = true;
+        state.execution.stack.shift();
       }
 
-      if (finish) {
-        return;
+      if (state.execution.stack.length === 0) {
+        state.execution.state = "done";
       }
+
+      return;
     }
   } catch (e) {
     state.execution.state = "done";
 
     // TODO: handle error
-    throw e;
+    console.error(e);
   }
 }
