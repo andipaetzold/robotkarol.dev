@@ -13,9 +13,9 @@ describe("removeEmptyTiles", () => {
     const world: World = {
       ...WORLD,
       tiles: [
-        { x: 0, y: 0, marked: true, bricks: 0 },
-        { x: 0, y: 1, marked: true, bricks: 0 },
-        { x: 0, y: 2, marked: false, bricks: 0 },
+        { x: 0, y: 0, marked: true, bricks: 0, cuboid: false },
+        { x: 0, y: 1, marked: true, bricks: 0, cuboid: false },
+        { x: 0, y: 2, marked: false, bricks: 0, cuboid: false },
       ],
     };
 
@@ -25,12 +25,14 @@ describe("removeEmptyTiles", () => {
       Array [
         Object {
           "bricks": 0,
+          "cuboid": false,
           "marked": true,
           "x": 0,
           "y": 0,
         },
         Object {
           "bricks": 0,
+          "cuboid": false,
           "marked": true,
           "x": 0,
           "y": 1,
@@ -43,9 +45,9 @@ describe("removeEmptyTiles", () => {
     const world: World = {
       ...WORLD,
       tiles: [
-        { x: 0, y: 0, marked: false, bricks: 0 },
-        { x: 0, y: 1, marked: false, bricks: 3 },
-        { x: 0, y: 2, marked: false, bricks: 5 },
+        { x: 0, y: 0, marked: false, bricks: 0, cuboid: false },
+        { x: 0, y: 1, marked: false, bricks: 3, cuboid: false },
+        { x: 0, y: 2, marked: false, bricks: 5, cuboid: false },
       ],
     };
 
@@ -55,12 +57,46 @@ describe("removeEmptyTiles", () => {
       Array [
         Object {
           "bricks": 3,
+          "cuboid": false,
           "marked": false,
           "x": 0,
           "y": 1,
         },
         Object {
           "bricks": 5,
+          "cuboid": false,
+          "marked": false,
+          "x": 0,
+          "y": 2,
+        },
+      ]
+    `);
+  });
+
+  it("should keep tiles with cuboids", () => {
+    const world: World = {
+      ...WORLD,
+      tiles: [
+        { x: 0, y: 0, marked: false, bricks: 0, cuboid: false },
+        { x: 0, y: 1, marked: false, bricks: 0, cuboid: true },
+        { x: 0, y: 2, marked: false, bricks: 0, cuboid: true },
+      ],
+    };
+
+    const cleanedWorld = removeEmptyTiles(world);
+    expect(cleanedWorld.tiles).toHaveLength(2);
+    expect(cleanedWorld.tiles).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "bricks": 0,
+          "cuboid": true,
+          "marked": false,
+          "x": 0,
+          "y": 1,
+        },
+        Object {
+          "bricks": 0,
+          "cuboid": true,
           "marked": false,
           "x": 0,
           "y": 2,
