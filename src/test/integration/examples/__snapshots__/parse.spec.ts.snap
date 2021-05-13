@@ -1,0 +1,2386 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`01 Programm 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "STEP",
+            "line": 1,
+            "type": "call",
+          },
+        ],
+        "condition": Object {
+          "line": 0,
+          "test": "NOT_IS_WALL",
+          "type": "expression",
+        },
+        "line": 2,
+        "type": "while",
+      },
+    ],
+    "line": 2,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`02 Karol 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "STEP",
+            "line": 3,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 4,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 5,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 6,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "TURN_LEFT",
+                "line": 8,
+                "type": "call",
+              },
+              Object {
+                "action": "TURN_LEFT",
+                "line": 9,
+                "type": "call",
+              },
+            ],
+            "condition": Object {
+              "line": 7,
+              "test": "IS_WALL",
+              "type": "expression",
+            },
+            "elseBody": Array [],
+            "line": 10,
+            "type": "if",
+          },
+        ],
+        "line": 11,
+        "times": "9",
+        "type": "repeat",
+      },
+    ],
+    "line": 11,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`03 Vergleichen 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_TAKE",
+            "line": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 8,
+            "type": "call",
+          },
+        ],
+        "condition": Object {
+          "line": 6,
+          "test": "IS_BRICK",
+          "type": "expression",
+        },
+        "line": 9,
+        "type": "while",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "TURN_LEFT",
+            "line": 12,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_TAKE",
+                "line": 14,
+                "type": "call",
+              },
+            ],
+            "condition": Object {
+              "line": 13,
+              "test": "IS_BRICK",
+              "type": "expression",
+            },
+            "line": 15,
+            "type": "while",
+          },
+        ],
+        "line": 16,
+        "times": "3",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 17,
+        "type": "call",
+      },
+    ],
+    "line": 9,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`05 Schwimmbad 1`] = `
+Object {
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_LEFT",
+          "line": 7,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 8,
+          "type": "call",
+        },
+      ],
+      "identifier": "Umdrehen",
+      "line": 9,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "body": Array [
+              Object {
+                "body": Array [
+                  Object {
+                    "action": "BRICK_PUT",
+                    "line": 16,
+                    "type": "call",
+                  },
+                  Object {
+                    "action": "STEP",
+                    "line": 17,
+                    "type": "call",
+                  },
+                ],
+                "condition": Object {
+                  "line": 15,
+                  "test": "NOT_IS_WALL",
+                  "type": "expression",
+                },
+                "line": 18,
+                "type": "while",
+              },
+              Object {
+                "action": "TURN_LEFT",
+                "line": 19,
+                "type": "call",
+              },
+            ],
+            "line": 20,
+            "times": "12",
+            "type": "repeat",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 23,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "STEP",
+                "line": 25,
+                "type": "call",
+              },
+            ],
+            "line": 26,
+            "times": "2",
+            "type": "repeat",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 27,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_PUT",
+                "line": 30,
+                "type": "call",
+              },
+            ],
+            "line": 30,
+            "times": "3",
+            "type": "repeat",
+          },
+          Object {
+            "action": "STEP",
+            "line": 31,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "body": Array [
+                  Object {
+                    "action": "BRICK_PUT",
+                    "line": 33,
+                    "type": "call",
+                  },
+                ],
+                "line": 33,
+                "times": "3",
+                "type": "repeat",
+              },
+              Object {
+                "action": "STEP",
+                "line": 34,
+                "type": "call",
+              },
+              Object {
+                "line": 35,
+                "name": "Umdrehen",
+                "type": "functionCall",
+              },
+              Object {
+                "body": Array [
+                  Object {
+                    "action": "BRICK_TAKE",
+                    "line": 36,
+                    "type": "call",
+                  },
+                ],
+                "line": 36,
+                "times": "3",
+                "type": "repeat",
+              },
+              Object {
+                "line": 37,
+                "name": "Umdrehen",
+                "type": "functionCall",
+              },
+            ],
+            "condition": Object {
+              "line": 32,
+              "test": "NOT_IS_BRICK",
+              "type": "expression",
+            },
+            "line": 38,
+            "type": "while",
+          },
+          Object {
+            "action": "STEP",
+            "line": 39,
+            "type": "call",
+          },
+          Object {
+            "line": 40,
+            "name": "Umdrehen",
+            "type": "functionCall",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_TAKE",
+                "line": 41,
+                "type": "call",
+              },
+            ],
+            "line": 41,
+            "times": "3",
+            "type": "repeat",
+          },
+          Object {
+            "line": 42,
+            "name": "Umdrehen",
+            "type": "functionCall",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 45,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "STEP",
+                "line": 46,
+                "type": "call",
+              },
+            ],
+            "line": 46,
+            "times": "2",
+            "type": "repeat",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 47,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "body": Array [
+                  Object {
+                    "action": "BRICK_TAKE",
+                    "line": 52,
+                    "type": "call",
+                  },
+                  Object {
+                    "action": "STEP",
+                    "line": 53,
+                    "type": "call",
+                  },
+                ],
+                "condition": Object {
+                  "line": 51,
+                  "test": "NOT_IS_WALL",
+                  "type": "expression",
+                },
+                "line": 54,
+                "type": "while",
+              },
+              Object {
+                "action": "TURN_RIGHT",
+                "line": 55,
+                "type": "call",
+              },
+            ],
+            "line": 56,
+            "times": "12",
+            "type": "repeat",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "STEP",
+                "line": 60,
+                "type": "call",
+              },
+            ],
+            "condition": Object {
+              "line": 59,
+              "test": "NOT_IS_WALL",
+              "type": "expression",
+            },
+            "line": 61,
+            "type": "while",
+          },
+          Object {
+            "line": 62,
+            "name": "Umdrehen",
+            "type": "functionCall",
+          },
+        ],
+        "line": 64,
+        "times": "4",
+        "type": "repeat",
+      },
+    ],
+    "line": 64,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`06 SBad mit Prozeduren 1`] = `
+Object {
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "action": "BRICK_PUT",
+                  "line": 13,
+                  "type": "call",
+                },
+                Object {
+                  "action": "STEP",
+                  "line": 14,
+                  "type": "call",
+                },
+              ],
+              "condition": Object {
+                "line": 12,
+                "test": "NOT_IS_WALL",
+                "type": "expression",
+              },
+              "line": 15,
+              "type": "while",
+            },
+            Object {
+              "action": "TURN_LEFT",
+              "line": 16,
+              "type": "call",
+            },
+          ],
+          "line": 17,
+          "times": "12",
+          "type": "repeat",
+        },
+      ],
+      "identifier": "BaueBecken",
+      "line": 18,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "action": "BRICK_TAKE",
+                  "line": 24,
+                  "type": "call",
+                },
+                Object {
+                  "action": "STEP",
+                  "line": 25,
+                  "type": "call",
+                },
+              ],
+              "condition": Object {
+                "line": 23,
+                "test": "NOT_IS_WALL",
+                "type": "expression",
+              },
+              "line": 26,
+              "type": "while",
+            },
+            Object {
+              "action": "TURN_RIGHT",
+              "line": 27,
+              "type": "call",
+            },
+          ],
+          "line": 28,
+          "times": "12",
+          "type": "repeat",
+        },
+      ],
+      "identifier": "AbbauenBecken",
+      "line": 29,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_LEFT",
+          "line": 33,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 34,
+          "type": "call",
+        },
+      ],
+      "identifier": "Umdrehen",
+      "line": 35,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_PUT",
+              "line": 41,
+              "type": "call",
+            },
+          ],
+          "line": 41,
+          "times": "3",
+          "type": "repeat",
+        },
+        Object {
+          "action": "STEP",
+          "line": 42,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "action": "BRICK_PUT",
+                  "line": 44,
+                  "type": "call",
+                },
+              ],
+              "line": 44,
+              "times": "3",
+              "type": "repeat",
+            },
+            Object {
+              "action": "STEP",
+              "line": 45,
+              "type": "call",
+            },
+            Object {
+              "line": 46,
+              "name": "Umdrehen",
+              "type": "functionCall",
+            },
+            Object {
+              "body": Array [
+                Object {
+                  "action": "BRICK_TAKE",
+                  "line": 47,
+                  "type": "call",
+                },
+              ],
+              "line": 47,
+              "times": "3",
+              "type": "repeat",
+            },
+            Object {
+              "line": 48,
+              "name": "Umdrehen",
+              "type": "functionCall",
+            },
+          ],
+          "condition": Object {
+            "line": 43,
+            "test": "NOT_IS_BRICK",
+            "type": "expression",
+          },
+          "line": 49,
+          "type": "while",
+        },
+        Object {
+          "action": "STEP",
+          "line": 50,
+          "type": "call",
+        },
+        Object {
+          "line": 51,
+          "name": "Umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_TAKE",
+              "line": 52,
+              "type": "call",
+            },
+          ],
+          "line": 52,
+          "times": "3",
+          "type": "repeat",
+        },
+        Object {
+          "line": 53,
+          "name": "Umdrehen",
+          "type": "functionCall",
+        },
+      ],
+      "identifier": "Schwimmen",
+      "line": 54,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "line": 60,
+          "name": "BaueBecken",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 63,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 64,
+              "type": "call",
+            },
+          ],
+          "line": 64,
+          "times": "2",
+          "type": "repeat",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 65,
+          "type": "call",
+        },
+        Object {
+          "line": 67,
+          "name": "Schwimmen",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 70,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 71,
+              "type": "call",
+            },
+          ],
+          "line": 71,
+          "times": "2",
+          "type": "repeat",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 72,
+          "type": "call",
+        },
+        Object {
+          "line": 74,
+          "name": "AbbauenBecken",
+          "type": "functionCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 78,
+              "type": "call",
+            },
+          ],
+          "condition": Object {
+            "line": 77,
+            "test": "NOT_IS_WALL",
+            "type": "expression",
+          },
+          "line": 79,
+          "type": "while",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 80,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 80,
+          "type": "call",
+        },
+      ],
+      "identifier": "Hauptteil",
+      "line": 81,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "line": 90,
+            "name": "Hauptteil",
+            "type": "functionCall",
+          },
+        ],
+        "line": 91,
+        "times": "4",
+        "type": "repeat",
+      },
+    ],
+    "line": 92,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`07 SBad mit Schell Langsam 1`] = `
+Object {
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "fast",
+          "line": 9,
+          "type": "systemCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "action": "BRICK_PUT",
+                  "line": 12,
+                  "type": "call",
+                },
+                Object {
+                  "action": "STEP",
+                  "line": 13,
+                  "type": "call",
+                },
+              ],
+              "condition": Object {
+                "line": 11,
+                "test": "NOT_IS_WALL",
+                "type": "expression",
+              },
+              "line": 14,
+              "type": "while",
+            },
+            Object {
+              "action": "TURN_LEFT",
+              "line": 15,
+              "type": "call",
+            },
+          ],
+          "line": 16,
+          "times": "12",
+          "type": "repeat",
+        },
+        Object {
+          "action": "slow",
+          "line": 17,
+          "type": "systemCall",
+        },
+      ],
+      "identifier": "BaueBecken",
+      "line": 18,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "fast",
+          "line": 22,
+          "type": "systemCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "action": "BRICK_TAKE",
+                  "line": 25,
+                  "type": "call",
+                },
+                Object {
+                  "action": "STEP",
+                  "line": 26,
+                  "type": "call",
+                },
+              ],
+              "condition": Object {
+                "line": 24,
+                "test": "NOT_IS_WALL",
+                "type": "expression",
+              },
+              "line": 27,
+              "type": "while",
+            },
+            Object {
+              "action": "TURN_RIGHT",
+              "line": 28,
+              "type": "call",
+            },
+          ],
+          "line": 29,
+          "times": "12",
+          "type": "repeat",
+        },
+        Object {
+          "action": "slow",
+          "line": 30,
+          "type": "systemCall",
+        },
+      ],
+      "identifier": "AbbauenBecken",
+      "line": 31,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_LEFT",
+          "line": 35,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 36,
+          "type": "call",
+        },
+      ],
+      "identifier": "Umdrehen",
+      "line": 37,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_PUT",
+              "line": 43,
+              "type": "call",
+            },
+          ],
+          "line": 43,
+          "times": "3",
+          "type": "repeat",
+        },
+        Object {
+          "action": "STEP",
+          "line": 44,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "action": "BRICK_PUT",
+                  "line": 46,
+                  "type": "call",
+                },
+              ],
+              "line": 46,
+              "times": "3",
+              "type": "repeat",
+            },
+            Object {
+              "action": "STEP",
+              "line": 47,
+              "type": "call",
+            },
+            Object {
+              "line": 48,
+              "name": "Umdrehen",
+              "type": "functionCall",
+            },
+            Object {
+              "body": Array [
+                Object {
+                  "action": "BRICK_TAKE",
+                  "line": 49,
+                  "type": "call",
+                },
+              ],
+              "line": 49,
+              "times": "3",
+              "type": "repeat",
+            },
+            Object {
+              "line": 50,
+              "name": "Umdrehen",
+              "type": "functionCall",
+            },
+          ],
+          "condition": Object {
+            "line": 45,
+            "test": "NOT_IS_BRICK",
+            "type": "expression",
+          },
+          "line": 51,
+          "type": "while",
+        },
+        Object {
+          "action": "STEP",
+          "line": 52,
+          "type": "call",
+        },
+        Object {
+          "line": 53,
+          "name": "Umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_TAKE",
+              "line": 54,
+              "type": "call",
+            },
+          ],
+          "line": 54,
+          "times": "3",
+          "type": "repeat",
+        },
+        Object {
+          "line": 55,
+          "name": "Umdrehen",
+          "type": "functionCall",
+        },
+      ],
+      "identifier": "Schwimmen",
+      "line": 56,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "line": 61,
+          "name": "BaueBecken",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 64,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 65,
+              "type": "call",
+            },
+          ],
+          "line": 65,
+          "times": "2",
+          "type": "repeat",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 66,
+          "type": "call",
+        },
+        Object {
+          "line": 68,
+          "name": "Schwimmen",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 71,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 72,
+              "type": "call",
+            },
+          ],
+          "line": 72,
+          "times": "2",
+          "type": "repeat",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 73,
+          "type": "call",
+        },
+        Object {
+          "line": 75,
+          "name": "AbbauenBecken",
+          "type": "functionCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 78,
+              "type": "call",
+            },
+          ],
+          "condition": Object {
+            "line": 78,
+            "test": "NOT_IS_WALL",
+            "type": "expression",
+          },
+          "line": 78,
+          "type": "while",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 79,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 79,
+          "type": "call",
+        },
+      ],
+      "identifier": "Hauptteil",
+      "line": 80,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "line": 87,
+            "name": "Hauptteil",
+            "type": "functionCall",
+          },
+        ],
+        "line": 88,
+        "times": "4",
+        "type": "repeat",
+      },
+    ],
+    "line": 89,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`08 Rekursion 1`] = `
+Object {
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_TAKE",
+              "line": 8,
+              "type": "call",
+            },
+            Object {
+              "line": 9,
+              "name": "PfeilerSetzen",
+              "type": "functionCall",
+            },
+          ],
+          "condition": Object {
+            "line": 7,
+            "test": "IS_BRICK",
+            "type": "expression",
+          },
+          "elseBody": Array [
+            Object {
+              "action": "TURN_LEFT",
+              "line": 11,
+              "type": "call",
+            },
+            Object {
+              "action": "TURN_LEFT",
+              "line": 12,
+              "type": "call",
+            },
+          ],
+          "line": 13,
+          "type": "if",
+        },
+        Object {
+          "action": "BRICK_PUT",
+          "line": 14,
+          "type": "call",
+        },
+      ],
+      "identifier": "PfeilerSetzen",
+      "line": 15,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "line": 18,
+        "name": "PfeilerSetzen",
+        "type": "functionCall",
+      },
+      Object {
+        "action": "BRICK_TAKE",
+        "line": 19,
+        "type": "call",
+      },
+    ],
+    "line": 20,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`09 Schachbrett 1`] = `
+Object {
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "MARKER_SET",
+              "line": 8,
+              "type": "call",
+            },
+            Object {
+              "action": "STEP",
+              "line": 9,
+              "type": "call",
+            },
+            Object {
+              "body": Array [
+                Object {
+                  "action": "STEP",
+                  "line": 10,
+                  "type": "call",
+                },
+              ],
+              "condition": Object {
+                "line": 10,
+                "test": "NOT_IS_WALL",
+                "type": "expression",
+              },
+              "elseBody": Array [],
+              "line": 10,
+              "type": "if",
+            },
+          ],
+          "condition": Object {
+            "line": 7,
+            "test": "NOT_IS_WALL",
+            "type": "expression",
+          },
+          "line": 11,
+          "type": "while",
+        },
+      ],
+      "identifier": "MarkiereZeile",
+      "line": 12,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "line": 15,
+            "name": "MarkiereZeile",
+            "type": "functionCall",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 16,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 17,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 18,
+            "type": "call",
+          },
+          Object {
+            "line": 19,
+            "name": "MarkiereZeile",
+            "type": "functionCall",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 20,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 21,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 22,
+            "type": "call",
+          },
+        ],
+        "line": 23,
+        "times": "3",
+        "type": "repeat",
+      },
+    ],
+    "line": 23,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`Invertieren 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_TAKE",
+                "line": 3,
+                "type": "call",
+              },
+            ],
+            "condition": Object {
+              "line": 2,
+              "test": "IS_BRICK",
+              "type": "expression",
+            },
+            "elseBody": Array [
+              Object {
+                "action": "BRICK_PUT",
+                "line": 5,
+                "type": "call",
+              },
+            ],
+            "line": 6,
+            "type": "if",
+          },
+          Object {
+            "action": "STEP",
+            "line": 7,
+            "type": "call",
+          },
+        ],
+        "condition": Object {
+          "line": 1,
+          "test": "NOT_IS_WALL",
+          "type": "expression",
+        },
+        "line": 8,
+        "type": "while",
+      },
+    ],
+    "line": 8,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`Invertieren Gesamt 1`] = `
+Object {
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_TAKE",
+              "line": 7,
+              "type": "call",
+            },
+          ],
+          "condition": Object {
+            "line": 6,
+            "test": "IS_BRICK",
+            "type": "expression",
+          },
+          "elseBody": Array [
+            Object {
+              "action": "BRICK_PUT",
+              "line": 9,
+              "type": "call",
+            },
+          ],
+          "line": 10,
+          "type": "if",
+        },
+      ],
+      "identifier": "Invertieren",
+      "line": 11,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "line": 15,
+              "name": "Invertieren",
+              "type": "functionCall",
+            },
+            Object {
+              "action": "STEP",
+              "line": 16,
+              "type": "call",
+            },
+          ],
+          "condition": Object {
+            "line": 14,
+            "test": "NOT_IS_WALL",
+            "type": "expression",
+          },
+          "line": 17,
+          "type": "while",
+        },
+      ],
+      "identifier": "EineReihe",
+      "line": 18,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_LEFT",
+          "line": 21,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "line": 23,
+              "name": "Invertieren",
+              "type": "functionCall",
+            },
+            Object {
+              "action": "STEP",
+              "line": 24,
+              "type": "call",
+            },
+            Object {
+              "action": "TURN_LEFT",
+              "line": 25,
+              "type": "call",
+            },
+          ],
+          "condition": Object {
+            "line": 22,
+            "test": "NOT_IS_WALL",
+            "type": "expression",
+          },
+          "elseBody": Array [],
+          "line": 26,
+          "type": "if",
+        },
+      ],
+      "identifier": "NachLinks",
+      "line": 27,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 30,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "line": 32,
+              "name": "Invertieren",
+              "type": "functionCall",
+            },
+            Object {
+              "action": "STEP",
+              "line": 33,
+              "type": "call",
+            },
+            Object {
+              "action": "TURN_RIGHT",
+              "line": 34,
+              "type": "call",
+            },
+          ],
+          "condition": Object {
+            "line": 31,
+            "test": "NOT_IS_WALL",
+            "type": "expression",
+          },
+          "elseBody": Array [],
+          "line": 35,
+          "type": "if",
+        },
+      ],
+      "identifier": "NachRechts",
+      "line": 36,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "STEP",
+          "line": 39,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 40,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 41,
+          "type": "call",
+        },
+        Object {
+          "line": 42,
+          "name": "Invertieren",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "STEP",
+          "line": 43,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 44,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 45,
+          "type": "call",
+        },
+      ],
+      "identifier": "Ursprung",
+      "line": 46,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "line": 49,
+        "name": "Ursprung",
+        "type": "functionCall",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "line": 51,
+            "name": "EineReihe",
+            "type": "functionCall",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "line": 53,
+                "name": "NachLinks",
+                "type": "functionCall",
+              },
+            ],
+            "condition": Object {
+              "line": 52,
+              "test": "IS_SOUTH",
+              "type": "expression",
+            },
+            "elseBody": Array [
+              Object {
+                "line": 55,
+                "name": "NachRechts",
+                "type": "functionCall",
+              },
+            ],
+            "line": 56,
+            "type": "if",
+          },
+        ],
+        "condition": Object {
+          "line": 50,
+          "test": "NOT_IS_WALL",
+          "type": "expression",
+        },
+        "line": 57,
+        "type": "while",
+      },
+    ],
+    "line": 58,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`Kurze Diagonale 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 2,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 3,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 4,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 5,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 6,
+            "type": "call",
+          },
+        ],
+        "line": 7,
+        "times": "3",
+        "type": "repeat",
+      },
+    ],
+    "line": 7,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`Links Invertieren 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "body": Array [
+              Object {
+                "action": "STEP",
+                "line": 4,
+                "type": "call",
+              },
+            ],
+            "condition": Object {
+              "line": 3,
+              "test": "IS_BRICK",
+              "type": "expression",
+            },
+            "elseBody": Array [
+              Object {
+                "action": "STEP",
+                "line": 6,
+                "type": "call",
+              },
+              Object {
+                "action": "TURN_LEFT",
+                "line": 7,
+                "type": "call",
+              },
+              Object {
+                "action": "BRICK_PUT",
+                "line": 8,
+                "type": "call",
+              },
+              Object {
+                "action": "TURN_RIGHT",
+                "line": 9,
+                "type": "call",
+              },
+            ],
+            "line": 10,
+            "type": "if",
+          },
+        ],
+        "condition": Object {
+          "line": 2,
+          "test": "NOT_IS_WALL",
+          "type": "expression",
+        },
+        "line": 11,
+        "type": "while",
+      },
+    ],
+    "line": 11,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`Treppe 1`] = `
+Object {
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_LEFT",
+          "line": 4,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 5,
+          "type": "call",
+        },
+      ],
+      "identifier": "Umdrehen",
+      "line": 6,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "line": 9,
+          "name": "Umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "STEP",
+          "line": 10,
+          "type": "call",
+        },
+        Object {
+          "line": 11,
+          "name": "Umdrehen",
+          "type": "functionCall",
+        },
+      ],
+      "identifier": "SchrittRückwärts",
+      "line": 12,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "STEP",
+            "line": 16,
+            "type": "call",
+          },
+          Object {
+            "line": 17,
+            "name": "Umdrehen",
+            "type": "functionCall",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 18,
+            "type": "call",
+          },
+          Object {
+            "line": 19,
+            "name": "Umdrehen",
+            "type": "functionCall",
+          },
+        ],
+        "condition": Object {
+          "line": 15,
+          "test": "IS_BRICK",
+          "type": "expression",
+        },
+        "line": 20,
+        "type": "while",
+      },
+      Object {
+        "line": 21,
+        "name": "SchrittRückwärts",
+        "type": "functionCall",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 22,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 23,
+        "type": "call",
+      },
+      Object {
+        "line": 24,
+        "name": "Ton",
+        "type": "functionCall",
+      },
+    ],
+    "line": 20,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`Treppe Bauen 1`] = `
+Object {
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_LEFT",
+          "line": 3,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 4,
+          "type": "call",
+        },
+      ],
+      "identifier": "Umdrehen",
+      "line": 5,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "STEP",
+          "line": 8,
+          "type": "call",
+        },
+        Object {
+          "action": "STEP",
+          "line": 9,
+          "type": "call",
+        },
+      ],
+      "identifier": "ZweiSchritt",
+      "line": 10,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "MARKER_SET",
+            "line": 14,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 15,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "STEP",
+                "line": 17,
+                "type": "call",
+              },
+            ],
+            "condition": Object {
+              "line": 16,
+              "test": "IS_BRICK",
+              "type": "expression",
+            },
+            "line": 18,
+            "type": "while",
+          },
+          Object {
+            "line": 19,
+            "name": "ZweiSchritt",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 20,
+            "name": "Umdrehen",
+            "type": "functionCall",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_PUT",
+                "line": 22,
+                "type": "call",
+              },
+              Object {
+                "action": "STEP",
+                "line": 23,
+                "type": "call",
+              },
+            ],
+            "condition": Object {
+              "line": 21,
+              "test": "NOT_IS_MARKER",
+              "type": "expression",
+            },
+            "line": 24,
+            "type": "while",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 25,
+            "type": "call",
+          },
+        ],
+        "line": 26,
+        "times": "7",
+        "type": "repeat",
+      },
+    ],
+    "line": 26,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`Treppe Bauen 2 1`] = `
+Object {
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_LEFT",
+          "line": 3,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 4,
+          "type": "call",
+        },
+      ],
+      "identifier": "Umdrehen",
+      "line": 5,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "STEP",
+          "line": 8,
+          "type": "call",
+        },
+        Object {
+          "action": "STEP",
+          "line": 9,
+          "type": "call",
+        },
+      ],
+      "identifier": "ZweiSchritt",
+      "line": 10,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_PUT",
+              "line": 14,
+              "type": "call",
+            },
+            Object {
+              "action": "STEP",
+              "line": 15,
+              "type": "call",
+            },
+          ],
+          "condition": Object {
+            "line": 13,
+            "test": "NOT_IS_MARKER",
+            "type": "expression",
+          },
+          "line": 16,
+          "type": "while",
+        },
+      ],
+      "identifier": "EineSchichtLegen",
+      "line": 17,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 21,
+              "type": "call",
+            },
+          ],
+          "condition": Object {
+            "line": 20,
+            "test": "IS_BRICK",
+            "type": "expression",
+          },
+          "line": 22,
+          "type": "while",
+        },
+      ],
+      "identifier": "HinabSteigen",
+      "line": 23,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "action": "MARKER_SET",
+        "line": 26,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "line": 28,
+            "name": "ZweiSchritt",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 29,
+            "name": "Umdrehen",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 30,
+            "name": "EineSchichtLegen",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 31,
+            "name": "Umdrehen",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 32,
+            "name": "HinabSteigen",
+            "type": "functionCall",
+          },
+        ],
+        "line": 33,
+        "times": "7",
+        "type": "repeat",
+      },
+      Object {
+        "action": "STEP",
+        "line": 34,
+        "type": "call",
+      },
+      Object {
+        "line": 35,
+        "name": "Umdrehen",
+        "type": "functionCall",
+      },
+    ],
+    "line": 36,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`Treppe Bauen 3 1`] = `
+Object {
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_LEFT",
+          "line": 3,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 4,
+          "type": "call",
+        },
+      ],
+      "identifier": "Umdrehen",
+      "line": 5,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "STEP",
+          "line": 8,
+          "type": "call",
+        },
+        Object {
+          "action": "STEP",
+          "line": 9,
+          "type": "call",
+        },
+      ],
+      "identifier": "ZweiSchritt",
+      "line": 10,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_PUT",
+              "line": 14,
+              "type": "call",
+            },
+            Object {
+              "action": "STEP",
+              "line": 15,
+              "type": "call",
+            },
+          ],
+          "condition": Object {
+            "line": 13,
+            "test": "NOT_IS_MARKER",
+            "type": "expression",
+          },
+          "line": 16,
+          "type": "while",
+        },
+      ],
+      "identifier": "EineSchichtLegen",
+      "line": 17,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 21,
+              "type": "call",
+            },
+          ],
+          "condition": Object {
+            "line": 20,
+            "test": "IS_BRICK",
+            "type": "expression",
+          },
+          "line": 22,
+          "type": "while",
+        },
+      ],
+      "identifier": "HinabSteigen",
+      "line": 23,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "action": "MARKER_SET",
+        "line": 26,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "line": 28,
+            "name": "ZweiSchritt",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 29,
+            "name": "Umdrehen",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 30,
+            "name": "EineSchichtLegen",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 31,
+            "name": "Umdrehen",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 32,
+            "name": "HinabSteigen",
+            "type": "functionCall",
+          },
+        ],
+        "line": 33,
+        "times": "7",
+        "type": "repeat",
+      },
+      Object {
+        "action": "STEP",
+        "line": 34,
+        "type": "call",
+      },
+      Object {
+        "line": 35,
+        "name": "Umdrehen",
+        "type": "functionCall",
+      },
+    ],
+    "line": 36,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`Umsetzen 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_TAKE",
+            "line": 5,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 6,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 8,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 9,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 10,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 11,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 12,
+            "type": "call",
+          },
+        ],
+        "condition": Object {
+          "line": 4,
+          "test": "IS_BRICK",
+          "type": "expression",
+        },
+        "line": 13,
+        "type": "while",
+      },
+    ],
+    "line": 13,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`Viereck 1`] = `
+Object {
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_TAKE",
+              "line": 4,
+              "type": "call",
+            },
+            Object {
+              "action": "STEP",
+              "line": 5,
+              "type": "call",
+            },
+          ],
+          "condition": Object {
+            "line": 3,
+            "test": "IS_BRICK",
+            "type": "expression",
+          },
+          "line": 6,
+          "type": "while",
+        },
+      ],
+      "identifier": "AufhebenReihe",
+      "line": 7,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 11,
+              "type": "call",
+            },
+            Object {
+              "action": "TURN_LEFT",
+              "line": 12,
+              "type": "call",
+            },
+            Object {
+              "action": "STEP",
+              "line": 13,
+              "type": "call",
+            },
+            Object {
+              "action": "TURN_LEFT",
+              "line": 14,
+              "type": "call",
+            },
+          ],
+          "condition": Object {
+            "line": 10,
+            "test": "IS_SOUTH",
+            "type": "expression",
+          },
+          "elseBody": Array [
+            Object {
+              "action": "STEP",
+              "line": 16,
+              "type": "call",
+            },
+            Object {
+              "action": "TURN_RIGHT",
+              "line": 17,
+              "type": "call",
+            },
+            Object {
+              "action": "STEP",
+              "line": 18,
+              "type": "call",
+            },
+            Object {
+              "action": "TURN_RIGHT",
+              "line": 19,
+              "type": "call",
+            },
+          ],
+          "line": 20,
+          "type": "if",
+        },
+      ],
+      "identifier": "Wenden",
+      "line": 21,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "line": 25,
+            "name": "AufhebenReihe",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 26,
+            "name": "Wenden",
+            "type": "functionCall",
+          },
+        ],
+        "condition": Object {
+          "line": 24,
+          "test": "IS_BRICK",
+          "type": "expression",
+        },
+        "line": 27,
+        "type": "while",
+      },
+    ],
+    "line": 27,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`Wand Entlang 1`] = `
+Object {
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "body": Array [
+              Object {
+                "action": "TURN_LEFT",
+                "line": 3,
+                "type": "call",
+              },
+            ],
+            "condition": Object {
+              "line": 2,
+              "test": "IS_WALL",
+              "type": "expression",
+            },
+            "elseBody": Array [],
+            "line": 4,
+            "type": "if",
+          },
+          Object {
+            "action": "STEP",
+            "line": 5,
+            "type": "call",
+          },
+        ],
+        "line": 6,
+        "times": "100",
+        "type": "repeat",
+      },
+    ],
+    "line": 6,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;

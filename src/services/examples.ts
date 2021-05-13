@@ -103,7 +103,6 @@ export const EXAMPLES: Example[] = [
   },
   {
     name: "LaufenTest",
-    code: "LaufenTest.kdw",
     world: "LeereWelt.kdw",
   },
   {

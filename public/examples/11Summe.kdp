@@ -16,7 +16,7 @@
   Parameter (zum Beispiel  wenn 
       Ziegel(10) dann ...)
   Bedingungen, die die Ausrichtung 
-  von Karol pr�fen (IstNorden, IstS�den,
+  von Karol prüfen (IstNorden, IstSüden,
   IstWesten, IstOsten) }
 
 {   a = 0026355439
@@ -35,7 +35,7 @@ Anweisung Umdrehen
 *Anweisung
 
 { Eine Marke ist 10 Ziegel wert }
-Anweisung Pr�fe�bertrag
+Anweisung PrüfeÜbertrag
   wenn IstZiegel(10) dann
     wiederhole 10 mal Aufheben *wiederhole;
     MarkeSetzen
@@ -43,7 +43,7 @@ Anweisung Pr�fe�bertrag
 *Anweisung
 
 { Einen Stapel auf den zweiten versetzen.
-  Wenn sich ein "�bertrag" ergibt, wird 
+  Wenn sich ein "Übertrag" ergibt, wird 
   eine Marke gesetzt }
 Anweisung Versetzen
   wiederhole solange IstZiegel
@@ -51,7 +51,7 @@ Anweisung Versetzen
     Umdrehen
     Hinlegen
 
-    Pr�fe�bertrag
+    PrüfeÜbertrag
 
     Umdrehen
   *wiederhole
@@ -79,12 +79,12 @@ Anweisung Rechnen
     RechtsDrehen
 
     wenn IstMarke dann
-      MarkeL�schen
+      MarkeLöschen
       Schritt
       RechtsDrehen
       Hinlegen
 
-      Pr�fe�bertrag
+      PrüfeÜbertrag
 
       Umdrehen
     sonst
