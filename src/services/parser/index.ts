@@ -31,7 +31,7 @@ export function validate(ast: AST) {
   const functionNames = ast.functions.map((f) => f.identifier);
   for (const functionCall of allFunctionCalls) {
     if (functionNames.includes(functionCall.name)) {
-      return;
+      continue;
     }
 
     throw new ParseError(`Function ${functionCall.name} does not exist.`, {
