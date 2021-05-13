@@ -1,4 +1,4 @@
-import { checkCondition, doCall } from "../../executor";
+import { checkTest, doCall } from "../../executor";
 import { RootState } from "../types";
 
 /**
@@ -25,22 +25,19 @@ export function executionStep(state: RootState): void {
         }
         case "systemCall": {
           switch (statement.action) {
-            case "fast":
+            case "FAST":
               state.execution.speed = "fast";
               state.execution.stack[0].unshift({
                 type: "systemCall",
                 line: statement.line,
-                action: "slow",
+                action: "SLOW",
               });
               break;
-            case "slow":
+            case "SLOW":
               state.execution.speed = "slow";
               break;
-            case "exit":
+            case "EXIT":
               state.execution.stack = [];
-              break;
-            case "sound":
-              // TODO: play sound
               break;
           }
           break;
@@ -63,7 +60,7 @@ export function executionStep(state: RootState): void {
           break;
         }
         case "if": {
-          if (checkCondition(statement.condition, state.world)) {
+          if (checkTest(statement.test, state.world)) {
             state.execution.stack[0].unshift(...statement.body);
           } else {
             state.execution.stack[0].unshift(...statement.elseBody);
@@ -71,7 +68,7 @@ export function executionStep(state: RootState): void {
           break;
         }
         case "while": {
-          if (checkCondition(statement.condition, state.world)) {
+          if (checkTest(statement.test, state.world)) {
             state.execution.stack[0].unshift(...statement.body, statement);
           }
         }

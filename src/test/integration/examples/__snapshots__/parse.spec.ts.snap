@@ -2,6 +2,7 @@
 
 exports[`01 Programm 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -13,12 +14,12 @@ Object {
             "type": "call",
           },
         ],
-        "condition": Object {
-          "line": 0,
-          "test": "NOT_IS_WALL",
-          "type": "expression",
-        },
         "line": 2,
+        "test": Object {
+          "line": 0,
+          "state": "NOT_IS_WALL",
+          "type": "state",
+        },
         "type": "while",
       },
     ],
@@ -31,6 +32,7 @@ Object {
 
 exports[`02 Karol 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -69,13 +71,13 @@ Object {
                 "type": "call",
               },
             ],
-            "condition": Object {
-              "line": 7,
-              "test": "IS_WALL",
-              "type": "expression",
-            },
             "elseBody": Array [],
             "line": 10,
+            "test": Object {
+              "line": 7,
+              "state": "IS_WALL",
+              "type": "state",
+            },
             "type": "if",
           },
         ],
@@ -93,6 +95,7 @@ Object {
 
 exports[`03 Vergleichen 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -109,12 +112,12 @@ Object {
             "type": "call",
           },
         ],
-        "condition": Object {
-          "line": 6,
-          "test": "IS_BRICK",
-          "type": "expression",
-        },
         "line": 9,
+        "test": Object {
+          "line": 6,
+          "state": "IS_BRICK",
+          "type": "state",
+        },
         "type": "while",
       },
       Object {
@@ -132,12 +135,12 @@ Object {
                 "type": "call",
               },
             ],
-            "condition": Object {
-              "line": 13,
-              "test": "IS_BRICK",
-              "type": "expression",
-            },
             "line": 15,
+            "test": Object {
+              "line": 13,
+              "state": "IS_BRICK",
+              "type": "state",
+            },
             "type": "while",
           },
         ],
@@ -158,8 +161,125 @@ Object {
 }
 `;
 
+exports[`04 Neue Bedingung 1`] = `
+Object {
+  "conditions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "FALSE",
+          "line": 7,
+          "type": "systemCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_TAKE",
+              "line": 9,
+              "type": "call",
+            },
+            Object {
+              "body": Array [
+                Object {
+                  "action": "BRICK_TAKE",
+                  "line": 11,
+                  "type": "call",
+                },
+                Object {
+                  "action": "TRUE",
+                  "line": 12,
+                  "type": "systemCall",
+                },
+                Object {
+                  "body": Array [
+                    Object {
+                      "action": "FALSE",
+                      "line": 13,
+                      "type": "systemCall",
+                    },
+                  ],
+                  "elseBody": Array [],
+                  "line": 13,
+                  "test": Object {
+                    "line": 13,
+                    "state": "IS_BRICK",
+                    "type": "state",
+                  },
+                  "type": "if",
+                },
+                Object {
+                  "action": "BRICK_PUT",
+                  "line": 14,
+                  "type": "call",
+                },
+              ],
+              "elseBody": Array [],
+              "line": 15,
+              "test": Object {
+                "line": 10,
+                "state": "IS_BRICK",
+                "type": "state",
+              },
+              "type": "if",
+            },
+            Object {
+              "action": "BRICK_PUT",
+              "line": 16,
+              "type": "call",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 17,
+          "test": Object {
+            "line": 8,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
+          "type": "if",
+        },
+      ],
+      "identifier": "ZweiZiegel",
+      "line": 18,
+      "type": "condition",
+    },
+  ],
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "TURN_LEFT",
+            "line": 22,
+            "type": "call",
+          },
+        ],
+        "elseBody": Array [
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 24,
+            "type": "call",
+          },
+        ],
+        "line": 25,
+        "test": Object {
+          "line": 21,
+          "name": "ZweiZiegel",
+          "type": "conditionCall",
+        },
+        "type": "if",
+      },
+    ],
+    "line": 25,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
 exports[`05 Schwimmbad 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [
     Object {
       "body": Array [
@@ -198,12 +318,12 @@ Object {
                     "type": "call",
                   },
                 ],
-                "condition": Object {
-                  "line": 15,
-                  "test": "NOT_IS_WALL",
-                  "type": "expression",
-                },
                 "line": 18,
+                "test": Object {
+                  "line": 15,
+                  "state": "NOT_IS_WALL",
+                  "type": "state",
+                },
                 "type": "while",
               },
               Object {
@@ -297,12 +417,12 @@ Object {
                 "type": "functionCall",
               },
             ],
-            "condition": Object {
-              "line": 32,
-              "test": "NOT_IS_BRICK",
-              "type": "expression",
-            },
             "line": 38,
+            "test": Object {
+              "line": 32,
+              "state": "NOT_IS_BRICK",
+              "type": "state",
+            },
             "type": "while",
           },
           Object {
@@ -369,12 +489,12 @@ Object {
                     "type": "call",
                   },
                 ],
-                "condition": Object {
-                  "line": 51,
-                  "test": "NOT_IS_WALL",
-                  "type": "expression",
-                },
                 "line": 54,
+                "test": Object {
+                  "line": 51,
+                  "state": "NOT_IS_WALL",
+                  "type": "state",
+                },
                 "type": "while",
               },
               Object {
@@ -395,12 +515,12 @@ Object {
                 "type": "call",
               },
             ],
-            "condition": Object {
-              "line": 59,
-              "test": "NOT_IS_WALL",
-              "type": "expression",
-            },
             "line": 61,
+            "test": Object {
+              "line": 59,
+              "state": "NOT_IS_WALL",
+              "type": "state",
+            },
             "type": "while",
           },
           Object {
@@ -423,6 +543,7 @@ Object {
 
 exports[`06 SBad mit Prozeduren 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [
     Object {
       "body": Array [
@@ -441,12 +562,12 @@ Object {
                   "type": "call",
                 },
               ],
-              "condition": Object {
-                "line": 12,
-                "test": "NOT_IS_WALL",
-                "type": "expression",
-              },
               "line": 15,
+              "test": Object {
+                "line": 12,
+                "state": "NOT_IS_WALL",
+                "type": "state",
+              },
               "type": "while",
             },
             Object {
@@ -481,12 +602,12 @@ Object {
                   "type": "call",
                 },
               ],
-              "condition": Object {
-                "line": 23,
-                "test": "NOT_IS_WALL",
-                "type": "expression",
-              },
               "line": 26,
+              "test": Object {
+                "line": 23,
+                "state": "NOT_IS_WALL",
+                "type": "state",
+              },
               "type": "while",
             },
             Object {
@@ -582,12 +703,12 @@ Object {
               "type": "functionCall",
             },
           ],
-          "condition": Object {
-            "line": 43,
-            "test": "NOT_IS_BRICK",
-            "type": "expression",
-          },
           "line": 49,
+          "test": Object {
+            "line": 43,
+            "state": "NOT_IS_BRICK",
+            "type": "state",
+          },
           "type": "while",
         },
         Object {
@@ -691,12 +812,12 @@ Object {
               "type": "call",
             },
           ],
-          "condition": Object {
-            "line": 77,
-            "test": "NOT_IS_WALL",
-            "type": "expression",
-          },
           "line": 79,
+          "test": Object {
+            "line": 77,
+            "state": "NOT_IS_WALL",
+            "type": "state",
+          },
           "type": "while",
         },
         Object {
@@ -739,11 +860,12 @@ Object {
 
 exports[`07 SBad mit Schell Langsam 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [
     Object {
       "body": Array [
         Object {
-          "action": "fast",
+          "action": "FAST",
           "line": 9,
           "type": "systemCall",
         },
@@ -762,12 +884,12 @@ Object {
                   "type": "call",
                 },
               ],
-              "condition": Object {
-                "line": 11,
-                "test": "NOT_IS_WALL",
-                "type": "expression",
-              },
               "line": 14,
+              "test": Object {
+                "line": 11,
+                "state": "NOT_IS_WALL",
+                "type": "state",
+              },
               "type": "while",
             },
             Object {
@@ -781,7 +903,7 @@ Object {
           "type": "repeat",
         },
         Object {
-          "action": "slow",
+          "action": "SLOW",
           "line": 17,
           "type": "systemCall",
         },
@@ -793,7 +915,7 @@ Object {
     Object {
       "body": Array [
         Object {
-          "action": "fast",
+          "action": "FAST",
           "line": 22,
           "type": "systemCall",
         },
@@ -812,12 +934,12 @@ Object {
                   "type": "call",
                 },
               ],
-              "condition": Object {
-                "line": 24,
-                "test": "NOT_IS_WALL",
-                "type": "expression",
-              },
               "line": 27,
+              "test": Object {
+                "line": 24,
+                "state": "NOT_IS_WALL",
+                "type": "state",
+              },
               "type": "while",
             },
             Object {
@@ -831,7 +953,7 @@ Object {
           "type": "repeat",
         },
         Object {
-          "action": "slow",
+          "action": "SLOW",
           "line": 30,
           "type": "systemCall",
         },
@@ -918,12 +1040,12 @@ Object {
               "type": "functionCall",
             },
           ],
-          "condition": Object {
-            "line": 45,
-            "test": "NOT_IS_BRICK",
-            "type": "expression",
-          },
           "line": 51,
+          "test": Object {
+            "line": 45,
+            "state": "NOT_IS_BRICK",
+            "type": "state",
+          },
           "type": "while",
         },
         Object {
@@ -1027,12 +1149,12 @@ Object {
               "type": "call",
             },
           ],
-          "condition": Object {
-            "line": 78,
-            "test": "NOT_IS_WALL",
-            "type": "expression",
-          },
           "line": 78,
+          "test": Object {
+            "line": 78,
+            "state": "NOT_IS_WALL",
+            "type": "state",
+          },
           "type": "while",
         },
         Object {
@@ -1075,6 +1197,7 @@ Object {
 
 exports[`08 Rekursion 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [
     Object {
       "body": Array [
@@ -1091,11 +1214,6 @@ Object {
               "type": "functionCall",
             },
           ],
-          "condition": Object {
-            "line": 7,
-            "test": "IS_BRICK",
-            "type": "expression",
-          },
           "elseBody": Array [
             Object {
               "action": "TURN_LEFT",
@@ -1109,6 +1227,11 @@ Object {
             },
           ],
           "line": 13,
+          "test": Object {
+            "line": 7,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
           "type": "if",
         },
         Object {
@@ -1144,6 +1267,7 @@ Object {
 
 exports[`09 Schachbrett 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [
     Object {
       "body": Array [
@@ -1167,22 +1291,22 @@ Object {
                   "type": "call",
                 },
               ],
-              "condition": Object {
-                "line": 10,
-                "test": "NOT_IS_WALL",
-                "type": "expression",
-              },
               "elseBody": Array [],
               "line": 10,
+              "test": Object {
+                "line": 10,
+                "state": "NOT_IS_WALL",
+                "type": "state",
+              },
               "type": "if",
             },
           ],
-          "condition": Object {
-            "line": 7,
-            "test": "NOT_IS_WALL",
-            "type": "expression",
-          },
           "line": 11,
+          "test": Object {
+            "line": 7,
+            "state": "NOT_IS_WALL",
+            "type": "state",
+          },
           "type": "while",
         },
       ],
@@ -1248,8 +1372,474 @@ Object {
 }
 `;
 
+exports[`Bibliothek 1`] = `
+Object {
+  "conditions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "FALSE",
+          "line": 50,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 51,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "TRUE",
+              "line": 52,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 52,
+          "test": Object {
+            "line": 52,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
+          "type": "if",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 53,
+          "type": "call",
+        },
+      ],
+      "identifier": "IstZiegelLinks",
+      "line": 54,
+      "type": "condition",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "FALSE",
+          "line": 58,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 59,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "TRUE",
+              "line": 60,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 60,
+          "test": Object {
+            "line": 60,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
+          "type": "if",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 61,
+          "type": "call",
+        },
+      ],
+      "identifier": "IstZiegelRechts",
+      "line": 62,
+      "type": "condition",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "FALSE",
+          "line": 66,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 67,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "TRUE",
+              "line": 68,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 68,
+          "test": Object {
+            "line": 68,
+            "state": "IS_WALL",
+            "type": "state",
+          },
+          "type": "if",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 69,
+          "type": "call",
+        },
+      ],
+      "identifier": "IstWandLinks",
+      "line": 70,
+      "type": "condition",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "FALSE",
+          "line": 74,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 75,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "TRUE",
+              "line": 76,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 76,
+          "test": Object {
+            "line": 76,
+            "state": "IS_WALL",
+            "type": "state",
+          },
+          "type": "if",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 77,
+          "type": "call",
+        },
+      ],
+      "identifier": "IstWandRechts",
+      "line": 78,
+      "type": "condition",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TRUE",
+          "line": 82,
+          "type": "systemCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "FALSE",
+              "line": 83,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 83,
+          "test": Object {
+            "line": 83,
+            "state": "IS_WALL",
+            "type": "state",
+          },
+          "type": "if",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "FALSE",
+              "line": 84,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 84,
+          "test": Object {
+            "line": 84,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
+          "type": "if",
+        },
+      ],
+      "identifier": "IstFrei",
+      "line": 85,
+      "type": "condition",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TRUE",
+          "line": 89,
+          "type": "systemCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "FALSE",
+              "line": 90,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 90,
+          "test": Object {
+            "line": 90,
+            "test": Object {
+              "line": 90,
+              "name": "IstFrei",
+              "type": "conditionCall",
+            },
+            "type": "not",
+          },
+          "type": "if",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 91,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "FALSE",
+              "line": 92,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 92,
+          "test": Object {
+            "line": 92,
+            "test": Object {
+              "line": 92,
+              "name": "IstFrei",
+              "type": "conditionCall",
+            },
+            "type": "not",
+          },
+          "type": "if",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 93,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "FALSE",
+              "line": 94,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 94,
+          "test": Object {
+            "line": 94,
+            "test": Object {
+              "line": 94,
+              "name": "IstFrei",
+              "type": "conditionCall",
+            },
+            "type": "not",
+          },
+          "type": "if",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 95,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "FALSE",
+              "line": 96,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 96,
+          "test": Object {
+            "line": 96,
+            "test": Object {
+              "line": 96,
+              "name": "IstFrei",
+              "type": "conditionCall",
+            },
+            "type": "not",
+          },
+          "type": "if",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 97,
+          "type": "call",
+        },
+      ],
+      "identifier": "IstRundumFrei",
+      "line": 98,
+      "type": "condition",
+    },
+  ],
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_LEFT",
+          "line": 7,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 8,
+          "type": "call",
+        },
+      ],
+      "identifier": "Umdrehen",
+      "line": 9,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "line": 13,
+          "name": "Umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "STEP",
+          "line": 14,
+          "type": "call",
+        },
+        Object {
+          "line": 15,
+          "name": "Umdrehen",
+          "type": "functionCall",
+        },
+      ],
+      "identifier": "SchrittRückwärts",
+      "line": 16,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "line": 20,
+          "name": "Umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "BRICK_PUT",
+          "line": 21,
+          "type": "call",
+        },
+        Object {
+          "line": 22,
+          "name": "Umdrehen",
+          "type": "functionCall",
+        },
+      ],
+      "identifier": "HintenHinlegen",
+      "line": 23,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_LEFT",
+          "line": 28,
+          "type": "call",
+        },
+        Object {
+          "action": "STEP",
+          "line": 29,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 30,
+          "type": "call",
+        },
+      ],
+      "identifier": "SchrittLinks",
+      "line": 31,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 36,
+          "type": "call",
+        },
+        Object {
+          "action": "STEP",
+          "line": 37,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 38,
+          "type": "call",
+        },
+      ],
+      "identifier": "SchrittRechts",
+      "line": 39,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "TURN_LEFT",
+              "line": 44,
+              "type": "call",
+            },
+          ],
+          "line": 45,
+          "test": Object {
+            "line": 43,
+            "test": Object {
+              "line": 43,
+              "state": "IS_SOUTH",
+              "type": "state",
+            },
+            "type": "not",
+          },
+          "type": "while",
+        },
+      ],
+      "identifier": "SchauNachSüden",
+      "line": 46,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [],
+    "line": 0,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
 exports[`Invertieren 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -1263,11 +1853,6 @@ Object {
                 "type": "call",
               },
             ],
-            "condition": Object {
-              "line": 2,
-              "test": "IS_BRICK",
-              "type": "expression",
-            },
             "elseBody": Array [
               Object {
                 "action": "BRICK_PUT",
@@ -1276,6 +1861,11 @@ Object {
               },
             ],
             "line": 6,
+            "test": Object {
+              "line": 2,
+              "state": "IS_BRICK",
+              "type": "state",
+            },
             "type": "if",
           },
           Object {
@@ -1284,12 +1874,12 @@ Object {
             "type": "call",
           },
         ],
-        "condition": Object {
-          "line": 1,
-          "test": "NOT_IS_WALL",
-          "type": "expression",
-        },
         "line": 8,
+        "test": Object {
+          "line": 1,
+          "state": "NOT_IS_WALL",
+          "type": "state",
+        },
         "type": "while",
       },
     ],
@@ -1302,6 +1892,7 @@ Object {
 
 exports[`Invertieren Gesamt 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [
     Object {
       "body": Array [
@@ -1313,11 +1904,6 @@ Object {
               "type": "call",
             },
           ],
-          "condition": Object {
-            "line": 6,
-            "test": "IS_BRICK",
-            "type": "expression",
-          },
           "elseBody": Array [
             Object {
               "action": "BRICK_PUT",
@@ -1326,6 +1912,11 @@ Object {
             },
           ],
           "line": 10,
+          "test": Object {
+            "line": 6,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
           "type": "if",
         },
       ],
@@ -1348,12 +1939,12 @@ Object {
               "type": "call",
             },
           ],
-          "condition": Object {
-            "line": 14,
-            "test": "NOT_IS_WALL",
-            "type": "expression",
-          },
           "line": 17,
+          "test": Object {
+            "line": 14,
+            "state": "NOT_IS_WALL",
+            "type": "state",
+          },
           "type": "while",
         },
       ],
@@ -1386,13 +1977,13 @@ Object {
               "type": "call",
             },
           ],
-          "condition": Object {
-            "line": 22,
-            "test": "NOT_IS_WALL",
-            "type": "expression",
-          },
           "elseBody": Array [],
           "line": 26,
+          "test": Object {
+            "line": 22,
+            "state": "NOT_IS_WALL",
+            "type": "state",
+          },
           "type": "if",
         },
       ],
@@ -1425,13 +2016,13 @@ Object {
               "type": "call",
             },
           ],
-          "condition": Object {
-            "line": 31,
-            "test": "NOT_IS_WALL",
-            "type": "expression",
-          },
           "elseBody": Array [],
           "line": 35,
+          "test": Object {
+            "line": 31,
+            "state": "NOT_IS_WALL",
+            "type": "state",
+          },
           "type": "if",
         },
       ],
@@ -1504,11 +2095,6 @@ Object {
                 "type": "functionCall",
               },
             ],
-            "condition": Object {
-              "line": 52,
-              "test": "IS_SOUTH",
-              "type": "expression",
-            },
             "elseBody": Array [
               Object {
                 "line": 55,
@@ -1517,15 +2103,20 @@ Object {
               },
             ],
             "line": 56,
+            "test": Object {
+              "line": 52,
+              "state": "IS_SOUTH",
+              "type": "state",
+            },
             "type": "if",
           },
         ],
-        "condition": Object {
-          "line": 50,
-          "test": "NOT_IS_WALL",
-          "type": "expression",
-        },
         "line": 57,
+        "test": Object {
+          "line": 50,
+          "state": "NOT_IS_WALL",
+          "type": "state",
+        },
         "type": "while",
       },
     ],
@@ -1538,6 +2129,7 @@ Object {
 
 exports[`Kurze Diagonale 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -1581,8 +2173,383 @@ Object {
 }
 `;
 
+exports[`Labyrinth einfach 1`] = `
+Object {
+  "conditions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "FAST",
+          "line": 17,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "FALSE",
+          "line": 18,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 19,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "TRUE",
+              "line": 20,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 20,
+          "test": Object {
+            "line": 20,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
+          "type": "if",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 21,
+          "type": "call",
+        },
+        Object {
+          "action": "SLOW",
+          "line": 22,
+          "type": "systemCall",
+        },
+      ],
+      "identifier": "IstLinksZiegel",
+      "line": 23,
+      "type": "condition",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "FAST",
+          "line": 26,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "FALSE",
+          "line": 27,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 28,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "TRUE",
+              "line": 29,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 29,
+          "test": Object {
+            "line": 29,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
+          "type": "if",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 30,
+          "type": "call",
+        },
+        Object {
+          "action": "SLOW",
+          "line": 31,
+          "type": "systemCall",
+        },
+      ],
+      "identifier": "IstRechtsZiegel",
+      "line": 32,
+      "type": "condition",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "FALSE",
+          "line": 35,
+          "type": "systemCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "action": "TRUE",
+                  "line": 37,
+                  "type": "systemCall",
+                },
+              ],
+              "elseBody": Array [],
+              "line": 37,
+              "test": Object {
+                "line": 37,
+                "state": "NOT_IS_BRICK",
+                "type": "state",
+              },
+              "type": "if",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 38,
+          "test": Object {
+            "line": 36,
+            "name": "IstLinksZiegel",
+            "type": "conditionCall",
+          },
+          "type": "if",
+        },
+      ],
+      "identifier": "IstLinksZiegelundFrei",
+      "line": 39,
+      "type": "condition",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "FALSE",
+          "line": 42,
+          "type": "systemCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "action": "TRUE",
+                  "line": 44,
+                  "type": "systemCall",
+                },
+              ],
+              "elseBody": Array [],
+              "line": 44,
+              "test": Object {
+                "line": 44,
+                "state": "NOT_IS_BRICK",
+                "type": "state",
+              },
+              "type": "if",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 45,
+          "test": Object {
+            "line": 43,
+            "name": "IstRechtsZiegel",
+            "type": "conditionCall",
+          },
+          "type": "if",
+        },
+      ],
+      "identifier": "IstRechtsZiegelundFrei",
+      "line": 46,
+      "type": "condition",
+    },
+  ],
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "FAST",
+          "line": 4,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 5,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 6,
+          "type": "call",
+        },
+        Object {
+          "action": "SLOW",
+          "line": 7,
+          "type": "systemCall",
+        },
+      ],
+      "identifier": "Umdrehen",
+      "line": 8,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "STEP",
+          "line": 11,
+          "type": "call",
+        },
+        Object {
+          "action": "STEP",
+          "line": 12,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 13,
+          "type": "call",
+        },
+      ],
+      "identifier": "ReiheHoch",
+      "line": 14,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "TURN_LEFT",
+            "line": 52,
+            "type": "call",
+          },
+        ],
+        "line": 53,
+        "test": Object {
+          "line": 51,
+          "test": Object {
+            "line": 51,
+            "state": "IS_EAST",
+            "type": "state",
+          },
+          "type": "not",
+        },
+        "type": "while",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "body": Array [
+              Object {
+                "action": "STEP",
+                "line": 58,
+                "type": "call",
+              },
+            ],
+            "line": 59,
+            "test": Object {
+              "line": 57,
+              "name": "IstLinksZiegelundFrei",
+              "type": "conditionCall",
+            },
+            "type": "while",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "line": 62,
+                "name": "Umdrehen",
+                "type": "functionCall",
+              },
+              Object {
+                "body": Array [
+                  Object {
+                    "action": "STEP",
+                    "line": 65,
+                    "type": "call",
+                  },
+                ],
+                "line": 66,
+                "test": Object {
+                  "line": 64,
+                  "name": "IstRechtsZiegelundFrei",
+                  "type": "conditionCall",
+                },
+                "type": "while",
+              },
+              Object {
+                "body": Array [
+                  Object {
+                    "action": "SOUND",
+                    "line": 70,
+                    "type": "call",
+                  },
+                  Object {
+                    "action": "EXIT",
+                    "line": 71,
+                    "type": "systemCall",
+                  },
+                ],
+                "elseBody": Array [
+                  Object {
+                    "action": "TURN_RIGHT",
+                    "line": 74,
+                    "type": "call",
+                  },
+                  Object {
+                    "line": 75,
+                    "name": "ReiheHoch",
+                    "type": "functionCall",
+                  },
+                ],
+                "line": 76,
+                "test": Object {
+                  "line": 67,
+                  "name": "IstRechtsZiegel",
+                  "type": "conditionCall",
+                },
+                "type": "if",
+              },
+            ],
+            "elseBody": Array [
+              Object {
+                "action": "TURN_LEFT",
+                "line": 79,
+                "type": "call",
+              },
+              Object {
+                "line": 80,
+                "name": "ReiheHoch",
+                "type": "functionCall",
+              },
+            ],
+            "line": 81,
+            "test": Object {
+              "line": 60,
+              "name": "IstLinksZiegel",
+              "type": "conditionCall",
+            },
+            "type": "if",
+          },
+        ],
+        "line": 82,
+        "test": Object {
+          "line": 55,
+          "state": "NOT_IS_MARKER",
+          "type": "state",
+        },
+        "type": "while",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 83,
+        "type": "call",
+      },
+    ],
+    "line": 84,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
 exports[`Laufen 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [
     Object {
       "body": Array [
@@ -1614,11 +2581,6 @@ Object {
                 "type": "call",
               },
             ],
-            "condition": Object {
-              "line": 10,
-              "test": "IS_BRICK",
-              "type": "expression",
-            },
             "elseBody": Array [
               Object {
                 "action": "TURN_LEFT",
@@ -1633,13 +2595,13 @@ Object {
                     "type": "functionCall",
                   },
                 ],
-                "condition": Object {
-                  "line": 14,
-                  "test": "NOT_IS_BRICK",
-                  "type": "expression",
-                },
                 "elseBody": Array [],
                 "line": 16,
+                "test": Object {
+                  "line": 14,
+                  "state": "NOT_IS_BRICK",
+                  "type": "state",
+                },
                 "type": "if",
               },
               Object {
@@ -1649,15 +2611,20 @@ Object {
               },
             ],
             "line": 18,
+            "test": Object {
+              "line": 10,
+              "state": "IS_BRICK",
+              "type": "state",
+            },
             "type": "if",
           },
         ],
-        "condition": Object {
-          "line": 9,
-          "test": "NOT_IS_MARKER",
-          "type": "expression",
-        },
         "line": 19,
+        "test": Object {
+          "line": 9,
+          "state": "NOT_IS_MARKER",
+          "type": "state",
+        },
         "type": "while",
       },
     ],
@@ -1670,6 +2637,7 @@ Object {
 
 exports[`Links Invertieren 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -1683,11 +2651,6 @@ Object {
                 "type": "call",
               },
             ],
-            "condition": Object {
-              "line": 3,
-              "test": "IS_BRICK",
-              "type": "expression",
-            },
             "elseBody": Array [
               Object {
                 "action": "STEP",
@@ -1711,15 +2674,20 @@ Object {
               },
             ],
             "line": 10,
+            "test": Object {
+              "line": 3,
+              "state": "IS_BRICK",
+              "type": "state",
+            },
             "type": "if",
           },
         ],
-        "condition": Object {
-          "line": 2,
-          "test": "NOT_IS_WALL",
-          "type": "expression",
-        },
         "line": 11,
+        "test": Object {
+          "line": 2,
+          "state": "NOT_IS_WALL",
+          "type": "state",
+        },
         "type": "while",
       },
     ],
@@ -1730,8 +2698,310 @@ Object {
 }
 `;
 
+exports[`Spirale 1`] = `
+Object {
+  "conditions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "TRUE",
+          "line": 6,
+          "type": "systemCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "FALSE",
+              "line": 7,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 7,
+          "test": Object {
+            "line": 7,
+            "state": "IS_WALL",
+            "type": "state",
+          },
+          "type": "if",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "FALSE",
+              "line": 8,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 8,
+          "test": Object {
+            "line": 8,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
+          "type": "if",
+        },
+      ],
+      "identifier": "IstFrei",
+      "line": 9,
+      "type": "condition",
+    },
+  ],
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_PUT",
+                "line": 14,
+                "type": "call",
+              },
+              Object {
+                "action": "STEP",
+                "line": 15,
+                "type": "call",
+              },
+            ],
+            "line": 16,
+            "test": Object {
+              "line": 13,
+              "name": "IstFrei",
+              "type": "conditionCall",
+            },
+            "type": "while",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 17,
+            "type": "call",
+          },
+        ],
+        "line": 18,
+        "test": Object {
+          "line": 12,
+          "name": "IstFrei",
+          "type": "conditionCall",
+        },
+        "type": "while",
+      },
+    ],
+    "line": 19,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`Stapeln 1`] = `
+Object {
+  "conditions": Array [],
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "FAST",
+          "line": 5,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 6,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 7,
+          "type": "call",
+        },
+        Object {
+          "action": "SLOW",
+          "line": 8,
+          "type": "systemCall",
+        },
+      ],
+      "identifier": "Umdrehen",
+      "line": 9,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "FAST",
+          "line": 12,
+          "type": "systemCall",
+        },
+        Object {
+          "line": 13,
+          "name": "Umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "STEP",
+          "line": 14,
+          "type": "call",
+        },
+        Object {
+          "line": 15,
+          "name": "Umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "SLOW",
+          "line": 16,
+          "type": "systemCall",
+        },
+      ],
+      "identifier": "SchrittZurück",
+      "line": 17,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_LEFT",
+          "line": 21,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "action": "BRICK_TAKE",
+                  "line": 24,
+                  "type": "call",
+                },
+              ],
+              "line": 25,
+              "test": Object {
+                "line": 23,
+                "state": "IS_BRICK",
+                "type": "state",
+              },
+              "type": "while",
+            },
+            Object {
+              "action": "STEP",
+              "line": 26,
+              "type": "call",
+            },
+          ],
+          "line": 27,
+          "test": Object {
+            "line": 22,
+            "state": "NOT_IS_WALL",
+            "type": "state",
+          },
+          "type": "while",
+        },
+        Object {
+          "line": 29,
+          "name": "SchrittZurück",
+          "type": "functionCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_PUT",
+              "line": 31,
+              "type": "call",
+            },
+          ],
+          "line": 32,
+          "test": Object {
+            "line": 30,
+            "state": "NOT_IS_EMPTY",
+            "type": "state",
+          },
+          "type": "while",
+        },
+        Object {
+          "line": 34,
+          "name": "Umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 36,
+              "type": "call",
+            },
+          ],
+          "line": 37,
+          "test": Object {
+            "line": 35,
+            "state": "NOT_IS_WALL",
+            "type": "state",
+          },
+          "type": "while",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 38,
+          "type": "call",
+        },
+      ],
+      "identifier": "ReiheStapeln",
+      "line": 39,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "line": 43,
+            "name": "ReiheStapeln",
+            "type": "functionCall",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "STEP",
+                "line": 44,
+                "type": "call",
+              },
+            ],
+            "elseBody": Array [],
+            "line": 44,
+            "test": Object {
+              "line": 44,
+              "state": "NOT_IS_WALL",
+              "type": "state",
+            },
+            "type": "if",
+          },
+        ],
+        "line": 45,
+        "test": Object {
+          "line": 42,
+          "state": "NOT_IS_WALL",
+          "type": "state",
+        },
+        "type": "while",
+      },
+      Object {
+        "line": 46,
+        "name": "ReiheStapeln",
+        "type": "functionCall",
+      },
+    ],
+    "line": 47,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
 exports[`Treppe 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [
     Object {
       "body": Array [
@@ -1798,12 +3068,12 @@ Object {
             "type": "functionCall",
           },
         ],
-        "condition": Object {
-          "line": 15,
-          "test": "IS_BRICK",
-          "type": "expression",
-        },
         "line": 20,
+        "test": Object {
+          "line": 15,
+          "state": "IS_BRICK",
+          "type": "state",
+        },
         "type": "while",
       },
       Object {
@@ -1822,9 +3092,9 @@ Object {
         "type": "call",
       },
       Object {
-        "action": "sound",
+        "action": "SOUND",
         "line": 24,
-        "type": "systemCall",
+        "type": "call",
       },
     ],
     "line": 20,
@@ -1836,6 +3106,7 @@ Object {
 
 exports[`Treppe Bauen 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [
     Object {
       "body": Array [
@@ -1894,12 +3165,12 @@ Object {
                 "type": "call",
               },
             ],
-            "condition": Object {
-              "line": 16,
-              "test": "IS_BRICK",
-              "type": "expression",
-            },
             "line": 18,
+            "test": Object {
+              "line": 16,
+              "state": "IS_BRICK",
+              "type": "state",
+            },
             "type": "while",
           },
           Object {
@@ -1925,12 +3196,12 @@ Object {
                 "type": "call",
               },
             ],
-            "condition": Object {
-              "line": 21,
-              "test": "NOT_IS_MARKER",
-              "type": "expression",
-            },
             "line": 24,
+            "test": Object {
+              "line": 21,
+              "state": "NOT_IS_MARKER",
+              "type": "state",
+            },
             "type": "while",
           },
           Object {
@@ -1953,6 +3224,7 @@ Object {
 
 exports[`Treppe Bauen 2 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [
     Object {
       "body": Array [
@@ -2003,12 +3275,12 @@ Object {
               "type": "call",
             },
           ],
-          "condition": Object {
-            "line": 13,
-            "test": "NOT_IS_MARKER",
-            "type": "expression",
-          },
           "line": 16,
+          "test": Object {
+            "line": 13,
+            "state": "NOT_IS_MARKER",
+            "type": "state",
+          },
           "type": "while",
         },
       ],
@@ -2026,12 +3298,12 @@ Object {
               "type": "call",
             },
           ],
-          "condition": Object {
-            "line": 20,
-            "test": "IS_BRICK",
-            "type": "expression",
-          },
           "line": 22,
+          "test": Object {
+            "line": 20,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
           "type": "while",
         },
       ],
@@ -2099,6 +3371,7 @@ Object {
 
 exports[`Treppe Bauen 3 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [
     Object {
       "body": Array [
@@ -2149,12 +3422,12 @@ Object {
               "type": "call",
             },
           ],
-          "condition": Object {
-            "line": 13,
-            "test": "NOT_IS_MARKER",
-            "type": "expression",
-          },
           "line": 16,
+          "test": Object {
+            "line": 13,
+            "state": "NOT_IS_MARKER",
+            "type": "state",
+          },
           "type": "while",
         },
       ],
@@ -2172,12 +3445,12 @@ Object {
               "type": "call",
             },
           ],
-          "condition": Object {
-            "line": 20,
-            "test": "IS_BRICK",
-            "type": "expression",
-          },
           "line": 22,
+          "test": Object {
+            "line": 20,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
           "type": "while",
         },
       ],
@@ -2245,6 +3518,7 @@ Object {
 
 exports[`Umsetzen 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -2291,12 +3565,12 @@ Object {
             "type": "call",
           },
         ],
-        "condition": Object {
-          "line": 4,
-          "test": "IS_BRICK",
-          "type": "expression",
-        },
         "line": 13,
+        "test": Object {
+          "line": 4,
+          "state": "IS_BRICK",
+          "type": "state",
+        },
         "type": "while",
       },
     ],
@@ -2309,6 +3583,7 @@ Object {
 
 exports[`Viereck 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [
     Object {
       "body": Array [
@@ -2325,12 +3600,12 @@ Object {
               "type": "call",
             },
           ],
-          "condition": Object {
-            "line": 3,
-            "test": "IS_BRICK",
-            "type": "expression",
-          },
           "line": 6,
+          "test": Object {
+            "line": 3,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
           "type": "while",
         },
       ],
@@ -2363,11 +3638,6 @@ Object {
               "type": "call",
             },
           ],
-          "condition": Object {
-            "line": 10,
-            "test": "IS_SOUTH",
-            "type": "expression",
-          },
           "elseBody": Array [
             Object {
               "action": "STEP",
@@ -2391,6 +3661,11 @@ Object {
             },
           ],
           "line": 20,
+          "test": Object {
+            "line": 10,
+            "state": "IS_SOUTH",
+            "type": "state",
+          },
           "type": "if",
         },
       ],
@@ -2414,12 +3689,12 @@ Object {
             "type": "functionCall",
           },
         ],
-        "condition": Object {
-          "line": 24,
-          "test": "IS_BRICK",
-          "type": "expression",
-        },
         "line": 27,
+        "test": Object {
+          "line": 24,
+          "state": "IS_BRICK",
+          "type": "state",
+        },
         "type": "while",
       },
     ],
@@ -2432,6 +3707,7 @@ Object {
 
 exports[`Wand Entlang 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -2445,13 +3721,13 @@ Object {
                 "type": "call",
               },
             ],
-            "condition": Object {
-              "line": 2,
-              "test": "IS_WALL",
-              "type": "expression",
-            },
             "elseBody": Array [],
             "line": 4,
+            "test": Object {
+              "line": 2,
+              "state": "IS_WALL",
+              "type": "state",
+            },
             "type": "if",
           },
           Object {
@@ -2466,6 +3742,187 @@ Object {
       },
     ],
     "line": 6,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
+exports[`Zimmer 1`] = `
+Object {
+  "conditions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "FAST",
+          "line": 8,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "FALSE",
+          "line": 9,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 10,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "TRUE",
+              "line": 11,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 11,
+          "test": Object {
+            "line": 11,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
+          "type": "if",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 12,
+          "type": "call",
+        },
+        Object {
+          "action": "SLOW",
+          "line": 13,
+          "type": "systemCall",
+        },
+      ],
+      "identifier": "IstZiegelRechts",
+      "line": 14,
+      "type": "condition",
+    },
+  ],
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 19,
+              "type": "call",
+            },
+            Object {
+              "body": Array [
+                Object {
+                  "action": "EXIT",
+                  "line": 21,
+                  "type": "systemCall",
+                },
+              ],
+              "elseBody": Array [],
+              "line": 22,
+              "test": Object {
+                "line": 20,
+                "state": "IS_MARKER",
+                "type": "state",
+              },
+              "type": "if",
+            },
+          ],
+          "line": 23,
+          "test": Object {
+            "line": 18,
+            "state": "NOT_IS_BRICK",
+            "type": "state",
+          },
+          "type": "while",
+        },
+      ],
+      "identifier": "BisZurWand",
+      "line": 24,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "action": "TURN_LEFT",
+                  "line": 30,
+                  "type": "call",
+                },
+              ],
+              "elseBody": Array [],
+              "line": 31,
+              "test": Object {
+                "line": 29,
+                "state": "IS_BRICK",
+                "type": "state",
+              },
+              "type": "if",
+            },
+            Object {
+              "action": "STEP",
+              "line": 32,
+              "type": "call",
+            },
+          ],
+          "line": 33,
+          "test": Object {
+            "line": 28,
+            "name": "IstZiegelRechts",
+            "type": "conditionCall",
+          },
+          "type": "while",
+        },
+      ],
+      "identifier": "AnDerWandEntlang",
+      "line": 34,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "line": 38,
+        "name": "BisZurWand",
+        "type": "functionCall",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 39,
+        "type": "call",
+      },
+      Object {
+        "line": 40,
+        "name": "AnDerWandEntlang",
+        "type": "functionCall",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 41,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "STEP",
+            "line": 43,
+            "type": "call",
+          },
+        ],
+        "line": 44,
+        "test": Object {
+          "line": 42,
+          "state": "NOT_IS_MARKER",
+          "type": "state",
+        },
+        "type": "while",
+      },
+    ],
+    "line": 45,
     "type": "program",
   },
   "type": "ast",

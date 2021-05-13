@@ -25,9 +25,11 @@ export function validate(ast: AST) {
     }
   }
 
-  const allFunctionCalls = [...ast.functions, ast.program].flatMap((x) =>
-    x.body.flatMap((s) => getFunctionCalls(s))
-  );
+  const allFunctionCalls = [
+    ...ast.functions,
+    ...ast.conditions,
+    ast.program,
+  ].flatMap((x) => x.body.flatMap((s) => getFunctionCalls(s)));
   const functionNames = ast.functions.map((f) => f.identifier);
   for (const functionCall of allFunctionCalls) {
     if (functionNames.includes(functionCall.name)) {

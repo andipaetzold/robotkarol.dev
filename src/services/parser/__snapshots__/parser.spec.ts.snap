@@ -2,6 +2,7 @@
 
 exports[`accept all call commands 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -50,6 +51,7 @@ Object {
 
 exports[`comments ignores multiline 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [],
@@ -62,6 +64,7 @@ Object {
 
 exports[`comments ignores single line 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [],
@@ -74,6 +77,7 @@ Object {
 
 exports[`function should accept basic body 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [
     Object {
       "body": Array [
@@ -99,6 +103,7 @@ Object {
 
 exports[`function should accept empty 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [
     Object {
       "body": Array [],
@@ -118,6 +123,7 @@ Object {
 
 exports[`if all conditions 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -129,13 +135,13 @@ Object {
             "type": "call",
           },
         ],
-        "condition": Object {
-          "line": 1,
-          "test": "IS_WALL",
-          "type": "expression",
-        },
         "elseBody": Array [],
         "line": 3,
+        "test": Object {
+          "line": 1,
+          "state": "IS_WALL",
+          "type": "state",
+        },
         "type": "if",
       },
       Object {
@@ -146,13 +152,13 @@ Object {
             "type": "call",
           },
         ],
-        "condition": Object {
-          "line": 4,
-          "test": "IS_BRICK",
-          "type": "expression",
-        },
         "elseBody": Array [],
         "line": 6,
+        "test": Object {
+          "line": 4,
+          "state": "IS_BRICK",
+          "type": "state",
+        },
         "type": "if",
       },
       Object {
@@ -163,13 +169,13 @@ Object {
             "type": "call",
           },
         ],
-        "condition": Object {
-          "line": 7,
-          "test": "IS_MARKER",
-          "type": "expression",
-        },
         "elseBody": Array [],
         "line": 9,
+        "test": Object {
+          "line": 7,
+          "state": "IS_MARKER",
+          "type": "state",
+        },
         "type": "if",
       },
       Object {
@@ -180,13 +186,13 @@ Object {
             "type": "call",
           },
         ],
-        "condition": Object {
-          "line": 10,
-          "test": "IS_NORTH",
-          "type": "expression",
-        },
         "elseBody": Array [],
         "line": 12,
+        "test": Object {
+          "line": 10,
+          "state": "IS_NORTH",
+          "type": "state",
+        },
         "type": "if",
       },
     ],
@@ -199,6 +205,7 @@ Object {
 
 exports[`if else 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -210,11 +217,6 @@ Object {
             "type": "call",
           },
         ],
-        "condition": Object {
-          "line": 1,
-          "test": "IS_WALL",
-          "type": "expression",
-        },
         "elseBody": Array [
           Object {
             "action": "TURN_RIGHT",
@@ -223,6 +225,11 @@ Object {
           },
         ],
         "line": 5,
+        "test": Object {
+          "line": 1,
+          "state": "IS_WALL",
+          "type": "state",
+        },
         "type": "if",
       },
     ],
@@ -235,6 +242,7 @@ Object {
 
 exports[`if negative condition 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -246,17 +254,17 @@ Object {
             "type": "call",
           },
         ],
-        "condition": Object {
-          "condition": Object {
-            "line": 1,
-            "test": "IS_WALL",
-            "type": "expression",
-          },
-          "line": 1,
-          "type": "not",
-        },
         "elseBody": Array [],
         "line": 3,
+        "test": Object {
+          "line": 1,
+          "test": Object {
+            "line": 1,
+            "state": "IS_WALL",
+            "type": "state",
+          },
+          "type": "not",
+        },
         "type": "if",
       },
     ],
@@ -269,6 +277,7 @@ Object {
 
 exports[`if nested 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -287,21 +296,16 @@ Object {
                 "type": "call",
               },
             ],
-            "condition": Object {
-              "line": 3,
-              "test": "IS_BRICK",
-              "type": "expression",
-            },
             "elseBody": Array [],
             "line": 5,
+            "test": Object {
+              "line": 3,
+              "state": "IS_BRICK",
+              "type": "state",
+            },
             "type": "if",
           },
         ],
-        "condition": Object {
-          "line": 1,
-          "test": "IS_WALL",
-          "type": "expression",
-        },
         "elseBody": Array [
           Object {
             "action": "TURN_RIGHT",
@@ -310,6 +314,11 @@ Object {
           },
         ],
         "line": 8,
+        "test": Object {
+          "line": 1,
+          "state": "IS_WALL",
+          "type": "state",
+        },
         "type": "if",
       },
     ],
@@ -322,6 +331,7 @@ Object {
 
 exports[`program should accept basic body 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -345,6 +355,7 @@ Object {
 
 exports[`program should accept empty 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [],
@@ -357,6 +368,7 @@ Object {
 
 exports[`program should accept programs without wrapping \`program\` 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -380,6 +392,7 @@ Object {
 
 exports[`repeat always 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -405,6 +418,7 @@ Object {
 
 exports[`repeat times 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -442,6 +456,7 @@ Object {
 
 exports[`repeat while 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
@@ -453,24 +468,24 @@ Object {
             "type": "call",
           },
         ],
-        "condition": Object {
-          "line": 1,
-          "test": "IS_BRICK",
-          "type": "expression",
-        },
         "line": 3,
+        "test": Object {
+          "line": 1,
+          "state": "IS_BRICK",
+          "type": "state",
+        },
         "type": "while",
       },
       Object {
         "body": "*solange",
-        "condition": Array [
+        "line": 7,
+        "test": Array [
           Object {
             "action": "BRICK_TAKE",
             "line": 6,
             "type": "call",
           },
         ],
-        "line": 7,
         "type": "while",
       },
       Object {
@@ -481,12 +496,12 @@ Object {
             "type": "call",
           },
         ],
-        "condition": Object {
-          "line": 9,
-          "test": "IS_BRICK",
-          "type": "expression",
-        },
         "line": 11,
+        "test": Object {
+          "line": 9,
+          "state": "IS_BRICK",
+          "type": "state",
+        },
         "type": "while",
       },
     ],
@@ -499,11 +514,12 @@ Object {
 
 exports[`system calls exit 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
       Object {
-        "action": "exit",
+        "action": "EXIT",
         "line": 1,
         "type": "systemCall",
       },
@@ -527,11 +543,12 @@ Object {
 
 exports[`system calls fast 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
       Object {
-        "action": "fast",
+        "action": "FAST",
         "line": 1,
         "type": "systemCall",
       },
@@ -555,11 +572,12 @@ Object {
 
 exports[`system calls slow 1`] = `
 Object {
+  "conditions": Array [],
   "functions": Array [],
   "program": Object {
     "body": Array [
       Object {
-        "action": "slow",
+        "action": "SLOW",
         "line": 1,
         "type": "systemCall",
       },

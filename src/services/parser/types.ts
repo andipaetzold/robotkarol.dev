@@ -1,18 +1,28 @@
+interface BaseASTObject {
+  type: string;
+  line: number;
+}
+
 export type AST = {
   type: "ast";
   program: ASTProgram;
   functions: ASTFunction[];
+  conditions: ASTCondition[];
 };
 
-export interface ASTProgram {
+export interface ASTProgram extends BaseASTObject {
   type: "program";
-  line: number;
   body: ASTStatement[];
 }
 
-export interface ASTFunction {
+export interface ASTFunction extends BaseASTObject {
   type: "function";
-  line: number;
+  identifier: string;
+  body: ASTStatements;
+}
+
+export interface ASTCondition extends BaseASTObject {
+  type: "condition";
   identifier: string;
   body: ASTStatements;
 }
@@ -26,61 +36,60 @@ export type ASTStatement =
   | ASTRepeatStatement
   | ASTWhileStatement;
 
-export interface ASTCall {
+export interface ASTCall extends BaseASTObject {
   type: "call";
-  line: number;
   action: Action;
 }
 
-export interface ASTSystemCall {
+export interface ASTSystemCall extends BaseASTObject {
   type: "systemCall";
-  line: number;
   action: SystemAction;
 }
 
-export interface ASTFunctionCall {
+export interface ASTFunctionCall extends BaseASTObject {
   type: "functionCall";
-  line: number;
   name: string;
 }
 
-export interface ASTRepeatStatement {
+export interface ASTRepeatStatement extends BaseASTObject {
   type: "repeat";
-  line: number;
   times: number;
   body: ASTStatements;
 }
 
-export interface ASTWhileStatement {
+export interface ASTWhileStatement extends BaseASTObject {
   type: "while";
-  line: number;
-  condition: ASTCondition;
+  test: ASTTest;
   body: ASTStatements;
 }
 
-export interface ASTIfStatement {
+export interface ASTIfStatement extends BaseASTObject {
   type: "if";
-  line: number;
-  condition: ASTCondition;
+  test: ASTTest;
   body: ASTStatements;
   elseBody: ASTStatements;
 }
 
-export type ASTCondition = ASTExpression | ASTNotExpression;
+export type ASTTest = ASTState | ASTNotTest | ASTConditionCall;
 
-export interface ASTNotExpression {
+export interface ASTNotTest extends BaseASTObject {
   type: "not";
-  line: number;
-  condition: ASTCondition;
+  test: ASTTest;
 }
 
-export interface ASTExpression {
-  type: "expression";
+export interface ASTState {
+  type: "state";
   line: number;
-  test: Test;
+  state: State;
 }
 
-export type Test =
+export interface ASTConditionCall {
+  type: "conditionCall";
+  line: number;
+  name: string;
+}
+
+export type State =
   | "IS_WALL"
   | "NOT_IS_WALL"
   | "IS_BRICK"
@@ -90,7 +99,12 @@ export type Test =
   | "IS_NORTH"
   | "IS_EAST"
   | "IS_SOUTH"
-  | "IS_WEST";
+  | "IS_WEST"
+  | "IS_FULL"
+  | "NOT_IS_FULL"
+  | "IS_EMPTY"
+  | "NOT_IS_EMPTY"
+  | "HAS_BRICKS";
 
 export type Action =
   | "STEP"
@@ -99,6 +113,7 @@ export type Action =
   | "BRICK_PUT"
   | "BRICK_TAKE"
   | "MARKER_SET"
-  | "MARKER_REMOVE";
+  | "MARKER_REMOVE"
+  | "SOUND";
 
-export type SystemAction = "fast" | "slow" | "exit" | "sound";
+export type SystemAction = "FAST" | "SLOW" | "EXIT" | "TRUE" | "FALSE";

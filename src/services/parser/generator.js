@@ -21,6 +21,9 @@ const grammar = {
         "return 'FUNCTION_END'",
       ],
 
+      ["bedingung\\b", "return 'CONDITION_BEGIN'"],
+      ["(\\*bedingung|endebedingung)\\b", "return 'CONDITION_END'"],
+
       ["schritt\\b", "return 'STEP'"],
       ["linksdrehen\\b", "return 'TURN_LEFT'"],
       ["rechtsdrehen\\b", "return 'TURN_RIGHT'"],
@@ -28,6 +31,7 @@ const grammar = {
       ["aufheben\\b", "return 'BRICK_TAKE'"],
       ["markesetzen\\b", "return 'MARKER_SET'"],
       ["markelöschen\\b", "return 'MARKER_REMOVE'"],
+      ["ton\\b", "return 'SOUND'"],
 
       ["wiederhole\\b", "return 'REPEAT_BEGIN'"],
       ["(\\*wiederhole|endewiederhole)\\b", "return 'REPEAT_END'"],
@@ -52,11 +56,17 @@ const grammar = {
       ["nicht\\b", "return 'NOT'"],
       ["istmarke\\b", "return 'IS_MARKER'"],
       ["nichtistmarke\\b", "return 'NOT_IS_MARKER'"],
+      ["istvoll\\b", "return 'IS_FULL'"],
+      ["nichtistvoll\\b", "return 'NOT_IS_FULL'"],
+      ["istleer\\b", "return 'IS_EMPTY'"],
+      ["nichtistleer\\b", "return 'NOT_IS_EMPTY'"],
+      ["hatziegel\\b", "return 'HAS_BRICKS'"],
 
       ["schnell\\b", "return 'FAST'"],
       ["langsam\\b", "return 'SLOW'"],
       ["beenden\\b", "return 'EXIT'"],
-      ["ton\\b", "return 'SOUND'"],
+      ["falsch\\b", "return 'FALSE'"],
+      ["wahr\\b", "return 'TRUE'"],
 
       ["[0-9]+(?:\\.[0-9]+)?\\b", "return 'NUMBER'"],
       ["[a-z0-9_\\-äöüß]+\\b", "return 'IDENTIFIER'"],
@@ -70,11 +80,12 @@ const grammar = {
         `return {
       type: 'ast',
       functions: $1.filter(s => s.type === 'function'),
+      conditions: $1.filter(s => s.type === 'condition'),
       program: $1.find(s => s.type === 'program') ??
         {
           type: 'program',
-          line: $1.filter(s => s.type !== 'function').filter(s => s.type !== 'program')[0]?.line ?? 0,
-          body: $1.filter(s => s.type !== 'function').filter(s => s.type !== 'program')
+          line: $1.filter(s => s.type !== 'function').filter(s => s.type !== 'condition').filter(s => s.type !== 'program')[0]?.line ?? 0,
+          body: $1.filter(s => s.type !== 'function').filter(s => s.type !== 'condition').filter(s => s.type !== 'program')
         }
     }`,
       ],
@@ -84,11 +95,12 @@ const grammar = {
       ["segment segments", "$$ = [$1, ...$2]"],
     ],
     segment: [
-      ["program", "$$ = $1"],
-      ["function", "$$ = $1"],
+      ["segment_program", "$$ = $1"],
+      ["segment_function", "$$ = $1"],
+      ["segment_condition", "$$ = $1"],
       ["statement", "$$ = $1"],
     ],
-    program: [
+    segment_program: [
       [
         "PROGRAM_BEGIN statements PROGRAM_END",
         "$$ = { type: 'program', line: yylineno, body: $2 }",
@@ -98,7 +110,7 @@ const grammar = {
         "$$ = { type: 'program', line: yylineno, body: [] }",
       ],
     ],
-    function: [
+    segment_function: [
       [
         "FUNCTION_BEGIN IDENTIFIER statements FUNCTION_END",
         "$$ = { type: 'function', line: yylineno, identifier: $2, body: $3 }",
@@ -106,6 +118,16 @@ const grammar = {
       [
         "FUNCTION_BEGIN IDENTIFIER FUNCTION_END",
         "$$ = { type: 'function', line: yylineno, identifier: $2, body: [] }",
+      ],
+    ],
+    segment_condition: [
+      [
+        "CONDITION_BEGIN IDENTIFIER statements CONDITION_END",
+        "$$ = { type: 'condition', line: yylineno, identifier: $2, body: $3 }",
+      ],
+      [
+        "CONDITION_BEGIN IDENTIFIER CONDITION_END",
+        "$$ = { type: 'condition', line: yylineno, identifier: $2, body: [] }",
       ],
     ],
     statements: [
@@ -138,11 +160,13 @@ const grammar = {
         "MARKER_REMOVE",
         "$$ = { type: 'call', line: yylineno, action: 'MARKER_REMOVE' }",
       ],
+      ["SOUND", "$$ = { type: 'call', line: yylineno, action: 'SOUND' }"],
 
-      ["SLOW", "$$ = { type: 'systemCall', line: yylineno, action: 'slow' }"],
-      ["FAST", "$$ = { type: 'systemCall', line: yylineno, action: 'fast' }"],
-      ["EXIT", "$$ = { type: 'systemCall', line: yylineno, action: 'exit' }"],
-      ["SOUND", "$$ = { type: 'systemCall', line: yylineno, action: 'sound' }"],
+      ["SLOW", "$$ = { type: 'systemCall', line: yylineno, action: 'SLOW' }"],
+      ["FAST", "$$ = { type: 'systemCall', line: yylineno, action: 'FAST' }"],
+      ["EXIT", "$$ = { type: 'systemCall', line: yylineno, action: 'EXIT' }"],
+      ["FALSE", "$$ = { type: 'systemCall', line: yylineno, action: 'FALSE' }"],
+      ["TRUE", "$$ = { type: 'systemCall', line: yylineno, action: 'TRUE' }"],
 
       [
         "REPEAT_BEGIN NUMBER TIMES statements REPEAT_END",
@@ -153,66 +177,45 @@ const grammar = {
         "$$ = { type: 'repeat', line: yylineno, times: Infinity, body: $3 }",
       ],
       [
-        "REPEAT_BEGIN WHILE condition statements REPEAT_END",
-        "$$ = { type: 'while', line: yylineno, condition: $3, body: $4 }",
+        "REPEAT_BEGIN WHILE test statements REPEAT_END",
+        "$$ = { type: 'while', line: yylineno, test: $3, body: $4 }",
       ],
       [
-        "WHILE condition statements WHILE_END",
-        "$$ = { type: 'while', line: yylineno, condition: $3, body: $4 }",
+        "WHILE test statements WHILE_END",
+        "$$ = { type: 'while', line: yylineno, test: $3, body: $4 }",
       ],
 
       [
-        "IF condition THEN statements IF_END",
-        "$$ = { type: 'if', line: yylineno, condition: $2, body: $4, elseBody: [] }",
+        "IF test THEN statements IF_END",
+        "$$ = { type: 'if', line: yylineno, test: $2, body: $4, elseBody: [] }",
       ],
       [
-        "IF condition THEN statements ELSE statements IF_END",
-        "$$ = { type: 'if', line: yylineno, condition: $2, body: $4, elseBody: $6 }",
+        "IF test THEN statements ELSE statements IF_END",
+        "$$ = { type: 'if', line: yylineno, test: $2, body: $4, elseBody: $6 }",
       ],
 
       ["IDENTIFIER", "$$ = { type: 'functionCall', name: $1, line: yylineno }"],
     ],
-    condition: [
-      ["NOT condition", "$$ = { type: 'not', line: yylineno, condition: $2 }"],
+    test: [
+      ["NOT test", "$$ = { type: 'not', line: yylineno, test: $2 }"],
+      createState("IS_WALL"),
+      createState("NOT_IS_WALL"),
+      createState("IS_BRICK"),
+      createState("NOT_IS_BRICK"),
+      createState("IS_MARKER"),
+      createState("NOT_IS_MARKER"),
+      createState("IS_NORTH"),
+      createState("IS_WEST"),
+      createState("IS_SOUTH"),
+      createState("IS_EAST"),
+      createState("IS_FULL"),
+      createState("NOT_IS_FULL"),
+      createState("IS_EMPTY"),
+      createState("NOT_IS_EMPTY"),
+      createState("HAS_BRICKS"),
       [
-        "IS_WALL",
-        "$$ = { type: 'expression', line: yylineno, test: 'IS_WALL' }",
-      ],
-      [
-        "NOT_IS_WALL",
-        "$$ = { type: 'expression', line: yylineno, test: 'NOT_IS_WALL' }",
-      ],
-      [
-        "IS_BRICK",
-        "$$ = { type: 'expression', line: yylineno, test: 'IS_BRICK' }",
-      ],
-      [
-        "NOT_IS_BRICK",
-        "$$ = { type: 'expression', line: yylineno, test: 'NOT_IS_BRICK' }",
-      ],
-      [
-        "IS_MARKER",
-        "$$ = { type: 'expression', line: yylineno, test: 'IS_MARKER' }",
-      ],
-      [
-        "NOT_IS_MARKER",
-        "$$ = { type: 'expression', line: yylineno, test: 'NOT_IS_MARKER' }",
-      ],
-      [
-        "IS_NORTH",
-        "$$ = { type: 'expression', line: yylineno, test: 'IS_NORTH' }",
-      ],
-      [
-        "IS_WEST",
-        "$$ = { type: 'expression', line: yylineno, test: 'IS_WEST' }",
-      ],
-      [
-        "IS_SOUTH",
-        "$$ = { type: 'expression', line: yylineno, test: 'IS_SOUTH' }",
-      ],
-      [
-        "IS_EAST",
-        "$$ = { type: 'expression', line: yylineno, test: 'IS_EAST' }",
+        "IDENTIFIER",
+        "$$ = { type: 'conditionCall', line: yylineno, name: $1 }",
       ],
     ],
   },
@@ -226,3 +229,7 @@ writeFileSync(
 export const Parser = parser.Parser;
 export const parse = function () { return parser.parse.apply(parser, arguments); };`
 );
+
+function createState(name) {
+  return [name, `$$ = { type: 'state', line: yylineno, state: '${name}' }`];
+}

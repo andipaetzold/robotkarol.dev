@@ -16,7 +16,7 @@ import {
   isSouth,
   isWall,
 } from "./conditions";
-import { ASTCall, ASTCondition } from "./parser/types";
+import { ASTCall, ASTTest } from "./parser/types";
 
 export function doCall(statement: ASTCall, world: World): World {
   switch (statement.action) {
@@ -34,15 +34,21 @@ export function doCall(statement: ASTCall, world: World): World {
       return putBrick(world);
     case "BRICK_TAKE":
       return pickUpBrick(world);
+    case "SOUND":
+      // TODO: implement sound
+      return world;
   }
 }
 
-export function checkCondition(condition: ASTCondition, world: World): boolean {
-  switch (condition.type) {
+export function checkTest(test: ASTTest, world: World): boolean {
+  switch (test.type) {
     case "not":
-      return !checkCondition(condition.condition, world);
-    case "expression": {
-      switch (condition.test) {
+      return !checkTest(test.test, world);
+    case "conditionCall":
+      // TODO conditionCall
+      throw new Error("Custom conditions are not implemented yet");
+    case "state": {
+      switch (test.state) {
         case "IS_BRICK":
           return isBrick(world);
         case "NOT_IS_BRICK":
@@ -63,6 +69,21 @@ export function checkCondition(condition: ASTCondition, world: World): boolean {
           return isSouth(world);
         case "IS_WEST":
           return isSouth(world);
+        case "IS_FULL":
+          // TODO IS_FULL
+          throw new Error("IS_FULL is not implemented yet");
+        case "NOT_IS_FULL":
+          // TODO NOT_IS_FULL
+          throw new Error("NOT_IS_FULL is not implemented yet");
+        case "IS_EMPTY":
+          // TODO IS_EMPTY
+          throw new Error("IS_EMPTY is not implemented yet");
+        case "NOT_IS_EMPTY":
+          // TODO NOT_IS_EMPTY
+          throw new Error("NOT_IS_EMPTY is not implemented yet");
+        case "HAS_BRICKS":
+          // TODO HAS_BRICKS
+          throw new Error("HAS_BRICKS is not implemented yet");
       }
     }
   }
