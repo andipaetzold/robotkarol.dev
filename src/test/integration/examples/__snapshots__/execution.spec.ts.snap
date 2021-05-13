@@ -2554,6 +2554,154 @@ Object {
 }
 `;
 
+exports[`Pascal 1`] = `
+Object {
+  "depth": 20,
+  "height": 4,
+  "player": Object {
+    "direction": "east",
+    "x": 1,
+    "y": 1,
+  },
+  "tiles": Array [
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 0,
+      "y": 0,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 19,
+      "y": 0,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 18,
+      "y": 1,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 17,
+      "y": 2,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 16,
+      "y": 3,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 15,
+      "y": 4,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 14,
+      "y": 5,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 13,
+      "y": 6,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 12,
+      "y": 7,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 11,
+      "y": 8,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 10,
+      "y": 9,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 9,
+      "y": 10,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 8,
+      "y": 11,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 7,
+      "y": 12,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 6,
+      "y": 13,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 5,
+      "y": 14,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 4,
+      "y": 15,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 3,
+      "y": 16,
+    },
+    Object {
+      "bricks": 0,
+      "cuboid": false,
+      "marked": true,
+      "x": 2,
+      "y": 17,
+    },
+  ],
+  "width": 20,
+}
+`;
+
 exports[`Schachbrett 1`] = `
 Object {
   "depth": 10,

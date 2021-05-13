@@ -2698,6 +2698,362 @@ Object {
 }
 `;
 
+exports[`Pascal 1`] = `
+Object {
+  "conditions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "FAST",
+          "line": 19,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "FALSE",
+          "line": 20,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 21,
+          "type": "call",
+        },
+        Object {
+          "action": "STEP",
+          "line": 22,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "TRUE",
+              "line": 23,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 23,
+          "test": Object {
+            "line": 23,
+            "state": "IS_MARKER",
+            "type": "state",
+          },
+          "type": "if",
+        },
+        Object {
+          "line": 24,
+          "name": "umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "STEP",
+          "line": 25,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 26,
+          "type": "call",
+        },
+        Object {
+          "action": "SLOW",
+          "line": 27,
+          "type": "systemCall",
+        },
+      ],
+      "identifier": "istlinksmarke",
+      "line": 28,
+      "type": "condition",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "FAST",
+          "line": 31,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "FALSE",
+          "line": 32,
+          "type": "systemCall",
+        },
+        Object {
+          "line": 33,
+          "name": "umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "STEP",
+          "line": 34,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "TRUE",
+              "line": 35,
+              "type": "systemCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 35,
+          "test": Object {
+            "line": 35,
+            "state": "IS_MARKER",
+            "type": "state",
+          },
+          "type": "if",
+        },
+        Object {
+          "line": 36,
+          "name": "umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "STEP",
+          "line": 37,
+          "type": "call",
+        },
+        Object {
+          "action": "SLOW",
+          "line": 38,
+          "type": "systemCall",
+        },
+      ],
+      "identifier": "isthintenmarke",
+      "line": 39,
+      "type": "condition",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "FAST",
+          "line": 42,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "FALSE",
+          "line": 43,
+          "type": "systemCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "action": "TRUE",
+                  "line": 46,
+                  "type": "systemCall",
+                },
+              ],
+              "elseBody": Array [],
+              "line": 47,
+              "test": Object {
+                "line": 45,
+                "test": Object {
+                  "line": 45,
+                  "name": "istlinksmarke",
+                  "type": "conditionCall",
+                },
+                "type": "not",
+              },
+              "type": "if",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 48,
+          "test": Object {
+            "line": 44,
+            "name": "isthintenmarke",
+            "type": "conditionCall",
+          },
+          "type": "if",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "action": "TRUE",
+                  "line": 51,
+                  "type": "systemCall",
+                },
+              ],
+              "elseBody": Array [],
+              "line": 52,
+              "test": Object {
+                "line": 50,
+                "name": "istlinksmarke",
+                "type": "conditionCall",
+              },
+              "type": "if",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 53,
+          "test": Object {
+            "line": 49,
+            "test": Object {
+              "line": 49,
+              "name": "isthintenmarke",
+              "type": "conditionCall",
+            },
+            "type": "not",
+          },
+          "type": "if",
+        },
+        Object {
+          "action": "SLOW",
+          "line": 54,
+          "type": "systemCall",
+        },
+      ],
+      "identifier": "setzen",
+      "line": 55,
+      "type": "condition",
+    },
+  ],
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "FAST",
+          "line": 4,
+          "type": "systemCall",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 5,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 6,
+          "type": "call",
+        },
+        Object {
+          "action": "SLOW",
+          "line": 7,
+          "type": "systemCall",
+        },
+      ],
+      "identifier": "umdrehen",
+      "line": 8,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "FAST",
+          "line": 11,
+          "type": "systemCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 13,
+              "type": "call",
+            },
+          ],
+          "line": 14,
+          "test": Object {
+            "line": 12,
+            "state": "NOT_IS_WALL",
+            "type": "state",
+          },
+          "type": "while",
+        },
+        Object {
+          "action": "SLOW",
+          "line": 15,
+          "type": "systemCall",
+        },
+      ],
+      "identifier": "schnellzurück",
+      "line": 16,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "STEP",
+            "line": 59,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 60,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "STEP",
+                "line": 62,
+                "type": "call",
+              },
+              Object {
+                "body": Array [
+                  Object {
+                    "action": "MARKER_SET",
+                    "line": 63,
+                    "type": "call",
+                  },
+                ],
+                "elseBody": Array [],
+                "line": 63,
+                "test": Object {
+                  "line": 63,
+                  "name": "setzen",
+                  "type": "conditionCall",
+                },
+                "type": "if",
+              },
+            ],
+            "line": 64,
+            "test": Object {
+              "line": 61,
+              "state": "NOT_IS_WALL",
+              "type": "state",
+            },
+            "type": "while",
+          },
+          Object {
+            "line": 65,
+            "name": "umdrehen",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 66,
+            "name": "schnellzurück",
+            "type": "functionCall",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 67,
+            "type": "call",
+          },
+        ],
+        "line": 68,
+        "test": Object {
+          "line": 58,
+          "state": "NOT_IS_WALL",
+          "type": "state",
+        },
+        "type": "while",
+      },
+    ],
+    "line": 69,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
 exports[`Schachbrett 1`] = `
 Object {
   "conditions": Array [],
