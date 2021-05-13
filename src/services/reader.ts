@@ -53,7 +53,10 @@ export function readWorld1(data: string[]): World {
     let tile: Tile = { x, y, bricks: 0, marked: false, cuboid: false };
     for (const v of tileData) {
       switch (v) {
+        case "m":
         case "o":
+          tile.marked = v === "m";
+
           ++y;
           world.tiles.push(tile);
 
@@ -66,10 +69,6 @@ export function readWorld1(data: string[]): World {
 
         case "q":
           tile.cuboid = true;
-          break;
-
-        case "m":
-          tile.marked = true;
           break;
 
         case "n":
@@ -110,7 +109,10 @@ export function readWorld2(data: string[]): World {
     let tile: Tile = { x, y, bricks: 0, marked: false, cuboid: false };
     for (const v of tileData) {
       switch (v) {
+        case "m":
         case "o":
+          tile.marked = v === "m";
+
           ++x;
           world.tiles.push(tile);
 
@@ -123,10 +125,6 @@ export function readWorld2(data: string[]): World {
 
         case "q":
           tile.cuboid = true;
-          break;
-
-        case "m":
-          tile.marked = true;
           break;
 
         case "n":
@@ -168,7 +166,10 @@ export function readWorld3(data: string[]): World {
     let tile: Tile = { x, y, bricks: 0, marked: false, cuboid: false };
     for (const v of tileData) {
       switch (v) {
+        case "m":
         case "o":
+          tile.marked = v === "m";
+
           ++x;
           world.tiles.push(tile);
 
@@ -181,10 +182,6 @@ export function readWorld3(data: string[]): World {
 
         case "q":
           tile.cuboid = true;
-          break;
-
-        case "m":
-          tile.marked = true;
           break;
 
         case "n":
