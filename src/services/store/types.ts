@@ -9,7 +9,7 @@ export interface RootState {
   error?: { message: string; data?: ParseErrorData };
   execution: {
     ast?: AST;
-    stack: StackItem[];
+    stack: StackFrame[];
     state: State;
     worldOnStart?: World;
     activeLine?: number;
@@ -18,6 +18,11 @@ export interface RootState {
   world: World;
 }
 
-export interface StackItem {
+export interface StackFrame {
+  /**
+   * Return value of the condition that was called from this stack frame.
+   * This is not the return value of this stack frame.
+   */
+  conditionReturnValue?: boolean;
   statements: ASTStatement[];
 }

@@ -70,14 +70,14 @@ export interface ASTIfStatement extends BaseASTObject {
   elseBody: ASTStatements;
 }
 
-export type ASTTest = ASTState | ASTNotTest | ASTConditionCall;
+export type ASTTest = ASTTestState | ASTNotTest | ASTConditionCall;
 
 export interface ASTNotTest extends BaseASTObject {
   type: "not";
   test: ASTTest;
 }
 
-export interface ASTState {
+export interface ASTTestState {
   type: "state";
   line: number;
   state: State;
@@ -104,7 +104,8 @@ export type State =
   | "NOT_IS_FULL"
   | "IS_EMPTY"
   | "NOT_IS_EMPTY"
-  | "HAS_BRICKS";
+  | "HAS_BRICKS"
+  | "CONDITION_RETURN_VALUE";
 
 export type Action =
   | "STEP"
