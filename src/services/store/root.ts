@@ -1,21 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { World } from "../../types";
-import {
-  removeMarker as removeMarkerAction,
-  reset as resetAction,
-  resize as resizeAction,
-  setMarker as setMarkerAction,
-  step as stepAction,
-  toggleMarker as toggleMarkerAction,
-  turnLeft as turnLeftAction,
-  turnRight as turnRightAction,
-} from "../actions";
 import { parse } from "../parser";
 import { ParseError } from "../parser/ParseError";
 import { DEFAULT_STATE } from "./constants";
 import { executionStep as executionStepReducer } from "./reducers/executionStep";
 import { pickUpBrick as pickUpBrickReducer } from "./reducers/pickUpBrick";
 import { putBrick as putBrickReducer } from "./reducers/putBrick";
+import { turnLeft as turnLeftReducer } from "./reducers/turnLeft";
+import { turnRight as turnRightReducer } from "./reducers/turnRight";
+import { setMarker as setMarkerReducer } from "./reducers/setMarker";
+import { removeMarker as removeMarkerReducer } from "./reducers/removeMarker";
+import { resize as resizeReducer } from "./reducers/resize";
+import { step as stepReducer } from "./reducers/step";
 import { Settings } from "./types";
 
 export const rootSlice = createSlice({
@@ -25,30 +21,19 @@ export const rootSlice = createSlice({
     setWorld: (state, { payload: world }: PayloadAction<World>) => {
       state.world = world;
     },
-    step: (state) => {
-      state.world = stepAction(state.world, state.settings);
-    },
-    turnLeft: (state) => {
-      state.world = turnLeftAction(state.world);
-    },
-    turnRight: (state) => {
-      state.world = turnRightAction(state.world);
-    },
+    step: stepReducer,
+    turnLeft: turnLeftReducer,
+    turnRight: turnRightReducer,
+
     putBrick: (state, { payload: count }: PayloadAction<number | undefined>) =>
       putBrickReducer(state, count),
     pickUpBrick: (
       state,
       { payload: count }: PayloadAction<number | undefined>
     ) => pickUpBrickReducer(state, count),
-    setMarker: (state) => {
-      state.world = setMarkerAction(state.world);
-    },
-    removeMarker: (state) => {
-      state.world = removeMarkerAction(state.world);
-    },
-    toggleMarker: (state) => {
-      state.world = toggleMarkerAction(state.world);
-    },
+
+    setMarker: setMarkerReducer,
+    removeMarker: removeMarkerReducer,
     set: {
       prepare: (world: World) => ({ payload: { world } }),
       reducer: (
@@ -58,17 +43,12 @@ export const rootSlice = createSlice({
         state.world = newWorld;
       },
     },
-    reset: (state) => {
-      state.world = resetAction(state.world);
-    },
     resize: (
       state,
       {
         payload: size,
-      }: PayloadAction<Pick<World, "depth" | "height" | "width">>
-    ) => {
-      state.world = resizeAction(state.world, size);
-    },
+      }: PayloadAction<Pick<World, "height" | "width" | "depth">>
+    ) => resizeReducer(state, size),
     parseCode: (state) => {
       state.error = undefined;
       state.execution.state = "stopped";
@@ -141,13 +121,11 @@ export const {
   turnRight,
   step,
   resize,
-  toggleMarker,
   set,
   setMarker,
   pickUpBrick,
   putBrick,
   removeMarker,
-  reset,
   parseCode,
   executionStep,
   updateCode,
