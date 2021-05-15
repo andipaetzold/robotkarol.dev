@@ -12185,7 +12185,7 @@ Object {
 }
 `;
 
-exports[`Aufraeumen 1`] = `
+exports[`Aufräumen 1`] = `
 Object {
   "conditions": Array [],
   "functions": Array [

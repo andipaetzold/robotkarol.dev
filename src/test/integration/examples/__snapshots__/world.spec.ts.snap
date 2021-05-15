@@ -1893,7 +1893,7 @@ Object {
 }
 `;
 
-exports[`Aufraeumen 1`] = `
+exports[`Aufräumen 1`] = `
 Object {
   "depth": 10,
   "height": 6,

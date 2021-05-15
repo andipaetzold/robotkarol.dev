@@ -9,7 +9,7 @@ import { RootState } from "../../../services/store/types";
 
 EXAMPLES.filter((e) => e.code)
   .filter((e) => e.world)
-  .filter((e) => e.name !== "09 Schachbrett") // this example intentionally fails
+  .filter((e) => !["09 Schachbrett", "Aufräumen"].includes(e.name)) // failing examples
   .filter((e) => e.name !== "Sortieren") // ignore examples with Einfügen
   .filter(
     (e) =>

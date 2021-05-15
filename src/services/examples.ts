@@ -250,7 +250,7 @@ export const EXAMPLES: Example[] = [
     author: "Thomas Vogg",
   },
   {
-    name: "Aufraeumen",
+    name: "Aufräumen",
     code: "aufraeumen.kdp",
     world: "aufraeumen.kdw",
     author: "Walter Settele",
