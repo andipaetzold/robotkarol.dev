@@ -15934,6 +15934,893 @@ Object {
 }
 `;
 
+exports[`Ganzzahl Addieren 1`] = `
+Object {
+  "conditions": Array [],
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "action": "STEP",
+          "line": 22,
+          "type": "call",
+        },
+        Object {
+          "action": "STEP",
+          "line": 23,
+          "type": "call",
+        },
+        Object {
+          "action": "STEP",
+          "line": 24,
+          "type": "call",
+        },
+      ],
+      "identifier": "istziegelda",
+      "line": 25,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 28,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 29,
+          "type": "call",
+        },
+      ],
+      "identifier": "umdrehen",
+      "line": 31,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 35,
+              "type": "call",
+            },
+          ],
+          "line": 36,
+          "test": Object {
+            "line": 34,
+            "state": "NOT_IS_WALL",
+            "type": "state",
+          },
+          "type": "while",
+        },
+      ],
+      "identifier": "gehebiswand",
+      "line": 37,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 40,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 42,
+              "type": "call",
+            },
+            Object {
+              "action": "TURN_RIGHT",
+              "line": 43,
+              "type": "call",
+            },
+          ],
+          "elseBody": Array [
+            Object {
+              "action": "TURN_RIGHT",
+              "line": 44,
+              "type": "call",
+            },
+          ],
+          "line": 45,
+          "test": Object {
+            "line": 41,
+            "state": "NOT_IS_WALL",
+            "type": "state",
+          },
+          "type": "if",
+        },
+      ],
+      "identifier": "nächstereihe",
+      "line": 46,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_TAKE",
+              "line": 51,
+              "type": "call",
+            },
+          ],
+          "line": 52,
+          "test": Object {
+            "line": 50,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
+          "type": "while",
+        },
+        Object {
+          "action": "STEP",
+          "line": 53,
+          "type": "call",
+        },
+        Object {
+          "line": 54,
+          "name": "nächstereihe",
+          "type": "functionCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_PUT",
+              "line": 55,
+              "type": "call",
+            },
+          ],
+          "line": 56,
+          "times": "1",
+          "type": "repeat",
+        },
+        Object {
+          "action": "STEP",
+          "line": 57,
+          "type": "call",
+        },
+        Object {
+          "line": 58,
+          "name": "nächstereihe",
+          "type": "functionCall",
+        },
+      ],
+      "identifier": "übertrag",
+      "line": 59,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "BRICK_TAKE",
+          "line": 62,
+          "type": "call",
+        },
+        Object {
+          "line": 63,
+          "name": "umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "BRICK_PUT",
+          "line": 64,
+          "type": "call",
+        },
+        Object {
+          "action": "STEP",
+          "line": 65,
+          "type": "call",
+        },
+        Object {
+          "action": "STEP",
+          "line": 66,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_PUT",
+              "line": 67,
+              "type": "call",
+            },
+          ],
+          "elseBody": Array [
+            Object {
+              "line": 68,
+              "name": "übertrag",
+              "type": "functionCall",
+            },
+          ],
+          "line": 70,
+          "test": Object {
+            "line": 67,
+            "param": 9,
+            "state": "NOT_IS_BRICK",
+            "type": "state",
+          },
+          "type": "if",
+        },
+      ],
+      "identifier": "zurückziegelsetzen",
+      "line": 72,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "line": 75,
+          "name": "istziegelda",
+          "type": "functionCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "line": 77,
+              "name": "umdrehen",
+              "type": "functionCall",
+            },
+            Object {
+              "line": 78,
+              "name": "gehebiswand",
+              "type": "functionCall",
+            },
+          ],
+          "elseBody": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "body": Array [
+                    Object {
+                      "line": 81,
+                      "name": "zurückziegelsetzen",
+                      "type": "functionCall",
+                    },
+                  ],
+                  "elseBody": Array [],
+                  "line": 82,
+                  "test": Object {
+                    "line": 81,
+                    "state": "IS_BRICK",
+                    "type": "state",
+                  },
+                  "type": "if",
+                },
+                Object {
+                  "body": Array [],
+                  "elseBody": Array [],
+                  "line": 84,
+                  "test": Object {
+                    "line": 83,
+                    "state": "NOT_IS_WALL",
+                    "type": "state",
+                  },
+                  "type": "if",
+                },
+                Object {
+                  "line": 85,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+                Object {
+                  "line": 86,
+                  "name": "gehebiswand",
+                  "type": "functionCall",
+                },
+                Object {
+                  "line": 87,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+                Object {
+                  "action": "STEP",
+                  "line": 88,
+                  "type": "call",
+                },
+                Object {
+                  "line": 89,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+              ],
+              "line": 90,
+              "test": Object {
+                "line": 80,
+                "state": "IS_BRICK",
+                "type": "state",
+              },
+              "type": "while",
+            },
+            Object {
+              "body": Array [
+                Object {
+                  "line": 91,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+                Object {
+                  "action": "BRICK_TAKE",
+                  "line": 92,
+                  "type": "call",
+                },
+                Object {
+                  "line": 93,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+                Object {
+                  "action": "BRICK_PUT",
+                  "line": 94,
+                  "type": "call",
+                },
+                Object {
+                  "line": 95,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+              ],
+              "elseBody": Array [],
+              "line": 96,
+              "test": Object {
+                "line": 91,
+                "state": "NOT_IS_BRICK",
+                "type": "state",
+              },
+              "type": "if",
+            },
+            Object {
+              "body": Array [
+                Object {
+                  "action": "BRICK_TAKE",
+                  "line": 98,
+                  "type": "call",
+                },
+                Object {
+                  "line": 99,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+                Object {
+                  "action": "BRICK_PUT",
+                  "line": 100,
+                  "type": "call",
+                },
+                Object {
+                  "line": 101,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+              ],
+              "line": 102,
+              "test": Object {
+                "line": 97,
+                "state": "IS_BRICK",
+                "type": "state",
+              },
+              "type": "while",
+            },
+          ],
+          "line": 103,
+          "test": Object {
+            "line": 76,
+            "state": "NOT_IS_BRICK",
+            "type": "state",
+          },
+          "type": "if",
+        },
+        Object {
+          "line": 104,
+          "name": "gehebiswand",
+          "type": "functionCall",
+        },
+      ],
+      "identifier": "erstereihe",
+      "line": 105,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "line": 109,
+          "name": "umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "STEP",
+          "line": 110,
+          "type": "call",
+        },
+        Object {
+          "action": "STEP",
+          "line": 111,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "action": "BRICK_TAKE",
+                  "line": 113,
+                  "type": "call",
+                },
+                Object {
+                  "line": 114,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+                Object {
+                  "action": "STEP",
+                  "line": 115,
+                  "type": "call",
+                },
+                Object {
+                  "line": 116,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+                Object {
+                  "action": "BRICK_PUT",
+                  "line": 117,
+                  "type": "call",
+                },
+                Object {
+                  "line": 118,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+                Object {
+                  "body": Array [
+                    Object {
+                      "action": "BRICK_PUT",
+                      "line": 119,
+                      "type": "call",
+                    },
+                  ],
+                  "elseBody": Array [
+                    Object {
+                      "line": 120,
+                      "name": "übertrag",
+                      "type": "functionCall",
+                    },
+                  ],
+                  "line": 122,
+                  "test": Object {
+                    "line": 119,
+                    "param": 9,
+                    "state": "NOT_IS_BRICK",
+                    "type": "state",
+                  },
+                  "type": "if",
+                },
+              ],
+              "elseBody": Array [],
+              "line": 124,
+              "test": Object {
+                "line": 113,
+                "state": "IS_BRICK",
+                "type": "state",
+              },
+              "type": "if",
+            },
+            Object {
+              "line": 125,
+              "name": "umdrehen",
+              "type": "functionCall",
+            },
+            Object {
+              "action": "STEP",
+              "line": 126,
+              "type": "call",
+            },
+          ],
+          "line": 127,
+          "test": Object {
+            "line": 112,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
+          "type": "while",
+        },
+        Object {
+          "line": 128,
+          "name": "umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "STEP",
+          "line": 129,
+          "type": "call",
+        },
+        Object {
+          "line": 130,
+          "name": "umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 132,
+              "type": "call",
+            },
+            Object {
+              "body": Array [
+                Object {
+                  "action": "STEP",
+                  "line": 133,
+                  "type": "call",
+                },
+                Object {
+                  "line": 134,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+                Object {
+                  "action": "BRICK_TAKE",
+                  "line": 135,
+                  "type": "call",
+                },
+                Object {
+                  "line": 136,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+                Object {
+                  "action": "STEP",
+                  "line": 137,
+                  "type": "call",
+                },
+                Object {
+                  "line": 138,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+                Object {
+                  "action": "BRICK_PUT",
+                  "line": 139,
+                  "type": "call",
+                },
+                Object {
+                  "action": "STEP",
+                  "line": 140,
+                  "type": "call",
+                },
+                Object {
+                  "body": Array [
+                    Object {
+                      "action": "BRICK_TAKE",
+                      "line": 142,
+                      "type": "call",
+                    },
+                    Object {
+                      "line": 143,
+                      "name": "umdrehen",
+                      "type": "functionCall",
+                    },
+                    Object {
+                      "action": "STEP",
+                      "line": 144,
+                      "type": "call",
+                    },
+                    Object {
+                      "line": 145,
+                      "name": "umdrehen",
+                      "type": "functionCall",
+                    },
+                    Object {
+                      "action": "BRICK_PUT",
+                      "line": 146,
+                      "type": "call",
+                    },
+                    Object {
+                      "action": "STEP",
+                      "line": 147,
+                      "type": "call",
+                    },
+                  ],
+                  "line": 148,
+                  "test": Object {
+                    "line": 141,
+                    "state": "IS_BRICK",
+                    "type": "state",
+                  },
+                  "type": "while",
+                },
+              ],
+              "elseBody": Array [],
+              "line": 149,
+              "test": Object {
+                "line": 133,
+                "state": "NOT_IS_BRICK",
+                "type": "state",
+              },
+              "type": "if",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 150,
+          "test": Object {
+            "line": 131,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
+          "type": "if",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "line": 151,
+              "name": "umdrehen",
+              "type": "functionCall",
+            },
+            Object {
+              "line": 152,
+              "name": "gehebiswand",
+              "type": "functionCall",
+            },
+          ],
+          "elseBody": Array [
+            Object {
+              "line": 153,
+              "name": "gehebiswand",
+              "type": "functionCall",
+            },
+          ],
+          "line": 154,
+          "test": Object {
+            "line": 151,
+            "state": "IS_NORTH",
+            "type": "state",
+          },
+          "type": "if",
+        },
+      ],
+      "identifier": "zweitereihe",
+      "line": 155,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "line": 158,
+          "name": "umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "action": "BRICK_TAKE",
+                  "line": 160,
+                  "type": "call",
+                },
+                Object {
+                  "action": "STEP",
+                  "line": 161,
+                  "type": "call",
+                },
+                Object {
+                  "action": "BRICK_PUT",
+                  "line": 162,
+                  "type": "call",
+                },
+                Object {
+                  "line": 163,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+                Object {
+                  "body": Array [
+                    Object {
+                      "action": "BRICK_PUT",
+                      "line": 164,
+                      "type": "call",
+                    },
+                  ],
+                  "elseBody": Array [
+                    Object {
+                      "line": 165,
+                      "name": "übertrag",
+                      "type": "functionCall",
+                    },
+                  ],
+                  "line": 166,
+                  "test": Object {
+                    "line": 164,
+                    "param": 9,
+                    "state": "NOT_IS_BRICK",
+                    "type": "state",
+                  },
+                  "type": "if",
+                },
+                Object {
+                  "action": "STEP",
+                  "line": 167,
+                  "type": "call",
+                },
+                Object {
+                  "line": 168,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+              ],
+              "elseBody": Array [],
+              "line": 169,
+              "test": Object {
+                "line": 160,
+                "state": "IS_BRICK",
+                "type": "state",
+              },
+              "type": "if",
+            },
+          ],
+          "line": 170,
+          "test": Object {
+            "line": 159,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
+          "type": "while",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "line": 172,
+              "name": "umdrehen",
+              "type": "functionCall",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 173,
+          "test": Object {
+            "line": 171,
+            "state": "NOT_IS_BRICK",
+            "type": "state",
+          },
+          "type": "if",
+        },
+        Object {
+          "line": 174,
+          "name": "umdrehen",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "STEP",
+          "line": 175,
+          "type": "call",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_TAKE",
+              "line": 177,
+              "type": "call",
+            },
+            Object {
+              "action": "STEP",
+              "line": 178,
+              "type": "call",
+            },
+            Object {
+              "line": 179,
+              "name": "umdrehen",
+              "type": "functionCall",
+            },
+            Object {
+              "action": "BRICK_PUT",
+              "line": 180,
+              "type": "call",
+            },
+            Object {
+              "action": "STEP",
+              "line": 181,
+              "type": "call",
+            },
+            Object {
+              "action": "STEP",
+              "line": 182,
+              "type": "call",
+            },
+          ],
+          "elseBody": Array [
+            Object {
+              "line": 183,
+              "name": "umdrehen",
+              "type": "functionCall",
+            },
+            Object {
+              "action": "STEP",
+              "line": 184,
+              "type": "call",
+            },
+          ],
+          "line": 185,
+          "test": Object {
+            "line": 176,
+            "state": "IS_BRICK",
+            "type": "state",
+          },
+          "type": "if",
+        },
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "line": 188,
+                  "name": "umdrehen",
+                  "type": "functionCall",
+                },
+              ],
+              "elseBody": Array [],
+              "line": 189,
+              "test": Object {
+                "line": 188,
+                "state": "NOT_IS_BRICK",
+                "type": "state",
+              },
+              "type": "if",
+            },
+          ],
+          "elseBody": Array [],
+          "line": 190,
+          "test": Object {
+            "line": 186,
+            "state": "NOT_IS_WALL",
+            "type": "state",
+          },
+          "type": "if",
+        },
+      ],
+      "identifier": "isteinübertragda",
+      "line": 191,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "line": 194,
+            "name": "erstereihe",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 195,
+            "name": "zweitereihe",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 196,
+            "name": "isteinübertragda",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 197,
+            "name": "nächstereihe",
+            "type": "functionCall",
+          },
+        ],
+        "line": 198,
+        "times": "500",
+        "type": "repeat",
+      },
+    ],
+    "line": 198,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
 exports[`Gehe Heim 1`] = `
 Object {
   "conditions": Array [],

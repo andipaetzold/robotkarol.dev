@@ -162,20 +162,40 @@ const grammar = {
         "$$ = { type: 'repeat', line: yylineno, times: $2, body: $4 }",
       ],
       [
+        "REPEAT_BEGIN NUMBER TIMES REPEAT_END",
+        "$$ = { type: 'repeat', line: yylineno, times: $2, body: [] }",
+      ],
+      [
         "REPEAT_BEGIN ALWAYS statements REPEAT_END",
         "$$ = { type: 'repeat', line: yylineno, times: Infinity, body: $3 }",
+      ],
+      [
+        "REPEAT_BEGIN ALWAYS REPEAT_END",
+        "$$ = { type: 'repeat', line: yylineno, times: Infinity, body: [] }",
       ],
       [
         "REPEAT_BEGIN WHILE test statements REPEAT_END",
         "$$ = { type: 'while', line: yylineno, test: $3, body: $4 }",
       ],
       [
+        "REPEAT_BEGIN WHILE test REPEAT_END",
+        "$$ = { type: 'while', line: yylineno, test: $3, body: [] }",
+      ],
+      [
         "REPEAT_BEGIN statements REPEAT_END UNTIL test",
         "$$ = { type: 'doUntil', line: yylineno, test: $5, body: $2 }",
       ],
       [
+        "REPEAT_BEGIN REPEAT_END UNTIL test",
+        "$$ = { type: 'doUntil', line: yylineno, test: $4, body: [] }",
+      ],
+      [
         "REPEAT_BEGIN statements REPEAT_END WHILE test",
         "$$ = { type: 'doWhile', line: yylineno, test: $5, body: $2 }",
+      ],
+      [
+        "REPEAT_BEGIN REPEAT_END WHILE test",
+        "$$ = { type: 'doWhile', line: yylineno, test: $4, body: [] }",
       ],
 
       [
@@ -188,8 +208,20 @@ const grammar = {
         "$$ = { type: 'if', line: yylineno, test: $2, body: $4, elseBody: [] }",
       ],
       [
+        "IF test THEN IF_END",
+        "$$ = { type: 'if', line: yylineno, test: $2, body: [], elseBody: [] }",
+      ],
+      [
         "IF test THEN statements ELSE statements IF_END",
         "$$ = { type: 'if', line: yylineno, test: $2, body: $4, elseBody: $6 }",
+      ],
+      [
+        "IF test THEN ELSE statements IF_END",
+        "$$ = { type: 'if', line: yylineno, test: $2, body: [], elseBody: $5 }",
+      ],
+      [
+        "IF test THEN statements ELSE IF_END",
+        "$$ = { type: 'if', line: yylineno, test: $2, body: $4, elseBody: [] }",
       ],
 
       [
