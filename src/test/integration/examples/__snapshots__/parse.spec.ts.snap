@@ -15934,6 +15934,3607 @@ Object {
 }
 `;
 
+exports[`Festung 1`] = `
+Object {
+  "conditions": Array [],
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "body": Array [
+                    Object {
+                      "action": "BRICK_PUT",
+                      "line": 16,
+                      "type": "call",
+                    },
+                    Object {
+                      "action": "STEP",
+                      "line": 17,
+                      "type": "call",
+                    },
+                  ],
+                  "line": 18,
+                  "times": "3",
+                  "type": "repeat",
+                },
+                Object {
+                  "action": "TURN_LEFT",
+                  "line": 19,
+                  "type": "call",
+                },
+              ],
+              "line": 20,
+              "times": "4",
+              "type": "repeat",
+            },
+          ],
+          "line": 21,
+          "times": "10",
+          "type": "repeat",
+        },
+      ],
+      "identifier": "turm",
+      "line": 22,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "body": Array [
+                Object {
+                  "body": Array [
+                    Object {
+                      "action": "BRICK_PUT",
+                      "line": 29,
+                      "type": "call",
+                    },
+                    Object {
+                      "action": "STEP",
+                      "line": 30,
+                      "type": "call",
+                    },
+                  ],
+                  "line": 31,
+                  "times": "3",
+                  "type": "repeat",
+                },
+                Object {
+                  "action": "TURN_LEFT",
+                  "line": 32,
+                  "type": "call",
+                },
+              ],
+              "line": 33,
+              "times": "4",
+              "type": "repeat",
+            },
+          ],
+          "line": 34,
+          "times": "9",
+          "type": "repeat",
+        },
+      ],
+      "identifier": "turm2",
+      "line": 35,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_PUT",
+              "line": 39,
+              "param": 7,
+              "type": "call",
+            },
+            Object {
+              "action": "STEP",
+              "line": 40,
+              "type": "call",
+            },
+            Object {
+              "action": "BRICK_PUT",
+              "line": 41,
+              "param": 6,
+              "type": "call",
+            },
+            Object {
+              "action": "STEP",
+              "line": 42,
+              "type": "call",
+            },
+          ],
+          "line": 43,
+          "times": "19",
+          "type": "repeat",
+        },
+      ],
+      "identifier": "mauer",
+      "line": 44,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_LEFT",
+          "line": 47,
+          "type": "call",
+        },
+        Object {
+          "action": "STEP",
+          "line": 48,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 49,
+          "type": "call",
+        },
+      ],
+      "identifier": "aufrückenlinks",
+      "line": 50,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 53,
+          "type": "call",
+        },
+        Object {
+          "action": "STEP",
+          "line": 54,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 55,
+          "type": "call",
+        },
+      ],
+      "identifier": "aufrückenrechts",
+      "line": 56,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_LEFT",
+          "line": 60,
+          "type": "call",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 61,
+          "type": "call",
+        },
+      ],
+      "identifier": "umdrehen",
+      "line": 62,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "action": "STEP",
+        "line": 66,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 67,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 68,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 69,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "line": 79,
+            "name": "mauer",
+            "type": "functionCall",
+          },
+          Object {
+            "action": "STEP",
+            "line": 82,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 83,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 84,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 85,
+            "type": "call",
+          },
+          Object {
+            "line": 87,
+            "name": "turm",
+            "type": "functionCall",
+          },
+          Object {
+            "action": "STEP",
+            "line": 89,
+            "param": 3,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 90,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 91,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 92,
+            "type": "call",
+          },
+          Object {
+            "line": 96,
+            "name": "mauer",
+            "type": "functionCall",
+          },
+          Object {
+            "action": "STEP",
+            "line": 100,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 101,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 102,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 103,
+            "type": "call",
+          },
+          Object {
+            "line": 105,
+            "name": "turm",
+            "type": "functionCall",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 107,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 108,
+            "param": 3,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 109,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 110,
+            "param": 2,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 111,
+            "type": "call",
+          },
+        ],
+        "line": 113,
+        "times": "4",
+        "type": "repeat",
+      },
+      Object {
+        "action": "STEP",
+        "line": 119,
+        "param": 2,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 120,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 121,
+        "param": 2,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 122,
+        "param": 21,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 123,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 127,
+        "param": 7,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 128,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 129,
+        "param": 7,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 130,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 131,
+        "param": 7,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 132,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 133,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 134,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 135,
+        "param": 7,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 136,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 137,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 138,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 139,
+        "param": 7,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 140,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 141,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 143,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 144,
+            "type": "call",
+          },
+        ],
+        "line": 145,
+        "times": "3",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 152,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 153,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 154,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 155,
+        "param": 2,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_TAKE",
+        "line": 156,
+        "param": 6,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 157,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 158,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 159,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_TAKE",
+        "line": 160,
+        "param": 6,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 162,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 163,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 164,
+        "param": 2,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 165,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 166,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_TAKE",
+        "line": 167,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 168,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 169,
+        "param": 4,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 170,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 171,
+        "param": 24,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 172,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_PUT",
+                "line": 178,
+                "type": "call",
+              },
+              Object {
+                "action": "STEP",
+                "line": 179,
+                "type": "call",
+              },
+            ],
+            "line": 180,
+            "times": "76",
+            "type": "repeat",
+          },
+          Object {
+            "line": 181,
+            "name": "umdrehen",
+            "type": "functionCall",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 182,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 183,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 184,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_PUT",
+                "line": 186,
+                "type": "call",
+              },
+              Object {
+                "action": "STEP",
+                "line": 187,
+                "type": "call",
+              },
+            ],
+            "line": 188,
+            "times": "76",
+            "type": "repeat",
+          },
+          Object {
+            "line": 189,
+            "name": "umdrehen",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 190,
+            "name": "aufrückenlinks",
+            "type": "functionCall",
+          },
+        ],
+        "line": 191,
+        "times": "40",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 197,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 198,
+        "param": 70,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 199,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 200,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 202,
+            "param": 6,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 203,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 204,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 205,
+            "type": "call",
+          },
+        ],
+        "line": 206,
+        "times": "7",
+        "type": "repeat",
+      },
+      Object {
+        "action": "STEP",
+        "line": 210,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 211,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_PUT",
+                "line": 216,
+                "param": 6,
+                "type": "call",
+              },
+              Object {
+                "action": "STEP",
+                "line": 217,
+                "type": "call",
+              },
+            ],
+            "line": 218,
+            "times": "3",
+            "type": "repeat",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 219,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_PUT",
+                "line": 222,
+                "param": 6,
+                "type": "call",
+              },
+              Object {
+                "action": "STEP",
+                "line": 223,
+                "type": "call",
+              },
+            ],
+            "line": 224,
+            "times": "10",
+            "type": "repeat",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 225,
+            "type": "call",
+          },
+        ],
+        "line": 227,
+        "times": "2",
+        "type": "repeat",
+      },
+      Object {
+        "action": "STEP",
+        "line": 229,
+        "param": 4,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 230,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 231,
+        "param": 7,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 232,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_TAKE",
+        "line": 233,
+        "param": 6,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 234,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 235,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 236,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 237,
+        "param": 4,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 238,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 242,
+            "param": 6,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 243,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 244,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 245,
+            "type": "call",
+          },
+        ],
+        "line": 246,
+        "times": "12",
+        "type": "repeat",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 251,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 252,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 253,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 254,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 255,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 256,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 257,
+            "type": "call",
+          },
+        ],
+        "line": 258,
+        "times": "4",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 260,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 261,
+        "param": 2,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 262,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 265,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 266,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 267,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 268,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 269,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 270,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 271,
+            "type": "call",
+          },
+        ],
+        "line": 272,
+        "times": "4",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 274,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 275,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 276,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 277,
+        "param": 16,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 280,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 281,
+        "param": 4,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 282,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 283,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 284,
+        "param": 6,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 285,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 286,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 287,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 290,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 291,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 292,
+            "param": 6,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 293,
+            "type": "call",
+          },
+        ],
+        "line": 294,
+        "times": "3",
+        "type": "repeat",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 296,
+        "param": 7,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 297,
+        "param": 2,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 298,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 299,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 300,
+        "type": "call",
+      },
+      Object {
+        "line": 303,
+        "name": "turm2",
+        "type": "functionCall",
+      },
+      Object {
+        "action": "STEP",
+        "line": 305,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 306,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 307,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 308,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 310,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 311,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 312,
+            "param": 6,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 313,
+            "type": "call",
+          },
+        ],
+        "line": 314,
+        "times": "3",
+        "type": "repeat",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 318,
+            "param": 9,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 319,
+            "type": "call",
+          },
+        ],
+        "line": 320,
+        "times": "14",
+        "type": "repeat",
+      },
+      Object {
+        "action": "STEP",
+        "line": 322,
+        "param": 2,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 325,
+            "param": 9,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 326,
+            "type": "call",
+          },
+        ],
+        "line": 327,
+        "times": "14",
+        "type": "repeat",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 331,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 332,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 333,
+            "param": 6,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 334,
+            "type": "call",
+          },
+        ],
+        "line": 335,
+        "times": "3",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 336,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 337,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 338,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 339,
+        "type": "call",
+      },
+      Object {
+        "line": 341,
+        "name": "turm2",
+        "type": "functionCall",
+      },
+      Object {
+        "action": "STEP",
+        "line": 343,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 344,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 345,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 346,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 348,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 349,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 350,
+            "param": 6,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 351,
+            "type": "call",
+          },
+        ],
+        "line": 352,
+        "times": "3",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 355,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 358,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 359,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 360,
+            "param": 6,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 361,
+            "type": "call",
+          },
+        ],
+        "line": 362,
+        "times": "6",
+        "type": "repeat",
+      },
+      Object {
+        "action": "STEP",
+        "line": 366,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 367,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 370,
+            "param": 8,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 371,
+            "type": "call",
+          },
+        ],
+        "line": 372,
+        "times": "4",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 373,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 376,
+            "param": 8,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 377,
+            "type": "call",
+          },
+        ],
+        "line": 378,
+        "times": "29",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 379,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 382,
+            "param": 8,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 383,
+            "type": "call",
+          },
+        ],
+        "line": 384,
+        "times": "9",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 385,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 388,
+            "param": 8,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 389,
+            "type": "call",
+          },
+        ],
+        "line": 390,
+        "times": "29",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 391,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 394,
+            "param": 8,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 395,
+            "type": "call",
+          },
+        ],
+        "line": 396,
+        "times": "5",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 397,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 400,
+            "param": 8,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 401,
+            "type": "call",
+          },
+        ],
+        "line": 402,
+        "times": "28",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 404,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 405,
+        "param": 4,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 406,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 407,
+        "param": 4,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 408,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_PUT",
+                "line": 413,
+                "param": 8,
+                "type": "call",
+              },
+              Object {
+                "action": "STEP",
+                "line": 414,
+                "type": "call",
+              },
+            ],
+            "line": 415,
+            "times": "3",
+            "type": "repeat",
+          },
+          Object {
+            "action": "STEP",
+            "line": 417,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_PUT",
+                "line": 420,
+                "param": 8,
+                "type": "call",
+              },
+              Object {
+                "action": "STEP",
+                "line": 421,
+                "type": "call",
+              },
+            ],
+            "line": 422,
+            "times": "4",
+            "type": "repeat",
+          },
+          Object {
+            "action": "STEP",
+            "line": 424,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 425,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 426,
+            "param": 3,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 427,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_PUT",
+                "line": 430,
+                "param": 8,
+                "type": "call",
+              },
+              Object {
+                "action": "STEP",
+                "line": 431,
+                "type": "call",
+              },
+            ],
+            "line": 432,
+            "times": "4",
+            "type": "repeat",
+          },
+          Object {
+            "action": "STEP",
+            "line": 434,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_PUT",
+                "line": 437,
+                "param": 8,
+                "type": "call",
+              },
+              Object {
+                "action": "STEP",
+                "line": 438,
+                "type": "call",
+              },
+            ],
+            "line": 439,
+            "times": "3",
+            "type": "repeat",
+          },
+          Object {
+            "action": "STEP",
+            "line": 441,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 442,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 443,
+            "param": 3,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 444,
+            "type": "call",
+          },
+        ],
+        "line": 446,
+        "times": "3",
+        "type": "repeat",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 449,
+            "param": 8,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 450,
+            "type": "call",
+          },
+        ],
+        "line": 451,
+        "times": "3",
+        "type": "repeat",
+      },
+      Object {
+        "action": "STEP",
+        "line": 453,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 456,
+            "param": 8,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 457,
+            "type": "call",
+          },
+        ],
+        "line": 458,
+        "times": "4",
+        "type": "repeat",
+      },
+      Object {
+        "action": "STEP",
+        "line": 460,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 461,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 462,
+        "param": 7,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 463,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 464,
+        "param": 4,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 465,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_TAKE",
+        "line": 466,
+        "param": 8,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 467,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 468,
+        "param": 4,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 469,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 470,
+        "param": 30,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 474,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 475,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 476,
+            "param": 6,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 477,
+            "type": "call",
+          },
+        ],
+        "line": 478,
+        "times": "6",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 480,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 483,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 484,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 485,
+            "param": 6,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 486,
+            "type": "call",
+          },
+        ],
+        "line": 487,
+        "times": "2",
+        "type": "repeat",
+      },
+      Object {
+        "action": "STEP",
+        "line": 489,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 490,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 491,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 492,
+        "type": "call",
+      },
+      Object {
+        "line": 494,
+        "name": "turm2",
+        "type": "functionCall",
+      },
+      Object {
+        "action": "STEP",
+        "line": 496,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 497,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 498,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 499,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 502,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 503,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 504,
+            "param": 6,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 505,
+            "type": "call",
+          },
+        ],
+        "line": 506,
+        "times": "2",
+        "type": "repeat",
+      },
+      Object {
+        "action": "STEP",
+        "line": 508,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 509,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 510,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 511,
+        "type": "call",
+      },
+      Object {
+        "line": 513,
+        "name": "turm2",
+        "type": "functionCall",
+      },
+      Object {
+        "action": "STEP",
+        "line": 515,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 516,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 517,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 518,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 521,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 522,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 523,
+            "param": 6,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 524,
+            "type": "call",
+          },
+        ],
+        "line": 525,
+        "times": "2",
+        "type": "repeat",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 530,
+            "param": 9,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 531,
+            "type": "call",
+          },
+        ],
+        "line": 532,
+        "times": "14",
+        "type": "repeat",
+      },
+      Object {
+        "action": "STEP",
+        "line": 534,
+        "param": 2,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 537,
+            "param": 9,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 538,
+            "type": "call",
+          },
+        ],
+        "line": 539,
+        "times": "14",
+        "type": "repeat",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 543,
+        "param": 7,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 544,
+        "param": 2,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 545,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 546,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 547,
+        "type": "call",
+      },
+      Object {
+        "line": 549,
+        "name": "turm2",
+        "type": "functionCall",
+      },
+      Object {
+        "action": "STEP",
+        "line": 551,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 552,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 553,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 554,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 556,
+        "param": 7,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 557,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 561,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 562,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 563,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 564,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 565,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 566,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 567,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 568,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 569,
+        "param": 6,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 570,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 571,
+        "param": 6,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_PUT",
+                "line": 575,
+                "param": 9,
+                "type": "call",
+              },
+              Object {
+                "action": "STEP",
+                "line": 576,
+                "type": "call",
+              },
+            ],
+            "line": 577,
+            "times": "30",
+            "type": "repeat",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 578,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "BRICK_PUT",
+                "line": 580,
+                "param": 9,
+                "type": "call",
+              },
+              Object {
+                "action": "STEP",
+                "line": 581,
+                "type": "call",
+              },
+            ],
+            "line": 582,
+            "times": "16",
+            "type": "repeat",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 583,
+            "type": "call",
+          },
+        ],
+        "line": 584,
+        "times": "2",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 586,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 587,
+        "param": 7,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 588,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 591,
+            "param": 8,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 592,
+            "type": "call",
+          },
+        ],
+        "line": 593,
+        "times": "29",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 595,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 596,
+        "param": 9,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 597,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 598,
+        "param": 9,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 599,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 602,
+            "param": 8,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 603,
+            "type": "call",
+          },
+        ],
+        "line": 604,
+        "times": "8",
+        "type": "repeat",
+      },
+      Object {
+        "action": "STEP",
+        "line": 606,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 609,
+            "param": 8,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 610,
+            "type": "call",
+          },
+        ],
+        "line": 611,
+        "times": "6",
+        "type": "repeat",
+      },
+      Object {
+        "action": "STEP",
+        "line": 613,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 614,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 615,
+        "param": 10,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 616,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 619,
+            "param": 8,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 620,
+            "type": "call",
+          },
+        ],
+        "line": 621,
+        "times": "6",
+        "type": "repeat",
+      },
+      Object {
+        "action": "STEP",
+        "line": 623,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 626,
+            "param": 8,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 627,
+            "type": "call",
+          },
+        ],
+        "line": 628,
+        "times": "8",
+        "type": "repeat",
+      },
+      Object {
+        "action": "STEP",
+        "line": 630,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 631,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 632,
+        "param": 15,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 633,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 634,
+        "param": 5,
+        "type": "call",
+      },
+      Object {
+        "line": 637,
+        "name": "turm2",
+        "type": "functionCall",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 639,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 640,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 642,
+        "param": 5,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 643,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 644,
+        "param": 4,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 645,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 646,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 647,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 648,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 650,
+            "param": 3,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 651,
+            "type": "call",
+          },
+        ],
+        "line": 652,
+        "times": "4",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 654,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 655,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 656,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_TAKE",
+        "line": 657,
+        "param": 9,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 660,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 661,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 662,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 663,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 666,
+            "param": 3,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 667,
+            "type": "call",
+          },
+        ],
+        "line": 668,
+        "times": "15",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 669,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 671,
+            "param": 3,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 672,
+            "type": "call",
+          },
+        ],
+        "line": 673,
+        "times": "25",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 674,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 676,
+            "param": 3,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 677,
+            "type": "call",
+          },
+        ],
+        "line": 678,
+        "times": "15",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 681,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 682,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 683,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 684,
+        "param": 5,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 685,
+        "param": 5,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 686,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 687,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 690,
+            "param": 5,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 691,
+            "type": "call",
+          },
+        ],
+        "line": 692,
+        "times": "9",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 693,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 695,
+            "param": 5,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 696,
+            "type": "call",
+          },
+        ],
+        "line": 697,
+        "times": "5",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 698,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 700,
+            "param": 5,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 701,
+            "type": "call",
+          },
+        ],
+        "line": 702,
+        "times": "9",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 704,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 705,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 706,
+        "param": 9,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 707,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 708,
+        "param": 4,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 709,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 710,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "body": Array [
+              Object {
+                "body": Array [
+                  Object {
+                    "action": "BRICK_PUT",
+                    "line": 715,
+                    "type": "call",
+                  },
+                  Object {
+                    "action": "STEP",
+                    "line": 716,
+                    "type": "call",
+                  },
+                ],
+                "line": 717,
+                "times": "3",
+                "type": "repeat",
+              },
+              Object {
+                "action": "TURN_LEFT",
+                "line": 718,
+                "type": "call",
+              },
+            ],
+            "line": 719,
+            "times": "4",
+            "type": "repeat",
+          },
+        ],
+        "line": 720,
+        "times": "5",
+        "type": "repeat",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 721,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 722,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_RIGHT",
+        "line": 723,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "BRICK_PUT",
+            "line": 726,
+            "param": 5,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 727,
+            "type": "call",
+          },
+          Object {
+            "action": "BRICK_PUT",
+            "line": 728,
+            "param": 5,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 729,
+            "param": 2,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 730,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 731,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 732,
+            "type": "call",
+          },
+        ],
+        "line": 733,
+        "times": "2",
+        "type": "repeat",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 735,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 736,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 737,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 738,
+        "param": 2,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 739,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 740,
+        "type": "call",
+      },
+      Object {
+        "action": "TURN_LEFT",
+        "line": 741,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 742,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 743,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_PUT",
+        "line": 744,
+        "param": 3,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 745,
+        "type": "call",
+      },
+      Object {
+        "action": "STEP",
+        "line": 747,
+        "param": 11,
+        "type": "call",
+      },
+      Object {
+        "action": "BRICK_TAKE",
+        "line": 748,
+        "param": 9,
+        "type": "call",
+      },
+      Object {
+        "body": Array [
+          Object {
+            "action": "TURN_LEFT",
+            "line": 754,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 755,
+            "param": 9,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 756,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 757,
+            "param": 27,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 758,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 759,
+            "param": 3,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 761,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 762,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 763,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 765,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 766,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 767,
+            "param": 6,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 768,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 769,
+            "param": 4,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 770,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "body": Array [
+                  Object {
+                    "action": "STEP",
+                    "line": 775,
+                    "param": 7,
+                    "type": "call",
+                  },
+                  Object {
+                    "action": "TURN_LEFT",
+                    "line": 776,
+                    "type": "call",
+                  },
+                ],
+                "line": 777,
+                "times": "4",
+                "type": "repeat",
+              },
+            ],
+            "line": 779,
+            "times": "10",
+            "type": "repeat",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 781,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 782,
+            "param": 23,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 783,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 784,
+            "param": 12,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 785,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 786,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 788,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 789,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 790,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 792,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 793,
+            "param": 16,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 794,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 795,
+            "param": 3,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 796,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 797,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 799,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 800,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 801,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 803,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 804,
+            "param": 8,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 806,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 807,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 808,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 810,
+            "param": 38,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 812,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 813,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 814,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 816,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 817,
+            "param": 10,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 818,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 819,
+            "param": 3,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 820,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 821,
+            "param": 6,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 823,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 824,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 825,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 827,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 828,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 829,
+            "param": 6,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 830,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 831,
+            "param": 3,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 832,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 833,
+            "param": 4,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 834,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 835,
+            "param": 4,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 836,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 837,
+            "param": 23,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 838,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 839,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 840,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "action": "STEP",
+                "line": 843,
+                "param": 4,
+                "type": "call",
+              },
+              Object {
+                "action": "TURN_RIGHT",
+                "line": 844,
+                "type": "call",
+              },
+              Object {
+                "action": "TURN_LEFT",
+                "line": 845,
+                "type": "call",
+              },
+              Object {
+                "action": "TURN_LEFT",
+                "line": 846,
+                "type": "call",
+              },
+              Object {
+                "action": "TURN_RIGHT",
+                "line": 847,
+                "type": "call",
+              },
+            ],
+            "line": 848,
+            "times": "3",
+            "type": "repeat",
+          },
+          Object {
+            "action": "STEP",
+            "line": 850,
+            "param": 4,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 851,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 853,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 854,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 855,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 856,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 857,
+            "param": 9,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 859,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 860,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 861,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 863,
+            "param": 46,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 865,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 866,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 867,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 869,
+            "param": 7,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 870,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 871,
+            "param": 12,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 873,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 874,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 875,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 876,
+            "param": 3,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 878,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 879,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 880,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 882,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 883,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 884,
+            "param": 3,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 885,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 886,
+            "param": 4,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 887,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 888,
+            "param": 31,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 889,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 890,
+            "param": 15,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 892,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 893,
+            "param": 28,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 895,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 896,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 897,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 899,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 900,
+            "param": 43,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 902,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 903,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 904,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 906,
+            "param": 17,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 907,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 908,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 910,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 911,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 913,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 914,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 916,
+            "type": "call",
+          },
+          Object {
+            "action": "WAIT",
+            "line": 917,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 919,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 920,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 921,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 922,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 923,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 924,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 925,
+            "param": 25,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 926,
+            "type": "call",
+          },
+          Object {
+            "body": Array [
+              Object {
+                "body": Array [
+                  Object {
+                    "action": "WAIT",
+                    "line": 932,
+                    "type": "call",
+                  },
+                  Object {
+                    "action": "WAIT",
+                    "line": 933,
+                    "type": "call",
+                  },
+                  Object {
+                    "action": "WAIT",
+                    "line": 934,
+                    "type": "call",
+                  },
+                  Object {
+                    "action": "STEP",
+                    "line": 936,
+                    "param": 42,
+                    "type": "call",
+                  },
+                ],
+                "line": 938,
+                "times": "2",
+                "type": "repeat",
+              },
+              Object {
+                "action": "STEP",
+                "line": 940,
+                "type": "call",
+              },
+              Object {
+                "action": "TURN_LEFT",
+                "line": 941,
+                "type": "call",
+              },
+            ],
+            "line": 943,
+            "times": "3",
+            "type": "repeat",
+          },
+          Object {
+            "action": "STEP",
+            "line": 945,
+            "param": 2,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_LEFT",
+            "line": 946,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 947,
+            "param": 34,
+            "type": "call",
+          },
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 948,
+            "type": "call",
+          },
+          Object {
+            "action": "STEP",
+            "line": 949,
+            "param": 30,
+            "type": "call",
+          },
+        ],
+        "line": 951,
+        "times": Infinity,
+        "type": "repeat",
+      },
+    ],
+    "line": 952,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
 exports[`Ganzzahl Addieren 1`] = `
 Object {
   "conditions": Array [],
