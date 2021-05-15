@@ -69,9 +69,9 @@ export function ExamplesDialog({ visible, onClose }: Props) {
             <ListItem
               key={example.name}
               onClick={() => handleClick(example.name)}
-            >
-              {example.name}
-            </ListItem>
+              primaryText={example.name}
+              secondaryText={`Author: ${example.author}`}
+            />
           ))}
         </List>
       </DialogContent>
