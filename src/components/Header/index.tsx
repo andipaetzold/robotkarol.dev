@@ -11,7 +11,7 @@ export function Header() {
   return (
     <>
       <AppBar theme="default">
-        <AppBarTitle>Robot Karel</AppBarTitle>
+        <AppBarTitle>Robot Karol</AppBarTitle>
 
         <AppBarAction first onClick={() => setExamplesDialogVisible(true)}>
           <FolderSVGIcon />

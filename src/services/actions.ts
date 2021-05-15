@@ -48,7 +48,7 @@ export function step(worldOrg: World, count = 1): World {
 export function putBrick(worldOrg: World, count = 1): World {
   const world = cloneDeep(worldOrg);
   if (isWall(world)) {
-    throw new Error("Cannot put brick. Karel is looking at a wall.");
+    throw new Error("Cannot put brick. Karol is looking at a wall.");
   }
 
   const brickPosition = getPositionInFront(world);
@@ -69,7 +69,7 @@ export function putBrick(worldOrg: World, count = 1): World {
 export function pickUpBrick(worldOrg: World, count = 1): World {
   const world = cloneDeep(worldOrg);
   if (isWall(world)) {
-    throw new Error("Cannot pick up brick. Karel is looking at a wall.");
+    throw new Error("Cannot pick up brick. Karol is looking at a wall.");
   }
 
   const brickPosition = getPositionInFront(world);
