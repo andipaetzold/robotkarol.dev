@@ -135,6 +135,28 @@ Object {
 }
 `;
 
+exports[`04 Neue Bedingung (Param) 1`] = `
+Object {
+  "depth": 10,
+  "height": 6,
+  "player": Object {
+    "direction": "west",
+    "x": 2,
+    "y": 2,
+  },
+  "tiles": Array [
+    Object {
+      "bricks": 2,
+      "cuboid": false,
+      "marked": false,
+      "x": 3,
+      "y": 4,
+    },
+  ],
+  "width": 5,
+}
+`;
+
 exports[`04 Neue Bedingung 1`] = `
 Object {
   "depth": 10,

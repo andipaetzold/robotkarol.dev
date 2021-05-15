@@ -161,6 +161,44 @@ Object {
 }
 `;
 
+exports[`04 Neue Bedingung (Param) 1`] = `
+Object {
+  "conditions": Array [],
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "TURN_LEFT",
+            "line": 6,
+            "type": "call",
+          },
+        ],
+        "elseBody": Array [
+          Object {
+            "action": "TURN_RIGHT",
+            "line": 8,
+            "type": "call",
+          },
+        ],
+        "line": 9,
+        "test": Object {
+          "line": 5,
+          "params": 2,
+          "state": "IS_BRICK",
+          "type": "state",
+        },
+        "type": "if",
+      },
+    ],
+    "line": 9,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
 exports[`04 Neue Bedingung 1`] = `
 Object {
   "conditions": Array [

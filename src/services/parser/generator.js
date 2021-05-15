@@ -32,6 +32,7 @@ const grammar = {
       ["markesetzen\\b", "return 'MARKER_SET'"],
       ["markelöschen\\b", "return 'MARKER_REMOVE'"],
       ["ton\\b", "return 'SOUND'"],
+      ["warten\\b", "return 'WAIT'"],
 
       ["wiederhole\\b", "return 'REPEAT_BEGIN'"],
       ["(\\*wiederhole|endewiederhole)\\b", "return 'REPEAT_END'"],
@@ -68,7 +69,10 @@ const grammar = {
       ["falsch\\b", "return 'FALSE'"],
       ["wahr\\b", "return 'TRUE'"],
 
-      ["[0-9]+(?:\\.[0-9]+)?\\b", "return 'NUMBER'"],
+      ["\\(", "return '('"],
+      ["\\)", "return ')'"],
+
+      ["[0-9]+(?:\\.[0-9]+)?", "return 'NUMBER'"],
       ["[a-z0-9_\\-äöüß]+\\b", "return 'IDENTIFIER'"],
     ],
   },
@@ -161,6 +165,10 @@ const grammar = {
         "$$ = { type: 'call', line: yylineno, action: 'MARKER_REMOVE' }",
       ],
       ["SOUND", "$$ = { type: 'call', line: yylineno, action: 'SOUND' }"],
+      [
+        "WAIT ( NUMBER )",
+        "$$ = { type: 'call', line: yylineno, action: 'WAIT' }",
+      ],
 
       ["SLOW", "$$ = { type: 'systemCall', line: yylineno, action: 'SLOW' }"],
       ["FAST", "$$ = { type: 'systemCall', line: yylineno, action: 'FAST' }"],
@@ -201,21 +209,21 @@ const grammar = {
     ],
     test: [
       ["NOT test", "$$ = { type: 'not', line: yylineno, test: $2 }"],
-      createState("IS_WALL"),
-      createState("NOT_IS_WALL"),
-      createState("IS_BRICK"),
-      createState("NOT_IS_BRICK"),
-      createState("IS_MARKER"),
-      createState("NOT_IS_MARKER"),
-      createState("IS_NORTH"),
-      createState("IS_WEST"),
-      createState("IS_SOUTH"),
-      createState("IS_EAST"),
-      createState("IS_FULL"),
-      createState("NOT_IS_FULL"),
-      createState("IS_EMPTY"),
-      createState("NOT_IS_EMPTY"),
-      createState("HAS_BRICKS"),
+      ...createState("IS_WALL"),
+      ...createState("NOT_IS_WALL"),
+      ...createState("IS_BRICK", true),
+      ...createState("NOT_IS_BRICK", true),
+      ...createState("IS_MARKER"),
+      ...createState("NOT_IS_MARKER"),
+      ...createState("IS_NORTH"),
+      ...createState("IS_WEST"),
+      ...createState("IS_SOUTH"),
+      ...createState("IS_EAST"),
+      ...createState("IS_FULL"),
+      ...createState("NOT_IS_FULL"),
+      ...createState("IS_EMPTY"),
+      ...createState("NOT_IS_EMPTY"),
+      ...createState("HAS_BRICKS"),
       [
         "IDENTIFIER",
         "$$ = { type: 'conditionCall', line: yylineno, name: $1.toLocaleLowerCase() }",
@@ -233,6 +241,19 @@ export const Parser = parser.Parser;
 export const parse = function () { return parser.parse.apply(parser, arguments); };`
 );
 
-function createState(name) {
-  return [name, `$$ = { type: 'state', line: yylineno, state: '${name}' }`];
+function createState(name, param = false) {
+  const alternatives = [];
+  alternatives.push([
+    name,
+    `$$ = { type: 'state', line: yylineno, state: '${name}' }`,
+  ]);
+
+  if (param) {
+    alternatives.push([
+      `${name} ( NUMBER )`,
+      `$$ = { type: 'state', line: yylineno, state: '${name}', params: +$3 }`,
+    ]);
+  }
+
+  return alternatives;
 }
