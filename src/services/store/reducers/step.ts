@@ -1,7 +1,13 @@
 import { getPositionInFront, isEqualPosition, isInWorld } from "../../util";
 import { RootState } from "../types";
 
-export function step(state: RootState): void {
+export function step(state: RootState, count = 1): void {
+  for (let i = 0; i < count; ++i) {
+    stepRec(state);
+  }
+}
+
+function stepRec(state: RootState): void {
   const newPosition = getPositionInFront(state.world);
   if (!isInWorld(state.world, newPosition)) {
     throw new Error("Cannot make step. The world is too small.");

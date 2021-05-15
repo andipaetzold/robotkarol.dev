@@ -140,35 +140,17 @@ const grammar = {
       ["statement statements", "$$ = [$1, ...$2]"],
     ],
     statement: [
-      ["STEP", "$$ = { type: 'call', line: yylineno, action: 'STEP' }"],
-      [
-        "TURN_LEFT",
-        "$$ = { type: 'call', line: yylineno, action: 'TURN_LEFT' }",
-      ],
-      [
-        "TURN_RIGHT",
-        "$$ = { type: 'call', line: yylineno, action: 'TURN_RIGHT' }",
-      ],
-      [
-        "BRICK_PUT",
-        "$$ = { type: 'call', line: yylineno, action: 'BRICK_PUT' }",
-      ],
-      [
-        "BRICK_TAKE",
-        "$$ = { type: 'call', line: yylineno, action: 'BRICK_TAKE' }",
-      ],
-      [
-        "MARKER_SET",
-        "$$ = { type: 'call', line: yylineno, action: 'MARKER_SET' }",
-      ],
-      [
-        "MARKER_REMOVE",
-        "$$ = { type: 'call', line: yylineno, action: 'MARKER_REMOVE' }",
-      ],
-      ["SOUND", "$$ = { type: 'call', line: yylineno, action: 'SOUND' }"],
+      ...createCall("STEP", true),
+      ...createCall("TURN_LEFT"),
+      ...createCall("TURN_RIGHT"),
+      ...createCall("BRICK_PUT", true),
+      ...createCall("BRICK_TAKE", true),
+      ...createCall("MARKER_SET"),
+      ...createCall("MARKER_REMOVE"),
+      ...createCall("SOUND"),
       [
         "WAIT ( NUMBER )",
-        "$$ = { type: 'call', line: yylineno, action: 'WAIT' }",
+        "$$ = { type: 'call', line: yylineno, action: 'WAIT', param: +$3 }",
       ],
 
       ["SLOW", "$$ = { type: 'systemCall', line: yylineno, action: 'SLOW' }"],
@@ -241,6 +223,23 @@ writeFileSync(
 export const Parser = parser.Parser;
 export const parse = function () { return parser.parse.apply(parser, arguments); };`
 );
+
+function createCall(name, param = false) {
+  const alternatives = [];
+  alternatives.push([
+    `${name}`,
+    `$$ = { type: 'call', line: yylineno, action: '${name}' }`,
+  ]);
+
+  if (param) {
+    alternatives.push([
+      `${name} ( NUMBER )`,
+      `$$ = { type: 'call', line: yylineno, action: '${name}', param: +$3 }`,
+    ]);
+  }
+
+  return alternatives;
+}
 
 function createState(name, param = false) {
   const alternatives = [];

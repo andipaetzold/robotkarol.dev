@@ -11,7 +11,7 @@ import { RootState } from "./store/types";
 export function doCall(statement: ASTCall, state: RootState): void {
   switch (statement.action) {
     case "STEP":
-      step(state);
+      step(state, statement.param);
       break;
     case "TURN_LEFT":
       turnLeft(state);
@@ -26,10 +26,10 @@ export function doCall(statement: ASTCall, state: RootState): void {
       removeMarker(state);
       break;
     case "BRICK_PUT":
-      putBrick(state);
+      putBrick(state, statement.param);
       break;
     case "BRICK_TAKE":
-      pickUpBrick(state);
+      pickUpBrick(state, statement.param);
       break;
     case "SOUND":
       // TODO: implement sound

@@ -967,6 +967,63 @@ Object {
 }
 `;
 
+exports[`10 Parameter 1`] = `
+Object {
+  "depth": 10,
+  "height": 6,
+  "player": Object {
+    "direction": "south",
+    "x": 1,
+    "y": 6,
+  },
+  "tiles": Array [
+    Object {
+      "bricks": 3,
+      "cuboid": false,
+      "marked": false,
+      "x": 1,
+      "y": 2,
+    },
+    Object {
+      "bricks": 3,
+      "cuboid": false,
+      "marked": false,
+      "x": 1,
+      "y": 3,
+    },
+    Object {
+      "bricks": 3,
+      "cuboid": false,
+      "marked": false,
+      "x": 1,
+      "y": 4,
+    },
+    Object {
+      "bricks": 3,
+      "cuboid": false,
+      "marked": false,
+      "x": 1,
+      "y": 5,
+    },
+    Object {
+      "bricks": 3,
+      "cuboid": false,
+      "marked": false,
+      "x": 1,
+      "y": 6,
+    },
+    Object {
+      "bricks": 2,
+      "cuboid": false,
+      "marked": false,
+      "x": 1,
+      "y": 7,
+    },
+  ],
+  "width": 6,
+}
+`;
+
 exports[`11 Summe 1`] = `
 Object {
   "depth": 10,

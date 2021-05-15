@@ -39,6 +39,7 @@ export type ASTStatement =
 export interface ASTCall extends BaseASTObject {
   type: "call";
   action: Action;
+  param?: number;
 }
 
 export interface ASTSystemCall extends BaseASTObject {

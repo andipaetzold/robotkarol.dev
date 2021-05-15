@@ -1410,6 +1410,38 @@ Object {
 }
 `;
 
+exports[`10 Parameter 1`] = `
+Object {
+  "conditions": Array [],
+  "functions": Array [],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "action": "STEP",
+            "line": 3,
+            "param": 2,
+            "type": "call",
+          },
+        ],
+        "line": 4,
+        "test": Object {
+          "line": 2,
+          "param": 3,
+          "state": "IS_BRICK",
+          "type": "state",
+        },
+        "type": "while",
+      },
+    ],
+    "line": 4,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
 exports[`11 Summe 1`] = `
 Object {
   "conditions": Array [
@@ -1927,6 +1959,7 @@ Object {
                     Object {
                       "action": "WAIT",
                       "line": 98,
+                      "param": 2500,
                       "type": "call",
                     },
                     Object {
@@ -2040,6 +2073,7 @@ Object {
           Object {
             "action": "WAIT",
             "line": 131,
+            "param": 2000,
             "type": "call",
           },
         ],

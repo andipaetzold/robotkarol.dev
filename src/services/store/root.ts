@@ -21,7 +21,7 @@ export const rootSlice = createSlice({
     setWorld: (state, { payload: world }: PayloadAction<World>) => {
       state.world = world;
     },
-    step: stepReducer,
+    step: (state, { payload: count = 1 }) => stepReducer(state, count),
     turnLeft: turnLeftReducer,
     turnRight: turnRightReducer,
 
