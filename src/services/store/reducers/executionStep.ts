@@ -90,19 +90,14 @@ export function executionStep(state: RootState): void {
           break;
         }
         case "while": {
-          const result = evaluateTest(statement.test, state);
-
-          if (typeof result === "object") {
-            currentFrame.statements.unshift({
-              type: "if",
-              line: statement.line,
-              test: result,
-              body: [...statement.body, statement],
-              elseBody: [],
-            });
-          } else if (result) {
-            currentFrame.statements.unshift(...statement.body, statement);
-          }
+          currentFrame.statements.unshift({
+            type: "if",
+            line: statement.line,
+            test: statement.test,
+            body: [...statement.body, statement],
+            elseBody: [],
+          });
+          break;
         }
       }
 
