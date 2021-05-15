@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useMemo } from "react";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/theme-github";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../services/store";
 import { updateCode } from "../../services/store/root";
 import styles from "./index.module.scss";
+import Mode from "./Mode";
 
 export function Editor() {
   const activeRow = useAppSelector((s) => s.execution.activeLine);
@@ -12,10 +13,12 @@ export function Editor() {
   const error = useAppSelector((s) => s.error);
   const dispatch = useDispatch();
 
+  const mode = useMemo(() => new Mode(), []);
+
   return (
     <AceEditor
       theme="github"
-      mode="text"
+      mode={mode}
       onChange={(v) => dispatch(updateCode(v))}
       value={code}
       editorProps={{ $blockScrolling: true }}
