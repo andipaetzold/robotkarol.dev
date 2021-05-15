@@ -34,5 +34,8 @@ export function doCall(statement: ASTCall, state: RootState): void {
     case "SOUND":
       // TODO: implement sound
       break;
+    case "WAIT":
+      // TODO: implement wait
+      break;
   }
 }

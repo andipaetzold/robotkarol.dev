@@ -1,0 +1,137 @@
+{ Karol baut eine Pyramide }
+{ Norbert Handick Programm Pyramide }
+
+Anweisung Umdrehen
+  Schnell
+  LinksDrehen
+  LinksDrehen
+  Langsam
+*Anweisung
+
+Anweisung Unterlegen
+  Schnell
+  Schritt
+  Umdrehen
+  Hinlegen
+  Umdrehen
+  Langsam
+*Anweisung
+
+Anweisung Diagonal_1
+  Schritt
+  LinksDrehen
+  Schritt
+  RechtsDrehen
+*Anweisung
+
+Anweisung Kranz
+  wiederhole 4 mal
+    wiederhole solange NichtIstWand
+      Hinlegen
+      Schritt
+      MarkeSetzen
+    *wiederhole 
+    LinksDrehen
+  *wiederhole
+  Diagonal_1
+*Anweisung
+
+Anweisung KranzFuellen
+  Schnell
+  wiederhole solange NichtIstMarke
+    Unterlegen
+    wenn IstMarke dann
+      LinksDrehen
+      Schritt
+      LinksDrehen
+      Schritt
+      wiederhole solange NichtIstMarke
+        Schritt
+      *wiederhole 
+      Umdrehen
+      Schritt
+    *wenn
+  *wiederhole 
+  RechtsDrehen
+  Schritt
+  RechtsDrehen
+  Schritt
+  Langsam
+*Anweisung
+
+Anweisung Pyramidenring
+  wiederhole 4 mal
+    wiederhole solange NichtIstMarke
+      MarkeSetzen
+      Unterlegen
+    *wiederhole 
+    Umdrehen
+    Schritt
+    RechtsDrehen
+    Schritt
+  *wiederhole
+*Anweisung
+
+Anweisung Ausgangsposition
+  wiederhole 2 mal
+    wiederhole solange NichtIstWand
+      Schritt
+    *wiederhole
+    LinksDrehen
+  *wiederhole
+*Anweisung
+
+Anweisung ZumStart
+  RechtsDrehen
+  wiederhole 2 mal
+    wiederhole solange NichtIstWand
+      Schritt
+    *wiederhole
+    LinksDrehen
+  *wiederhole
+*Anweisung
+
+Anweisung KranzMarkeWeg
+  wiederhole 4 mal
+    wiederhole solange NichtIstWand
+      Schritt
+      MarkeLöschen
+    *wiederhole
+    LinksDrehen
+  *wiederhole
+*Anweisung
+
+Anweisung RingMarkeWeg
+  wiederhole 4 mal
+    wiederhole solange IstMarke
+      MarkeLöschen
+      Schritt
+    *wiederhole
+    Umdrehen
+    Schritt
+    RechtsDrehen
+    Schritt
+  *wiederhole
+  LinksDrehen
+  wenn IstMarke dann
+    RechtsDrehen
+  sonst Umdrehen
+    Schritt
+  *wenn
+*Anweisung
+
+Programm
+  Kranz
+  KranzFuellen
+  wiederhole solange NichtIstMarke
+    Pyramidenring
+    KranzFuellen
+  *wiederhole
+  Ausgangsposition
+  KranzMarkeWeg
+  Diagonal_1
+  wiederhole solange IstMarke
+    RingMarkeWeg
+  *wiederhole
+  ZumStart
+*Programm

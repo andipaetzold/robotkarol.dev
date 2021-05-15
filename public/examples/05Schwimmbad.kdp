@@ -9,7 +9,7 @@ Anweisung Umdrehen
   LinksDrehen
 *Anweisung
 
-{ Hauptprogramm  4 mal ausfuhren }
+{ Hauptprogramm  4 mal ausführen }
 wiederhole 4 mal
   { baue Becken }
   wiederhole 12 mal
@@ -27,7 +27,7 @@ wiederhole 4 mal
   *wiederhole
   RechtsDrehen
 
-  { hinuberschwimmen }
+  { hinüberschwimmen }
   wiederhole 3 mal Hinlegen *wiederhole
   Schritt
   wiederhole solange NichtIstZiegel

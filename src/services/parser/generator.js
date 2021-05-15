@@ -148,10 +148,7 @@ const grammar = {
       ...createCall("MARKER_SET"),
       ...createCall("MARKER_REMOVE"),
       ...createCall("SOUND"),
-      [
-        "WAIT ( NUMBER )",
-        "$$ = { type: 'call', line: yylineno, action: 'WAIT', param: +$3 }",
-      ],
+      ...createCall("WAIT", true),
 
       ["SLOW", "$$ = { type: 'systemCall', line: yylineno, action: 'SLOW' }"],
       ["FAST", "$$ = { type: 'systemCall', line: yylineno, action: 'FAST' }"],

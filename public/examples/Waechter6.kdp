@@ -1,0 +1,59 @@
+{ Waechter6.kdp }
+{ Karol soll zunächst seine Stadtmauer 
+  finden und dann linksherum umrunden. 
+  Mit Rekursion. }
+{ Nach Robi aus Murus von
+  Dr. Christian Maurer, FU Berlin }
+{ Version: 12.06.2007
+  Thomas Wetzel }
+
+Bedingung NachbarLeer
+  wenn IstWand dann
+    falsch
+  sonst
+    Schritt
+    LinksDrehen
+    LinksDrehen
+    wenn NichtIstMarke dann
+      Schritt
+      LinksDrehen
+      LinksDrehen
+      wahr
+    sonst
+      Schritt
+      LinksDrehen
+      LinksDrehen
+      falsch
+    *wenn
+  *wenn
+*Bedingung
+
+Anweisung Suchen
+  wenn NachbarLeer dann
+    RechtsDrehen
+    wenn NachbarLeer dann
+      LinksDrehen
+      Schritt
+      Suchen
+    sonst
+      LinksDrehen
+    *wenn
+  sonst
+    LinksDrehen
+  *wenn
+*Anweisung
+
+Anweisung Wachen
+  wenn NachbarLeer dann
+    Schritt
+    RechtsDrehen
+  sonst
+    LinksDrehen
+  *wenn
+  Wachen
+*Anweisung
+
+Programm
+  Suchen
+  Wachen
+*Programm

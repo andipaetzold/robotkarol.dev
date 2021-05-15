@@ -1,0 +1,159 @@
+{ Programm Steine pflastern }
+
+{ Karol pflastert die Welt von unten bis
+  oben mit Ziegelsteinen aus. }
+  
+{ Die Startposition von Karol, sowie die
+  Länge und Breite des Raumes können 
+  beliebig gewählt werden, die Höhe des 
+  Raumes sollte (mindestens) zehn Steine
+  betragen. }
+
+{ Idee und Programm Matthias St. Pierre }
+
+
+{ Karol dreht sich um }
+Anweisung Umdrehen
+  Schnell
+  LinksDrehen
+  LinksDrehen
+  Langsam
+*Anweisung
+
+
+{ Karol macht einen Schritt rückwärts }
+Anweisung SchrittRückwärts
+  Schnell
+  Umdrehen
+  Schritt
+  Umdrehen
+  Langsam
+*Anweisung
+
+{ Karol geht zur Wand }
+Anweisung ZurWandGehen
+  wiederhole solange NichtIstWand
+    Schritt
+  *wiederhole
+*Anweisung
+
+
+{ Karol überprüft, ob sich rechts von 
+  ihm eine Wand befindet }
+Bedingung IstWandRechts
+  schnell
+  falsch
+  Rechtsdrehen
+  wenn IstWand dann
+    wahr
+  *wenn
+  LinksDrehen
+*Bedingung
+
+
+{ Karol nimmt seine Startposition ein }
+{
+{ Karol geht bis zu einer der Ecken des 
+  Raumes und macht dann einen Schritt 
+  zurück, so dass er direkt vor diesem 
+  Eckfeld steht}
+Anweisung StartpositionEinnehmen
+  ZurWandGehen
+  LinksDrehen
+  ZurWandGehen
+  SchrittRückwärts
+*Anweisung
+
+
+{ Karol pflastert eine Reihe }
+
+{ Zu Beginn steht Karol bereits auf dem 
+  ersten Stein der Reihe, mit der 
+  Schulter zur Wand und mit Blickrichtung
+  zu den noch nicht gepflasteren Reihen.
+  Je nachdem, ob die Wand rechts oder 
+  links von ihm steht, dreht er sich in 
+  die entgegengesetzten Richtung und
+  pflastert die Reihe mit Steinen bis 
+  zur gegenüberliegenden Wand.
+  Zuletzt dreht er sich wieder in die 
+  Ausgangsrichtung.}
+Anweisung ReihePflastern
+  wenn IstWandRechts dann
+    Linksdrehen
+    wiederhole solange NichtIstWand
+      Hinlegen
+      Schritt
+    *wiederhole
+    Rechtsdrehen
+  sonst
+    Rechtsdrehen
+    wiederhole solange NichtIstWand
+      Hinlegen
+      Schritt
+    *wiederhole
+    Linksdrehen
+  *wenn
+*Anweisung
+
+
+{ Karol pflastert eine Ebene mit Steinen 
+  aus }
+{ Karol steht auf seiner Startposition 
+  (direkt vor einem Eckfeld, mit 
+  Blickrichtung zur Wand, eine Schulter 
+  an der Wand)
+  und beginnt die Reihen quer zu seiner 
+  Blickrichtung zu pflastern. }
+
+{ Das Pflastern der Reihen funktioniert 
+  so, dass Karol einen Stein vor sich 
+  legt, draufsteigt, und dann die Reihe 
+  quer zu seiner Blickrichtung bis zur 
+  gegenüberliegenden Wand pflastert. }
+
+{ Bei der ersten Reihe ist die Abfolge 
+  etwas anders als bei den folgenden 
+  Reihen, da Karol noch mit dem Rücken 
+  zur Richtung steht, in der die Reihen 
+  gepflastert werden sollen.
+  Er muss sich also, nachdem er den 
+  ersten Stein gelegt hat und drauf
+  gestiegen ist, erst noch umdrehen, 
+  bevor er den Rest der Reihe pflastert. }
+{ Das Umdrehen entfällt bei den übrigen 
+  Reihen.}
+Anweisung EbenePflastern
+
+  { erste Reihe }
+  Hinlegen
+  Schritt
+  Umdrehen
+  ReihePflastern
+
+  { alle weiteren Reihen }
+  wiederhole solange NichtIstWand
+    Hinlegen
+    Schritt
+    ReihePflastern
+  *wiederhole
+  
+  { Karol macht einen Schritt zurück, 
+    damit er wieder die Ausgangsposition 
+    hat, die er benötigt um die nächste
+    Ebene pflastern zu können.}
+  SchrittRückwärts
+*Anweisung
+
+
+Programm
+  { Karol nimmt seine Startposition ein }
+  StartpositionEinnehmen
+  
+  { Karol pflastert zehn mal den Boden 
+    aus }
+  wiederhole solange NichtIstZiegel(10)
+    EbenePflastern
+  *wiederhole
+*Programm
+

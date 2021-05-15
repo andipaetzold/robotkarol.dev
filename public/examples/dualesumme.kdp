@@ -1,0 +1,165 @@
+{ Karol berechnet die Summe zweier Zahlen
+  in Dualschreibweise }
+
+{ Rüdiger Landskron }
+
+{ Karol geht zum 2. Summanden }
+Anweisung ZumSummandenGehen
+  wiederhole 2 mal
+    Schritt
+  *wiederhole
+*Anweisung
+
+Anweisung Umkehren
+  wiederhole 2 mal
+    LinksDrehen
+  *wiederhole
+*Anweisung
+
+{ Karol wechselt zur nächsthöheren Stufe 
+  im Dualsystem }
+Anweisung ZurNaechstenStufeGehen
+  Umkehren
+  wiederhole 3 mal
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Schritt
+*Anweisung
+
+Anweisung ZurWandGehen
+  wiederhole solange NichtIstWand
+    Schritt
+  *wiederhole
+*Anweisung
+
+{ Karol geht zu den Einern im Dualsystem }
+Anweisung ZuDenEinernGehen
+  wiederhole 4 mal
+    Schritt
+  *wiederhole
+  LinksDrehen
+  ZurWandgehen
+  Umkehren
+*Anweisung
+
+{ Am Ende der Welt angekommen? }
+Bedingung naechsteIstWand
+  Schnell
+  Schritt
+  wenn IstWand dann wahr
+  sonst falsch
+  *wenn
+  Umkehren
+  Schritt
+  Umkehren
+  Langsam
+*Bedingung
+
+{ Addition inmitten seiner Welt }
+Anweisung addiere
+  RechtsDrehen
+  wenn NichtIstMarke dann Schritt
+    wenn IstZiegel dann Aufheben
+      ZumSummandenGehen
+      wenn IstZiegel dann Aufheben
+        ZurNaechstenStufeGehen
+        MarkeSetzen
+      sonst Hinlegen
+        ZurNaechstenStufeGehen
+      *wenn
+    sonst ZumSummandenGehen
+      ZurNaechstenStufeGehen
+    *wenn
+  sonst MarkeLöschen
+    Schritt
+    wenn IstZiegel dann Aufheben
+      ZumSummandenGehen
+      wenn IstZiegel dann ZurNaechstenStufeGehen
+        MarkeSetzen
+      sonst ZurNaechstenStufeGehen
+        MarkeSetzen
+      *wenn
+    sonst ZumSummandenGehen
+      wenn IstZiegel dann Aufheben
+        ZurNaechstenStufeGehen
+        MarkeSetzen
+      sonst Hinlegen
+        ZurNaechstenStufeGehen
+      *wenn
+    *wenn
+  *wenn
+*Anweisung
+
+Anweisung Zurueckgehen
+  Umkehren
+  wiederhole 3 mal
+    Schritt
+  *wiederhole
+*Anweisung
+
+{ Addition am Ende seiner Welt }
+Anweisung addiere_extra
+  RechtsDrehen
+  wenn NichtIstMarke dann Schritt
+    wenn IstZiegel dann Aufheben
+      ZumSummandenGehen
+      wenn IstZiegel dann Aufheben
+        ZurueckGehen
+        MarkeSetzen
+      sonst Hinlegen
+        ZurueckGehen
+      *wenn
+    sonst ZumSummandenGehen
+      ZurueckGehen
+    *wenn
+  sonst MarkeLöschen
+    Schritt
+    wenn IstZiegel dann Aufheben
+      ZumSummandenGehen
+      wenn IstZiegel dann ZurueckGehen
+        MarkeSetzen
+      sonst ZurueckGehen
+        MarkeSetzen
+      *wenn
+    sonst ZumSummandenGehen
+      wenn IstZiegel dann Aufheben
+        ZurueckGehen
+        MarkeSetzen
+      sonst Hinlegen
+        ZurueckGehen
+      *wenn
+    *wenn
+  *wenn
+  wenn IstMarke dann MarkeLöschen
+    RechtsDrehen
+    Schritt
+    RechtsDrehen
+    wiederhole 3 mal
+      Schritt
+    *wiederhole
+    Hinlegen
+    Zurueckgehen
+  *wenn
+
+*Anweisung
+
+{ //Hauptprogramm }
+Programm
+  ZuDenEinernGehen
+  wiederhole solange nicht naechsteIstWand
+    addiere
+  *wiederhole
+  addiere_extra
+*Programm
+
+
+
+
+
+
+
+
+
+
+

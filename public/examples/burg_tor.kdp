@@ -1,0 +1,86 @@
+{ Karol baut eine Burg mit Zinnen und Tor }
+{  R.Brunner }
+
+Anweisung Umkehren
+  LinksDrehen
+  LinksDrehen
+*Anweisung
+
+Anweisung BisWand
+  wiederhole solange NichtIstWand
+    Schritt
+  *wiederhole
+*Anweisung
+
+Anweisung BisEcke
+  BisWand
+  RechtsDrehen
+  BisWand
+  Umkehren
+*Anweisung
+
+Anweisung Rand
+  BisEcke
+  wiederhole 4 mal
+    wiederhole solange NichtIstWand
+      Hinlegen
+      Schritt
+    *wiederhole
+    LinksDrehen
+  *wiederhole
+*Anweisung
+
+Anweisung Zinnen
+  wiederhole 4 mal
+    wiederhole solange NichtIstWand
+      Hinlegen
+      Schritt Schritt
+    *wiederhole
+    LinksDrehen
+  *wiederhole
+*Anweisung
+
+Anweisung Burg
+  wiederhole 5 mal
+    Rand
+  *wiederhole
+  Zinnen
+*Anweisung
+
+Anweisung Burgtreppe
+  LinksDrehen Schritt Schritt
+  RechtsDrehen
+  wiederhole 5 mal Hinlegen
+  *wiederhole
+  Schritt MarkeSetzen
+  wiederhole 4 mal Hinlegen
+  *wiederhole
+  Schritt MarkeSetzen
+  wiederhole 3 mal Hinlegen
+  *wiederhole
+  Schritt MarkeSetzen
+  wiederhole 2 mal Hinlegen
+  *wiederhole
+  Schritt MarkeSetzen
+  Hinlegen
+  Schritt MarkeSetzen
+*Anweisung
+
+Anweisung Tor
+  wiederhole solange NichtIstZiegel
+    Schritt
+  *wiederhole
+  wiederhole solange IstZiegel
+    Aufheben
+  *wiederhole
+  Schritt LinksDrehen
+ wiederhole solange IstZiegel
+    Aufheben
+  *wiederhole
+*Anweisung
+
+Programm
+  Burg
+  Burgtreppe
+  Tor
+*Programm

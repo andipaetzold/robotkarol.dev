@@ -1,0 +1,26 @@
+{ Waechter1.kdp }
+{ Karol umrundet eine
+  durchgängig geschlossene Mauer 
+  linksherum. }
+{ Version: 17.03.2007
+  Thomas Wetzel }
+
+Anweisung MeinSchritt
+  wenn NichtIstWand dann
+    Schritt
+  *wenn
+*Anweisung
+
+Anweisung linksWandPruefen
+  LinksDrehen
+  wenn IstWand dann
+    RechtsDrehen
+  *wenn
+*Anweisung
+
+Programm
+  wiederhole solange NichtIstWand
+    MeinSchritt
+    linksWandPruefen
+  *wiederhole
+*Programm

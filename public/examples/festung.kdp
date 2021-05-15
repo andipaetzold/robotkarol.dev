@@ -1,0 +1,952 @@
+{ Karol baut eine riesige Festung.
+  Das erfordert Zeit.
+
+  Das Sprungvermögen von Karol muss auf
+   10 gestellt werden.
+  Die Welt ist 90*90*10
+  Programm hat 946 Zeilen }
+
+{  Autor: Arthur Kosmala
+  Markgraf-Georg-Friedrich-Gymnasium 
+  Kulmbach  }
+
+Anweisung turm
+  wiederhole 10 mal
+    wiederhole 4 mal
+      wiederhole 3 mal
+        Hinlegen
+        Schritt
+      *wiederhole
+      LinksDrehen
+    *wiederhole
+  *wiederhole
+*Anweisung
+
+Anweisung turm2
+
+  wiederhole 9 mal
+    wiederhole 4 mal
+      wiederhole 3 mal
+        Hinlegen
+        Schritt
+      *wiederhole
+      LinksDrehen
+    *wiederhole
+  *wiederhole
+*Anweisung
+
+  Anweisung mauer
+    wiederhole 19 mal
+      Hinlegen(7)
+      Schritt
+      Hinlegen(6)
+      Schritt
+    *wiederhole
+  *Anweisung
+
+Anweisung aufrückenlinks
+  LinksDrehen
+  Schritt
+  RechtsDrehen
+*Anweisung
+
+Anweisung aufrückenrechts
+  RechtsDrehen
+  Schritt
+  RechtsDrehen
+*Anweisung
+
+
+Anweisung umdrehen
+  LinksDrehen
+  LinksDrehen
+*Anweisung
+
+
+Programm
+Schritt(3)
+LinksDrehen
+Schritt
+RechtsDrehen
+
+
+
+wiederhole 4 mal
+
+
+
+
+
+  mauer
+
+  { turm2bauen }
+  Schritt
+  RechtsDrehen
+  Schritt
+  LinksDrehen
+
+  turm
+
+  Schritt(3)
+  LinksDrehen
+  Schritt
+  RechtsDrehen
+
+  { mauer bauen }
+
+  mauer
+
+  { turm 3 bauen }
+
+  Schritt
+  RechtsDrehen
+  Schritt
+  LinksDrehen
+
+  turm
+
+  LinksDrehen
+  Schritt(3)
+  RechtsDrehen
+  Schritt(2)
+  LinksDrehen
+
+*wiederhole
+
+
+
+
+
+Schritt(2)
+LinksDrehen
+Schritt(2)
+Schritt(21)
+LinksDrehen
+
+{ Torhaus bauen }
+
+Hinlegen(7)
+Schritt
+Hinlegen(7)
+Schritt
+Hinlegen(7)
+Schritt
+Hinlegen
+Schritt
+Hinlegen(7)
+RechtsDrehen
+Schritt(3)
+LinksDrehen
+Hinlegen(7)
+LinksDrehen
+LinksDrehen
+wiederhole 3 mal
+  Hinlegen(7)
+  Schritt
+*wiederhole
+
+
+
+
+
+
+RechtsDrehen
+Schritt
+RechtsDrehen
+Schritt(2)
+Aufheben(6)
+LinksDrehen
+Schritt
+RechtsDrehen
+Aufheben(6)
+
+Schritt
+RechtsDrehen
+Schritt(2)
+Hinlegen
+Schritt
+Aufheben
+RechtsDrehen
+Schritt(4)
+RechtsDrehen
+Schritt(24)
+LinksDrehen
+
+{ Erhebung }
+
+wiederhole 40 mal
+  wiederhole 76 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  umdrehen
+  RechtsDrehen
+  Schritt
+  LinksDrehen
+  wiederhole 76 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  umdrehen
+  aufrückenlinks
+*wiederhole
+
+
+{ inneren Ring bauen }
+
+{ mauer bauen }
+RechtsDrehen
+Schritt(70)
+LinksDrehen
+Schritt
+wiederhole 7 mal
+  Hinlegen(6)
+  Schritt
+  Hinlegen(7)
+  Schritt
+*wiederhole
+
+{ Stallungen bauen}
+
+Schritt
+LinksDrehen
+
+wiederhole 2 mal
+
+  wiederhole 3 mal
+    Hinlegen(6)
+    Schritt
+  *wiederhole
+  RechtsDrehen
+
+  wiederhole 10 mal
+    Hinlegen(6)
+    Schritt
+  *wiederhole
+  RechtsDrehen
+
+*wiederhole
+
+Schritt(4)
+RechtsDrehen
+Schritt(7)
+RechtsDrehen
+Aufheben(6)
+LinksDrehen
+Schritt(3)
+RechtsDrehen
+Schritt(4)
+LinksDrehen
+
+{ Mauer bauen }
+wiederhole 12 mal
+  Hinlegen(6)
+  Schritt
+  Hinlegen(7)
+  Schritt
+*wiederhole
+
+{ Wehrgang bauen }
+
+wiederhole 4 mal
+  Hinlegen(7)
+  Schritt
+  Hinlegen(7)
+  Schritt
+  Hinlegen(7)
+  Schritt
+  Schritt
+*wiederhole
+
+LinksDrehen
+Schritt(2)
+LinksDrehen
+
+wiederhole 4 mal
+  Hinlegen(7)
+  Schritt
+  Hinlegen(7)
+  Schritt
+  Hinlegen(7)
+  Schritt
+  Schritt
+*wiederhole
+
+RechtsDrehen
+Schritt
+RechtsDrehen
+Schritt(16)
+
+{Mauer bauen}
+RechtsDrehen
+Schritt(4)
+LinksDrehen
+LinksDrehen
+Hinlegen(6)
+RechtsDrehen
+Schritt
+LinksDrehen
+
+wiederhole 3 mal
+  Hinlegen(7)
+  Schritt
+  Hinlegen(6)
+  Schritt
+*wiederhole
+
+Hinlegen(7)
+Schritt(2)
+RechtsDrehen
+Schritt
+LinksDrehen
+
+
+turm2
+
+Schritt(3)
+LinksDrehen
+Schritt
+RechtsDrehen
+wiederhole 3 mal
+  Hinlegen(7)
+  Schritt
+  Hinlegen(6)
+  Schritt
+*wiederhole
+
+{ Schildmauer bauen }
+wiederhole 14 mal
+  Hinlegen(9)
+  Schritt
+*wiederhole
+
+Schritt(2)
+
+wiederhole 14 mal
+  Hinlegen(9)
+  Schritt
+*wiederhole
+
+{ Mauer bauen }
+wiederhole 3 mal
+  Hinlegen(7)
+  Schritt
+  Hinlegen(6)
+  Schritt
+*wiederhole
+RechtsDrehen
+Schritt
+LinksDrehen
+Schritt
+
+turm2
+
+Schritt(3)
+LinksDrehen
+Schritt
+RechtsDrehen
+wiederhole 3 mal
+  Hinlegen(7)
+  Schritt
+  Hinlegen(6)
+  Schritt
+*wiederhole
+
+{ Mauer bauen }
+LinksDrehen
+
+wiederhole 6 mal
+  Hinlegen(7)
+  Schritt
+  Hinlegen(6)
+  Schritt
+*wiederhole
+
+{ Bedienstetenunterkünfte bauen }
+
+Schritt
+RechtsDrehen
+
+wiederhole 4 mal
+  Hinlegen(8)
+  Schritt
+*wiederhole
+LinksDrehen
+
+wiederhole 29 mal
+  Hinlegen(8)
+  Schritt
+*wiederhole
+LinksDrehen
+
+wiederhole 9 mal
+  Hinlegen(8)
+  Schritt
+*wiederhole
+LinksDrehen
+
+wiederhole 29 mal
+  Hinlegen(8)
+  Schritt
+*wiederhole
+LinksDrehen
+
+wiederhole 5 mal
+  Hinlegen(8)
+  Schritt
+*wiederhole
+LinksDrehen
+
+wiederhole 28 mal
+  Hinlegen(8)
+  Schritt
+*wiederhole
+
+RechtsDrehen
+Schritt(4)
+RechtsDrehen
+Schritt(4)
+RechtsDrehen
+
+wiederhole 3 mal
+
+  wiederhole 3 mal
+    Hinlegen(8)
+    Schritt
+  *wiederhole
+
+  Schritt
+
+  wiederhole 4 mal
+    Hinlegen(8)
+    Schritt
+  *wiederhole
+
+  Schritt
+  LinksDrehen
+  Schritt(3)
+  LinksDrehen
+
+  wiederhole 4 mal
+    Hinlegen(8)
+    Schritt
+  *wiederhole
+
+  Schritt
+
+  wiederhole 3 mal
+    Hinlegen(8)
+    Schritt
+  *wiederhole
+
+  Schritt
+  RechtsDrehen
+  Schritt(3)
+  RechtsDrehen
+
+*wiederhole
+
+wiederhole 3 mal
+  Hinlegen(8)
+  Schritt
+*wiederhole
+
+Schritt
+
+wiederhole 4 mal
+  Hinlegen(8)
+  Schritt
+*wiederhole
+
+Schritt
+LinksDrehen
+Schritt(7)
+LinksDrehen
+Schritt(4)
+LinksDrehen
+Aufheben(8)
+LinksDrehen
+Schritt(4)
+RechtsDrehen
+Schritt(30)
+
+{ Mauer bauen }
+wiederhole 6 mal
+  Hinlegen(7)
+  Schritt
+  Hinlegen(6)
+  Schritt
+*wiederhole
+
+LinksDrehen
+
+wiederhole 2 mal
+  Hinlegen(7)
+  Schritt
+  Hinlegen(6)
+  Schritt
+*wiederhole
+
+Schritt
+RechtsDrehen
+Schritt
+LinksDrehen
+
+turm2
+
+Schritt(3)
+LinksDrehen
+Schritt
+RechtsDrehen
+
+wiederhole 2 mal
+  Hinlegen(7)
+  Schritt
+  Hinlegen(6)
+  Schritt
+*wiederhole
+
+Schritt
+RechtsDrehen
+Schritt
+LinksDrehen
+
+turm2
+
+Schritt(3)
+LinksDrehen
+Schritt
+RechtsDrehen
+
+wiederhole 2 mal
+  Hinlegen(7)
+  Schritt
+  Hinlegen(6)
+  Schritt
+*wiederhole
+
+
+{ Schildmauer 2 bauen }
+wiederhole 14 mal
+  Hinlegen(9)
+  Schritt
+*wiederhole
+
+Schritt(2)
+
+wiederhole 14 mal
+  Hinlegen(9)
+  Schritt
+*wiederhole
+
+{ Mauer bauen }
+
+Hinlegen(7)
+Schritt(2)
+RechtsDrehen
+Schritt
+LinksDrehen
+
+turm2
+
+Schritt(3)
+LinksDrehen
+Schritt
+RechtsDrehen
+
+Hinlegen(7)
+Schritt
+
+{ Palast+Kemenaten+Burgkapelle bauen }
+
+LinksDrehen
+LinksDrehen
+Schritt
+RechtsDrehen
+Schritt(3)
+LinksDrehen
+Schritt
+RechtsDrehen
+Schritt(6)
+LinksDrehen
+Schritt(6)
+
+wiederhole 2 mal
+  wiederhole 30 mal
+    Hinlegen(9)
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  wiederhole 16 mal
+    Hinlegen(9)
+    Schritt
+  *wiederhole
+  RechtsDrehen
+*wiederhole
+
+RechtsDrehen
+Schritt(7)
+LinksDrehen
+
+wiederhole 29 mal
+  Hinlegen(8)
+  Schritt
+*wiederhole
+
+RechtsDrehen
+Schritt(9)
+RechtsDrehen
+Schritt(9)
+RechtsDrehen
+
+wiederhole 8 mal
+  Hinlegen(8)
+  Schritt
+*wiederhole
+
+Schritt
+
+wiederhole 6 mal
+  Hinlegen(8)
+  Schritt
+*wiederhole
+
+Schritt
+LinksDrehen
+Schritt(10)
+LinksDrehen
+
+wiederhole 6 mal
+  Hinlegen(8)
+  Schritt
+*wiederhole
+
+Schritt
+
+wiederhole 8 mal
+  Hinlegen(8)
+  Schritt
+*wiederhole
+
+Schritt
+RechtsDrehen
+Schritt(15)
+LinksDrehen
+Schritt(5)
+
+{ Bergfried bauen }
+turm2
+
+LinksDrehen
+Schritt(3)
+
+Hinlegen(5)
+Schritt
+Hinlegen(4)
+Schritt
+Hinlegen(3)
+Schritt
+LinksDrehen
+wiederhole 4 mal
+  Hinlegen(3)
+  Schritt
+*wiederhole
+
+RechtsDrehen
+Schritt(3)
+LinksDrehen
+Aufheben(9)
+
+{ Umzäunung bauen }
+LinksDrehen
+Hinlegen(3)
+Schritt
+LinksDrehen
+
+wiederhole 15 mal
+  Hinlegen(3)
+  Schritt
+*wiederhole
+LinksDrehen
+wiederhole 25 mal
+  Hinlegen(3)
+  Schritt
+*wiederhole
+LinksDrehen
+wiederhole 15 mal
+  Hinlegen(3)
+  Schritt
+*wiederhole
+
+{ Burgkapelle bauen }
+RechtsDrehen
+Schritt(3)
+LinksDrehen
+Schritt(5)
+Hinlegen(5)
+Schritt
+RechtsDrehen
+
+wiederhole 9 mal
+  Hinlegen(5)
+  Schritt
+*wiederhole
+LinksDrehen
+wiederhole 5 mal
+  Hinlegen(5)
+  Schritt
+*wiederhole
+LinksDrehen
+wiederhole 9 mal
+  Hinlegen(5)
+  Schritt
+*wiederhole
+
+LinksDrehen
+LinksDrehen
+Schritt(9)
+RechtsDrehen
+Schritt(4)
+LinksDrehen
+Schritt
+
+wiederhole 5 mal
+  wiederhole 4 mal
+    wiederhole 3 mal
+      Hinlegen
+      Schritt
+    *wiederhole
+    LinksDrehen
+  *wiederhole
+*wiederhole
+LinksDrehen
+Schritt
+RechtsDrehen
+
+wiederhole 2 mal
+  Hinlegen(5)
+  Schritt
+  Hinlegen(5)
+  Schritt(2)
+  LinksDrehen
+  Schritt
+  LinksDrehen
+*wiederhole
+
+Hinlegen(3)
+Schritt
+Hinlegen(3)
+Schritt(2)
+LinksDrehen
+Schritt
+LinksDrehen
+Hinlegen(3)
+Schritt
+Hinlegen(3)
+Schritt
+
+Schritt(11)
+Aufheben(9)
+
+
+{ Patrouille & Zeitvertreib }
+wiederhole immer
+
+  LinksDrehen
+  Schritt(9)
+  RechtsDrehen
+  Schritt(27)
+  RechtsDrehen
+  Schritt(3)
+
+  Warten
+  Warten
+  Warten
+
+  LinksDrehen
+  LinksDrehen
+  Schritt(6)
+  LinksDrehen
+  Schritt(4)
+  RechtsDrehen
+
+  wiederhole 10 mal
+
+    wiederhole 4 mal
+      Schritt(7)
+      LinksDrehen
+    *wiederhole
+
+  *wiederhole
+
+  LinksDrehen
+  Schritt(23)
+  LinksDrehen
+  Schritt(12)
+  RechtsDrehen
+  Schritt(7)
+
+  Warten
+  Warten
+  Warten
+
+  LinksDrehen
+  Schritt(16)
+  RechtsDrehen
+  Schritt(3)
+  LinksDrehen
+  Schritt
+
+  Warten
+  Warten
+  Warten
+
+  LinksDrehen
+  Schritt(8)
+
+  Warten
+  Warten
+  Warten
+
+  Schritt(38)
+
+  Warten
+  Warten
+  Warten
+
+  LinksDrehen
+  Schritt(10)
+  RechtsDrehen
+  Schritt(3)
+  RechtsDrehen
+  Schritt(6)
+
+  Warten
+  Warten
+  Warten
+
+  LinksDrehen
+  LinksDrehen
+  Schritt(6)
+  LinksDrehen
+  Schritt(3)
+  RechtsDrehen
+  Schritt(4)
+  RechtsDrehen
+  Schritt(4)
+  LinksDrehen
+  Schritt(23)
+  LinksDrehen
+  Schritt
+  RechtsDrehen
+
+  wiederhole 3 mal
+    Schritt(4)
+    RechtsDrehen
+    LinksDrehen
+    LinksDrehen
+    RechtsDrehen
+  *wiederhole
+
+  Schritt(4)
+  RechtsDrehen
+
+  Schritt
+  LinksDrehen
+  Schritt
+  LinksDrehen
+  Schritt(9)
+
+  Warten
+  Warten
+  Warten
+
+  Schritt(46)
+
+  Warten
+  Warten
+  Warten
+
+  Schritt(7)
+  LinksDrehen
+  Schritt(12)
+
+  LinksDrehen
+  Schritt
+  RechtsDrehen
+  Schritt(3)
+
+  Warten
+  Warten
+  Warten
+
+  LinksDrehen
+  LinksDrehen
+  Schritt(3)
+  RechtsDrehen
+  Schritt(4)
+  RechtsDrehen
+  Schritt(31)
+  RechtsDrehen
+  Schritt(15)
+
+  LinksDrehen
+  Schritt(28)
+
+  Warten
+  Warten
+  Warten
+
+  LinksDrehen
+  Schritt(43)
+
+  Warten
+  Warten
+  Warten
+
+  Schritt(17)
+  RechtsDrehen
+  Schritt
+
+  Warten
+  Warten
+
+  LinksDrehen
+  Schritt
+
+  Warten
+  Warten
+
+  RechtsDrehen
+  RechtsDrehen
+  Schritt
+  RechtsDrehen
+  Schritt
+  RechtsDrehen
+  Schritt(25)
+  LinksDrehen
+
+  wiederhole 3 mal
+
+    wiederhole 2 mal
+
+      Warten
+      Warten
+      Warten
+
+      Schritt(42)
+
+    *wiederhole
+
+    Schritt
+    LinksDrehen
+
+  *wiederhole
+
+  Schritt(2)
+  LinksDrehen
+  Schritt(34)
+  RechtsDrehen
+  Schritt(30)
+
+*wiederhole

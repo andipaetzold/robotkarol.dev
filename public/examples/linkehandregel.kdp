@@ -1,0 +1,61 @@
+{ linkehandregel.kdp }
+
+{ Ein Programm, das es Karol ermöglicht, durch jedes beliebige
+Labyrinth zu marschieren. Es liegen einige Labyrinthe 
+(als Welten) bei. (labyrint1.kdw ... labyrinth7.kdw)
+Besonders schön sieht man das Ganze in der 2D-Darstellung.
+Das Ende des Labyrinths muss mit einer Markierung versehen sein.
+Das Programm gibt es in zwei Varianten, einmal nur Durchlauf und
+einmal mit Ablegen von Ziegelsteinen, damit erkennbar ist,
+welche Wege Karol gelaufen ist.
+Damit kann man schön zeigen, dass die Strategie nicht unbedingt
+den kürzesten Weg findet, das aber auch nicht notwendigerweise
+das ganze Labyrinth durchlaufen wird. }
+
+{  Autor: Thomas Vogg }
+
+Bedingung IstAbzweigungLinks
+   schnell
+   Linksdrehen
+   wenn IstWand
+   dann falsch
+   sonst wahr
+   *wenn
+   RechtsDrehen
+   langsam
+*Bedingung
+
+Bedingung IstAbzweigungRechts
+   schnell
+   Rechtsdrehen
+   wenn IstWand
+   dann falsch
+   sonst wahr
+   *wenn
+   LinksDrehen
+   langsam
+*Bedingung
+
+Anweisung Umdrehen
+   Linksdrehen
+   Linksdrehen
+*Anweisung
+
+wiederhole solange NichtIstMarke
+
+   wenn IstAbzweigungLinks
+   dann Linksdrehen
+   sonst
+      wenn IstWand
+      dann
+         wenn IstAbzweigungRechts
+         dann Rechtsdrehen
+         sonst Umdrehen
+         *wenn
+      *wenn
+   *wenn
+
+   Schritt
+
+*Wiederhole
+

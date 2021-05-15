@@ -1,0 +1,58 @@
+{ Waechter5.kdp }
+{ Karol soll zunächst seine Stadtmauer 
+  finden und dann linksherum umrunden. 
+  NICHT FERTIG! }
+{ Version: 17.03.2007
+  Thomas Wetzel }
+
+Anweisung MeinSchritt
+  wenn NichtIstWand dann
+    Schritt
+  *wenn
+*Anweisung
+
+Anweisung LinksWandPruefen
+  LinksDrehen
+  wenn IstWand dann
+    RechtsDrehen
+  *wenn
+*Anweisung
+
+Anweisung RechtsWandPruefen
+  RechtsDrehen
+  wenn IstWand dann
+    LinksDrehen
+  *wenn
+*Anweisung
+
+Bedingung MauerSuchen
+  { Weltablaufen }
+  wiederhole solange NichtIstWand
+    MeinSchritt
+    LinksWandPruefen
+    MeinSchritt
+    wenn IstWand dann
+      wahr
+    *wenn
+    RechtsWandpruefen
+  *wiederhole
+*Bedingung
+
+Anweisung MauerLinksUmrunden
+  wiederhole immer
+    wiederhole solange NichtIstWand
+      MeinSchritt
+      LinksWandPruefen
+    *wiederhole
+    LinksWandPruefen
+    RechtsDrehen
+    LinksWandPruefen
+    MeinSchritt
+  *wiederhole
+*Anweisung
+
+Programm
+  wenn MauerSuchen dann
+    MauerLinksUmrunden
+  *wenn
+*Programm

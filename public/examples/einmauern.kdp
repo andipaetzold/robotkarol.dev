@@ -1,0 +1,44 @@
+{ Karol mauert sich ein }
+
+{ die leere Welt muss mindestens 5x5
+  groß sein und Karol soll auf (1,1)
+  stehen }
+
+{ Idee und Programm: Walter Settele }
+
+
+Anweisung Turm
+  wiederhole 4 mal
+    Hinlegen
+  *wiederhole
+*Anweisung
+
+Anweisung zumStart
+  Schritt 
+  Schritt
+  Schritt 
+  LinksDrehen
+  Schritt
+  Schritt
+*Anweisung
+
+
+Programm
+  zumStart
+  wiederhole 4 mal
+    Turm
+    LinksDrehen
+    Schritt
+    RechtsDrehen
+    Schritt
+    LinksDrehen
+  *wiederhole
+  LinksDrehen
+  Schritt
+  wiederhole 4 mal
+    Turm
+    LinksDrehen
+  *wiederhole
+*Programm
+
+

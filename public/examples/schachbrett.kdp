@@ -1,0 +1,113 @@
+{ schachbrett.kdp }
+
+{ Karol baut unabhängig von der Größe 
+  der Welt in X und Y Richtung ein
+  Schachbrettmuster mit den gelben 
+  Marken auf und kehrt danach zu seinem
+  Startpunkt ( X=1 , Y=1 ; mit
+  Blickrichtung nach Süden ) zurück }
+
+{Autor: David Thiesbrummel}
+
+Anweisung umdrehen
+  LinksDrehen LinksDrehen
+*Anweisung
+
+Anweisung Ausrichten
+  wenn IstSüden dann umdrehen
+  *wenn
+  wenn IstWesten dann RechtsDrehen
+  *wenn
+  wenn IstOsten dann LinksDrehen
+  *wenn
+*Anweisung
+
+Anweisung Ursprung
+  wiederhole solange nicht IstSüden
+    wiederhole solange NichtIstWand
+      Schritt
+    *wiederhole
+    LinksDrehen
+  *wiederhole
+*Anweisung
+
+Anweisung home
+  Ausrichten
+  Ursprung
+  Beenden
+*Anweisung
+
+Anweisung prüfen2
+  wenn NichtIstWand dann Schritt sonst home
+  *wenn
+  RechtsDrehen
+  wenn NichtIstWand dann Schritt sonst home
+  *wenn
+  wenn IstMarke dann
+    umdrehen Schritt LinksDrehen Schritt umdrehen MarkeSetzen
+  *wenn
+  wenn NichtIstMarke dann
+    umdrehen Schritt LinksDrehen
+  *wenn
+*Anweisung
+
+Anweisung prüfen1
+  wenn NichtIstWand dann Schritt sonst home
+  *wenn
+  LinksDrehen
+  wenn NichtIstWand dann Schritt sonst home
+  *wenn
+  wenn IstMarke dann
+    umdrehen Schritt RechtsDrehen Schritt umdrehen MarkeSetzen
+  *wenn
+  wenn NichtIstMarke dann
+    LinksDrehen
+    wenn NichtIstWand dann Schritt sonst LinksDrehen Schritt LinksDrehen
+    *wenn
+    MarkeSetzen LinksDrehen Schritt LinksDrehen Schritt
+  *wenn
+*Anweisung
+
+Anweisung linksum
+  LinksDrehen
+  wenn NichtIstWand dann Schritt sonst umdrehen
+  *wenn
+  LinksDrehen
+*Anweisung
+
+Anweisung rechtsum
+  RechtsDrehen
+  wenn NichtIstWand dann Schritt sonst umdrehen
+  *wenn
+  RechtsDrehen
+*Anweisung
+
+Anweisung feld
+  wiederhole solange NichtIstWand
+    MarkeSetzen Schritt
+    wenn NichtIstWand dann Schritt
+    *wenn
+  *wiederhole
+  umdrehen Schritt Schritt
+  wenn IstMarke dann umdrehen Schritt Schritt MarkeSetzen sonst umdrehen Schritt Schritt
+  *wenn
+*Anweisung
+
+{++++++++++++++Hauptprogramm+++++++++++++}
+
+Programm
+
+  wiederhole solange NichtIstWand
+    feld
+    linksum
+    prüfen1
+    feld
+    rechtsum
+    prüfen2
+  *wiederhole
+
+*Programm
+
+{+++++++++++++++++Ende++++++++++++++++++}
+{++++++++ this is a free script ++++++++}
+{++++++++ build by RaggaDavid ++++++++++}

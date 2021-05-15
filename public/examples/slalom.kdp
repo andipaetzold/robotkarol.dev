@@ -1,0 +1,58 @@
+{ Karol läuft Slalom um Ziegelstapel }
+
+{ Vorbereitung: Reihe von einzelnen 
+  Ziegeltürmen, hinten und vorne frei. }
+
+{ Jeder Turm stellt eine Slalomstange 
+  dar. Wenn Turmhöhe=1, dann links herum,
+  sonst rechts herum}
+
+{ Idee und Programm: Walter Settele }
+
+
+Anweisung linksherum
+  LinksDrehen
+  Schritt
+  RechtsDrehen
+  Schritt(2)
+  RechtsDrehen
+  Schritt
+  LinksDrehen
+*Anweisung
+
+Anweisung rechtsherum
+  RechtsDrehen
+  Schritt
+  LinksDrehen
+  Schritt(2)
+  LinksDrehen
+  Schritt
+  RechtsDrehen
+*Anweisung
+
+
+Programm
+
+  wiederhole immer
+
+    wenn IstZiegel dann
+      wenn IstZiegel(1) dann
+        linksherum
+      sonst
+        rechtsherum
+      *wenn
+    *wenn
+
+    wenn IstWand dann
+      LinksDrehen
+      LinksDrehen
+    *wenn
+
+    wenn nicht IstZiegel dann
+      Schritt
+    *wenn
+
+  *wiederhole
+
+*Programm
+

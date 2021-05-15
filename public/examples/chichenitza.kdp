@@ -1,0 +1,233 @@
+{ Karol baut die Pyramide von Chichen Itza. (Mexiko)}
+{ Wolfgang Hofmeier (Quesnel BC Kanada) }
+
+{ Eine Erweiterung des Programms Pyramide
+  von Norbert Handick }
+
+Anweisung Umdrehen
+  Schnell
+  LinksDrehen
+  LinksDrehen
+  Langsam
+*Anweisung
+
+Anweisung Unterlegen
+  Schnell
+  Schritt
+  Umdrehen
+  Hinlegen
+  Umdrehen
+  Langsam
+*Anweisung
+
+Anweisung Diagonal_1
+  Schritt
+  LinksDrehen
+  Schritt
+  RechtsDrehen
+*Anweisung
+
+Anweisung ZiegelUndMarkeWeg
+ Aufheben
+ Schritt
+ MarkeLöschen
+*Anweisung
+
+Anweisung AussenKranzLegen
+ wiederhole 4 mal
+    wiederhole solange NichtIstWand
+      Hinlegen
+      Schritt
+      MarkeSetzen
+    *wiederhole
+  LinksDrehen
+  Schritt
+  Umdrehen
+    
+  ZiegelUndMarkeWeg
+    
+  RechtsDrehen
+    
+  wiederhole 2 mal
+   ZiegelUndMarkeWeg
+  *wiederhole
+  
+  Schritt
+  RechtsDrehen
+ *wiederhole
+ Diagonal_1
+*Anweisung
+
+Anweisung KranzFuellen
+  Schnell
+  wiederhole solange NichtIstMarke
+    Unterlegen
+    wenn IstMarke dann
+      LinksDrehen
+      Schritt
+      LinksDrehen
+      Schritt
+      wiederhole solange NichtIstMarke
+        Schritt
+      *wiederhole
+      Umdrehen
+      Schritt
+    *wenn
+  *wiederhole
+  RechtsDrehen
+  Schritt
+  RechtsDrehen
+  Schritt
+  Langsam
+*Anweisung
+
+Anweisung KranzLegen
+  wiederhole 4 mal
+    wiederhole solange NichtIstMarke
+      MarkeSetzen
+      Unterlegen
+    *wiederhole
+    Umdrehen
+    Schritt
+    RechtsDrehen
+    Schritt
+  *wiederhole
+*Anweisung
+
+Anweisung RechtsLinksRauf
+  RechtsDrehen
+  Schritt
+  LinksDrehen
+  wiederhole 6 mal
+   Schritt
+  *wiederhole
+*Anweisung
+
+Anweisung TreppenReiheLegen
+ wiederhole 6 mal
+  Hinlegen
+  Umdrehen
+  Schritt
+  Umdrehen
+ *wiederhole
+  Hinlegen
+*Anweisung
+
+Anweisung UmDieEckeGehen
+  RechtsDrehen
+  wiederhole solange NichtIstWand
+   Schritt
+  *wiederhole
+
+  LinksDrehen
+  wiederhole 8 mal
+   Schritt
+  *wiederhole
+
+  LinksDrehen
+  wiederhole 7 mal
+   Schritt
+  *wiederhole
+*Anweisung
+
+Anweisung TreppenBauen
+  wiederhole 4 mal
+   TreppenReiheLegen
+   RechtsLinksRauf
+   TreppenReiheLegen
+   UmDieEckeGehen
+  *wiederhole
+*Anweisung
+
+Anweisung Nach3_3Gehen
+  Schritt
+  Schritt
+  Schritt
+  LinksDrehen
+  Schritt
+  Schritt
+  Schritt
+  RechtsDrehen
+*Anweisung
+
+Anweisung NachUntenGehen
+  Umdrehen
+  wiederhole solange IstZiegel
+   Schritt
+  *wiederhole
+  RechtsDrehen
+  Schritt
+  Schritt
+  Schritt
+  Schritt
+  Schritt
+*Anweisung
+
+Anweisung OberteilBauen
+  LinksDrehen
+  Hinlegen
+  Hinlegen
+
+  RechtsDrehen
+  Schritt
+
+  LinksDrehen
+  Hinlegen
+  Hinlegen
+
+  wiederhole 2 mal
+   RechtsDrehen
+   Schritt
+   LinksDrehen
+   Schritt
+   Schritt
+   LinksDrehen
+   Hinlegen
+   Hinlegen
+  *wiederhole
+*Anweisung
+
+Anweisung MarkenEntfernen
+  wiederhole 7 mal
+   wiederhole 5 mal
+    wiederhole solange IstMarke
+     MarkeLöschen
+     Schritt
+    *wiederhole
+    Umdrehen
+    Schritt
+    LinksDrehen
+    Schritt
+   *wiederhole
+   LinksDrehen
+  *wiederhole
+*Anweisung
+
+Programm
+  Nach3_3Gehen
+  AussenKranzLegen
+  KranzFuellen
+  wiederhole solange NichtIstMarke
+    KranzLegen
+    KranzFuellen
+  *wiederhole
+  
+  NachUntenGehen
+  
+  MarkenEntfernen
+  
+  OberteilBauen
+
+  Umdrehen
+  Schritt
+  RechtsDrehen
+  Schritt
+  RechtsDrehen
+
+  TreppenBauen
+
+  Schritt
+  Umdrehen
+
+*Programm
+

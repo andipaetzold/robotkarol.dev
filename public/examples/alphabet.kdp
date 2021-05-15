@@ -1,0 +1,723 @@
+{ "Karol lernt Schreiben" v1.01
+Alphabet in Großbuchstaben}
+
+{ (c) 2003 P. Szilassy
+E-Mail: karol@unterricht.szilassy.de }
+
+{ Der Schreibevorgang MUSS immer mit dem
+Aufruf der Anweisung "StartPosition"
+beginnen, mit dem Karol an die untere
+linke Ecke seiner Welt bewegt wird.
+Ab dann erfolgt jeder Aufruf eines
+Buchstaben im Format SchreibBuchstabe,
+also z.B. "SchreibA" oder "SchreibB". }
+
+
+Anweisung StartPosition
+  schnell
+  wiederhole 6 mal
+    wenn NichtIstWand dann
+      Schritt
+    sonst
+      Beenden
+    *wenn
+  *wiederhole
+  LinksDrehen
+*Anweisung
+
+Anweisung SchreibA
+  Hinlegen
+  Schritt
+  LinksDrehen
+  wiederhole 4 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Hinlegen
+  LinksDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibB
+  Hinlegen
+  Schritt
+  Hinlegen
+  LinksDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Hinlegen
+  LinksDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  wiederhole 2 mal
+    RechtsDrehen
+    Hinlegen
+    Schritt(2)
+  *wiederhole
+  Hinlegen
+  Schritt(2)
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibC
+  Hinlegen
+  Schritt
+  Hinlegen
+  LinksDrehen
+  wiederhole 4 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Hinlegen
+  Schritt
+  Hinlegen
+  RechtsDrehen
+  Schritt(4)
+  LinksDrehen
+  Hinlegen
+  Schritt(2)
+*Anweisung
+
+Anweisung SchreibD
+  Hinlegen
+  Schritt
+  Hinlegen
+  LinksDrehen
+  wiederhole 4 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Hinlegen
+  Schritt(2)
+  RechtsDrehen
+  wiederhole 3 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  Schritt
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibE
+  Hinlegen
+  Schritt
+  Hinlegen
+  LinksDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Hinlegen
+  LinksDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Schritt(3)
+  Hinlegen
+  Schritt
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibF
+  Hinlegen
+  Schritt
+  LinksDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Hinlegen
+  LinksDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  wiederhole 4 mal
+    Schritt
+  *wiederhole
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibG
+  Hinlegen
+  wiederhole 3 mal
+    Schritt
+    Hinlegen
+  *wiederhole
+  LinksDrehen
+  LinksDrehen
+  wiederhole 2 mal
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  wiederhole 4 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  wiederhole 3 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Schritt
+  Hinlegen
+  Schritt
+  RechtsDrehen
+  Hinlegen
+  LinksDrehen
+  Hinlegen
+  Schritt
+  Schritt
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibH
+  Hinlegen
+  Schritt
+  Schritt
+  Hinlegen
+  LinksDrehen
+  LinksDrehen
+  Schritt
+  RechtsDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Hinlegen
+  LinksDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Schritt
+  Hinlegen
+  Schritt
+  RechtsDrehen
+  wiederhole 3 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  Schritt
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibI
+  Hinlegen
+  Schritt
+  LinksDrehen
+  wiederhole 3 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  Hinlegen
+  LinksDrehen
+  LinksDrehen
+  wiederhole 3 mal
+    Schritt
+  *wiederhole
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibJ
+  Schritt
+  Hinlegen
+  LinksDrehen
+  Hinlegen
+  Schritt(3)
+  Hinlegen
+  Schritt
+  RechtsDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  wiederhole 3 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  Schritt
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibK
+  Hinlegen
+  Schritt
+  LinksDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Hinlegen
+  LinksDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Schritt
+  Hinlegen
+  Schritt
+  RechtsDrehen
+  Hinlegen
+  Schritt(2)
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibL
+  wiederhole 3 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  LinksDrehen
+  LinksDrehen
+  Schritt(2)
+  RechtsDrehen
+  wiederhole 4 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Schritt(3)
+  RechtsDrehen
+  Schritt(4)
+  LinksDrehen
+*Anweisung
+
+Anweisung SchreibM
+  Hinlegen
+  Schritt
+  LinksDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Schritt
+  Hinlegen
+  LinksDrehen
+  Hinlegen
+  LinksDrehen
+  Schritt
+  RechtsDrehen
+  Hinlegen
+  Schritt
+  Hinlegen
+  RechtsDrehen
+  Schritt(2)
+  Hinlegen
+  LinksDrehen
+  Schritt
+  RechtsDrehen
+  Schritt
+  Hinlegen
+  Schritt
+  RechtsDrehen
+  wiederhole 4 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibN
+  Hinlegen
+  Schritt
+  LinksDrehen
+  wiederhole 3 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  Hinlegen
+  RechtsDrehen
+  Hinlegen
+  Schritt(2)
+  RechtsDrehen
+  Hinlegen
+  Schritt(2)
+  LinksDrehen
+  Hinlegen
+  LinksDrehen
+  Schritt(3)
+  RechtsDrehen
+  Schritt
+  Hinlegen
+  Schritt
+  RechtsDrehen
+  wiederhole 4 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibO
+  wiederhole 2 mal
+    Schritt
+    Hinlegen
+  *wiederhole
+  LinksDrehen
+  LinksDrehen
+  Schritt
+  RechtsDrehen
+  wiederhole 3 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  Schritt
+  RechtsDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  Schritt
+  RechtsDrehen
+  wiederhole 3 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  Schritt
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibP
+  Hinlegen
+  Schritt
+  LinksDrehen
+  wiederhole 4 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  wiederhole 2 mal
+    wiederhole 2 mal
+      Hinlegen
+      Schritt
+    *wiederhole
+    RechtsDrehen
+  *wiederhole
+  Hinlegen
+  LinksDrehen
+  LinksDrehen
+  Schritt
+  RechtsDrehen
+  Schritt(2)
+  LinksDrehen
+*Anweisung
+
+Anweisung SchreibQ
+  SchreibO
+  LinksDrehen
+  LinksDrehen
+  Schritt(2)
+  LinksDrehen
+  Hinlegen
+  Schritt(2)
+  LinksDrehen
+  Hinlegen
+  Schritt(2)
+  LinksDrehen
+  Schritt(2)
+  RechtsDrehen
+*Anweisung
+
+Anweisung SchreibR
+  Hinlegen
+  Schritt
+  LinksDrehen
+  wiederhole 4 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Hinlegen
+  Schritt
+  RechtsDrehen
+  Schritt
+  Hinlegen
+  LinksDrehen
+  Hinlegen
+  Schritt
+  RechtsDrehen
+  Schritt
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibS
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  Schritt
+  wiederhole 2 mal
+    LinksDrehen
+    Hinlegen
+    Schritt(2)
+  *wiederhole
+  RechtsDrehen
+  Hinlegen
+  Schritt(2)
+  RechtsDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  Schritt
+  RechtsDrehen
+  Schritt(4)
+  LinksDrehen
+*Anweisung
+
+Anweisung SchreibT
+  Schritt
+  Hinlegen
+  Schritt
+  LinksDrehen
+  wiederhole 4 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  LinksDrehen
+  Hinlegen
+  LinksDrehen
+  LinksDrehen
+  Hinlegen
+  Schritt(2)
+  RechtsDrehen
+  Schritt(4)
+  LinksDrehen
+*Anweisung
+
+Anweisung SchreibU
+  LinksDrehen
+  Schritt(5)
+  RechtsDrehen
+  Schritt
+  RechtsDrehen
+  wiederhole 5 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  LinksDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  LinksDrehen
+  wiederhole 3 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  Hinlegen
+  LinksDrehen
+  LinksDrehen
+  Schritt(3)
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibV
+  Schritt
+  Hinlegen
+  LinksDrehen
+  wiederhole 4 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Schritt
+  Hinlegen
+  Schritt
+  RechtsDrehen
+  wiederhole 3 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  Schritt
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibW
+  LinksDrehen
+  Schritt(5)
+  RechtsDrehen
+  Schritt
+  RechtsDrehen
+  wiederhole 4 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  Schritt
+  LinksDrehen
+  Hinlegen
+  Schritt(2)
+  LinksDrehen
+  Hinlegen
+  RechtsDrehen
+  Hinlegen
+  Schritt(2)
+  LinksDrehen
+  wiederhole 4 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  LinksDrehen
+  LinksDrehen
+  Schritt(4)
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibX
+  Hinlegen
+  Schritt
+  LinksDrehen
+  Hinlegen
+  Schritt(2)
+  RechtsDrehen
+  Hinlegen
+  LinksDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Schritt
+  Hinlegen
+  Schritt
+  RechtsDrehen
+  Hinlegen
+  Schritt(2)
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibY
+  Schritt
+  Hinlegen
+  Schritt
+  LinksDrehen
+  Hinlegen
+  Schritt(2)
+  LinksDrehen
+  Hinlegen
+  Schritt
+  RechtsDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Schritt
+  Hinlegen
+  Schritt
+  RechtsDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  Schritt(2)
+  LinksDrehen
+  Schritt
+*Anweisung
+
+Anweisung SchreibZ
+  LinksDrehen
+  Schritt(4)
+  RechtsDrehen
+  wiederhole 3 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  wiederhole 2 mal
+    RechtsDrehen
+    Hinlegen
+    Schritt(2)
+  *wiederhole
+  LinksDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  LinksDrehen
+  wiederhole 2 mal
+    Hinlegen
+    Schritt
+  *wiederhole
+  Schritt
+*Anweisung
+
+Programm
+  schreibA
+  schreibB
+  schreibC
+*Programm

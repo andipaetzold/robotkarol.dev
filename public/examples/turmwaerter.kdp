@@ -1,0 +1,122 @@
+{ Du musst eine Welt von a=10 Kästchen
+  anlegen. Karol Mauert sich inmitten 
+  von Ziegeln auf einem Turm ein. Deine 
+  Aufgabe ist es, ein Programm zu 
+  schreiben, dass es Karol ermöglicht 
+  wieder vom Turm runter - und in 
+  Ausgangsstellung zu gelangen.}
+
+{ Programm von Philipp Uhlig }
+
+Ton
+Warten
+{ Grundgerüst Bau... }
+schritt(3)
+LinksDrehen
+schritt(2)
+hinlegen(3)
+RechtsDrehen
+Schritt
+LinksDrehen
+Schritt(2)
+LinksDrehen
+Hinlegen(3)
+wiederhole 2 mal
+RechtsDrehen
+Schritt
+LinksDrehen
+Hinlegen(3)
+*wiederhole
+linksdrehen
+schritt(2)
+hinlegen(3)
+wiederhole 3 mal
+linksdrehen
+LinksDrehen
+Schritt
+RechtsDrehen
+RechtsDrehen
+Hinlegen(3)
+*wiederhole
+linksdrehen
+schritt
+rechtsdrehen
+schritt(3)
+hinlegen(3)
+wiederhole 3 mal
+linksdrehen
+LinksDrehen
+Schritt
+RechtsDrehen
+RechtsDrehen
+Hinlegen(3)
+*wiederhole
+linksdrehen
+schritt
+rechtsdrehen
+schritt(3)
+hinlegen(3)
+wiederhole 2 mal
+LinksDrehen
+LinksDrehen
+Schritt
+RechtsDrehen
+RechtsDrehen
+Hinlegen(1)
+*wiederhole
+linksdrehen
+LinksDrehen
+Schritt
+RechtsDrehen
+RechtsDrehen
+hinlegen(3)
+linksdrehen
+schritt
+rechtsdrehen
+schritt(2)
+rechtsdrehen
+schritt
+linksdrehen
+hinlegen
+schritt
+LinksDrehen
+LinksDrehen
+hinlegen(2)
+schritt
+RechtsDrehen
+RechtsDrehen
+Hinlegen
+RechtsDrehen
+Hinlegen
+Schritt
+{ Gründgerüst fertig... }
+Ton
+Warten
+{ Jetzt kommt der Turmbau... }
+hinlegen(2)
+schritt
+linksdrehen
+hinlegen(3)
+schritt
+linksDrehen
+wiederhole 3 mal
+hinlegen(4)
+schritt
+linksDrehen
+*wiederhole
+hinlegen(4)
+schritt
+linksDrehen
+Hinlegen(3)
+schritt
+linksdrehen
+Hinlegen(2)
+schritt
+LinksDrehen
+Hinlegen(1)
+schritt
+RechtsDrehen
+RechtsDrehen
+Ton
+Warten
+{ Turmbau beendet... }

@@ -75,7 +75,7 @@ Anweisung Hauptteil
 
   AbbauenBecken
 
-  { zur�ck zur Ausgangsposition }
+  { zurück zur Ausgangsposition }
   wiederhole solange NichtIstWand Schritt *wiederhole
   LinksDrehen LinksDrehen
 *Anweisung

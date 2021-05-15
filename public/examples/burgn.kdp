@@ -1,0 +1,114 @@
+{ Karol baut eine Burg }
+{ Norbert Handick Programm Burg }
+
+Anweisung Umdrehen
+  Schnell
+  LinksDrehen
+  LinksDrehen
+  Langsam
+*Anweisung
+
+Anweisung HintenHinlegen
+  Schnell
+  LinksDrehen
+  LinksDrehen
+  Hinlegen
+  LinksDrehen
+  LinksDrehen
+  Langsam
+*Anweisung
+
+Anweisung ZumStart
+  LinksDrehen
+  wiederhole solange NichtIstWand
+    Schritt
+  endewiederhole
+  RechtsDrehen
+  Schritt
+  Umdrehen
+*Anweisung
+
+Anweisung TreppeBauen
+  wiederhole 6 mal
+    MarkeSetzen
+    Umdrehen
+    wiederhole solange IstZiegel
+      Schritt
+    endewiederhole
+    Schritt
+    Schritt
+    Umdrehen
+    wiederhole solange NichtIstMarke
+      Hinlegen
+      Schritt
+    endewiederhole
+  *wiederhole
+  Umdrehen
+*Anweisung
+
+Anweisung MauerBauen
+  wiederhole 4 mal
+    wiederhole solange NichtIstWand
+      Schritt
+    *wiederhole
+    Umdrehen
+    Schritt
+    MarkeSetzen
+    RechtsDrehen
+  *wiederhole
+  Schritt
+  wiederhole 28 mal
+    wiederhole solange NichtIstMarke
+      Schritt
+      HintenHinlegen
+    endewiederhole
+    LinksDrehen
+    Schritt
+    HintenHinlegen
+  *wiederhole
+  Umdrehen
+  Schritt
+*Anweisung
+
+Anweisung ZinnenBauen
+  RechtsDrehen
+  Schritt
+  wiederhole solange NichtIstMarke
+    Schritt
+  *wiederhole
+  RechtsDrehen
+  Schritt
+  wiederhole 4 mal
+    wiederhole solange NichtIstMarke
+      Schritt
+    *wiederhole
+    RechtsDrehen
+    Schritt
+    Umdrehen
+    Hinlegen
+    Hinlegen
+    Hinlegen
+    Umdrehen
+  *wiederhole
+*Anweisung
+
+Programm
+  ZumStart
+  TreppeBauen
+  wiederhole 3 mal
+    wiederhole solange NichtIstWand
+      Schritt
+    *wiederhole
+    RechtsDrehen
+  *wiederhole
+  Schritt
+  RechtsDrehen
+  MauerBauen
+  ZinnenBauen
+  LinksDrehen
+  Schritt
+  RechtsDrehen
+  wiederhole solange NichtIstWand
+    Schritt
+  *wiederhole
+*Programm

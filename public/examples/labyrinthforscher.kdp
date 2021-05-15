@@ -1,0 +1,176 @@
+{Labyrinthforscher Karol findet den kürzesten Weg 
+  durch ein Rechte-Hand-Regel-konformes Labyrinth}
+{Niko Berkmann, September 2009}
+
+{Bedingungen:
+  -> rechte-Hand-Regel-konformes Labyrinth
+  -> Karol startet am Ende einer Sackgasse
+  -> Labyrinth besteht aus Quadern
+  -> Ziel ist durch eine Marke festgelegt
+}
+
+{Erläuterung: Es ist ein Labyrinthforscher, Karol 
+  findet den Weg durch ein Rechte-Hand-Regel-
+  konformes Labyrinth, das aus Quadern besteht.
+  Dabei markiert er den kürzesten (!) Weg, indem 
+  er das Labyrinth von vorne und von hinten 
+  durchläuft und mithilfe von Ziegeln die 
+  Schnittmenge aus beiden Wegen bildet. 
+  Empfehlenswert ist es, beim Ausprobieren die 
+  Ablaufverzögerung auf ca. 0,05sek zu stellen,
+  durch meinen Einbau der "Schnell"- und "Langsam"
+  -Befehle im Code lässt sich so diese 
+  Arbeitsweise am besten nachvollziehen (die 
+  2D-Ansicht unterstützt das Ganze noch zusätzlich)}
+
+Anweisung AlleZiegelAufheben
+  Schnell
+  wiederhole solange IstZiegel
+    Aufheben
+  *wiederhole
+  Langsam
+*Anweisung
+
+Anweisung EinzelnerZiegel
+  Schnell
+  wenn NichtIstZiegel dann
+    Hinlegen
+  *wenn
+  Langsam
+*Anweisung
+
+Anweisung Umdrehen
+  Schnell
+  LinksDrehen
+  LinksDrehen
+  Langsam
+*Anweisung
+
+Bedingung IstBlockiert
+  Schnell
+  wenn IstWand dann
+    wahr
+  sonst
+    wenn IstZiegel dann
+      wahr
+    sonst
+      falsch
+    *wenn
+  *wenn
+  Langsam
+*Bedingung
+
+Bedingung NichtIstZiegelUndMarke
+  Schnell
+  wahr
+  wenn NichtIstWand dann
+    wenn IstZiegel dann
+      Schritt
+      wenn IstMarke dann
+        falsch
+      *wenn
+      Umdrehen
+      Schritt
+      Umdrehen
+    *wenn
+  *wenn
+  Langsam
+*Bedingung
+
+Anweisung RechteHandNormal
+  wiederhole solange NichtIstMarke
+    Schnell
+    RechtsDrehen
+    wiederhole solange IstWand
+      LinksDrehen
+    *wiederhole
+    EinzelnerZiegel
+    Langsam
+    Schritt
+    Schnell
+  *wiederhole
+*Anweisung
+
+Anweisung RechteHandMarkieren
+  wiederhole solange NichtIstMarke
+    Schnell
+    RechtsDrehen
+    wiederhole solange IstBlockiert
+      LinksDrehen
+    *wiederhole
+    Langsam
+    MarkeSetzen
+    Ton
+    Schritt
+  *wiederhole
+*Anweisung
+
+Anweisung RechteHandPflug
+  wiederhole solange NichtIstMarke
+    Schnell
+    RechtsDrehen
+    wiederhole solange IstWand
+      LinksDrehen
+    *wiederhole
+    AlleZiegelAufheben
+    Langsam
+    Schritt
+    Schnell
+  *wiederhole
+*Anweisung
+
+Anweisung LinkeHandPflug
+  wiederhole solange NichtIstZiegelUndMarke
+    Schnell
+    LinksDrehen
+    wiederhole solange IstWand
+      RechtsDrehen
+    *wiederhole
+    wenn NichtIstZiegelUndMarke dann
+      AlleZiegelAufheben
+      Langsam
+      Schritt
+      Schnell
+    *wenn
+  *wiederhole
+*Anweisung
+
+{ Hauptprogrammteil}
+{ Karol markiert seine Startposition }
+ MarkeSetzen
+ wiederhole solange IstWand
+  RechtsDrehen
+*wiederhole
+Schritt
+{ geht mit rechter Hand an der Wand durchs 
+  Labyrinth, sucht das Ziellegt dabei Ziegel 
+  auf seinen Weg }
+RechteHandNormal
+Umdrehen
+AlleZiegelAufheben
+Schritt
+Umdrehen
+AlleZiegelAufheben
+Umdrehen
+{ Karol geht genauso zurück entfernt auf seinem 
+  Weg aber Ziegel und bildet so die Schnittmenge }
+RechteHandPflug
+Umdrehen
+Schritt
+{ Nachdem nun alle Sackgassen zugemauert sind, 
+  geht er wieder zum Ziel und markiert dabei den 
+  gefundenen Weg }
+RechteHandMarkieren
+Umdrehen
+Schritt
+Umdrehen
+Hinlegen
+Umdrehen
+{ Aufräumen um Schluss, Karol entfernt seine 
+  Hilfsziegel }
+LinkeHandPflug
+AlleZiegelAufheben
+Schritt
+Ton
+{ Tadaa, fertig! }
+Beenden

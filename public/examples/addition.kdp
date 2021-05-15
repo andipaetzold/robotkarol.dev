@@ -1,0 +1,101 @@
+{ Das Programm ermöglicht Karol die 
+  Addition von mehreren Zahlen im 
+  Dezimalsystem. Die Anzahl und die 
+  Größe der Zahlen sind nur durch die 
+  Welt begrenzt, in der man sie anlegt.
+  Eine Line aus Markierungen ist nötig 
+  als Summenstrich. Es sollten nicht zu 
+  viele und zu lange Zahlen sein, das 
+  das Programm sonst zu lange läuft. 
+  Notfalls auf Fast Forward.
+  Diese Aufgabe funktioniert nur in der
+  2D-Darstellung sinnvoll.}
+
+  { Autor: Thomas Vogg }
+
+
+Anweisung GeheBisLinie
+   wiederhole solange NichtIstMarke
+      Schritt
+   *wiederhole
+*Anweisung
+
+Anweisung SchrittRechts
+   Rechtsdrehen
+   Schritt
+   Linksdrehen
+*Anweisung
+
+Anweisung SchrittLinks
+   Linksdrehen
+   Schritt
+   Rechtsdrehen
+*Anweisung
+
+Anweisung Startposition
+   GeheBisLinie
+   Linksdrehen
+   wiederhole solange NichtIstWand
+      Schritt
+   *wiederhole
+   Linksdrehen
+*Anweisung
+
+Anweisung Umdrehen
+   Schnell
+   Linksdrehen
+   Linksdrehen
+   Langsam
+*Anweisung
+
+Anweisung NächsteStelle
+   langsam
+   Umdrehen
+   GeheBisLinie
+   Rechtsdrehen
+   Wenn IstWand dann Beenden
+   sonst Schritt
+   *wenn
+   Rechtsdrehen
+   schnell
+*Anweisung
+   
+Anweisung HoleZiegel
+   schnell
+   wiederhole solange NichtIstZiegel
+      wenn IstWand
+      dann NächsteStelle
+      sonst Schritt
+      *wenn
+   *wiederhole
+   Aufheben
+   Umdrehen
+   GeheBisLinie
+   langsam
+*Anweisung
+
+Anweisung Stapelabtragen
+   schnell
+   wiederhole solange IstZiegel
+      Aufheben
+   *wiederhole
+   langsam
+*Anweisung
+
+StartPosition
+
+wiederhole immer
+  HoleZiegel
+  wenn IstZiegel(9) dann
+    Stapelabtragen
+    SchrittRechts
+    Hinlegen
+    SchrittLinks
+  sonst
+  Hinlegen
+  *wenn
+  Umdrehen
+*wiederhole
+
+
+

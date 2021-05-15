@@ -1,0 +1,52 @@
+{ Karol räumt auf }
+{ Karol sammelt alle Ziegel ein, 
+  auch Ziegelstapel }
+
+{ Vorarbeit: verteile Ziegel auch Stapel,
+  aber nicht auf (1,1) }
+
+{ Idee und Programm: Walter Settele }
+
+Anweisung TurmEinsammeln
+  wiederhole
+    Aufheben
+  *wiederhole bis nichtIstZiegel
+*Anweisung
+
+Anweisung SammelSchritt
+  wenn nicht IstZiegel dann
+    Schritt
+  sonst
+    TurmEinsammeln
+    Schritt
+  *wenn
+*Anweisung
+
+Anweisung SammelReihe
+  wiederhole solange nichtIstWand
+    SammelSchritt
+  *wiederhole
+*Anweisung
+
+Anweisung linksHerum
+  LinksDrehen
+  SammelSchritt
+  LinksDrehen
+*Anweisung
+
+Anweisung rechtsHerum
+  RechtsDrehen
+  SammelSchritt
+  RechtsDrehen
+*Anweisung
+
+
+Programm
+  wiederhole solange nichtIstWand
+    SammelReihe
+    linksHerum
+    SammelReihe
+    rechtsHerum
+  *wiederhole
+*Programm
+

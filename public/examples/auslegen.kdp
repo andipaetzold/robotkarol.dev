@@ -1,0 +1,52 @@
+{ Karol legt den Boden ganz mit Ziegel aus }
+
+{ Idee Thomas Häusler }
+
+Anweisung  Bauen
+  wiederhole solange NichtIstWand
+    Hinlegen
+    Schritt
+  *wiederhole
+*Anweisung
+
+Anweisung DrehenL
+  LinksDrehen
+  wenn NichtIstWand dann
+    Hinlegen
+    Schritt
+    LinksDrehen
+  *wenn
+*Anweisung
+
+Anweisung DrehenR
+  RechtsDrehen
+  wenn NichtIstWand dann
+    Hinlegen
+    Schritt
+    RechtsDrehen
+  *wenn
+*Anweisung
+
+Anweisung ZiegelUnterKarol
+  Schritt
+  LinksDrehen
+  LinksDrehen
+  Hinlegen
+  Schritt
+  LinksDrehen
+  LinksDrehen
+*Anweisung
+
+Programm
+  ZiegelUnterKarol
+  wiederhole solange NichtIstWand
+    Bauen
+    DrehenL
+    wenn NichtIstWand dann
+      bauen
+      DrehenR
+    *wenn
+  *wiederhole
+*Programm
+
+

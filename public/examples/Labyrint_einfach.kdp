@@ -61,7 +61,7 @@ Programm
     wenn IstLinksZiegel dann
       { keine Öffnung links sondern Reihenende }
       Umdrehen
-      { eineÖ�ffnung rechts suchen }
+      { eine Öffnung rechts suchen }
       wiederhole solange IstRechtsZiegelundFrei
         Schritt
       *wiederhole

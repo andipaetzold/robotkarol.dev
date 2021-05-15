@@ -9,7 +9,7 @@ Anweisung Umdrehen
   LinksDrehen
 *Anweisung
 
-{ Karol geht einen Schritt rückwürts }
+{ Karol geht einen Schritt rückwärts }
 Anweisung SchrittRückwärts
   Umdrehen
   Schritt

@@ -183,7 +183,231 @@ export const EXAMPLES: Example[] = [
     code: "Zimmer.kdp",
     world: "Zimmer.kdw",
   },
-];
+
+  {
+    name: "ABC",
+    code: "abc.kdp",
+    world: "abc.kdw",
+  },
+  {
+    name: "Alphabet",
+    code: "alphabet.kdp",
+    world: "alphabet.kdw",
+  },
+  {
+    name: "Addition 1",
+    code: "addition.kdp",
+    world: "addition1.kdw",
+  },
+  {
+    name: "Addition 2",
+    code: "addition.kdp",
+    world: "addition2.kdw",
+  },
+  {
+    name: "Addition 3",
+    code: "addition.kdp",
+    world: "addition3.kdw",
+  },
+  {
+    name: "Aufraeumen",
+    code: "aufraeumen.kdp",
+    world: "aufraeumen.kdw",
+  },
+  {
+    name: "Auslegen",
+    code: "auslegen.kdp",
+    world: "auslegen.kdw",
+  },
+  {
+    name: "Burg Tor",
+    code: "burg_tor.kdp",
+    world: "burg_tor.kdw",
+  },
+  {
+    name: "Burg",
+    code: "burg.kdp",
+    world: "burg.kdw",
+  },
+  {
+    name: "Burg 2",
+    code: "burgn.kdp",
+    world: "burgn.kdw",
+  },
+  {
+    name: "Chichen Itza",
+    code: "chichenitza.kdp",
+    world: "chichenitza.kdw",
+  },
+  {
+    name: "Dualesumme",
+    code: "dualesumme.kdp",
+    world: "dualesumme.kdw",
+  },
+  {
+    name: "Einmauern",
+    code: "einmauern.kdp",
+  },
+  {
+    name: "Festung",
+    code: "festung.kdp",
+    world: "festung.kdw",
+  },
+  {
+    name: "Ganzzahl Addieren",
+    code: "ganzzahladdieren.kdp",
+    world: "ganzzahladdieren.kdw",
+  },
+  {
+    name: "Gehe Heim",
+    code: "geheheim.kdp",
+  },
+  {
+    name: "Hohle Gasse",
+    code: "hohle_gasse.kdp",
+    world: "hohle_gasse.kdw",
+  },
+
+  {
+    name: "Labyrinth 1",
+    code: "linkehandregel.kdp",
+    world: "labyrinth1.kdw",
+  },
+  {
+    name: "Labyrinth 2",
+    code: "linkehandregel.kdp",
+    world: "labyrinth2.kdw",
+  },
+  {
+    name: "Labyrinth 3",
+    code: "linkehandregel.kdp",
+    world: "labyrinth3.kdw",
+  },
+  {
+    name: "Labyrinth 4",
+    code: "linkehandregel.kdp",
+    world: "labyrinth4.kdw",
+  },
+  {
+    name: "Labyrinth 5",
+    code: "linkehandregel.kdp",
+    world: "labyrinth5.kdw",
+  },
+  {
+    name: "Labyrinth 6",
+    code: "linkehandregel.kdp",
+    world: "labyrinth6.kdw",
+  },
+  {
+    name: "Labyrinth 7",
+    code: "linkehandregel.kdp",
+    world: "labyrinth7.kdw",
+  },
+
+  {
+    name: "Labyrinth 1 (mit Spur)",
+    code: "linkehandregel_mitspur.kdp",
+    world: "labyrinth1.kdw",
+  },
+  {
+    name: "Labyrinth 2 (mit Spur)",
+    code: "linkehandregel_mitspur.kdp",
+    world: "labyrinth2.kdw",
+  },
+  {
+    name: "Labyrinth 3 (mit Spur)",
+    code: "linkehandregel_mitspur.kdp",
+    world: "labyrinth3.kdw",
+  },
+  {
+    name: "Labyrinth 4 (mit Spur)",
+    code: "linkehandregel_mitspur.kdp",
+    world: "labyrinth4.kdw",
+  },
+  {
+    name: "Labyrinth 5 (mit Spur)",
+    code: "linkehandregel_mitspur.kdp",
+    world: "labyrinth5.kdw",
+  },
+  {
+    name: "Labyrinth 6 (mit Spur)",
+    code: "linkehandregel_mitspur.kdp",
+    world: "labyrinth6.kdw",
+  },
+  {
+    name: "Labyrinth 7 (mit Spur)",
+    code: "linkehandregel_mitspur.kdp",
+    world: "labyrinth7.kdw",
+  },
+
+  {
+    name: "Labyrinthforscher",
+    code: "labyrinthforscher.kdp",
+    world: "labyrinthforscher.kdw",
+  },
+  {
+    name: "Pyramide",
+    code: "pyramide.kdp",
+    world: "pyramide.kdw",
+  },
+  {
+    name: "Schachbrett 2",
+    code: "schachbrett.kdp",
+    world: "schachbrett.kdw",
+  },
+  {
+    name: "Slalom",
+    code: "slalom.kdp",
+    world: "slalom.kdw",
+  },
+  {
+    name: "Steine pflastern",
+    code: "steinepflastern.kdp",
+    world: "steinepflastern.kdw",
+  },
+  {
+    name: "Turmwärter",
+    code: "turmwaerter.kdp",
+    world: "turmwaerter.kdw",
+  },
+  {
+    name: "Ziegelfinder",
+    code: "ziegel_finder.kdp",
+    world: "ziegel_finder.kdw",
+  },
+  {
+    name: "Wächter 1",
+    code: "Waechter1.kdp",
+    world: "Waechter1.kdw",
+  },
+  {
+    name: "Wächter 2",
+    code: "Waechter2.kdp",
+    world: "Waechter2.kdw",
+  },
+  {
+    name: "Wächter 3",
+    code: "Waechter3.kdp",
+    world: "Waechter3.kdw",
+  },
+  {
+    name: "Wächter 4",
+    code: "Waechter4.kdp",
+    world: "Waechter4.kdw",
+  },
+  {
+    name: "Wächter 5",
+    code: "Waechter5.kdp",
+    world: "Waechter5.kdw",
+  },
+  {
+    name: "Wächter 6",
+    code: "Waechter6.kdp",
+    world: "Waechter6.kdw",
+  },
+].sort((a, b) =>
+  a.name.toLocaleLowerCase().localeCompare(b.name.toLocaleLowerCase())
+);
 
 export async function getExample(
   name: string

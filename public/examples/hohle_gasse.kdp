@@ -1,0 +1,40 @@
+{ Karol sucht sich den Weg durch 
+eine hohle Gasse bis zur Marke }
+
+{  R. Brunner }
+
+Bedingung IstGehenErlaubt
+  falsch
+  wenn NichtIstWand dann
+    wenn NichtIstZiegel dann
+      wahr
+    *wenn
+  *wenn
+*Bedingung
+
+Anweisung ErlaubterSchritt
+  wenn IstGehenErlaubt dann
+    Schritt
+  sonst
+    RechtsDrehen
+    wenn IstGehenErlaubt dann
+      Schritt
+    sonst
+      LinksDrehen  
+      LinksDrehen
+    *wenn
+  *wenn
+*Anweisung
+
+{ Hauptprogramm }
+Programm
+  Schritt
+  wiederhole solange NichtIstMarke
+    ErlaubterSchritt
+  *wiederhole
+  Ton
+  LinksDrehen 
+  LinksDrehen
+  Beenden
+*Programm
+

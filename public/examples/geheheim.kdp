@@ -1,0 +1,39 @@
+{ Karol geht Heim (1,1), 
+  egal welche Ausgangsposition }
+
+{ Vorbereitung: Karol steht "inmitten" 
+  seiner Welt }
+
+{ Idee und Programm: Walter Settele }
+
+
+Anweisung halbeDrehung
+  wiederhole 2 mal
+    LinksDrehen
+  *wiederhole
+*Anweisung
+
+Anweisung dreheNachWesten
+  wiederhole solange nicht IstWesten
+    LinksDrehen
+  *wiederhole
+*Anweisung
+
+Anweisung geheBisWand
+  wiederhole solange nicht IstWand
+    Schritt
+  *wiederhole
+*Anweisung
+
+Anweisung geheHeim
+  dreheNachWesten
+  geheBisWand
+  RechtsDrehen
+  geheBisWand
+*Anweisung
+
+Programm
+  geheHeim
+  HalbeDrehung
+*Programm
+

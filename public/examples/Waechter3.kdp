@@ -1,0 +1,32 @@
+{ Waechter3.kdp }
+{ Karol umrundet eine an einer Stelle 
+  offene Mauer mit einer fehlenden Ecke 
+  linksherum. }
+{ Version: 17.03.2007
+  Thomas Wetzel }
+
+Anweisung MeinSchritt
+  wenn NichtIstWand dann
+    Schritt
+  *wenn
+*Anweisung
+
+Anweisung LinksWandPruefen
+  LinksDrehen
+  wenn IstWand dann
+    RechtsDrehen
+  *wenn
+*Anweisung
+
+Programm
+  wiederhole immer
+    wiederhole solange NichtIstWand
+      MeinSchritt
+      LinksWandPruefen
+    *wiederhole
+    LinksWandPruefen
+    RechtsDrehen
+    LinksWandPruefen
+    MeinSchritt
+  *wiederhole
+*Programm

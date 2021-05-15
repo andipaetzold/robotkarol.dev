@@ -1,0 +1,1381 @@
+{Dieses Programm ist darauf ausgelegt,
+ Großbuchstaben (außer Umlaute und ß),
+ sowie die gängigsten Zeichen und Zahlen
+ zu bauen/schreiben.}
+ 
+ 
+{ Zum Schreiben einfach den Buchstaben unter das Programm hinschreiben.
+ Zahlen werden O (0), IZ (1), IIZ (2), IIIZ (3), IIIIZ (4), IIIIIZ (5)...
+ geschrieben. Falls du höhere Zahlen als Neun schreiben möchtest musst du sie aus
+ zwei Zahlen (Null bis Neun) zusammensetzen. Um Zeichen zu setzen
+ musst du den ersten und letzten Buchstaben des Zeichens (In der
+ ausgeschriebenen Weise) hintereinander schreiben.
+ Wichtig: Zwischem jede(-m/-r)
+          Buchstaben/ Zeichen/Zahl, wenn
+          man sie unters Programm
+          schreibt Platz lassen
+          (Leerzeichen). Groß-,
+          Kleinschreibung spielt keine
+          Rolle.}
+ 
+{ Jede(-r/-s) Buchstabe/Zeichen/Zahl hat eine einheitliche Breite von vier
+ Blöcken, einheitliche Länge von fünf Blöcken, sowie eine einheitliche Höne
+ von eiem Block. Also falls du mehr schreiben möchtest, als ein(en)
+ Buchstaben/Zeichen, bitte das Gitternetz, auf welchem Karol Steine legen kann um
+ die entsprechende Anzahl erweitern. }
+ 
+{ Ich wünsche dir viel Spaß beim programmieren!
+ Flo}
+
+
+Anweisung UTurnR
+ Schritt
+ RechtsDrehen
+ Schritt
+ RechtsDrehen
+*Anweisung
+
+Anweisung UTurnL
+ Schritt
+ LinksDrehen
+ Schritt
+ LinksDrehen
+*Anweisung
+
+Anweisung End
+ RechtsDrehen
+ Schritt
+ RechtsDrehen
+  wiederhole 5 mal
+   Schritt
+  *wiederhole
+    LinksDrehen
+    Schritt
+    LinksDrehen
+*Anweisung
+
+Anweisung A
+ wiederhole 4 mal
+  Hinlegen
+  Schritt
+  *wiederhole
+    Schritt
+    UTurnR
+    Hinlegen
+    Schritt
+    Schritt
+    Hinlegen
+     wiederhole 3 mal
+      Schritt
+     *wiederhole
+       UTurnL
+        wiederhole 4 mal
+         Hinlegen
+         Schritt
+        *wiederhole
+          Schritt
+          End
+          Ton
+*Anweisung
+
+Anweisung B
+ wiederhole 5 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+   UTurnR
+   Hinlegen
+   Schritt
+   Schritt
+   Hinlegen
+   Schritt
+   Schritt
+   Hinlegen
+   Schritt
+   UTurnL
+   Schritt
+   Hinlegen
+   Schritt
+   Schritt
+   Hinlegen
+   Schritt
+   Schritt
+   End
+   Ton
+*Anweisung
+
+Anweisung C
+ Schritt
+  wiederhole 3 mal
+   Hinlegen
+   Schritt
+  *wiederhole
+    Schritt
+    UTurnR
+    Hinlegen
+     wiederhole 4 mal
+      Schritt
+     *wiederhole
+       Hinlegen
+       Schritt
+       UTurnL
+       Hinlegen
+        wiederhole 4 mal
+         Schritt
+        *wiederhole
+          Hinlegen
+          Schritt
+          End
+          Ton
+*Anweisung
+
+Anweisung D
+ wiederhole 5 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+   UTurnR
+   Hinlegen
+    wiederhole 4 mal
+     Schritt
+    *wiederhole
+      Hinlegen
+      Schritt
+      UTurnL
+      Schritt
+       wiederhole 3 mal
+        Hinlegen
+        Schritt
+       *wiederhole
+         Schritt
+         End
+         Ton
+*Anweisung
+
+Anweisung E
+ wiederhole 5 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+   UTurnR
+   Hinlegen
+   Schritt
+   Schritt
+   Hinlegen
+   Schritt
+   Schritt
+   Hinlegen
+   Schritt
+   UTurnL
+   Hinlegen
+    wiederhole 4 mal
+     Schritt
+    *wiederhole
+      Hinlegen
+      Schritt
+      End
+      Ton
+*Anweisung
+
+Anweisung F
+ wiederhole 5 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+   UTurnR
+   Hinlegen
+   Schritt
+   Schritt
+   Hinlegen
+   Schritt
+   Schritt
+   Schritt
+   UTurnL
+    wiederhole 4 mal
+     Schritt
+    *wiederhole
+      Hinlegen
+      Schritt
+      End
+      Ton
+*Anweisung
+
+Anweisung G
+ Schritt
+  wiederhole 3 mal
+   Hinlegen
+   Schritt
+  *wiederhole
+    Schritt
+    UTurnR
+    Hinlegen
+     wiederhole 4 mal
+      Schritt
+     *wiederhole
+       Hinlegen
+       Schritt
+       UTurnL
+       Hinlegen
+       Schritt
+       Hinlegen
+        wiederhole 3 mal
+         Schritt
+        *wiederhole
+          Hinlegen
+          Schritt
+          End
+          Ton
+*Anweisung
+
+Anweisung H
+ wiederhole 5 mal
+  Hinlegen
+  schritt
+ *wiederhole
+   UTurnR
+   Schritt
+   Schritt
+   Hinlegen
+    wiederhole 3 mal
+     Schritt
+    *wiederhole
+      UTurnL
+       wiederhole 5 mal
+        Hinlegen
+        Schritt
+       *wiederhole
+         End
+         Ton
+*Anweisung
+
+Anweisung I
+ Hinlegen
+  wiederhole 4 mal
+   Schritt
+  *wiederhole
+    Hinlegen
+    Schritt
+    UTurnR
+     wiederhole 5 mal
+      Hinlegen
+      Schritt
+     *wiederhole
+       UTurnL
+       Hinlegen
+        wiederhole 4 mal
+         Schritt
+        *wiederhole
+          Hinlegen
+          Schritt
+          End
+          Ton
+*Anweisung
+
+Anweisung J
+ Schritt
+ Hinlegen
+  wiederhole 3 mal
+   Schritt
+  *wiederhole
+    Hinlegen
+    Schritt
+    UTurnR
+    Hinlegen
+     wiederhole 4 mal
+      Schritt
+     *wiederhole
+       Hinlegen
+       Schritt
+       UTurnL
+       Schritt
+        wiederhole 4 mal
+         Hinlegen
+         Schritt
+        *wiederhole
+          End
+          Ton
+*Anweisung
+
+Anweisung K
+ wiederhole 5 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+   UTurnR
+   Schritt
+   Hinlegen
+   Schritt
+   Schritt
+   Hinlegen
+   schritt
+   Schritt
+   UTurnL
+   Hinlegen
+    wiederhole 4 mal
+     Schritt
+    *wiederhole
+      Hinlegen
+      Schritt
+      End
+      Ton
+*Anweisung
+
+Anweisung L
+ wiederhole 5 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+   UTurnR
+    wiederhole 4 mal
+     Schritt
+    *wiederhole
+      Hinlegen
+      Schritt
+      UTurnL
+      Hinlegen
+       wiederhole 5 mal
+        Schritt
+       *wiederhole
+         End
+         Ton
+*Anweisung
+
+Anweisung M
+ wiederhole 5 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+   UTurnR
+   Schritt
+   Hinlegen
+    wiederhole 4 mal
+     Schritt
+    *wiederhole
+      UTurnL
+       wiederhole 5 mal
+        Hinlegen
+        Schritt
+       *wiederhole
+         End
+         Ton
+*Anweisung
+
+Anweisung N
+ wiederhole 4 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+   Schritt
+   UTurnR
+   Schritt
+   Schritt
+   Hinlegen
+    wiederhole 3 mal
+    Schritt
+   *wiederhole
+     UTurnL
+     Schritt
+      wiederhole 4 mal
+       Hinlegen
+       Schritt
+      *wiederhole
+        End
+        Ton
+*Anweisung
+
+Anweisung O
+ Schritt
+  wiederhole 3 mal
+   Hinlegen
+   Schritt
+  *wiederhole
+    Schritt
+    UTurnR
+    Hinlegen
+     wiederhole 4 mal
+      Schritt
+     *wiederhole
+       Hinlegen
+       Schritt
+       UTurnL
+       Schritt
+        wiederhole 3 mal
+         Hinlegen
+         Schritt
+        *wiederhole
+          Schritt
+          End
+          Ton
+*Anweisung
+
+Anweisung P
+ wiederhole 5 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+   UTurnR
+   Hinlegen
+   Schritt
+   Schritt
+   Hinlegen
+    wiederhole 3 mal
+     Schritt
+    *wiederhole
+      UTurnL
+       wiederhole 3 mal
+        Schritt
+       *wiederhole
+         Hinlegen
+         Schritt
+         Schritt
+         End
+         Ton
+*Anweisung
+
+Anweisung Q
+ Schritt
+  wiederhole 3 mal
+   Hinlegen
+   Schritt
+  *wiederhole
+    Schritt
+    UTurnR
+    Hinlegen
+     wiederhole 3 mal
+      Schritt
+     *wiederhole
+       wiederhole 2 mal
+        Hinlegen
+        Schritt
+       *wiederhole
+         UTurnL
+          wiederhole 4 mal
+           Hinlegen
+           Schritt
+         *wiederhole
+            Schritt
+            End
+            Ton
+*Anweisung
+
+Anweisung R
+ wiederhole 5 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+   UTurnR
+    wiederhole 2 mal
+     Hinlegen
+     Schritt
+     Schritt
+    *wiederhole
+      Schritt
+      UTurnL
+       wiederhole 2 mal
+        Hinlegen
+        Schritt
+       *wiederhole
+         Schritt
+         Hinlegen
+         Schritt
+         Schritt
+         End
+         Ton
+*Anweisung
+
+Anweisung S
+ Hinlegen
+  wiederhole 3 mal
+   Schritt
+  *wiederhole
+    Hinlegen
+    Schritt
+    Schritt
+    UTurnR
+     wiederhole 2 mal
+      Hinlegen
+      Schritt
+      Schritt
+     *wiederhole
+       Hinlegen
+       Schritt
+       UTurnL
+       Schritt
+       Hinlegen
+        wiederhole 3 mal
+         Schritt
+        *wiederhole
+          Hinlegen
+          Schritt
+          End
+          Ton
+*Anweisung
+
+Anweisung T
+ wiederhole 4 mal
+  Schritt
+ *wiederhole
+   Hinlegen
+   Schritt
+   UTurnR
+    wiederhole 5 mal
+     Hinlegen
+     Schritt
+   *wiederhole
+      UTurnL
+       wiederhole 4 mal
+        Schritt
+       *wiederhole
+         Hinlegen
+         Schritt
+         End
+         Ton
+*Anweisung
+
+Anweisung U
+ Schritt
+  wiederhole 4 mal
+   Hinlegen
+   Schritt
+  *wiederhole
+    UTurnR
+     wiederhole 4 mal
+      Schritt
+     *wiederhole
+       Hinlegen
+       Schritt
+       UTurnL
+       Schritt
+        wiederhole 4 mal
+         Hinlegen
+         Schritt
+        *wiederhole
+          End
+          Ton
+*Anweisung
+
+Anweisung V
+ Schritt
+ Schritt
+  wiederhole 3 mal
+   Hinlegen
+   Schritt
+  *wiederhole
+    UTurnR
+     wiederhole 3 mal
+      Schritt
+     *wiederhole
+       wiederhole 2 mal
+        Hinlegen
+        Schritt
+       *wiederhole
+         UTurnL
+         Schritt
+         Schritt
+          wiederhole 3 mal
+           Hinlegen
+           Schritt
+          *wiederhole
+            End
+            Ton
+*Anweisung
+
+Anweisung W
+ wiederhole 5 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+   UTurnR
+    wiederhole 3 mal
+     Schritt
+    *wiederhole
+      Hinlegen
+      Schritt
+      Schritt
+      UTurnL
+       wiederhole 5 mal
+        Hinlegen
+        Schritt
+       *wiederhole
+         End
+         Ton
+*Anweisung
+
+Anweisung X
+ wiederhole 2 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+   Schritt
+    wiederhole 2 mal
+     Hinlegen
+     Schritt
+    *wiederhole
+      UTurnR
+      Schritt
+      Schritt
+      Hinlegen
+       wiederhole 3 mal
+        Schritt
+       *wiederhole
+         UTurnL
+          wiederhole 2 mal
+           Hinlegen
+           Schritt
+          *wiederhole
+            Schritt
+             wiederhole 2 mal
+              Hinlegen
+              Schritt
+             *wiederhole
+               End
+               Ton
+*Anweisung
+
+Anweisung Y
+ wiederhole 3 mal
+  Schritt
+ *wiederhole
+   wiederhole 2 mal
+    Hinlegen
+    Schritt
+   *wiederhole
+     UTurnR
+     Schritt
+     Schritt
+      wiederhole 3 mal
+       Hinlegen
+       Schritt
+      *wiederhole
+        UTurnL
+         wiederhole 3 mal
+          Schritt
+         *wiederhole
+           wiederhole 2 mal
+            Hinlegen
+            Schritt
+           *wiederhole
+             End
+             Ton
+*Anweisung
+
+Anweisung Z
+ wiederhole 2 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+   Schritt
+   Schritt
+   Hinlegen
+   Schritt
+   UTurnR
+    wiederhole 2 mal
+     Hinlegen
+     Schritt
+     Schritt
+    *wiederhole
+      Hinlegen
+      Schritt
+      UTurnL
+      Hinlegen
+       wiederhole 3 mal
+        Schritt
+       *wiederhole
+         wiederhole 2 mal
+          Hinlegen
+          Schritt
+         *wiederhole
+          End
+          Ton
+*Anweisung
+
+Anweisung PT
+ wiederhole 2 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+   wiederhole 3 mal
+    Schritt
+   *wiederhole
+     UTurnR
+      wiederhole 3 mal
+       Schritt
+      *wiederhole
+        wiederhole 2 mal
+         hinlegen
+         Schritt
+        *wiederhole
+          UTurnL
+           wiederhole 5 mal
+            Schritt
+           *wiederhole
+             End
+              wiederhole 3 mal
+               Ton
+              *wiederhole
+                Warten
+                
+*Anweisung
+
+Anweisung KA
+ wiederhole 2 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+    Schritt
+    UTurnR
+    Schritt
+     wiederhole 3 mal
+      Hinlegen
+      Schritt
+     *wiederhole
+       Schritt
+       RechtsDrehen
+       Hinlegen
+       LinksDrehen
+       LinksDrehen
+       Schritt
+       LinksDrehen
+        wiederhole 6 mal
+         Schritt
+        *wiederhole
+          End
+           wiederhole 3 mal
+            Ton
+           *wiederhole
+             Warten
+*Anweisung
+
+Anweisung AN
+ Hinlegen
+ Schritt
+ Schritt
+  wiederhole 3 mal
+   Hinlegen
+   Schritt
+  *wiederhole
+    UTurnR
+     wiederhole 3 mal
+      Hinlegen
+      Schritt
+     *wiederhole
+       Schritt
+       Hinlegen
+       Schritt
+       UTurnL
+        wiederhole 5 mal
+         Schritt
+        *wiederhole
+          End
+           wiederhole 3 mal
+            Ton
+           *wiederhole
+             Warten
+*Anweisung
+
+Anweisung FN
+ wiederhole 2 mal
+  Hinlegen
+  Schritt
+  Schritt
+ *wiederhole
+   Hinlegen
+   Schritt
+   UTurnR
+    wiederhole 3 mal
+     Hinlegen
+     Schritt
+    *wiederhole
+      Schritt
+      Hinlegen
+      Schritt
+      UTurnL
+       wiederhole 5 mal
+        Schritt
+       *wiederhole
+         End
+          wiederhole 3 mal
+           Ton
+          *wiederhole
+            Warten
+*Anweisung
+
+Anweisung MS
+ Schritt
+ Schritt
+ Hinlegen
+  wiederhole 3 mal
+   Schritt
+  *wiederhole
+    UTurnR
+    Schritt
+    Schritt
+    Hinlegen
+     wiederhole 3 mal
+      Schritt
+     *wiederhole
+       UTurnL
+       Schritt
+       Schritt
+       Hinlegen
+        wiederhole 3 mal
+         Schritt
+        *wiederhole
+          End
+           wiederhole 3 mal
+            Ton
+           *wiederhole
+             Warten
+   
+*Anweisung
+
+Anweisung PS
+ Schritt
+ Schritt
+ Hinlegen
+  wiederhole 3 mal
+   Schritt
+  *wiederhole
+    UTurnR
+    Schritt
+     wiederhole 3 mal
+      Hinlegen
+      Schritt
+     *wiederhole
+       Schritt
+       UTurnL
+       Schritt
+       Schritt
+       Hinlegen
+        wiederhole 3 mal
+         Schritt
+        *wiederhole
+          End
+           wiederhole 3 mal
+            Ton
+           *wiederhole
+             Warten
+*Anweisung
+
+Anweisung SH
+ wiederhole 2 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+   wiederhole 3 mal
+    Schritt
+   *wiederhole
+     UTurnR
+     Schritt
+     Schritt
+     Hinlegen
+      wiederhole 3 mal
+       Schritt
+      *wiederhole
+        UTurnL
+         wiederhole 3 mal
+          Schritt
+         *wiederhole
+           wiederhole 2 mal
+            Hinlegen
+            Schritt
+           *wiederhole
+             End
+              wiederhole 3 mal
+               Ton
+              *wiederhole
+                Warten
+*Anweisung
+
+Anweisung LN
+ RechtsDrehen
+  wiederhole 4 mal
+   Schritt
+  *wiederhole
+    LinksDrehen
+     wiederhole 2 mal
+      Ton
+     *wiederhole
+*Anweisung
+
+Anweisung IH
+ Schritt
+  wiederhole 2 mal
+   Hinlegen
+   Schritt
+   Schritt
+  *wiederhole
+    UTurnR
+    Schritt
+     wiederhole 2 mal
+      Hinlegen
+      Schritt
+      Schritt
+     *wiederhole
+       UTurnL
+       Schritt
+        wiederhole 2 mal
+         Hinlegen
+         Schritt
+         Schritt
+        *wiederhole
+          End
+           wiederhole 3 mal
+            Ton
+           *wiederhole
+             Warten
+*Anweisung
+
+Anweisung KR
+ Schritt
+ Schritt
+ Hinlegen
+  wiederhole 3 mal
+   Schritt
+  *wiederhole
+    UTurnR
+    Schritt
+     wiederhole 2 mal
+      Hinlegen
+      Schritt
+      Schritt
+     *wiederhole
+       UTurnL
+       Schritt
+        wiederhole 2 mal
+         Hinlegen
+         Schritt
+         Schritt
+        *wiederhole
+          End
+           wiederhole 3 mal
+            Ton
+           *wiederhole
+             Warten
+*Anweisung
+
+Anweisung GR
+ Schritt
+  wiederhole 2 mal
+   Hinlegen
+   Schritt
+   Schritt
+  *wiederhole
+    UTurnR
+    Schritt
+     wiederhole 2 mal
+      Hinlegen
+      Schritt
+      Schritt
+     *wiederhole
+       UTurnL
+       Schritt
+       Schritt
+       Hinlegen
+        wiederhole 3 mal
+         Schritt
+        *wiederhole
+          End
+           wiederhole 3 mal
+            Ton
+           *wiederhole
+             Warten
+*Anweisung
+
+Anweisung KF
+ wiederhole 5 mal
+  Schritt
+ *wiederhole
+   UTurnR
+   Schritt
+    wiederhole 3 mal
+     Hinlegen
+     Schritt
+    *wiederhole
+      Schritt
+      UTurnL
+      Hinlegen
+       wiederhole 4 mal
+        Schritt
+       *wiederhole
+         Hinlegen
+         Schritt
+         End
+          wiederhole 3 mal
+           Ton
+          *wiederhole
+            Warten
+*Anweisung
+
+Anweisung KU
+ Hinlegen
+  wiederhole 4 mal
+   Schritt
+  *wiederhole
+    Hinlegen
+    Schritt
+    UTurnR
+    Schritt
+     wiederhole 3 mal
+      Hinlegen
+      Schritt
+     *wiederhole
+       Schritt
+       UTurnL
+        wiederhole 5 mal
+         Schritt
+        *wiederhole
+          End
+           wiederhole 3 mal
+            Ton
+           *wiederhole
+             Warten
+*Anweisung
+
+Anweisung GT
+ wiederhole 5 mal
+  Schritt
+ *wiederhole
+   UTurnR
+   Schritt
+   Hinlegen
+   Schritt
+   Schritt
+   Hinlegen
+   Schritt
+   Schritt
+   UTurnL
+    wiederhole 5 mal
+     Schritt
+    *wiederhole
+      End
+       wiederhole 3 mal
+        Ton
+       *wiederhole
+         Warten
+*Anweisung
+
+Anweisung ML
+ wiederhole 5 mal
+  Schritt
+ *wiederhole
+   UTurnR
+   Schritt
+   Schritt
+   Hinlegen
+    wiederhole 3 mal
+     Schritt
+    *wiederhole
+      UTurnL
+       wiederhole 5 mal
+        Schritt
+       *wiederhole
+         End
+          wiederhole 3 mal
+           Ton
+          *wiederhole
+            Warten
+*Anweisung
+
+Anweisung AF
+ wiederhole 3 mal
+  Schritt
+ *wiederhole
+   wiederhole 2 mal
+    Hinlegen
+    Schritt
+   *wiederhole
+     UTurnR
+      wiederhole 3 mal
+       Hinlegen
+       Schritt
+      *wiederhole
+        Schritt
+        RechtsDrehen
+        Hinlegen
+        LinksDrehen
+        LinksDrehen
+        Schritt
+        LinksDrehen
+         wiederhole 3 mal
+          Schritt
+         *wiederhole
+           End
+            wiederhole 3 mal
+             Ton
+            *wiederhole
+              Warten
+
+*Anweisung
+
+Anweisung IZ
+ Hinlegen
+  wiederhole 3 mal
+   Schritt
+  *wiederhole
+    Hinlegen
+    Schritt
+    Schritt
+    UTurnR
+     wiederhole 5 mal
+      Hinlegen
+      Schritt
+     *wiederhole
+       UTurnL
+       Hinlegen
+        wiederhole 5 mal
+         Schritt
+        *wiederhole
+          End
+          Ton
+          Ton
+*Anweisung
+
+Anweisung IIZ
+ Hinlegen
+  wiederhole 3 mal
+   Schritt
+  *wiederhole
+    Hinlegen
+    Schritt
+    Schritt
+    UTurnR
+    Hinlegen
+     wiederhole 3 mal
+      Schritt
+     *wiederhole
+       wiederhole 2 mal
+        Hinlegen
+        Schritt
+       *wiederhole
+         UTurnL
+         Hinlegen
+         Schritt
+         Schritt
+          wiederhole 2 mal
+           Hinlegen
+           Schritt
+          *wiederhole
+            Schritt
+            End
+            Ton
+            Ton
+*Anweisung
+
+Anweisung IIIZ
+ Schritt
+ Hinlegen
+ Schritt
+ Schritt
+ Hinlegen
+ Schritt
+ Schritt
+ UTurnR
+  wiederhole 2 mal
+   Hinlegen
+   Schritt
+   Schritt
+  *wiederhole
+    Hinlegen
+    Schritt
+    UTurnL
+    Schritt
+     wiederhole 3 mal
+      Hinlegen
+      Schritt
+     *wiederhole
+       Schritt
+       End
+       Ton
+       Ton
+*Anweisung
+
+Anweisung IIIIZ
+ Schritt
+ Schritt
+  wiederhole 2 mal
+   Hinlegen
+   Schritt
+  *wiederhole
+    Schritt
+    UTurnR
+    Hinlegen
+    Schritt
+    Schritt
+     wiederhole 3 mal
+      Hinlegen
+      Schritt
+     *wiederhole
+       UturnL
+       Schritt
+       Schritt
+       Hinlegen
+        wiederhole 3 mal
+         Schritt
+        *wiederhole
+          End
+          Ton
+          Ton
+*Anweisung
+
+Anweisung IIIIIZ
+ Hinlegen
+ Schritt
+ Schritt
+  wiederhole 3 mal
+   Hinlegen
+   Schritt
+  *wiederhole
+    UTurnR
+     wiederhole 2 mal
+      Hinlegen
+      Schritt
+      Schritt
+     *wiederhole
+       Hinlegen
+       Schritt
+       UTurnL
+       Schritt
+       Hinlegen
+       wiederhole 3 mal
+        Schritt
+       *wiederhole
+         Hinlegen
+         Schritt
+         End
+         Ton
+         Ton
+*Anweisung
+
+Anweisung IIIIIIZ
+ Schritt
+  wiederhole 3 mal
+   Hinlegen
+   Schritt
+  *wiederhole
+    Schritt
+    UTurnR
+     wiederhole 2 mal
+      Hinlegen
+      Schritt
+      Schritt
+     *wiederhole
+       Hinlegen
+       Schritt
+       UTurnL
+       Schritt
+        wiederhole 2 mal
+         Hinlegen
+         Schritt
+         Schritt
+        *wiederhole
+          End
+          Ton
+          Ton
+       
+*Anweisung
+
+Anweisung IIIIIIIZ
+ wiederhole 2 mal
+  Hinlegen
+  Schritt
+ *wiederhole
+   Schritt
+   Schritt
+   Hinlegen
+   Schritt
+   UTurnR
+    Hinlegen
+    Schritt
+    Schritt
+    Hinlegen
+     wiederhole 3 mal
+      Schritt
+     *wiederhole
+       UTurnL
+        wiederhole 3 mal
+         Schritt
+        *wiederhole
+          wiederhole 2 mal
+           Hinlegen
+           Schritt
+          *wiederhole
+            End
+            Ton
+            Ton
+*Anweisung
+
+Anweisung IIIIIIIIZ
+ Schritt
+ Hinlegen
+ Schritt
+ Schritt
+ Hinlegen
+ Schritt
+ Schritt
+ UTurnR
+  wiederhole 2 mal
+   Hinlegen
+   Schritt
+   Schritt
+  *wiederhole
+    Schritt
+    UTurnL
+    Schritt
+    Hinlegen
+    Schritt
+    Schritt
+    Hinlegen
+    Schritt
+    Schritt
+    End
+    Ton
+    Ton
+*Anweisung
+
+Anweisung IIIIIIIIIZ
+ Hinlegen
+  wiederhole 3 mal
+   Schritt
+  *wiederhole
+    Hinlegen
+    Schritt
+    Schritt
+    UTurnR
+     wiederhole 2 mal
+      Hinlegen
+      Schritt
+      Schritt
+     *wiederhole
+       Hinlegen
+       Schritt
+       UTurnL
+       Schritt
+        wiederhole 3 mal
+         Hinlegen
+         Schritt
+        *wiederhole
+          Schritt
+          End
+          Ton
+          Ton
+*Anweisung
+
+Anweisung ER
+ LinksDrehen
+  wiederhole solange NichtIstWand
+   Schritt
+  *wiederhole
+    LinksDrehen
+    wiederhole 8 mal
+     Schritt
+    *wiederhole
+      LinksDrehen
+      Schritt
+      LinksDrehen
+*Anweisung
+
+
+{ Hier Text einfügen: }
+Z u m B e i s p i e l IIIIIIIIZ
+

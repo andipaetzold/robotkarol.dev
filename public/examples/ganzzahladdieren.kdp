@@ -1,0 +1,201 @@
+{ Karol kann zwei beliebig große Ganzzahlen addieren }
+
+{ Karol kann beliebig lange 2 Reihige Dezimalaufgaben 
+  lösen.
+  Die Welt muss x breit, 5 lang und 10 hoch sein sein 
+  Karol steht unten rechts.
+  In die oberen beiden Zeilen können Ziegel gelegt 
+  werden (max. 9 pro Feld)
+  Karol sollte die maximale Anzahl an Ziegeln tragen 
+  können und ca. 800 dabei haben. }
+
+{ Und nun viel Spaß beim rechnen. Von T.Broscheit }
+
+{ Hinweise (UF): Karoleinstellungen: beim Start 
+  50 Ziegel, maximal 200, Sprungvermögen 10;
+  Die Ziffern der Zahlen werden durch entsprechend 
+  hohe Ziegelstapel in der ersten und zweiten Reihe 
+  erfasst.
+  Am Besten in 2D-Ansicht }
+
+
+Anweisung  IstZiegelDa
+  Schritt
+  Schritt
+  Schritt
+*Anweisung
+
+Anweisung  Umdrehen
+  RechtsDrehen
+  RechtsDrehen
+
+*Anweisung
+
+Anweisung GeheBisWand
+  wiederhole solange NichtIstWand
+    Schritt
+  *wiederhole
+*Anweisung
+
+Anweisung NächsteReihe
+  RechtsDrehen
+  wenn NichtIstWand dann
+    Schritt
+    RechtsDrehen
+  sonst RechtsDrehen
+  *wenn
+*Anweisung
+
+
+Anweisung Übertrag
+  wiederhole solange IstZiegel
+    Aufheben
+  *wiederhole
+  Schritt
+  NächsteReihe
+  wiederhole 1 mal Hinlegen
+  *wiederhole
+  Schritt
+  NächsteReihe
+*Anweisung
+
+Anweisung ZurückZiegelSetzen
+  Aufheben
+  Umdrehen
+  Hinlegen
+  Schritt
+  Schritt
+  wenn NichtIstZiegel(9) dann  Hinlegen
+  sonst Übertrag
+
+  *wenn
+
+*Anweisung
+
+Anweisung ErsteReihe
+  IstZiegelDa
+  wenn NichtIstZiegel
+    dann Umdrehen
+    GeheBisWand
+  sonst
+    wiederhole solange IstZiegel
+      wenn IstZiegel dann ZurückZiegelSetzen
+      *wenn
+      wenn NichtIstWand dann
+      *wenn
+      Umdrehen
+      GeheBisWand
+      Umdrehen
+      Schritt
+      Umdrehen
+    *wiederhole
+    wenn NichtIstZiegel dann Umdrehen
+      Aufheben
+      Umdrehen
+      Hinlegen
+      Umdrehen
+    *wenn
+    wiederhole solange IstZiegel 
+      Aufheben
+      Umdrehen
+      Hinlegen
+      Umdrehen
+    *wiederhole
+  *wenn
+  GeheBisWand
+*Anweisung
+
+
+Anweisung ZweiteReihe
+  Umdrehen
+  Schritt
+  Schritt
+  wiederhole solange IstZiegel
+    wenn IstZiegel dann Aufheben
+      Umdrehen
+      Schritt
+      Umdrehen
+      Hinlegen
+      Umdrehen
+      wenn NichtIstZiegel(9) dann  Hinlegen
+      sonst Übertrag
+
+      *wenn
+
+    *wenn
+    Umdrehen
+    Schritt
+  *wiederhole
+  Umdrehen
+  Schritt
+  Umdrehen
+  wenn IstZiegel
+    dann Schritt
+    wenn NichtIstZiegel dann Schritt
+      Umdrehen
+      Aufheben
+      Umdrehen
+      Schritt
+      Umdrehen
+      Hinlegen
+      Schritt
+      wiederhole solange IstZiegel 
+        Aufheben
+        Umdrehen
+        Schritt
+        Umdrehen
+        Hinlegen
+        Schritt
+      *wiederhole
+    *wenn
+  *wenn
+  wenn IstNorden dann Umdrehen
+    GeheBisWand
+  sonst GeheBisWand
+  *wenn
+*Anweisung
+
+Anweisung IstEinÜbertragDa
+  Umdrehen
+  wiederhole solange IstZiegel
+    wenn IstZiegel dann Aufheben
+      Schritt
+      Hinlegen
+      Umdrehen
+      wenn NichtIstZiegel(9) dann  Hinlegen
+      sonst Übertrag
+      *wenn
+      Schritt
+      Umdrehen
+    *wenn
+  *wiederhole
+  wenn NichtIstZiegel
+    dann Umdrehen
+  *wenn
+    Umdrehen
+    Schritt
+    wenn IstZiegel
+      dann Aufheben
+      Schritt
+      Umdrehen
+      Hinlegen
+      Schritt
+      Schritt
+    sonst Umdrehen
+      Schritt
+    *wenn
+  wenn NichtIstWand
+    dann
+    wenn NichtIstZiegel dann Umdrehen
+    *wenn
+  *wenn
+*Anweisung
+
+wiederhole 500 mal
+  ErsteReihe
+  ZweiteReihe
+  IstEinÜbertragDa
+  NächsteReihe
+*wiederhole
+
+

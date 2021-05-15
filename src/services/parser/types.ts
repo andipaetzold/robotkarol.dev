@@ -117,6 +117,7 @@ export type Action =
   | "BRICK_TAKE"
   | "MARKER_SET"
   | "MARKER_REMOVE"
-  | "SOUND";
+  | "SOUND"
+  | "WAIT";
 
 export type SystemAction = "FAST" | "SLOW" | "EXIT" | "TRUE" | "FALSE";
