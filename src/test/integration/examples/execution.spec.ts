@@ -36,6 +36,16 @@ EXAMPLES.filter((e) => e.code)
           stack: [{ statements: cloneDeep(ast.program.body) }],
           state: "running",
           ast,
+          storage: example.settings?.storage
+            ? {
+                current: example.settings.storage.start,
+                size: example.settings.storage.size,
+              }
+            : undefined,
+        },
+        settings: {
+          jumpHeight: example.settings?.jumpHeight,
+          storage: example.settings?.storage,
         },
       };
 

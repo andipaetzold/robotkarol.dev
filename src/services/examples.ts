@@ -1,9 +1,11 @@
 import axios from "axios";
+import { Settings } from "./store/types";
 
 interface Example {
   name: string;
   code?: string;
   world?: string;
+  settings?: Settings;
 }
 
 export const EXAMPLES: Example[] = [
@@ -134,6 +136,12 @@ export const EXAMPLES: Example[] = [
     name: "Stapeln",
     code: "Stapeln.kdp",
     world: "Stapeln.kdw",
+    settings: {
+      storage: {
+        start: 0,
+        size: 100,
+      },
+    },
   },
   {
     name: "Treppe Bauen",
@@ -179,7 +187,7 @@ export const EXAMPLES: Example[] = [
 
 export async function getExample(
   name: string
-): Promise<{ code: string; world: string }> {
+): Promise<{ code: string; world: string; example: Example }> {
   const example = EXAMPLES.find((e) => e.name === name)!;
 
   const [code, world] = await Promise.all([
@@ -189,5 +197,6 @@ export async function getExample(
   return {
     code: code.data,
     world: world.data,
+    example,
   };
 }

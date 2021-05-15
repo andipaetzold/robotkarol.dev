@@ -1,8 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { World } from "../../types";
 import {
-  pickUpBrick as pickUpBrickAction,
-  putBrick as putBrickAction,
   removeMarker as removeMarkerAction,
   reset as resetAction,
   resize as resizeAction,
@@ -15,29 +13,20 @@ import {
 import { parse } from "../parser";
 import { ParseError } from "../parser/ParseError";
 import { DEFAULT_STATE } from "./constants";
-import { executionStep as executionStepFn } from "./reducers/executionStep";
+import { executionStep as executionStepReducer } from "./reducers/executionStep";
+import { pickUpBrick as pickUpBrickReducer } from "./reducers/pickUpBrick";
+import { putBrick as putBrickReducer } from "./reducers/putBrick";
+import { Settings } from "./types";
 
 export const rootSlice = createSlice({
   name: "#",
   initialState: DEFAULT_STATE,
   reducers: {
-    setWorld: {
-      prepare: (world: World) => ({ payload: { world } }),
-      reducer: (
-        state,
-        { payload: { world } }: PayloadAction<{ world: World }>
-      ) => {
-        state.world = world;
-      },
+    setWorld: (state, { payload: world }: PayloadAction<World>) => {
+      state.world = world;
     },
-    step: {
-      prepare: (count: number = 1) => ({ payload: { count } }),
-      reducer: (
-        state,
-        { payload: { count } }: PayloadAction<{ count: number }>
-      ) => {
-        state.world = stepAction(state.world, count);
-      },
+    step: (state) => {
+      state.world = stepAction(state.world, state.settings);
     },
     turnLeft: (state) => {
       state.world = turnLeftAction(state.world);
@@ -45,25 +34,12 @@ export const rootSlice = createSlice({
     turnRight: (state) => {
       state.world = turnRightAction(state.world);
     },
-    putBrick: {
-      prepare: (count: number = 1) => ({ payload: { count } }),
-      reducer: (
-        state,
-        { payload: { count } }: PayloadAction<{ count: number }>
-      ) => {
-        state.world = putBrickAction(state.world, count);
-      },
-    },
-    pickUpBrick: {
-      prepare: (count: number = 1) => ({ payload: { count } }),
-      reducer: (
-        state,
-        { payload: { count } }: PayloadAction<{ count: number }>
-      ) => {
-        state.world = pickUpBrickAction(state.world, count);
-      },
-    },
-
+    putBrick: (state, { payload: count }: PayloadAction<number | undefined>) =>
+      putBrickReducer(state, count),
+    pickUpBrick: (
+      state,
+      { payload: count }: PayloadAction<number | undefined>
+    ) => pickUpBrickReducer(state, count),
     setMarker: (state) => {
       state.world = setMarkerAction(state.world);
     },
@@ -111,6 +87,12 @@ export const rootSlice = createSlice({
       }
       state.execution.ast = ast;
       state.execution.stack = [{ statements: [...ast.program.body] }];
+      state.execution.storage = state.settings.storage
+        ? {
+            current: state.settings.storage.start,
+            size: state.settings.storage.size,
+          }
+        : undefined;
     },
     controlsStartOrResume: (state) => {
       state.execution.state = "running";
@@ -120,7 +102,7 @@ export const rootSlice = createSlice({
     },
     controlsStep: (state) => {
       state.execution.state = "paused";
-      executionStepFn(state);
+      executionStepReducer(state);
     },
     controlsStop: (state) => {
       state.execution.stack = [
@@ -129,21 +111,28 @@ export const rootSlice = createSlice({
       state.execution.state = "stopped";
       state.execution.speed = "slow";
       state.execution.activeLine = undefined;
+      state.execution.storage = undefined;
       if (state.execution.worldOnStart) {
         state.world = state.execution.worldOnStart;
         state.execution.worldOnStart = undefined;
       }
     },
-    updateCode: {
-      prepare: (code: string) => ({ payload: { code } }),
-      reducer: (
-        state,
-        { payload: { code } }: PayloadAction<{ code: string }>
-      ) => {
-        state.code = code;
-      },
+    updateCode: (state, { payload: code }: PayloadAction<string>) => {
+      state.code = code;
     },
-    executionStep: executionStepFn,
+    executionStep: executionStepReducer,
+    updateJumpHeight: (
+      state,
+      { payload: jumpHeight }: PayloadAction<number | undefined>
+    ) => {
+      state.settings.jumpHeight = jumpHeight;
+    },
+    updateStorage: (
+      state,
+      { payload: storage }: PayloadAction<Settings["storage"] | undefined>
+    ) => {
+      state.settings.storage = storage;
+    },
   },
 });
 
@@ -167,6 +156,8 @@ export const {
   controlsStartOrResume,
   controlsStop,
   controlsStep,
+  updateJumpHeight,
+  updateStorage,
 } = rootSlice.actions;
 
 export default rootSlice.reducer;

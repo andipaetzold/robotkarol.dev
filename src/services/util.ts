@@ -5,20 +5,20 @@ export function isEqualPosition(a: Position, b: Position): boolean {
   return a.x === b.x && a.y === b.y;
 }
 
-export function getPositionInFront(world: World, count = 1): Position {
+export function getPositionInFront(world: World): Position {
   const position = { x: world.player.x, y: world.player.y };
   switch (world.player.direction) {
     case "north":
-      position.y -= count;
+      --position.y;
       break;
     case "west":
-      position.x -= count;
+      --position.x;
       break;
     case "south":
-      position.y += count;
+      ++position.y;
       break;
     case "east":
-      position.x += count;
+      ++position.x;
       break;
   }
   return position;

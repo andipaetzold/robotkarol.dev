@@ -11,6 +11,11 @@ export const DEFAULT_STATE: RootState = {
     worldOnStart: undefined,
     activeLine: undefined,
     speed: "slow",
+    storage: undefined,
   },
   world: DEFAULT_WORLD,
+  settings: {
+    jumpHeight: undefined,
+    storage: undefined,
+  },
 };

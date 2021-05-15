@@ -1,6 +1,9 @@
 import {
+  hasBricks,
   isBrick,
   isEast,
+  isEmpty,
+  isFull,
   isMarker,
   isNorth,
   isSouth,
@@ -30,7 +33,7 @@ export function executionStep(state: RootState): void {
 
       switch (statement.type) {
         case "call": {
-          state.world = doCall(statement, state.world);
+          doCall(statement, state);
           break;
         }
         case "systemCall": {
@@ -177,20 +180,15 @@ export function evaluateTest(
         case "IS_WEST":
           return isSouth(state.world);
         case "IS_FULL":
-          // TODO IS_FULL
-          throw new Error("IS_FULL is not implemented yet");
+          return isFull(state);
         case "NOT_IS_FULL":
-          // TODO NOT_IS_FULL
-          throw new Error("NOT_IS_FULL is not implemented yet");
+          return !isFull(state);
         case "IS_EMPTY":
-          // TODO IS_EMPTY
-          throw new Error("IS_EMPTY is not implemented yet");
+          return isEmpty(state);
         case "NOT_IS_EMPTY":
-          // TODO NOT_IS_EMPTY
-          throw new Error("NOT_IS_EMPTY is not implemented yet");
+          return !isEmpty(state);
         case "HAS_BRICKS":
-          // TODO HAS_BRICKS
-          throw new Error("HAS_BRICKS is not implemented yet");
+          return hasBricks(state);
         case "CONDITION_RETURN_VALUE":
           if (state.execution.stack[0].conditionReturnValue === undefined) {
             throw new Error("TODO");

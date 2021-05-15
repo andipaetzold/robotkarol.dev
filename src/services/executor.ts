@@ -1,33 +1,34 @@
-import { World } from "../types";
-import {
-  pickUpBrick,
-  putBrick,
-  removeMarker,
-  setMarker,
-  step,
-  turnLeft,
-  turnRight,
-} from "./actions";
+import { removeMarker, setMarker, step, turnLeft, turnRight } from "./actions";
 import { ASTCall } from "./parser/types";
+import { pickUpBrick } from "./store/reducers/pickUpBrick";
+import { putBrick } from "./store/reducers/putBrick";
+import { RootState } from "./store/types";
 
-export function doCall(statement: ASTCall, world: World): World {
+export function doCall(statement: ASTCall, state: RootState): void {
   switch (statement.action) {
     case "STEP":
-      return step(world);
+      state.world = step(state.world, state.settings);
+      break;
     case "TURN_LEFT":
-      return turnLeft(world);
+      state.world = turnLeft(state.world);
+      break;
     case "TURN_RIGHT":
-      return turnRight(world);
+      state.world = turnRight(state.world);
+      break;
     case "MARKER_SET":
-      return setMarker(world);
+      state.world = setMarker(state.world);
+      break;
     case "MARKER_REMOVE":
-      return removeMarker(world);
+      state.world = removeMarker(state.world);
+      break;
     case "BRICK_PUT":
-      return putBrick(world);
+      putBrick(state);
+      break;
     case "BRICK_TAKE":
-      return pickUpBrick(world);
+      pickUpBrick(state);
+      break;
     case "SOUND":
       // TODO: implement sound
-      return world;
+      break;
   }
 }

@@ -14,8 +14,13 @@ export interface RootState {
     worldOnStart?: World;
     activeLine?: number;
     speed: "slow" | "fast";
+    storage?: {
+      current: number;
+      size: number;
+    };
   };
   world: World;
+  settings: Settings;
 }
 
 export interface StackFrame {
@@ -25,4 +30,12 @@ export interface StackFrame {
    */
   conditionReturnValue?: boolean;
   statements: ASTStatement[];
+}
+
+export interface Settings {
+  jumpHeight?: number;
+  storage?: {
+    start: number;
+    size: number;
+  };
 }

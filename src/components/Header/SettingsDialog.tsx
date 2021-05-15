@@ -9,7 +9,7 @@ import {
 import { TextField, useNumberField } from "@react-md/form";
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../../services/store";
-import { resize } from "../../services/store/root";
+import { resize, updateJumpHeight } from "../../services/store/root";
 import styles from "./SettingsDialog.module.scss";
 
 interface Props {
@@ -18,6 +18,8 @@ interface Props {
 }
 export function SettingsDialog({ visible, onClose }: Props) {
   const world = useAppSelector((s) => s.world);
+  const settings = useAppSelector((s) => s.settings);
+
   const dispatch = useAppDispatch();
   const [width, widthProps, { reset: resetWidth }] = useNumberField({
     id: "settings-dialog-width",
@@ -36,6 +38,15 @@ export function SettingsDialog({ visible, onClose }: Props) {
     max: 10,
   });
 
+  const [jumpHeight, jumpHeightProps, { reset: resetJumpHeight }] =
+    useNumberField({
+      id: "settings-dialog-jump-height",
+      defaultValue: settings.jumpHeight,
+      min: 0,
+      max: 10,
+      required: false,
+    });
+
   const handleSave = () => {
     dispatch(
       resize({
@@ -44,6 +55,7 @@ export function SettingsDialog({ visible, onClose }: Props) {
         height,
       })
     );
+    dispatch(updateJumpHeight(jumpHeight));
 
     onClose();
   };
@@ -52,6 +64,7 @@ export function SettingsDialog({ visible, onClose }: Props) {
     resetWidth();
     resetDepth();
     resetHeight();
+    resetJumpHeight();
     onClose();
   };
 
@@ -69,6 +82,7 @@ export function SettingsDialog({ visible, onClose }: Props) {
         <TextField label="Width" name="width" required {...widthProps} />
         <TextField label="Depth" name="depth" required {...depthProps} />
         <TextField label="Height" name="height" required {...heightProps} />
+        <TextField label="Jump Height" name="jumpHeight" {...jumpHeightProps} />
       </DialogContent>
       <DialogFooter>
         <Button id="settings-dialog-save" onClick={handleSave} theme="primary">

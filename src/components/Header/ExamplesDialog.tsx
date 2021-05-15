@@ -12,7 +12,12 @@ import React from "react";
 import { EXAMPLES, getExample } from "../../services/examples";
 import { readWorld } from "../../services/reader";
 import { useAppDispatch } from "../../services/store";
-import { setWorld, updateCode } from "../../services/store/root";
+import {
+  setWorld,
+  updateCode,
+  updateJumpHeight,
+  updateStorage,
+} from "../../services/store/root";
 
 interface Props {
   visible: boolean;
@@ -22,12 +27,17 @@ export function ExamplesDialog({ visible, onClose }: Props) {
   const dispatch = useAppDispatch();
 
   const handleClick = async (name: string) => {
-    const { code, world: worldRaw } = await getExample(name);
+    const { code, world: worldRaw, example } = await getExample(name);
 
     const world = readWorld(worldRaw);
 
     dispatch(updateCode(code));
     dispatch(setWorld(world));
+
+    if (example.settings) {
+      dispatch(updateJumpHeight(example.settings.jumpHeight));
+      dispatch(updateStorage(example.settings.storage));
+    }
 
     onClose();
   };

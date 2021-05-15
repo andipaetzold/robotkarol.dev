@@ -1,4 +1,5 @@
 import { World } from "../types";
+import { RootState } from "./store/types";
 import { getPositionInFront, isEqualPosition } from "./util";
 
 export function isWall(world: World): boolean {
@@ -50,4 +51,28 @@ export function isSouth(world: World): boolean {
 }
 export function isWest(world: World): boolean {
   return world.player.direction === "west";
+}
+
+export function isFull(state: RootState): boolean {
+  if (state.execution.storage === undefined) {
+    throw new Error("Storage must be enabled.");
+  }
+
+  return state.execution.storage.current === state.execution.storage.size;
+}
+
+export function isEmpty(state: RootState): boolean {
+  if (state.execution.storage === undefined) {
+    throw new Error("Storage must be enabled.");
+  }
+
+  return state.execution.storage.current === 0;
+}
+
+export function hasBricks(state: RootState): boolean {
+  if (state.execution.storage === undefined) {
+    throw new Error("Storage must be enabled.");
+  }
+
+  return state.execution.storage.current > 0;
 }
