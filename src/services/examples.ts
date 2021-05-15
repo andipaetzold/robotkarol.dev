@@ -420,8 +420,8 @@ export const EXAMPLES: Example[] = [
   },
   {
     name: "Schachbrett 2",
-    code: "schachbrett.kdp",
-    world: "schachbrett.kdw",
+    code: "schachbrett2.kdp",
+    world: "schachbrett2.kdw",
     author: "David Thiesbrummel",
   },
   {
