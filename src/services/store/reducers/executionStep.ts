@@ -103,8 +103,7 @@ export function executionStep(state: RootState): void {
           break;
         }
         case "doUntil": {
-          currentFrame.statements.unshift(...statement.body);
-          currentFrame.statements.unshift({
+          currentFrame.statements.unshift(...statement.body, {
             type: "while",
             line: statement.line,
             test: {
@@ -117,8 +116,7 @@ export function executionStep(state: RootState): void {
           break;
         }
         case "doWhile": {
-          currentFrame.statements.unshift(...statement.body);
-          currentFrame.statements.unshift({
+          currentFrame.statements.unshift(...statement.body, {
             type: "while",
             line: statement.line,
             test: statement.test,
