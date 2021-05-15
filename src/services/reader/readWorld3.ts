@@ -18,8 +18,7 @@ export function readWorld3(data: string[]): World {
     let x = 0;
     let y = 0;
 
-    // data ends with 1-indexed x, 1-index y, direction (N, O, S, W)
-    const tileData = data.slice(7, -3);
+    const tileData = data.slice(7, 7 + width * depth * (height + 1));
 
     let tile: Tile = { x, y, bricks: 0, marked: false, cuboid: false };
     for (const v of tileData) {
