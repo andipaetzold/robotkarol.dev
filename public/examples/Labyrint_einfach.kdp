@@ -54,7 +54,7 @@ Programm
   *wiederhole
   { jetzt geht es los bis zur Marke }
   wiederhole solange NichtIstMarke
-    { eine �ffnung links suchen  }
+    { eine Öffnung links suchen  }
     wiederhole solange IstLinksZiegelundFrei
       Schritt
     *wiederhole
