@@ -34,7 +34,9 @@ export type ASTStatement =
   | ASTSystemCall
   | ASTFunctionCall
   | ASTRepeatStatement
-  | ASTWhileStatement;
+  | ASTWhileStatement
+  | ASTDoWhileStatement
+  | ASTDoUntilStatement;
 
 export interface ASTCall extends BaseASTObject {
   type: "call";
@@ -55,6 +57,24 @@ export interface ASTFunctionCall extends BaseASTObject {
 export interface ASTRepeatStatement extends BaseASTObject {
   type: "repeat";
   times: number;
+  body: ASTStatements;
+}
+
+export interface ASTRepeatStatement extends BaseASTObject {
+  type: "repeat";
+  times: number;
+  body: ASTStatements;
+}
+
+export interface ASTDoWhileStatement extends BaseASTObject {
+  type: "doWhile";
+  test: ASTTest;
+  body: ASTStatements;
+}
+
+export interface ASTDoUntilStatement extends BaseASTObject {
+  type: "doUntil";
+  test: ASTTest;
   body: ASTStatements;
 }
 

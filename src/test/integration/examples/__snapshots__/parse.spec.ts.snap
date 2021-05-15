@@ -12185,6 +12185,181 @@ Object {
 }
 `;
 
+exports[`Aufraeumen 1`] = `
+Object {
+  "conditions": Array [],
+  "functions": Array [
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "BRICK_TAKE",
+              "line": 11,
+              "type": "call",
+            },
+          ],
+          "line": 12,
+          "test": Object {
+            "line": 12,
+            "state": "NOT_IS_BRICK",
+            "type": "state",
+          },
+          "type": "doUntil",
+        },
+      ],
+      "identifier": "turmeinsammeln",
+      "line": 13,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "action": "STEP",
+              "line": 17,
+              "type": "call",
+            },
+          ],
+          "elseBody": Array [
+            Object {
+              "line": 19,
+              "name": "turmeinsammeln",
+              "type": "functionCall",
+            },
+            Object {
+              "action": "STEP",
+              "line": 20,
+              "type": "call",
+            },
+          ],
+          "line": 21,
+          "test": Object {
+            "line": 16,
+            "test": Object {
+              "line": 16,
+              "state": "IS_BRICK",
+              "type": "state",
+            },
+            "type": "not",
+          },
+          "type": "if",
+        },
+      ],
+      "identifier": "sammelschritt",
+      "line": 22,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "line": 26,
+              "name": "sammelschritt",
+              "type": "functionCall",
+            },
+          ],
+          "line": 27,
+          "test": Object {
+            "line": 25,
+            "state": "NOT_IS_WALL",
+            "type": "state",
+          },
+          "type": "while",
+        },
+      ],
+      "identifier": "sammelreihe",
+      "line": 28,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_LEFT",
+          "line": 31,
+          "type": "call",
+        },
+        Object {
+          "line": 32,
+          "name": "sammelschritt",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "TURN_LEFT",
+          "line": 33,
+          "type": "call",
+        },
+      ],
+      "identifier": "linksherum",
+      "line": 34,
+      "type": "function",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 37,
+          "type": "call",
+        },
+        Object {
+          "line": 38,
+          "name": "sammelschritt",
+          "type": "functionCall",
+        },
+        Object {
+          "action": "TURN_RIGHT",
+          "line": 39,
+          "type": "call",
+        },
+      ],
+      "identifier": "rechtsherum",
+      "line": 40,
+      "type": "function",
+    },
+  ],
+  "program": Object {
+    "body": Array [
+      Object {
+        "body": Array [
+          Object {
+            "line": 45,
+            "name": "sammelreihe",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 46,
+            "name": "linksherum",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 47,
+            "name": "sammelreihe",
+            "type": "functionCall",
+          },
+          Object {
+            "line": 48,
+            "name": "rechtsherum",
+            "type": "functionCall",
+          },
+        ],
+        "line": 49,
+        "test": Object {
+          "line": 44,
+          "state": "NOT_IS_WALL",
+          "type": "state",
+        },
+        "type": "while",
+      },
+    ],
+    "line": 50,
+    "type": "program",
+  },
+  "type": "ast",
+}
+`;
+
 exports[`Auslegen 1`] = `
 Object {
   "conditions": Array [],

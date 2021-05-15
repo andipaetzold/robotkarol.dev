@@ -56,6 +56,10 @@ function getFunctionCalls(statement: ASTStatement): ASTFunctionCall[] {
     case "repeat":
     case "while":
       return statement.body.flatMap((s) => getFunctionCalls(s));
+    case "doUntil":
+      return statement.body.flatMap((s) => getFunctionCalls(s));
+    case "doWhile":
+      return statement.body.flatMap((s) => getFunctionCalls(s));
     case "call":
       return [];
   }

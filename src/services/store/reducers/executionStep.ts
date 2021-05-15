@@ -102,6 +102,29 @@ export function executionStep(state: RootState): void {
           });
           break;
         }
+        case "doUntil": {
+          currentFrame.statements.unshift(...statement.body);
+          currentFrame.statements.unshift({
+            type: "while",
+            line: statement.line,
+            test: {
+              type: "not",
+              line: statement.test.line,
+              test: statement.test,
+            },
+            body: statement.body,
+          });
+          break;
+        }
+        case "doWhile": {
+          currentFrame.statements.unshift(...statement.body);
+          currentFrame.statements.unshift({
+            type: "while",
+            line: statement.line,
+            test: statement.test,
+            body: statement.body,
+          });
+        }
       }
 
       while (

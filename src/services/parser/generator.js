@@ -41,6 +41,7 @@ const grammar = {
       ["solange\\b", "return 'WHILE'"],
       ["(\\*solange|endesolange)\\b", "return 'WHILE_END'"],
       ["mal\\b", "return 'TIMES'"],
+      ["bis\\b", "return 'UNTIL'"],
 
       ["wenn\\b", "return 'IF'"],
       ["dann\\b", "return 'THEN'"],
@@ -168,6 +169,15 @@ const grammar = {
         "REPEAT_BEGIN WHILE test statements REPEAT_END",
         "$$ = { type: 'while', line: yylineno, test: $3, body: $4 }",
       ],
+      [
+        "REPEAT_BEGIN statements REPEAT_END UNTIL test",
+        "$$ = { type: 'doUntil', line: yylineno, test: $5, body: $2 }",
+      ],
+      [
+        "REPEAT_BEGIN statements REPEAT_END WHILE test",
+        "$$ = { type: 'doWhile', line: yylineno, test: $5, body: $2 }",
+      ],
+
       [
         "WHILE test statements WHILE_END",
         "$$ = { type: 'while', line: yylineno, test: $3, body: $4 }",
