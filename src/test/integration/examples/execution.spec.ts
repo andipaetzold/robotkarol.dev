@@ -10,6 +10,7 @@ import { RootState } from "../../../services/store/types";
 EXAMPLES.filter((e) => e.code)
   .filter((e) => e.world)
   .filter((e) => e.name !== "09 Schachbrett") // this example intentionally fails
+  .filter((e) => e.name !== "Sortieren") // ignore examples with Einfügen
   .forEach((example) => {
     it(`${example.name}`, () => {
       const worldRaw = readFileSync(
