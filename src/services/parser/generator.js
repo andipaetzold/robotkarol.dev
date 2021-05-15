@@ -11,6 +11,7 @@ const grammar = {
 
       ["\\{[^\\}]*\\}", "/* skip multiline comments */"],
       ["\\/\\/[^\\n]*", "/* skip single line comments */"],
+      [";", "/* skip semicolon */"],
 
       ["programm\\b", "return 'PROGRAM_BEGIN'"],
       ["(\\*programm|endeprogramm)\\b", "return 'PROGRAM_END'"],
