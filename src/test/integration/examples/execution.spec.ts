@@ -11,6 +11,20 @@ EXAMPLES.filter((e) => e.code)
   .filter((e) => e.world)
   .filter((e) => e.name !== "09 Schachbrett") // this example intentionally fails
   .filter((e) => e.name !== "Sortieren") // ignore examples with Einfügen
+  .filter(
+    (e) =>
+      // examples with infinite loops
+      ![
+        "Festung",
+        "Slalom",
+        "Wächter 1",
+        "Wächter 2",
+        "Wächter 3",
+        "Wächter 4",
+        "Wächter 5",
+        "Wächter 6",
+      ].includes(e.name)
+  )
   .forEach((example) => {
     it(`${example.name}`, () => {
       const worldRaw = readFileSync(

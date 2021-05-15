@@ -1893,17 +1893,179 @@ Object {
 }
 `;
 
-exports[`Aufgabe 1 1`] = `
+exports[`Aufraeumen 1`] = `
 Object {
-  "depth": 20,
+  "depth": 10,
   "height": 6,
   "player": Object {
     "direction": "south",
     "x": 0,
     "y": 0,
   },
-  "tiles": Array [],
-  "width": 7,
+  "tiles": Array [
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 1,
+      "y": 1,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 1,
+      "y": 2,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 1,
+      "y": 3,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 1,
+      "y": 5,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 1,
+      "y": 6,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 1,
+      "y": 7,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 2,
+      "y": 1,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 2,
+      "y": 7,
+    },
+    Object {
+      "bricks": 3,
+      "cuboid": false,
+      "marked": false,
+      "x": 3,
+      "y": 1,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 3,
+      "y": 7,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 4,
+      "y": 1,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 4,
+      "y": 7,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 5,
+      "y": 1,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 5,
+      "y": 7,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 7,
+      "y": 1,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 7,
+      "y": 7,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 8,
+      "y": 1,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 8,
+      "y": 2,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 8,
+      "y": 3,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 8,
+      "y": 4,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 8,
+      "y": 5,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 8,
+      "y": 6,
+    },
+    Object {
+      "bricks": 1,
+      "cuboid": false,
+      "marked": false,
+      "x": 8,
+      "y": 7,
+    },
+  ],
+  "width": 10,
 }
 `;
 
@@ -1922,20 +2084,6 @@ Object {
 `;
 
 exports[`Burg 1`] = `
-Object {
-  "depth": 9,
-  "height": 10,
-  "player": Object {
-    "direction": "south",
-    "x": 0,
-    "y": 0,
-  },
-  "tiles": Array [],
-  "width": 7,
-}
-`;
-
-exports[`Burg 2`] = `
 Object {
   "depth": 9,
   "height": 10,
