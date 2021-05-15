@@ -160,9 +160,9 @@ export function evaluateTest(
     case "state": {
       switch (test.state) {
         case "IS_BRICK":
-          return isBrick(state.world);
+          return isBrick(state.world, test.param);
         case "NOT_IS_BRICK":
-          return !isBrick(state.world);
+          return !isBrick(state.world, test.param);
         case "IS_MARKER":
           return isMarker(state.world);
         case "NOT_IS_MARKER":

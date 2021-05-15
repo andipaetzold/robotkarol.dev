@@ -81,6 +81,7 @@ export interface ASTTestState {
   type: "state";
   line: number;
   state: State;
+  param?: number;
 }
 
 export interface ASTConditionCall {

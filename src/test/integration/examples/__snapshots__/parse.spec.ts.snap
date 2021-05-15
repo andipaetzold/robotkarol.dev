@@ -185,7 +185,7 @@ Object {
         "line": 9,
         "test": Object {
           "line": 5,
-          "params": 2,
+          "param": 2,
           "state": "IS_BRICK",
           "type": "state",
         },
@@ -1518,7 +1518,7 @@ Object {
           "line": 41,
           "test": Object {
             "line": 38,
-            "params": 10,
+            "param": 10,
             "state": "IS_BRICK",
             "type": "state",
           },
@@ -1829,7 +1829,7 @@ Object {
               "line": 74,
               "test": Object {
                 "line": 72,
-                "params": 1,
+                "param": 1,
                 "state": "IS_BRICK",
                 "type": "state",
               },
@@ -1945,7 +1945,7 @@ Object {
                       "line": 102,
                       "test": Object {
                         "line": 100,
-                        "params": 1,
+                        "param": 1,
                         "state": "NOT_IS_BRICK",
                         "type": "state",
                       },

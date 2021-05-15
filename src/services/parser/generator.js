@@ -252,7 +252,7 @@ function createState(name, param = false) {
   if (param) {
     alternatives.push([
       `${name} ( NUMBER )`,
-      `$$ = { type: 'state', line: yylineno, state: '${name}', params: +$3 }`,
+      `$$ = { type: 'state', line: yylineno, state: '${name}', param: +$3 }`,
     ]);
   }
 
