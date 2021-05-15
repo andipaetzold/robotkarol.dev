@@ -3,16 +3,29 @@ import { RootState } from "./store/types";
 import { getPositionInFront, isEqualPosition } from "./util";
 
 export function isWall(world: World): boolean {
+  let isWorldWall = false;
   switch (world.player.direction) {
     case "north":
-      return world.player.y === 0;
+      isWorldWall = world.player.y === 0;
+      break;
     case "west":
-      return world.player.x === 0;
+      isWorldWall = world.player.x === 0;
+      break;
     case "south":
-      return world.player.y === world.depth - 1;
+      isWorldWall = world.player.y === world.depth - 1;
+      break;
     case "east":
-      return world.player.x === world.width - 1;
+      isWorldWall = world.player.x === world.width - 1;
+      break;
   }
+
+  const positionInFromt = getPositionInFront(world);
+  const tileInFront = world.tiles.find((t) =>
+    isEqualPosition(t, positionInFromt)
+  );
+  const isCuboidInFront = tileInFront?.cuboid ?? false;
+
+  return isWorldWall || isCuboidInFront;
 }
 
 export function isMarker(world: World): boolean {
