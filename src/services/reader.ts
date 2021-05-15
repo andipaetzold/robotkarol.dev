@@ -113,12 +113,12 @@ export function readWorld2(data: string[]): World {
         case "o":
           tile.marked = v === "m";
 
-          ++x;
+          ++y;
           world.tiles.push(tile);
 
-          if (x >= width) {
-            x = 0;
-            ++y;
+          if (y >= depth) {
+            y = 0;
+            ++x;
           }
           tile = { x, y, bricks: 0, marked: false, cuboid: false };
           break;
