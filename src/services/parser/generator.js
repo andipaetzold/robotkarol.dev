@@ -74,7 +74,7 @@ const grammar = {
       ["\\(", "return '('"],
       ["\\)", "return ')'"],
 
-      ["[0-9]+(?:\\.[0-9]+)?", "return 'NUMBER'"],
+      ["[0-9]+", "return 'NUMBER'"],
       ["[a-z0-9_\\-äöüß]+\\b", "return 'IDENTIFIER'"],
     ],
   },
