@@ -14,7 +14,7 @@ class CustomHighlightRules extends TextHighlightRules {
       {
         token: "comment.start",
         regex: /\{(?!\})/,
-        push: "blockComment",
+        next: "blockComment",
       },
       {
         regex: "(programm|endeprogramm|\\*programm)(\\s+|$)",
@@ -116,26 +116,13 @@ class CustomHighlightRules extends TextHighlightRules {
           "text",
         ],
       },
-      {
-        regex: "(identifier)(;?)",
-        token: ["variable.other", "keyword.other"],
-      },
+      { regex: "(identifier)(;?)", token: ["variable.other", "keyword.other"] },
       { caseInsensitive: true, defaultToken: "text" },
     ],
     blockComment: [
-      {
-        regex: /\((?!\})/,
-        token: "comment.start",
-        push: "blockComment",
-      },
-      {
-        regex: /\}/,
-        token: "comment.end",
-        next: "pop",
-      },
-      {
-        defaultToken: "comment",
-      },
+      { regex: /\((?!\})/, token: "comment.start", push: "blockComment" },
+      { regex: /\}/, token: "comment.end", next: "pop" },
+      { defaultToken: "comment" },
     ],
   };
 }
