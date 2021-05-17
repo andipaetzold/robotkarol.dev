@@ -17,7 +17,7 @@ class CustomHighlightRules extends TextHighlightRules {
         next: "blockComment",
       },
       {
-        regex: "(programm|endeprogramm|\\*programm)(\\s+|$)",
+        regex: /(programm|endeprogramm|\*programm)(\s+|$)/,
         token: ["keyword", "text"],
       },
       {
@@ -29,7 +29,7 @@ class CustomHighlightRules extends TextHighlightRules {
         token: ["keyword", "text", "entity.name.function", "text"],
       },
       {
-        regex: /(wiederhole)(\s+)([0-9]+)(\s+)(mal)(\\s+|$)/,
+        regex: /(wiederhole)(\s+)([0-9]+)(\s+)(mal)(\s+|$)/,
         token: [
           "keyword",
           "text",
@@ -65,7 +65,7 @@ class CustomHighlightRules extends TextHighlightRules {
       },
       {
         regex:
-          /(wiederhole|solange|bis|endewiederhole|mal|\\*wiederhole|\\*solange)(\\s+|$)/,
+          /(wiederhole|solange|bis|endewiederhole|mal|\*wiederhole|\*solange)(\s+|$)/,
         token: ["keyword", "text"],
       },
       {
@@ -82,11 +82,11 @@ class CustomHighlightRules extends TextHighlightRules {
         ],
       },
       {
-        regex: /(wenn|dann|sonst|\\*wenn|endewenn)(\\s+|$)/,
+        regex: /(wenn|dann|sonst|\*wenn|endewenn)(\s+|$)/,
         token: ["keyword", "text"],
       },
       {
-        regex: /((ende|\\*)(anweisung|methode|bedingung))(\\s+|$)/,
+        regex: /((ende|\*)(anweisung|methode|bedingung))(\s+|$)/,
         token: ["keyword", "keyword", "keyword", "text"],
       },
       {
@@ -95,11 +95,11 @@ class CustomHighlightRules extends TextHighlightRules {
         token: ["support.function", "keyword.other", "text"],
       },
       {
-        regex: /(schnell|langsam|wahr|falsch)(;?)(\\s+|$)/,
+        regex: /(schnell|langsam|wahr|falsch)(;?)(\s+|$)/,
         token: ["keyword", "keyword.other", "text"],
       },
       {
-        regex: /(schritt|hinlegen|aufheben|warten)(\()(\d+)(\))(\\s+|$)/,
+        regex: /(schritt|hinlegen|aufheben|warten)(\()(\d+)(\))(\s+|$)/,
         token: [
           "support.function",
           "paren.lparen",
