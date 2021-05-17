@@ -121,7 +121,7 @@ class CustomHighlightRules extends TextHighlightRules {
     ],
     blockComment: [
       { regex: /\((?!\})/, token: "comment.start", push: "blockComment" },
-      { regex: /\}/, token: "comment.end", next: "pop" },
+      { regex: /\}/, token: "comment.end", next: "start" },
       { defaultToken: "comment" },
     ],
   };
