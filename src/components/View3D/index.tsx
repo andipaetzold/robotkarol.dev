@@ -106,7 +106,7 @@ export function View3D() {
       }
 
       event.preventDefault();
-      updateCameraZoom(event.deltaY * 0.05, camera);
+      updateCameraZoom(event.deltaY * -0.005, camera);
       render();
     },
     [render, camera]
