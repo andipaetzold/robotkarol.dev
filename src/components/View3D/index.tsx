@@ -1,3 +1,4 @@
+import { ErrorBoundary } from "@sentry/react";
 import React, {
   useCallback,
   useEffect,
@@ -130,13 +131,15 @@ export function View3D() {
   }, []);
 
   return (
-    <div ref={ref} className={styles.Container}>
-      <canvas
-        ref={(ref) => setCanvas(ref)}
-        className={styles.Canvas}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-      />
-    </div>
+    <ErrorBoundary>
+      <div ref={ref} className={styles.Container}>
+        <canvas
+          ref={(ref) => setCanvas(ref)}
+          className={styles.Canvas}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+        />
+      </div>
+    </ErrorBoundary>
   );
 }
