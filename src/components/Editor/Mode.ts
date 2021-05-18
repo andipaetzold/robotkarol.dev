@@ -82,12 +82,12 @@ class CustomHighlightRules extends TextHighlightRules {
         ],
       },
       {
-        regex: /(wenn|dann|sonst|\*wenn|endewenn)(\s+|$)/,
+        regex: /(wenn|dann|sonst|nicht|\*wenn|endewenn)(\s+|$)/,
         token: ["keyword", "text"],
       },
       {
-        regex: /((ende|\*)(anweisung|methode|bedingung))(\s+|$)/,
-        token: ["keyword", "keyword", "keyword", "text"],
+        regex: /((?:ende|\*)(?:anweisung|methode|bedingung))(\s+|$)/,
+        token: ["keyword", "text"],
       },
       {
         regex:
@@ -99,16 +99,20 @@ class CustomHighlightRules extends TextHighlightRules {
         token: ["keyword", "keyword.other", "text"],
       },
       {
-        regex: /(schritt|hinlegen|aufheben|warten)(\()(\d+)(\))(\s+|$)/,
+        regex: /(schritt|hinlegen|aufheben|warten)(\()(\d+)(\))(;?)(\s+|$)/,
         token: [
           "support.function",
           "paren.lparen",
           "constant.numeric",
           "paren.rparen",
+          "keyword.other",
           "text",
         ],
       },
-      { regex: "(identifier)(;?)", token: ["variable.other", "keyword.other"] },
+      {
+        regex: `(${identifier})(;?)`,
+        token: ["variable.other", "keyword.other"],
+      },
       { caseInsensitive: true, defaultToken: "text" },
     ],
     blockComment: [
