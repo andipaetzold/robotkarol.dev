@@ -38,8 +38,8 @@ export function View3D() {
     if (!width || !height) {
       return;
     }
-    return createCamera(world, width, height);
-  }, [world, width, height]);
+    return createCamera({ depth: world.depth }, width, height);
+  }, [world.depth, width, height]);
 
   const scene = useMemo(() => {
     return createScene(world);
