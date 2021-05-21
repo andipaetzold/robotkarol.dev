@@ -44,7 +44,7 @@ export function updateCameraPosition(
   deltaY: number,
   camera: OrthographicCamera
 ) {
-  const newX = camera.position.x + deltaX / CAMERA_PIXEL_RATIO;
-  const newY = camera.position.y + deltaY / CAMERA_PIXEL_RATIO;
+  const newX = camera.position.x + deltaX / CAMERA_PIXEL_RATIO / camera.zoom;
+  const newY = camera.position.y + deltaY / CAMERA_PIXEL_RATIO / camera.zoom;
   camera.position.set(newX, newY, camera.position.z);
 }
