@@ -4,7 +4,7 @@ import { createTiles } from "./tiles";
 import { createGrid } from "./grid";
 import { createPlayer } from "./player";
 
-export function createScene(world: World): Scene {
+export function createScene(world: World, perspective: "3d" | "2d"): Scene {
   const scene = new Scene();
 
   scene.add(new AmbientLight());
@@ -14,7 +14,7 @@ export function createScene(world: World): Scene {
   scene.add(directionalLight);
 
   scene.add(createGrid(world));
-  scene.add(createTiles(world));
+  scene.add(createTiles(world, perspective));
   scene.add(createPlayer(world));
 
   return scene;

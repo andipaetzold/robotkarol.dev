@@ -14,7 +14,11 @@ import { createCamera, updateCameraPosition, updateCameraZoom } from "./camera";
 import styles from "./index.module.scss";
 import { createScene } from "./scene";
 
-export function View3D() {
+interface Props {
+  perspective?: "3d" | "2d";
+}
+
+export function View3D({ perspective = "3d" }: Props) {
   const world = useAppSelector((s) => s.world);
 
   const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
@@ -38,12 +42,17 @@ export function View3D() {
     if (!width || !height) {
       return;
     }
-    return createCamera({ depth: world.depth }, width, height);
-  }, [world.depth, width, height]);
+    return createCamera(
+      { depth: world.depth, height: world.height, width: world.width },
+      width,
+      height,
+      perspective
+    );
+  }, [world.depth, world.height, world.width, width, height, perspective]);
 
   const scene = useMemo(() => {
-    return createScene(world);
-  }, [world]);
+    return createScene(world, perspective);
+  }, [world, perspective]);
 
   const render = useCallback(() => {
     if (!renderer || !camera) {
@@ -75,28 +84,21 @@ export function View3D() {
 
   const handleMouseMove = useCallback(
     (event: React.MouseEvent<HTMLCanvasElement>) => {
-      if (!moveRef.current) {
-        return;
-      }
-
-      if (!camera) {
-        return;
-      }
-
-      if (!canvas) {
+      if (!moveRef.current || !camera || !canvas) {
         return;
       }
 
       updateCameraPosition(
         moveRef.current.x - event.pageX,
-        event.pageY - moveRef.current.y,
-        camera
+        moveRef.current.y - event.pageY,
+        camera,
+        perspective
       );
 
       moveRef.current = { x: event.pageX, y: event.pageY };
       render();
     },
-    [camera, render, canvas]
+    [camera, render, canvas, perspective]
   );
 
   const handleWheel = useCallback(
@@ -106,10 +108,10 @@ export function View3D() {
       }
 
       event.preventDefault();
-      updateCameraZoom(event.deltaY * -0.005, camera);
+      updateCameraZoom(event.deltaY * -0.005, camera, perspective);
       render();
     },
-    [render, camera]
+    [render, camera, perspective]
   );
 
   useEffect(() => {

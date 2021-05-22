@@ -1,19 +1,23 @@
 import {
   BoxGeometry,
+  Font,
   Group,
   Mesh,
   MeshStandardMaterial,
   PlaneGeometry,
+  TextGeometry,
 } from "three";
 import { isEqualPosition } from "../../services/util";
 import { Tile, World } from "../../types";
 import { degreeToRadians } from "../../utils/degreeToRadians";
 import { BRICK_HEIGHT } from "./constants";
+import fontData from "./font.json";
 
 const materialBrick = new MeshStandardMaterial({ color: "green" });
 const materialMarked = new MeshStandardMaterial({ color: "yellow" });
 const materialTile = new MeshStandardMaterial({ color: "white" });
 const materialCuboid = new MeshStandardMaterial({ color: "gray" });
+const materialText = new MeshStandardMaterial({ color: "black" });
 
 const boxMaterials = [
   materialBrick,
@@ -32,7 +36,7 @@ const boxMaterialsMarked = [
   materialBrick,
 ];
 
-export function createTiles(world: World) {
+export function createTiles(world: World, perspective: "3d" | "2d") {
   const group = new Group();
 
   for (let x = 0; x < world.width; ++x) {
@@ -60,6 +64,23 @@ export function createTiles(world: World) {
           tile.y + 0.5
         );
         group.add(mesh);
+
+        if (perspective === "2d") {
+          const textGeometry = new TextGeometry(tile.bricks.toString(), {
+            font: new Font(fontData),
+            height: 0.1,
+            size: 0.6,
+          });
+          textGeometry.center();
+          const textMesh = new Mesh(textGeometry, materialText);
+          textMesh.rotateX(degreeToRadians(-90));
+          textMesh.position.set(
+            tile.x + 0.5,
+            tile.bricks * BRICK_HEIGHT,
+            tile.y + 0.5
+          );
+          group.add(textMesh);
+        }
       } else {
         const geometry = new PlaneGeometry(1, 1);
         const mesh = new Mesh(
