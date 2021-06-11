@@ -21,7 +21,7 @@
     "@react-md/transition": "2.8.4",
     "@react-md/typography": "2.8.4",
     "@react-md/utils": "2.8.4",
-    "@reduxjs/toolkit": "1.5.1",
+    "@reduxjs/toolkit": "1.6.0",
     "@sentry/react": "6.5.0",
     "@sentry/tracing": "6.5.0",
     "@types/gl-matrix": "3.2.0",
