@@ -25,7 +25,7 @@
     "@sentry/react": "6.10.0",
     "@sentry/tracing": "6.10.0",
     "@types/gl-matrix": "3.2.0",
-    "@types/lodash": "4.14.171",
+    "@types/lodash": "4.14.172",
     "@types/node": "14.17.7",
     "@types/react": "17.0.15",
     "@types/react-dom": "17.0.9",
