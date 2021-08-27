@@ -43,7 +43,7 @@
     "react-dropzone": "11.3.4",
     "react-redux": "7.2.4",
     "react-scripts": "4.0.3",
-    "three": "0.131.3",
+    "three": "0.132.2",
     "use-resize-observer": "7.0.1"
   },
   "scripts": {
