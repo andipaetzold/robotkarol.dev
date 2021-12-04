@@ -138,7 +138,7 @@ export function executionStep(state: RootState): void {
 
       return;
     }
-  } catch (e) {
+  } catch (e: any) {
     state.execution.state = "done";
 
     // TODO: handle error
