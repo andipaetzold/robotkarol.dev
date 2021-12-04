@@ -7,7 +7,7 @@ import {
   DialogTitle,
 } from "@react-md/dialog";
 import { List, ListItem } from "@react-md/list";
-import { Text } from "@react-md/typography";
+import { Typography } from "@react-md/typography";
 import React from "react";
 import { EXAMPLES, getExample } from "../../services/examples";
 import { readWorld } from "../../services/reader";
@@ -53,7 +53,7 @@ export function ExamplesDialog({ visible, onClose }: Props) {
         <DialogTitle id="examples-dialog-title">Examples</DialogTitle>
       </DialogHeader>
       <DialogContent>
-        <Text type="body-1" margin="none">
+        <Typography type="body-1" margin="none">
           Examples were created by Ulli Freiberger and are part of the official{" "}
           <a
             href="https://www.mebis.bayern.de/infoportal/empfehlung/robot-karol/"
@@ -62,7 +62,7 @@ export function ExamplesDialog({ visible, onClose }: Props) {
             Robot Karol Application
           </a>
           .
-        </Text>
+        </Typography>
 
         <List>
           {EXAMPLES.map((example) => (
