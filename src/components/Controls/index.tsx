@@ -38,7 +38,7 @@ export function Controls() {
 
     try {
       dispatch(controlsStep());
-    } catch (e) {
+    } catch (e: any) {
       addMessage({ children: e.message });
     }
   };
@@ -58,7 +58,7 @@ export function Controls() {
 
     try {
       dispatch(executionStep());
-    } catch (e) {
+    } catch (e: any) {
       addMessage({ children: e.message });
     }
   }, 100);

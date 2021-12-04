@@ -57,7 +57,7 @@ export const rootSlice = createSlice({
       let ast;
       try {
         ast = parse(state.code);
-      } catch (e) {
+      } catch (e: any) {
         if (e instanceof ParseError) {
           state.error = { message: e.message, data: e.data };
         } else {
