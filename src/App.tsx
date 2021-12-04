@@ -1,5 +1,5 @@
 import { Overlay } from "@react-md/overlay";
-import { Text } from "@react-md/typography";
+import { Typography } from "@react-md/typography";
 import noop from "lodash/noop";
 import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
@@ -44,7 +44,9 @@ export function App() {
         onRequestClose={noop}
         className={styles.DropzoneOverlay}
       >
-        <Text type="headline-3">Drop file to load code or world</Text>
+        <Typography type="headline-3">
+          Drop file to load code or world
+        </Typography>
       </Overlay>
       <div className={styles.Grid}>
         <div className={styles.AppHeader}>
