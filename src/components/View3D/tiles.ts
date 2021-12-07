@@ -1,12 +1,11 @@
 import {
   BoxGeometry,
-  Font,
   Group,
   Mesh,
   MeshStandardMaterial,
   PlaneGeometry,
-  TextGeometry,
 } from "three";
+import { Font, TextGeometry } from "../../services/three";
 import { isEqualPosition } from "../../services/util";
 import { Tile, World } from "../../types";
 import { degreeToRadians } from "../../utils/degreeToRadians";
