@@ -1,10 +1,10 @@
 import { useAddMessage } from "@react-md/alert";
 import { Button } from "@react-md/button";
 import {
-  PauseFontIcon,
-  PlayArrowFontIcon,
-  SkipNextFontIcon,
-  StopFontIcon,
+  PauseSVGIcon,
+  PlayArrowSVGIcon,
+  SkipNextSVGIcon,
+  StopSVGIcon,
 } from "@react-md/material-icons";
 import { useDispatch } from "react-redux";
 import { useInterval } from "../../hooks/useInterval";
@@ -73,7 +73,7 @@ export function Controls() {
           !(execution.state === "paused" || execution.state === "stopped")
         }
       >
-        <PlayArrowFontIcon />
+        <PlayArrowSVGIcon />
       </Button>
       <Button
         theme="clear"
@@ -83,7 +83,7 @@ export function Controls() {
           !(execution.state === "paused" || execution.state === "stopped")
         }
       >
-        <SkipNextFontIcon />
+        <SkipNextSVGIcon />
       </Button>
       <Button
         theme="clear"
@@ -91,7 +91,7 @@ export function Controls() {
         buttonType="icon"
         disabled={!(execution.state === "running")}
       >
-        <PauseFontIcon />
+        <PauseSVGIcon />
       </Button>
       <Button
         theme="clear"
@@ -105,7 +105,7 @@ export function Controls() {
           )
         }
       >
-        <StopFontIcon />
+        <StopSVGIcon />
       </Button>
     </>
   );
