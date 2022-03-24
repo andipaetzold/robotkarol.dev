@@ -4,7 +4,7 @@
 
 # Robot Karol
 
-https://andipaetzold.github.io/robotkarol
+https://robotkarol.dev
 
 
 ## Development
