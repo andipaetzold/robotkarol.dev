@@ -1,4 +1,4 @@
-import { groupBy } from "lodash";
+import { groupBy } from "lodash-es";
 import { ParseError, ParseErrorData } from "./ParseError";
 import { Parser } from "./parser";
 import { AST, ASTFunctionCall, ASTStatement } from "./types";

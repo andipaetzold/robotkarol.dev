@@ -1,5 +1,5 @@
 import { readFileSync } from "fs";
-import { cloneDeep } from "lodash";
+import { cloneDeep } from "lodash-es";
 import path from "path";
 import { expect, it } from "vitest";
 import { EXAMPLES } from "../../../services/examples";

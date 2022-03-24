@@ -1,4 +1,4 @@
-import { cloneDeep } from "lodash";
+import { cloneDeep } from "lodash-es";
 import { Tile, World } from "../types";
 
 export function removeEmptyTiles(worldOrg: World): World {

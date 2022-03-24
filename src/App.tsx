@@ -1,6 +1,6 @@
 import { Overlay } from "@react-md/overlay";
 import { Typography } from "@react-md/typography";
-import noop from "lodash/noop";
+import { noop } from "lodash-es";
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { useDispatch } from "react-redux";

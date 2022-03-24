@@ -1,4 +1,4 @@
-import { cloneDeep } from "lodash";
+import { cloneDeep } from "lodash-es";
 import { Position, Tile, World } from "../types";
 
 export function isEqualPosition(a: Position, b: Position): boolean {
