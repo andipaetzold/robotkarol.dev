@@ -19,9 +19,12 @@ jobs:
       - name: Test
         run: npm test
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.2.5
-        with:
-          branch: gh-pages
-          folder: build
-          clean: true
-          dry-run: ${{ github.ref != 'refs/heads/main' }}
+        run: |
+          if [[ ${{ github.ref }} == "refs/heads/main" ]]; then
+            npm run deploy -- --prod
+          else
+            npm run deploy
+          fi
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
