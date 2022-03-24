@@ -7,7 +7,6 @@ import {
   DialogTitle,
 } from "@react-md/dialog";
 import { TextField, useNumberField } from "@react-md/form";
-import React from "react";
 import { useAppDispatch, useAppSelector } from "../../services/store";
 import { resize, updateJumpHeight } from "../../services/store/root";
 import styles from "./SettingsDialog.module.scss";

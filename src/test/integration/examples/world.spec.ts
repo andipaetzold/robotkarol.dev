@@ -1,5 +1,6 @@
 import { readFileSync } from "fs";
 import path from "path";
+import { expect, it } from "vitest";
 import { EXAMPLES } from "../../../services/examples";
 import { readWorld } from "../../../services/reader";
 

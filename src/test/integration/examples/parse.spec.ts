@@ -2,6 +2,7 @@ import { readFileSync } from "fs";
 import path from "path";
 import { EXAMPLES } from "../../../services/examples";
 import { parse } from "../../../services/parser";
+import { it, expect } from "vitest";
 
 EXAMPLES.filter((e) => e.code)
   .filter((e) => e.name !== "Sortieren")

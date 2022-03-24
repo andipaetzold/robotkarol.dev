@@ -1,6 +1,6 @@
 import { AppBar, AppBarAction, AppBarTitle } from "@react-md/app-bar";
 import { FolderSVGIcon, SettingsSVGIcon } from "@react-md/material-icons";
-import React, { useState } from "react";
+import { useState } from "react";
 import { ExamplesDialog } from "./ExamplesDialog";
 import { SettingsDialog } from "./SettingsDialog";
 

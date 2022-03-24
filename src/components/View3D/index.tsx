@@ -1,11 +1,5 @@
 import { ErrorBoundary } from "@sentry/react";
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { WebGLRenderer } from "three";
 import useResizeObserver from "use-resize-observer";
 import { useAppSelector } from "../../services/store";

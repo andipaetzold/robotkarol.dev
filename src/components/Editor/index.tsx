@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/theme-github";
 import { useDispatch } from "react-redux";

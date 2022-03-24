@@ -1,6 +1,7 @@
 import { readFileSync } from "fs";
 import { cloneDeep } from "lodash";
 import path from "path";
+import { expect, it } from "vitest";
 import { EXAMPLES } from "../../../services/examples";
 import { parse } from "../../../services/parser";
 import { readWorld } from "../../../services/reader";

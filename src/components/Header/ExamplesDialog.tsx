@@ -8,7 +8,6 @@ import {
 } from "@react-md/dialog";
 import { List, ListItem } from "@react-md/list";
 import { Typography } from "@react-md/typography";
-import React from "react";
 import { EXAMPLES, getExample } from "../../services/examples";
 import { readWorld } from "../../services/reader";
 import { useAppDispatch } from "../../services/store";

@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { World } from "../types";
 import { removeEmptyTiles } from "./world";
 
@@ -22,15 +23,15 @@ describe("removeEmptyTiles", () => {
     const cleanedWorld = removeEmptyTiles(world);
     expect(cleanedWorld.tiles).toHaveLength(2);
     expect(cleanedWorld.tiles).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "bricks": 0,
           "cuboid": false,
           "marked": true,
           "x": 0,
           "y": 0,
         },
-        Object {
+        {
           "bricks": 0,
           "cuboid": false,
           "marked": true,
@@ -54,15 +55,15 @@ describe("removeEmptyTiles", () => {
     const cleanedWorld = removeEmptyTiles(world);
     expect(cleanedWorld.tiles).toHaveLength(2);
     expect(cleanedWorld.tiles).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "bricks": 3,
           "cuboid": false,
           "marked": false,
           "x": 0,
           "y": 1,
         },
-        Object {
+        {
           "bricks": 5,
           "cuboid": false,
           "marked": false,
@@ -86,15 +87,15 @@ describe("removeEmptyTiles", () => {
     const cleanedWorld = removeEmptyTiles(world);
     expect(cleanedWorld.tiles).toHaveLength(2);
     expect(cleanedWorld.tiles).toMatchInlineSnapshot(`
-      Array [
-        Object {
+      [
+        {
           "bricks": 0,
           "cuboid": true,
           "marked": false,
           "x": 0,
           "y": 1,
         },
-        Object {
+        {
           "bricks": 0,
           "cuboid": true,
           "marked": false,
