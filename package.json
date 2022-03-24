@@ -47,7 +47,7 @@
     "use-resize-observer": "8.0.0"
   },
   "scripts": {
-    "prepare": "is-ci || husky install",
+    "prepare": "husky install",
     "prestart": "npm run build-parser",
     "start": "react-scripts start",
     "prebuild": "npm run build-parser",
