@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Settings } from "./store/types";
 
 interface Example {
@@ -494,12 +493,12 @@ export async function getExample(
   const example = EXAMPLES.find((e) => e.name === name)!;
 
   const [code, world] = await Promise.all([
-    axios.get(`examples/${example.code}`, { responseType: "text" }),
-    axios.get(`examples/${example.world}`, { responseType: "text" }),
+    fetch(`examples/${example.code}`).then((r) => r.text()),
+    fetch(`examples/${example.world}`).then((r) => r.text()),
   ]);
   return {
-    code: code.data,
-    world: world.data,
+    code,
+    world,
     example,
   };
 }
