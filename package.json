@@ -78,7 +78,7 @@
     "netlify-cli": "9.13.4",
     "prettier": "2.6.0",
     "sass": "1.49.9",
-    "typescript": "4.6.2",
+    "typescript": "4.6.3",
     "vite": "2.8.6",
     "vitest": "0.7.10"
   },
