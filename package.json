@@ -35,7 +35,7 @@
     "react-dropzone": "12.1.0",
     "react-redux": "8.0.2",
     "three": "0.141.0",
-    "use-resize-observer": "8.0.0"
+    "use-resize-observer": "9.0.0"
   },
   "scripts": {
     "prepare": "husky install",
