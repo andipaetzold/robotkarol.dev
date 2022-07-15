@@ -62,7 +62,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "12.1.5",
-    "@testing-library/user-event": "14.2.3",
+    "@testing-library/user-event": "14.2.5",
     "@tsconfig/create-react-app": "1.0.2",
     "@types/gl-matrix": "3.2.0",
     "@types/lodash-es": "4.17.6",
