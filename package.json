@@ -75,7 +75,7 @@
     "happy-dom": "7.5.13",
     "husky": "8.0.1",
     "lint-staged": "13.0.3",
-    "netlify-cli": "12.0.9",
+    "netlify-cli": "12.0.10",
     "prettier": "2.7.1",
     "sass": "1.55.0",
     "typescript": "4.8.4",
