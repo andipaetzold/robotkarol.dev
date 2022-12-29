@@ -16,7 +16,6 @@ import {
   updateCode,
   updateJumpHeight,
   updateStorage,
-  controlsStop,
 } from "../../services/store/root";
 
 interface Props {
@@ -31,7 +30,6 @@ export function ExamplesDialog({ visible, onClose }: Props) {
 
     const world = readWorld(worldRaw);
 
-    dispatch(controlsStop());
     dispatch(updateCode(code));
     dispatch(setWorld(world));
 
