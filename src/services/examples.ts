@@ -489,12 +489,16 @@ export const EXAMPLES: Example[] = [
 
 export async function getExample(
   name: string
-): Promise<{ code: string; world: string; example: Example }> {
+): Promise<{ code?: string; world?: string; example: Example }> {
   const example = EXAMPLES.find((e) => e.name === name)!;
 
   const [code, world] = await Promise.all([
-    fetch(`examples/${example.code}`).then((r) => r.text()),
-    fetch(`examples/${example.world}`).then((r) => r.text()),
+    example.code
+      ? fetch(`examples/${example.code}`).then((r) => r.text())
+      : undefined,
+    example.world
+      ? fetch(`examples/${example.world}`).then((r) => r.text())
+      : undefined,
   ]);
   return {
     code,

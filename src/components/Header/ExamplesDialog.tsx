@@ -8,6 +8,7 @@ import {
 } from "@react-md/dialog";
 import { List, ListItem } from "@react-md/list";
 import { Typography } from "@react-md/typography";
+import { DEFAULT_WORLD } from "../../constants";
 import { EXAMPLES, getExample } from "../../services/examples";
 import { readWorld } from "../../services/reader";
 import { useAppDispatch } from "../../services/store";
@@ -29,11 +30,15 @@ export function ExamplesDialog({ visible, onClose }: Props) {
   const handleClick = async (name: string) => {
     const { code, world: worldRaw, example } = await getExample(name);
 
-    const world = readWorld(worldRaw);
-
     dispatch(controlsStop());
-    dispatch(updateCode(code));
-    dispatch(setWorld(world));
+    if (code) {
+      dispatch(updateCode(code));
+    }
+
+    if (worldRaw) {
+      const world = readWorld(worldRaw);
+      dispatch(setWorld(world));
+    }
 
     if (example.settings) {
       dispatch(updateJumpHeight(example.settings.jumpHeight));
