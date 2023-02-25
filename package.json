@@ -61,7 +61,7 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react": "13.4.0",
+    "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "14.4.3",
     "@tsconfig/create-react-app": "1.0.3",
     "@types/gl-matrix": "3.2.0",
