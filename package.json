@@ -25,7 +25,7 @@
     "@reduxjs/toolkit": "1.9.3",
     "@sentry/react": "7.43.0",
     "@sentry/tracing": "7.43.0",
-    "ace-builds": "1.15.3",
+    "ace-builds": "1.16.0",
     "immer": "9.0.19",
     "jison": "0.4.18",
     "lodash-es": "4.17.21",
