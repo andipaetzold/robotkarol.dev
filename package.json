@@ -80,7 +80,7 @@
     "sass": "1.59.3",
     "typescript": "5.0.2",
     "vite": "4.2.1",
-    "vitest": "0.29.3"
+    "vitest": "0.29.7"
   },
   "lint-staged": {
     "src/**/*.{js,ts,tsx,json,scss}": [
