@@ -34,7 +34,7 @@
     "react-dom": "18.2.0",
     "react-dropzone": "14.2.3",
     "react-redux": "8.0.5",
-    "three": "0.151.1",
+    "three": "0.151.2",
     "use-resize-observer": "9.1.0"
   },
   "scripts": {
