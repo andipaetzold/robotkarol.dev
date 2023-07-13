@@ -65,7 +65,7 @@
     "@testing-library/user-event": "14.4.3",
     "@tsconfig/create-react-app": "1.0.3",
     "@types/gl-matrix": "3.2.0",
-    "@types/lodash-es": "4.17.7",
+    "@types/lodash-es": "4.17.8",
     "@types/node": "18.16.19",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.7",
