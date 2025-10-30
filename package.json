@@ -22,7 +22,7 @@
     "@react-md/transition": "5.1.6",
     "@react-md/typography": "5.1.6",
     "@react-md/utils": "5.1.6",
-    "@reduxjs/toolkit": "1.9.7",
+    "@reduxjs/toolkit": "2.9.2",
     "@sentry/react": "7.120.4",
     "@sentry/tracing": "7.120.4",
     "ace-builds": "1.43.4",
